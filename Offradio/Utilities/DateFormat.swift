@@ -2,19 +2,19 @@
 //  DaterFormat.swift
 //  Offradio
 //
-//  Created by Dimitris C. on 23/01/2017.
+//  Created by Dimitris C. on 13/09/2016.
 //  Copyright © 2017 decimal. All rights reserved.
 //
+
 import UIKit
 
 enum DateFormatType {
     case api
     case apiAlternate
     case token
-    case apiUselessBackend
 }
 
-class DateFormat: NSObject {
+final class DateFormat: NSObject {
 
     static let api:DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -36,7 +36,8 @@ class DateFormat: NSObject {
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
         return dateFormatter
     }()
-        final var date: Date?
+    
+    final var date: Date?
     
     init(with string: String, type: DateFormatType = .api) {
         super.init()
@@ -44,9 +45,13 @@ class DateFormat: NSObject {
         switch type {
         case .api:
             self.date = type(of: self).api.date(from: string)
+            break
         case .apiAlternate:
             self.date = type(of: self).apiAlternate.date(from: string)
+            break
         case .token:
             self.date = type(of: self).token.date(from: string)
+            break
+        }
     }
 }

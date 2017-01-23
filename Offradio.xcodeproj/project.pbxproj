@@ -14,13 +14,15 @@
 		B52A6C291E36B407005893D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C281E36B407005893D2 /* Assets.xcassets */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
 		B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C391E36BAC2005893D2 /* Constants.swift */; };
-		B52A6C401E36BAC2005893D2 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3A1E36BAC2005893D2 /* DateFormat.swift */; };
 		B52A6C421E36BAC2005893D2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3C1E36BAC2005893D2 /* Log.swift */; };
 		B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3D1E36BAC2005893D2 /* ViewArranger.swift */; };
+		B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C441E36BCBB005893D2 /* DateFormat.swift */; };
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
 		B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
+		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
+		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
 		E5E44A20BE4620E661879F5D /* Pods_OffradioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,9 +55,9 @@
 		B52A6C281E36B407005893D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
 		B52A6C391E36BAC2005893D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Utilities/Constants.swift; sourceTree = "<group>"; };
-		B52A6C3A1E36BAC2005893D2 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		B52A6C3C1E36BAC2005893D2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		B52A6C3D1E36BAC2005893D2 /* ViewArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewArranger.swift; sourceTree = "<group>"; };
+		B52A6C441E36BCBB005893D2 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		B54BC8A31E36A9DC0043F248 /* Offradio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offradio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54BC8B21E36A9DC0043F248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,8 @@
 		B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OffradioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffradioUITests.swift; sourceTree = "<group>"; };
 		B54BC8CA1E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
 		BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.debug.xcconfig"; sourceTree = "<group>"; };
 		F3307E9F50442DCB082FC1A7 /* Pods-OffradioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests.release.xcconfig"; sourceTree = "<group>"; };
 		F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Offradio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,6 +177,8 @@
 		B52A6C2B1E36B996005893D2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */,
+				B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,9 +194,9 @@
 			isa = PBXGroup;
 			children = (
 				B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */,
-				B52A6C3A1E36BAC2005893D2 /* DateFormat.swift */,
 				B52A6C3C1E36BAC2005893D2 /* Log.swift */,
 				B52A6C3D1E36BAC2005893D2 /* ViewArranger.swift */,
+				B52A6C441E36BCBB005893D2 /* DateFormat.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -558,10 +564,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */,
+				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
+				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
 				B52A6C421E36BAC2005893D2 /* Log.swift in Sources */,
-				B52A6C401E36BAC2005893D2 /* DateFormat.swift in Sources */,
 				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
+				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
 				B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
