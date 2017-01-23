@@ -181,6 +181,7 @@
 				B54BC8A11E36A9DB0043F248 /* Resources */,
 				D07345AF44A5FDFE72120D15 /* [CP] Embed Pods Frameworks */,
 				001F021AD1209C7AD0B62390 /* [CP] Copy Pods Resources */,
+				B52A6C1E1E36B242005893D2 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -247,6 +248,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5Y92JCRVR7;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					B54BC8B81E36A9DC0043F248 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -399,6 +405,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		B52A6C1E1E36B242005893D2 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" fe804b3ccea4e9e56a4730e91c304d42292404f9 420e31e0e1a80f4d057ce561b6a5177201e4289671991538ab3656afcdf3f4f7";
 		};
 		C61E15331B32E3E40C22FCED /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -711,6 +731,7 @@
 				B54BC8CF1E36A9DC0043F248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B54BC8D01E36A9DC0043F248 /* Build configuration list for PBXNativeTarget "OffradioTests" */ = {
 			isa = XCConfigurationList;
@@ -719,6 +740,7 @@
 				B54BC8D21E36A9DC0043F248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B54BC8D31E36A9DC0043F248 /* Build configuration list for PBXNativeTarget "OffradioUITests" */ = {
 			isa = XCConfigurationList;
@@ -727,6 +749,7 @@
 				B54BC8D51E36A9DC0043F248 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
