@@ -11,8 +11,8 @@
 		8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
+		B52A6C291E36B407005893D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C281E36B407005893D2 /* Assets.xcassets */; };
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
-		B54BC8B01E36A9DC0043F248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8AF1E36A9DC0043F248 /* Assets.xcassets */; };
 		B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
@@ -45,9 +45,9 @@
 		95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OffradioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
+		B52A6C281E36B407005893D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B54BC8A31E36A9DC0043F248 /* Offradio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offradio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B54BC8AF1E36A9DC0043F248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B54BC8B21E36A9DC0043F248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B54BC8B41E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B54BC8B91E36A9DC0043F248 /* OffradioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OffradioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */,
-				B54BC8AF1E36A9DC0043F248 /* Assets.xcassets */,
+				B52A6C281E36B407005893D2 /* Assets.xcassets */,
 				B52A6C261E36B3CE005893D2 /* Core */,
 				B52A6C251E36B3C6005893D2 /* Theme */,
 				B52A6C1F1E36B3BE005893D2 /* Resources */,
@@ -331,8 +331,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */,
-				B54BC8B01E36A9DC0043F248 /* Assets.xcassets in Resources */,
 				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
+				B52A6C291E36B407005893D2 /* Assets.xcassets in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

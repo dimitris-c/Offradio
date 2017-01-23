@@ -15,6 +15,7 @@ target 'Offradio' do
   pod 'SDWebImage'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Realm'
 
   target 'OffradioTests' do
     inherit! :search_paths
