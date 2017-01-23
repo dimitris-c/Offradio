@@ -3,7 +3,7 @@
 //  Offradio
 //
 //  Created by Dimitris C. on 23/01/2017.
-//  Copyright © 2017 Funkytaps. All rights reserved.
+//  Copyright © 2017 decimal. All rights reserved.
 //
 
 import UIKit
