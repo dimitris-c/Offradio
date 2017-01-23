@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		2FC85D66549865E3B59F0384 /* Pods_OffradioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */; };
 		8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */; };
+		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
+		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
-		B54BC8A91E36A9DC0043F248 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A81E36A9DC0043F248 /* FirstViewController.swift */; };
-		B54BC8AB1E36A9DC0043F248 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8AA1E36A9DC0043F248 /* SecondViewController.swift */; };
-		B54BC8AE1E36A9DC0043F248 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8AC1E36A9DC0043F248 /* Main.storyboard */; };
 		B54BC8B01E36A9DC0043F248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8AF1E36A9DC0043F248 /* Assets.xcassets */; };
 		B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
@@ -44,11 +43,10 @@
 		6232C0D2873BE6069CA161F0 /* Pods-OffradioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		819B564ECCD7BD5F563B5D8C /* Pods-Offradio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.release.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.release.xcconfig"; sourceTree = "<group>"; };
 		95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OffradioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
+		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B54BC8A31E36A9DC0043F248 /* Offradio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offradio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B54BC8A81E36A9DC0043F248 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		B54BC8AA1E36A9DC0043F248 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		B54BC8AD1E36A9DC0043F248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B54BC8AF1E36A9DC0043F248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B54BC8B21E36A9DC0043F248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B54BC8B41E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +112,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B52A6C1F1E36B3BE005893D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B52A6C201E36B3BE005893D2 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B52A6C201E36B3BE005893D2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */,
+				B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B52A6C251E36B3C6005893D2 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		B52A6C261E36B3CE005893D2 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B52A6C271E36B3DB005893D2 /* API */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B52A6C271E36B3DB005893D2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		B54BC89A1E36A9DB0043F248 = {
 			isa = PBXGroup;
 			children = (
@@ -140,10 +177,10 @@
 			isa = PBXGroup;
 			children = (
 				B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */,
-				B54BC8A81E36A9DC0043F248 /* FirstViewController.swift */,
-				B54BC8AA1E36A9DC0043F248 /* SecondViewController.swift */,
-				B54BC8AC1E36A9DC0043F248 /* Main.storyboard */,
 				B54BC8AF1E36A9DC0043F248 /* Assets.xcassets */,
+				B52A6C261E36B3CE005893D2 /* Core */,
+				B52A6C251E36B3C6005893D2 /* Theme */,
+				B52A6C1F1E36B3BE005893D2 /* Resources */,
 				B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */,
 				B54BC8B41E36A9DC0043F248 /* Info.plist */,
 			);
@@ -295,7 +332,8 @@
 			files = (
 				B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */,
 				B54BC8B01E36A9DC0043F248 /* Assets.xcassets in Resources */,
-				B54BC8AE1E36A9DC0043F248 /* Main.storyboard in Resources */,
+				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
+				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,9 +510,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B54BC8AB1E36A9DC0043F248 /* SecondViewController.swift in Sources */,
 				B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */,
-				B54BC8A91E36A9DC0043F248 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,14 +546,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B54BC8AC1E36A9DC0043F248 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B54BC8AD1E36A9DC0043F248 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
