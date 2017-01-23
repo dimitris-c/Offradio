@@ -1,0 +1,12 @@
+Offradio is the leading professional online radio in Greece, with a full live daily schedule, popular producers and international eclectic music content.
+
+The app was designed to serve Offradio's listeners with the ability to listen to their favorite streaming radio station on their iPhone, alongside the station's web player on www.offradio.gr/player.
+
+Features:
+- New updated design
+- See what’s playing and share it on Twitter and Facebook, or via e-mail
+- View what played, by accessing Offradio playlist
+- Automatically search for the playlist’s tracks on iTunes
+- View the daily shows schedule
+- View the producers profiles
+- Contact the producers via Offradio social media channels

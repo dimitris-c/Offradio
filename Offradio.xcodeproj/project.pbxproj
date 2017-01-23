@@ -151,6 +151,13 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		B52A6C2A1E36B8F3005893D2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		B54BC89A1E36A9DB0043F248 = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +187,7 @@
 				B52A6C281E36B407005893D2 /* Assets.xcassets */,
 				B52A6C261E36B3CE005893D2 /* Core */,
 				B52A6C251E36B3C6005893D2 /* Theme */,
+				B52A6C2A1E36B8F3005893D2 /* View Controllers */,
 				B52A6C1F1E36B3BE005893D2 /* Resources */,
 				B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */,
 				B54BC8B41E36A9DC0043F248 /* Info.plist */,
@@ -655,6 +663,7 @@
 			baseConfigurationReference = BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = Offradio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
