@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2FC85D66549865E3B59F0384 /* Pods_OffradioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */; };
 		8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */; };
+		B51BE4E21E3ABF79005775F4 /* libRadioKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B52A6C291E36B407005893D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C281E36B407005893D2 /* Assets.xcassets */; };
@@ -21,6 +22,15 @@
 		B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
+		B569603B1E4908B8003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B569603A1E4908B8003BFBC6 /* RadioViewController.storyboard */; };
+		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
+		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
+		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
+		B56960441E4909D0003BFBC6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56960431E4909D0003BFBC6 /* MobileCoreServices.framework */; };
+		B56960461E4909E0003BFBC6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56960451E4909E0003BFBC6 /* MediaPlayer.framework */; };
+		B56960481E490AAE003BFBC6 /* OffradioContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960471E490AAE003BFBC6 /* OffradioContentViewController.swift */; };
+		B569604A1E4919B4003BFBC6 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960491E4919B4003BFBC6 /* MainTabBarViewController.swift */; };
+		B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
 		E5E44A20BE4620E661879F5D /* Pods_OffradioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */; };
@@ -50,6 +60,11 @@
 		6232C0D2873BE6069CA161F0 /* Pods-OffradioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		819B564ECCD7BD5F563B5D8C /* Pods-Offradio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.release.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.release.xcconfig"; sourceTree = "<group>"; };
 		95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OffradioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B51BE4DE1E3ABF79005775F4 /* BufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferView.h; sourceTree = "<group>"; };
+		B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRadioKit.a; sourceTree = "<group>"; };
+		B51BE4E01E3ABF79005775F4 /* RadioKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioKit.h; sourceTree = "<group>"; };
+		B51BE4E11E3ABF79005775F4 /* reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reachability.h; sourceTree = "<group>"; };
+		B51BE4E31E3ABFC5005775F4 /* Offradio-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Offradio-Bridging-Header.h"; sourceTree = "<group>"; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B52A6C281E36B407005893D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +83,15 @@
 		B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OffradioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffradioUITests.swift; sourceTree = "<group>"; };
 		B54BC8CA1E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B569603A1E4908B8003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
+		B569603C1E4908D0003BFBC6 /* RadioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
+		B569603E1E490907003BFBC6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B56960411E490957003BFBC6 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
+		B56960431E4909D0003BFBC6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B56960451E4909E0003BFBC6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		B56960471E490AAE003BFBC6 /* OffradioContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioContentViewController.swift; sourceTree = "<group>"; };
+		B56960491E4919B4003BFBC6 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
 		BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +104,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56960461E4909E0003BFBC6 /* MediaPlayer.framework in Frameworks */,
+				B56960441E4909D0003BFBC6 /* MobileCoreServices.framework in Frameworks */,
+				B51BE4E21E3ABF79005775F4 /* libRadioKit.a in Frameworks */,
 				8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,11 +146,32 @@
 		7270B8A41F99A77388A95EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B56960451E4909E0003BFBC6 /* MediaPlayer.framework */,
+				B56960431E4909D0003BFBC6 /* MobileCoreServices.framework */,
 				F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */,
 				95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */,
 				0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B51BE4DC1E3ABF79005775F4 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				B51BE4DD1E3ABF79005775F4 /* RadioKitLib */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		B51BE4DD1E3ABF79005775F4 /* RadioKitLib */ = {
+			isa = PBXGroup;
+			children = (
+				B51BE4DE1E3ABF79005775F4 /* BufferView.h */,
+				B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */,
+				B51BE4E01E3ABF79005775F4 /* RadioKit.h */,
+				B51BE4E11E3ABF79005775F4 /* reachability.h */,
+			);
+			path = RadioKitLib;
 			sourceTree = "<group>";
 		};
 		B52A6C1F1E36B3BE005893D2 /* Resources */ = {
@@ -146,6 +194,7 @@
 		B52A6C251E36B3C6005893D2 /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				B569603E1E490907003BFBC6 /* Theme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -170,6 +219,9 @@
 		B52A6C2A1E36B8F3005893D2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B56960471E490AAE003BFBC6 /* OffradioContentViewController.swift */,
+				B56960491E4919B4003BFBC6 /* MainTabBarViewController.swift */,
+				B56960391E4908B8003BFBC6 /* Radio View Controller */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -179,6 +231,7 @@
 			children = (
 				B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */,
 				B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */,
+				B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +281,7 @@
 			children = (
 				B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */,
 				B52A6C281E36B407005893D2 /* Assets.xcassets */,
+				B56960401E490943003BFBC6 /* Radio */,
 				B52A6C261E36B3CE005893D2 /* Core */,
 				B52A6C2B1E36B996005893D2 /* Extensions */,
 				B52A6C251E36B3C6005893D2 /* Theme */,
@@ -235,6 +289,8 @@
 				B52A6C371E36BAC2005893D2 /* Utilities */,
 				B52A6C1F1E36B3BE005893D2 /* Resources */,
 				B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */,
+				B51BE4E31E3ABFC5005775F4 /* Offradio-Bridging-Header.h */,
+				B51BE4DC1E3ABF79005775F4 /* Vendor */,
 				B54BC8B41E36A9DC0043F248 /* Info.plist */,
 			);
 			path = Offradio;
@@ -256,6 +312,23 @@
 				B54BC8CA1E36A9DC0043F248 /* Info.plist */,
 			);
 			path = OffradioUITests;
+			sourceTree = "<group>";
+		};
+		B56960391E4908B8003BFBC6 /* Radio View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B569603A1E4908B8003BFBC6 /* RadioViewController.storyboard */,
+				B569603C1E4908D0003BFBC6 /* RadioViewController.swift */,
+			);
+			path = "Radio View Controller";
+			sourceTree = "<group>";
+		};
+		B56960401E490943003BFBC6 /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				B56960411E490957003BFBC6 /* Radio.swift */,
+			);
+			path = Radio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +459,7 @@
 				B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */,
 				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
 				B52A6C291E36B407005893D2 /* Assets.xcassets in Resources */,
+				B569603B1E4908B8003BFBC6 /* RadioViewController.storyboard in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -565,10 +639,16 @@
 			files = (
 				B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */,
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
+				B56960481E490AAE003BFBC6 /* OffradioContentViewController.swift in Sources */,
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
 				B52A6C421E36BAC2005893D2 /* Log.swift in Sources */,
+				B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */,
+				B56960421E490957003BFBC6 /* Radio.swift in Sources */,
+				B569604A1E4919B4003BFBC6 /* MainTabBarViewController.swift in Sources */,
+				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
+				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
 				B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */,
 			);
@@ -719,8 +799,13 @@
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = Offradio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -733,8 +818,13 @@
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = Offradio/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
