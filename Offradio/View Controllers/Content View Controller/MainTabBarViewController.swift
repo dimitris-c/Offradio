@@ -10,23 +10,26 @@ import UIKit
 
 // This defines the appropriate tab on each viewcontroller for the MainTabBarViewController
 public enum TabIdentifier: Int {
-    case schedule
-    case listen
-    case contact
+    case schedule = 0
+    case listen = 1
+    case contact = 2
     
     static let allValues = [schedule, listen, contact]
 }
 
 final class MainTabBarViewController: UITabBarController {
     
+    var button: UIButton?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         self.viewControllers = defaultViewControllers()
-        self.tabBarController?.view.backgroundColor = UIColor.white
+        
+        self.view.backgroundColor = UIColor.white
         self.setupTabBarAppearance()
-        self.tabBarController?.selectedIndex = TabIdentifier.listen.rawValue
+        
+        self.selectedIndex = TabIdentifier.listen.rawValue
         
     }
     
@@ -36,26 +39,35 @@ final class MainTabBarViewController: UITabBarController {
     
     final fileprivate func setupTabBarAppearance() {
         
-        self.tabBar.tintColor = UIColor(red:0.19, green:0.23, blue:0.29, alpha:1.00)
+        self.tabBar.shadowImage = UIImage(named: "tabbar-shaddow")
+        self.tabBar.backgroundImage = UIImage(named: "tabbar-background")
         
-        let normalAttributes = [NSForegroundColorAttributeName: UIColor(red:0.64, green:0.67, blue:0.72, alpha:1.00),
-                                NSFontAttributeName: UIFont.defaultLight(withSize: 11)]
-        let selectedAttributes = [NSForegroundColorAttributeName: UIColor(red:0.19, green:0.23, blue:0.29, alpha:1.00),
-                                  NSFontAttributeName: UIFont.defaultLight(withSize: 11)]
+        self.tabBar.tintColor = UIColor.white
+        
+        let normalAttributes = [NSForegroundColorAttributeName: UIColor.white,
+                                NSFontAttributeName: UIFont.leagueGothicRegular(withSize: 13)]
+        let selectedAttributes = [NSForegroundColorAttributeName: UIColor(red:0.40, green:0.40, blue:0.40, alpha:1.00),
+                                  NSFontAttributeName: UIFont.leagueGothicRegular(withSize: 13)]
+        
         self.tabBar.isTranslucent = false
+        
         UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, for: UIControlState.normal)
         UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes, for: UIControlState.selected)
     }
-    
+
     fileprivate final func defaultViewControllers() -> [UIViewController] {
         return [scheduleViewController(),
                 offradioViewController(),
                 contactViewController()]
     }
     
+    // MARK: View Controllers
+    
     fileprivate final func scheduleViewController() -> UINavigationController {
-        
-        return UINavigationController()
+        let rootViewController = ScheduleViewController()
+        rootViewController.tabBarItem = rootViewController.defaultTabBarItem()
+        let scheduleNavigationController = navigationController(withRootViewController: rootViewController)
+        return scheduleNavigationController
     }
     
     fileprivate final func offradioViewController() -> UINavigationController {
@@ -67,7 +79,11 @@ final class MainTabBarViewController: UITabBarController {
     }
     
     fileprivate final func contactViewController() -> UINavigationController {
-        return UINavigationController()
+        let rootViewController = ContactViewController()
+        rootViewController.tabBarItem = rootViewController.defaultTabBarItem()
+        let contactNavigationController = navigationController(withRootViewController: rootViewController)
+        return contactNavigationController
+
     }
  
     fileprivate final func navigationController(withRootViewController viewController: UIViewController) -> UINavigationController {

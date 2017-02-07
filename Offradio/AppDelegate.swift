@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
-        OffradioStream.radio.start()
+//        OffradioStream.radio.start()
 
         return true
     }

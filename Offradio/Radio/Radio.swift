@@ -21,7 +21,6 @@ struct RadioAuthenticationKeys {
 struct OffradioStream {
     let url: String = "http://www.offradio.gr/offradio.acc.m3u"
     static let radio: Offradio = Offradio()
-    
 }
 
 struct RadioStatus {

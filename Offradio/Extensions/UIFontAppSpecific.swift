@@ -15,8 +15,29 @@ public enum HelveticaNeue: String {
     case bold       = "HelveticaNeue-Bold"
 }
 
+public enum LetterGothic: String {
+    case bold       = "LetterGothicStd-Bold"
+}
+
+public enum LeagueGothic: String {
+    case italic     = "LeagueGothic-Italic"
+    case regular    = "LeagueGothic-Regular"
+}
+
 extension UIFont {
 
+    class func leagueGothicRegular(withSize size: CGFloat) -> UIFont {
+        return font(LeagueGothic.regular.rawValue, size: size)
+    }
+    
+    class func leagueGothicItalic(withSize size: CGFloat) -> UIFont {
+        return font(LeagueGothic.italic.rawValue, size: size)
+    }
+    
+    class func letterGothicBold(withSize size: CGFloat) -> UIFont {
+        return font(LetterGothic.bold.rawValue, size: size)
+    }
+    
     class func defaultLight(withSize size:CGFloat) -> UIFont {
         return font(HelveticaNeue.light.rawValue, size: size)
     }
