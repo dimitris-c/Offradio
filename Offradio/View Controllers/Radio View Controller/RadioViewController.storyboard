@@ -1,48 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CQ1-mD-FsE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nPQ-HT-ddf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="09o-zt-XqI">
+        <!--Radio View Controller-->
+        <scene sceneID="vms-iK-2Bz">
             <objects>
-                <navigationController id="CQ1-mD-FsE" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cam-pm-KMs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="El7-qT-XMW" kind="relationship" relationship="rootViewController" id="ALt-9F-rTr"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mqv-Bj-UoF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-678" y="54"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Ztr-jK-YN6">
-            <objects>
-                <viewController id="El7-qT-XMW" sceneMemberID="viewController">
+                <viewController id="nPQ-HT-ddf" customClass="RadioViewController" customModule="Offradio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DDu-3q-V7k"/>
-                        <viewControllerLayoutGuide type="bottom" id="i7f-Qy-1LJ"/>
+                        <viewControllerLayoutGuide type="top" id="mz6-hH-DyC"/>
+                        <viewControllerLayoutGuide type="bottom" id="gjC-6H-UXD"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DKP-Dt-IQS">
+                    <view key="view" contentMode="scaleToFill" id="SuE-NJ-R9f">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWL-jk-KEO">
+                                <rect key="frame" x="58" y="156" width="259" height="259"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="outer-circle-buffer-bg" translatesAutoresizingMaskIntoConstraints="NO" id="DYA-fu-OGF">
+                                        <rect key="frame" x="0.0" y="0.0" width="259" height="259"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="outer-circle-buffer" translatesAutoresizingMaskIntoConstraints="NO" id="mB5-wc-bEr">
+                                        <rect key="frame" x="0.0" y="0.0" width="259" height="259"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fWL-jk-KEO" secondAttribute="height" multiplier="1:1" id="Orf-Gf-Vjv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fWL-jk-KEO" firstAttribute="top" secondItem="mz6-hH-DyC" secondAttribute="bottom" constant="92" id="5vm-aG-TlN"/>
+                            <constraint firstItem="gjC-6H-UXD" firstAttribute="top" secondItem="fWL-jk-KEO" secondAttribute="bottom" constant="252" id="QEQ-WL-WOn"/>
+                            <constraint firstItem="fWL-jk-KEO" firstAttribute="centerX" secondItem="SuE-NJ-R9f" secondAttribute="centerX" id="e3Q-NM-x1s"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qt5-HM-Atg"/>
+                    <navigationItem key="navigationItem" id="uQZ-vt-uGX"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kiV-nA-4N4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aHk-F0-nBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="54"/>
+            <point key="canvasLocation" x="-1101.5999999999999" y="-103.89805097451276"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="outer-circle-buffer" width="259" height="259"/>
+        <image name="outer-circle-buffer-bg" width="280" height="280"/>
+    </resources>
 </document>

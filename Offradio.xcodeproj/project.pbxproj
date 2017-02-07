@@ -22,7 +22,6 @@
 		B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
-		B569603B1E4908B8003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B569603A1E4908B8003BFBC6 /* RadioViewController.storyboard */; };
 		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
 		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
 		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
@@ -31,10 +30,11 @@
 		B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */; };
 		B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960501E492A35003BFBC6 /* MainTabBarViewController.swift */; };
 		B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */; };
-		B56960551E492A81003BFBC6 /* ContactStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960541E492A81003BFBC6 /* ContactStoryboard.storyboard */; };
-		B56960571E492A92003BFBC6 /* ScheduleStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960561E492A92003BFBC6 /* ScheduleStoryboard.storyboard */; };
 		B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960581E492AA1003BFBC6 /* ContactViewController.swift */; };
 		B569605B1E492AB0003BFBC6 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569605A1E492AB0003BFBC6 /* ScheduleViewController.swift */; };
+		B56960661E49588B003BFBC6 /* ContactViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960651E49588B003BFBC6 /* ContactViewController.storyboard */; };
+		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
+		B569606A1E495896003BFBC6 /* ScheduleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960691E495896003BFBC6 /* ScheduleViewController.storyboard */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
 		E5E44A20BE4620E661879F5D /* Pods_OffradioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */; };
@@ -87,7 +87,6 @@
 		B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OffradioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffradioUITests.swift; sourceTree = "<group>"; };
 		B54BC8CA1E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B569603A1E4908B8003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
 		B569603C1E4908D0003BFBC6 /* RadioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		B569603E1E490907003BFBC6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B56960411E490957003BFBC6 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
@@ -96,10 +95,11 @@
 		B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		B56960501E492A35003BFBC6 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioContentViewController.swift; sourceTree = "<group>"; };
-		B56960541E492A81003BFBC6 /* ContactStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContactStoryboard.storyboard; sourceTree = "<group>"; };
-		B56960561E492A92003BFBC6 /* ScheduleStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleStoryboard.storyboard; sourceTree = "<group>"; };
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		B569605A1E492AB0003BFBC6 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		B56960651E49588B003BFBC6 /* ContactViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContactViewController.storyboard; sourceTree = "<group>"; };
+		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
+		B56960691E495896003BFBC6 /* ScheduleViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleViewController.storyboard; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
 		BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.debug.xcconfig"; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 		B56960391E4908B8003BFBC6 /* Radio View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B569603A1E4908B8003BFBC6 /* RadioViewController.storyboard */,
+				B56960671E495891003BFBC6 /* RadioViewController.storyboard */,
 				B569603C1E4908D0003BFBC6 /* RadioViewController.swift */,
 			);
 			path = "Radio View Controller";
@@ -343,7 +343,7 @@
 		B569604D1E492A1A003BFBC6 /* Contact View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B56960541E492A81003BFBC6 /* ContactStoryboard.storyboard */,
+				B56960651E49588B003BFBC6 /* ContactViewController.storyboard */,
 				B56960581E492AA1003BFBC6 /* ContactViewController.swift */,
 			);
 			path = "Contact View Controller";
@@ -352,7 +352,7 @@
 		B569604E1E492A1A003BFBC6 /* Schedule View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B56960561E492A92003BFBC6 /* ScheduleStoryboard.storyboard */,
+				B56960691E495896003BFBC6 /* ScheduleViewController.storyboard */,
 				B569605A1E492AB0003BFBC6 /* ScheduleViewController.swift */,
 			);
 			path = "Schedule View Controller";
@@ -492,13 +492,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B56960551E492A81003BFBC6 /* ContactStoryboard.storyboard in Resources */,
 				B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */,
 				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
-				B56960571E492A92003BFBC6 /* ScheduleStoryboard.storyboard in Resources */,
 				B52A6C291E36B407005893D2 /* Assets.xcassets in Resources */,
-				B569603B1E4908B8003BFBC6 /* RadioViewController.storyboard in Resources */,
+				B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
+				B569606A1E495896003BFBC6 /* ScheduleViewController.storyboard in Resources */,
+				B56960661E49588B003BFBC6 /* ContactViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,21 +38,12 @@ final class MainTabBarViewController: UITabBarController {
     }
     
     final fileprivate func setupTabBarAppearance() {
-        
+
         self.tabBar.shadowImage = UIImage(named: "tabbar-shaddow")
         self.tabBar.backgroundImage = UIImage(named: "tabbar-background")
         
         self.tabBar.tintColor = UIColor.white
-        
-        let normalAttributes = [NSForegroundColorAttributeName: UIColor.white,
-                                NSFontAttributeName: UIFont.leagueGothicRegular(withSize: 13)]
-        let selectedAttributes = [NSForegroundColorAttributeName: UIColor(red:0.40, green:0.40, blue:0.40, alpha:1.00),
-                                  NSFontAttributeName: UIFont.leagueGothicRegular(withSize: 13)]
-        
         self.tabBar.isTranslucent = false
-        
-        UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, for: UIControlState.normal)
-        UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes, for: UIControlState.selected)
     }
 
     fileprivate final func defaultViewControllers() -> [UIViewController] {
@@ -64,14 +55,14 @@ final class MainTabBarViewController: UITabBarController {
     // MARK: View Controllers
     
     fileprivate final func scheduleViewController() -> UINavigationController {
-        let rootViewController = ScheduleViewController()
+        let rootViewController = ScheduleViewController.createFromStoryboard()
         rootViewController.tabBarItem = rootViewController.defaultTabBarItem()
         let scheduleNavigationController = navigationController(withRootViewController: rootViewController)
         return scheduleNavigationController
     }
     
     fileprivate final func offradioViewController() -> UINavigationController {
-        let radioViewController = RadioViewController()
+        let radioViewController = RadioViewController.createFromStoryboard()
         radioViewController.tabBarItem = radioViewController.defaultTabBarItem()
         let searchNavigationController = navigationController(withRootViewController: radioViewController)
         
@@ -79,7 +70,7 @@ final class MainTabBarViewController: UITabBarController {
     }
     
     fileprivate final func contactViewController() -> UINavigationController {
-        let rootViewController = ContactViewController()
+        let rootViewController = ContactViewController.createFromStoryboard()
         rootViewController.tabBarItem = rootViewController.defaultTabBarItem()
         let contactNavigationController = navigationController(withRootViewController: rootViewController)
         return contactNavigationController

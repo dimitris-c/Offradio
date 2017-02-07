@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
+        Theme.setupNavBarAppearance()
 //        OffradioStream.radio.start()
 
         return true

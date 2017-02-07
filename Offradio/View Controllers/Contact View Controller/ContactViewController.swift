@@ -10,7 +10,15 @@ import UIKit
 
 final class ContactViewController: UIViewController, TabBarItemProtocol {
     
-
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.title = "Contact Offradio"
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
+    }
     
 }
 
