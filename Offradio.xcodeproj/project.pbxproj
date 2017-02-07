@@ -19,6 +19,7 @@
 		B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C441E36BCBB005893D2 /* DateFormat.swift */; };
 		B53942831E4A782200AF5BE5 /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942821E4A782200AF5BE5 /* SevenSwitch.swift */; };
 		B53942851E4A790A00AF5BE5 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */; };
+		B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */; };
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
 		B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
@@ -79,6 +80,7 @@
 		B52A6C441E36BCBB005893D2 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		B53942821E4A782200AF5BE5 /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
 		B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
+		B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B54BC8A31E36A9DC0043F248 /* Offradio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offradio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54BC8B21E36A9DC0043F248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		B54BC8A51E36A9DC0043F248 /* Offradio */ = {
 			isa = PBXGroup;
 			children = (
+				B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */,
 				B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */,
 				B56960401E490943003BFBC6 /* Radio */,
 				B52A6C261E36B3CE005893D2 /* Core */,
@@ -499,6 +502,7 @@
 				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
 				B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
+				B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */,
 				B569606A1E495896003BFBC6 /* ScheduleViewController.storyboard in Resources */,
 				B56960661E49588B003BFBC6 /* ContactViewController.storyboard in Resources */,
 			);
