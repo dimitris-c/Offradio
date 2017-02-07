@@ -20,6 +20,9 @@ PODS:
   - Realm (2.3.0):
     - Realm/Headers (= 2.3.0)
   - Realm/Headers (2.3.0)
+  - RxCocoa (3.1.0):
+    - RxSwift (~> 3.1)
+  - RxSwift (3.1.0)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
@@ -35,6 +38,8 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - Realm
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
   - SDWebImage
   - SwiftyJSON
 
@@ -48,9 +53,11 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
   Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
+  RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
+  RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 002708d101f0b32bf5fa9a36d8875bb751ebfcff
+PODFILE CHECKSUM: d90d29846dd68690cae955418e8c1cc3eda2306f
 
 COCOAPODS: 1.1.1

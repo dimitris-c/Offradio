@@ -52,6 +52,14 @@ final class MainTabBarViewController: UITabBarController {
                 contactViewController()]
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
     // MARK: View Controllers
     
     fileprivate final func scheduleViewController() -> UINavigationController {

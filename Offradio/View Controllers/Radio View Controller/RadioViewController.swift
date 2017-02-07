@@ -9,7 +9,9 @@
 import UIKit
 
 final class RadioViewController: UIViewController, TabBarItemProtocol {
-
+    
+    @IBOutlet weak var playerCircleContainer: PlayerCircleContainerView!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.title = "Offradio Player"
@@ -18,6 +20,15 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
+
+        self.playerCircleContainer.setupViews()
+        self.playerCircleContainer.rearrangeViews()
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
     }
     
 }
