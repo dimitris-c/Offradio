@@ -14,6 +14,10 @@ final class ScheduleViewController: UIViewController {
     
     var tableView: UITableView!
     
+    var viewModel: ScheduleViewModel!
+    var delegate: ScheduleDelegate!
+    var dataSource: ScheduleDataSource!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.title = "Schedule Offradio"
@@ -24,9 +28,25 @@ final class ScheduleViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
         
+        self.viewModel = ScheduleViewModel()
+        
         self.tableView = UITableView()
         
+        self.tableView.tableFooterView = UIView()
         
+        self.delegate = ScheduleDelegate(withViewController: self)
+        self.dataSource = ScheduleDataSource(withTableView: self.tableView)
+        self.tableView.dataSource = self.dataSource
+        
+        self.view.addSubview(self.tableView)
+        
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.tableView.frame = self.view.bounds
     }
     
 }

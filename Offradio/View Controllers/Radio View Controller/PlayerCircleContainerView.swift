@@ -52,7 +52,7 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
             } else {
                 self?.stopBuffering()
             }
-        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+        }).addDisposableTo(disposeBag)
         
         playing.asObservable().distinctUntilChanged().subscribe(onNext: { [weak self] (playing) in
             if playing {
@@ -60,7 +60,7 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
             } else {
                 self?.setStopped()
             }
-        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+        }).addDisposableTo(disposeBag)
         
     }
     
