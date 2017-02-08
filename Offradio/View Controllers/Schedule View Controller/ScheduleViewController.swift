@@ -7,17 +7,26 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class ScheduleViewController: UIViewController {
+    
+    var tableView: UITableView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.title = "Schedule Offradio"
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
+        
+        self.tableView = UITableView()
+        
+        
     }
     
 }

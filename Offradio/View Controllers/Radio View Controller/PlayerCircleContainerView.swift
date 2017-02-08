@@ -15,9 +15,10 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
     let disposeBag = DisposeBag()
     
     let switched: PublishSubject<Bool> = PublishSubject<Bool>()
-    let buffering: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+    let buffering: Variable<Bool> = Variable<Bool>(false)
+    let playing: Variable<Bool> = Variable<Bool>(false)
     
-    @IBOutlet weak var bufferBackground: UIImageView!
+    @IBOutlet weak var bufferCircle: UIImageView!
     @IBOutlet weak var offradioLogo: UIImageView!
     fileprivate final let gredRedImageSizeiPad: CGSize = CGSize(width: 370, height: 370)
     fileprivate final var greyBackgroundView: UIImageView!
@@ -37,7 +38,7 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
         self.redBackgroundView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         self.addSubview(self.redBackgroundView)
         
-        let frame = CGRect(x: 0, y: 0, width: 320, height: 85)
+        let frame = CGRect(x: 0, y: 0, width: 160, height: 43)
         self.offradioSwitch = ToggleView(frame: frame,
                                          toggleViewType: ToggleViewTypeNoLabel,
                                          toggleBaseType: ToggleBaseTypeChangeImage,
@@ -45,21 +46,29 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
         self.offradioSwitch.toggleDelegate = self
         self.addSubview(self.offradioSwitch)
         
-        buffering.asObservable().subscribe(onNext: { (buffering) in
+        buffering.asObservable().distinctUntilChanged().subscribe(onNext: { [weak self] (buffering) in
             if buffering {
-                self.startBuffering()
+                self?.startBuffering()
             } else {
-                self.stopBuffering()
+                self?.stopBuffering()
+            }
+        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+        
+        playing.asObservable().distinctUntilChanged().subscribe(onNext: { [weak self] (playing) in
+            if playing {
+                self?.setPlaying()
+            } else {
+                self?.setStopped()
             }
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
         
     }
     
-    func setupViews() {
-        self.bufferBackground.alpha = 0.0
+    final func setupViews() {
+        self.bufferCircle.alpha = 0.0
     }
     
-    func rearrangeViews() {
+    final func rearrangeViews() {
         self.bringSubview(toFront: offradioLogo)
     }
     
@@ -78,29 +87,68 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
         }
         self.redBackgroundView.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         
+        let iPadOffset: CGFloat = 20
         self.offradioSwitch.sizeToFit()
         let x = (self.frame.width - self.offradioSwitch.frame.width) * 0.5
-        let y = self.offradioLogo.frame.maxY + 12
+        let y = self.offradioLogo.frame.maxY + 12 + (DeviceType.IS_IPAD ? iPadOffset : 0)
         self.offradioSwitch.frame = CGRect(x: x, y: y,
                                            width: self.offradioSwitch.frame.width,
                                            height: self.offradioSwitch.frame.height)
         
     }
     
-    func startBuffering() {
-        Log.debug("start visual bufferring")
+    fileprivate final func startBuffering() {
+        
+        guard buffering.value else { return }
+        
+        bufferCircle.layer.opacity = 1.0
+        let fadeIn = AnimationsFactory.fadeIn(withDuration: 0.35)
+        let rotate = AnimationsFactory.rotate(withDuration: 2.0, indefinetely: true)
+        
+        bufferCircle.layer.add(fadeIn, forKey: "opacity")
+        bufferCircle.layer.add(rotate, forKey: "rotate360")
+        
     }
     
-    func stopBuffering() {
-        Log.debug("stop visual bufferring")
+    fileprivate final func stopBuffering() {
+        
+        guard bufferCircle != nil && !buffering.value else { return }
+        
+        bufferCircle.layer.opacity = 0.0
+        let fadeOut = AnimationsFactory.fadeOut(withDuration: 0.35)
+        self.bufferCircle.layer.add(fadeOut, forKey: "opacityFadeOut")
+        
+        self.bufferCircle.layer.removeAnimation(forKey: "rotate360")
+        
+    }
+    
+    fileprivate final func setPlaying() {
+        guard playing.value else { return }
+        
+        self.offradioSwitch.changeRightImageOnDemand()
+        
+        UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: { 
+            self.redBackgroundView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.redBackgroundView.alpha = 1.0
+        }, completion: nil)
+        
+    }
+    
+    fileprivate final func setStopped() {
+        guard !playing.value else { return }
+        
+        UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
+            self.redBackgroundView.alpha = 0.0
+        }, completion: nil)
+        
     }
     
     // MARK: ToggleViewDelegate
-    func selectLeftButton() {
+    final func selectLeftButton() {
         switched.onNext(false)
     }
     
-    func selectRightButton() {
+    final func selectRightButton() {
         switched.onNext(true)
     }
 }

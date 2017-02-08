@@ -11,17 +11,19 @@ import RxSwift
 
 final class RadioViewModel: StormysRadioKitDelegate {
     
-    let radio: Offradio = Offradio()
     let disposeBag: DisposeBag = DisposeBag()
     
-    let toggleRadio: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+    final private(set) var radio: Offradio!
     
-    let isConnecting: Variable<Bool> = Variable<Bool>(false)
+    let toggleRadio: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+
     let isBuffering: Variable<Bool> = Variable<Bool>(false)
     let isPlaying: Variable<Bool> = Variable<Bool>(false)
     
     init() {
         
+        self.radio = Offradio()
+        self.radio.setupRadio()
         self.radio.kit.delegate = self
         
         toggleRadio.asObservable().distinctUntilChanged().subscribe { [weak self] (event) in
@@ -33,26 +35,32 @@ final class RadioViewModel: StormysRadioKitDelegate {
                 }
             }
         }.addDisposableTo(disposeBag)
+        
     }
     
     // RadioKit Delegate
     public func srkConnecting() {
         Log.debug("connecting")
-        isConnecting.value = true
-        isBuffering.value = false
+        isBuffering.value = true
         isPlaying.value = false
     }
     
     public func srkisBuffering() {
         Log.debug("buffering")
-        isConnecting.value = false
         isBuffering.value = true
         isPlaying.value = false
     }
     
     func srkPlayStarted() {
+        Log.debug("started")
         isBuffering.value = false
         isPlaying.value = true
+    }
+    
+    func srkPlayStopped() {
+        Log.debug("stopped")
+        isBuffering.value = false
+        isPlaying.value = false
     }
     
 }

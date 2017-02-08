@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 import RxSwift
 import RxCocoa
 
@@ -33,6 +34,8 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         
         self.playerCircleContainer.switched.bindTo(viewModel.toggleRadio).addDisposableTo(disposeBag)
         viewModel.isBuffering.asObservable().bindTo(self.playerCircleContainer.buffering).addDisposableTo(disposeBag)
+        viewModel.isPlaying.asObservable().bindTo(self.playerCircleContainer.playing).addDisposableTo(disposeBag)
+        
     }
     
     override func viewWillLayoutSubviews() {

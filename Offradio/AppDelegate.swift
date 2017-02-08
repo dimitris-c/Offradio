@@ -10,6 +10,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import FBSDKCoreKit
+import Alamofire
 import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
@@ -34,8 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         Theme.setupNavBarAppearance()
-//        OffradioStream.radio.start()
-
+        
         return true
     }
 

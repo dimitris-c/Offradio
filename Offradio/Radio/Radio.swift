@@ -37,19 +37,25 @@ final class Offradio {
         let keys = RadioAuthenticationKeys()
         
         self.kit.authenticateLibrary(withKey1: keys.key1, andKey2: keys.key2)
+        self.setupRadio()
         
         if let version = self.kit.version() {
             Log.debug("RadioKit version: \(version)")
         }
     }
     
-    final func start() {
-        guard !status.isPlaying else { return }
-        
+    final func setupRadio() {
         let offradioStream = OffradioStream()
         self.kit.setStreamUrl(offradioStream.url, isFile: false)
         self.kit.setPauseTimeout(250)
         self.kit.setBufferWaitTime(2)
+        self.kit.stopStream()
+    }
+    
+    final func start() {
+        guard !status.isPlaying else { return }
+        
+        self.kit.startStream()
         
         status.isPlaying = true
     }
