@@ -10,5 +10,6 @@
 #define Offradio_Bridging_Header_h
 
 #import "RadioKit.h"
+#import "ToggleView.h"
 
 #endif /* Offradio_Bridging_Header_h */

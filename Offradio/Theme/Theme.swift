@@ -10,7 +10,6 @@ import UIKit
 
 struct Theme {
     
-    
     static func setupNavBarAppearance() {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: UIFont.letterGothicBold(withSize: 16),

@@ -1,0 +1,58 @@
+//
+//  RadioViewModel.swift
+//  Offradio
+//
+//  Created by Dimitris C. on 08/02/2017.
+//  Copyright © 2017 decimal. All rights reserved.
+//
+
+import Foundation
+import RxSwift
+
+final class RadioViewModel: StormysRadioKitDelegate {
+    
+    let radio: Offradio = Offradio()
+    let disposeBag: DisposeBag = DisposeBag()
+    
+    let toggleRadio: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+    
+    let isConnecting: Variable<Bool> = Variable<Bool>(false)
+    let isBuffering: Variable<Bool> = Variable<Bool>(false)
+    let isPlaying: Variable<Bool> = Variable<Bool>(false)
+    
+    init() {
+        
+        self.radio.kit.delegate = self
+        
+        toggleRadio.asObservable().distinctUntilChanged().subscribe { [weak self] (event) in
+            if let shouldTurnRadioOn = event.element {
+                if shouldTurnRadioOn {
+                    self?.radio.start()
+                } else {
+                    self?.radio.stop()
+                }
+            }
+        }.addDisposableTo(disposeBag)
+    }
+    
+    // RadioKit Delegate
+    public func srkConnecting() {
+        Log.debug("connecting")
+        isConnecting.value = true
+        isBuffering.value = false
+        isPlaying.value = false
+    }
+    
+    public func srkisBuffering() {
+        Log.debug("buffering")
+        isConnecting.value = false
+        isBuffering.value = true
+        isPlaying.value = false
+    }
+    
+    func srkPlayStarted() {
+        isBuffering.value = false
+        isPlaying.value = true
+    }
+    
+}

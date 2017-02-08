@@ -20,6 +20,42 @@
 		B53942831E4A782200AF5BE5 /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942821E4A782200AF5BE5 /* SevenSwitch.swift */; };
 		B53942851E4A790A00AF5BE5 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */; };
 		B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */; };
+		B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = B539428D1E4A8E2C00AF5BE5 /* ToggleBase.m */; };
+		B53942AA1E4A8E2C00AF5BE5 /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B539428F1E4A8E2C00AF5BE5 /* ToggleButton.m */; };
+		B53942AB1E4A8E2C00AF5BE5 /* ToggleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B53942911E4A8E2C00AF5BE5 /* ToggleView.m */; };
+		B53942AC1E4A8E2C00AF5BE5 /* left_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942931E4A8E2C00AF5BE5 /* left_button_off@2x.png */; };
+		B53942AD1E4A8E2C00AF5BE5 /* left_button_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942941E4A8E2C00AF5BE5 /* left_button_off@3x.png */; };
+		B53942AE1E4A8E2C00AF5BE5 /* left_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942951E4A8E2C00AF5BE5 /* left_button_on@2x.png */; };
+		B53942AF1E4A8E2C00AF5BE5 /* left_button_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942961E4A8E2C00AF5BE5 /* left_button_on@3x.png */; };
+		B53942B01E4A8E2C00AF5BE5 /* right_button_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942971E4A8E2C00AF5BE5 /* right_button_off@2x.png */; };
+		B53942B11E4A8E2C00AF5BE5 /* right_button_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942981E4A8E2C00AF5BE5 /* right_button_off@3x.png */; };
+		B53942B21E4A8E2C00AF5BE5 /* right_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942991E4A8E2C00AF5BE5 /* right_button_on@2x.png */; };
+		B53942B31E4A8E2C00AF5BE5 /* right_button_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B539429A1E4A8E2C00AF5BE5 /* right_button_on@3x.png */; };
+		B53942B41E4A8E2C00AF5BE5 /* toggle_base.png in Resources */ = {isa = PBXBuildFile; fileRef = B539429B1E4A8E2C00AF5BE5 /* toggle_base.png */; };
+		B53942B51E4A8E2C00AF5BE5 /* toggle_base@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B539429C1E4A8E2C00AF5BE5 /* toggle_base@2x.png */; };
+		B53942B61E4A8E2C00AF5BE5 /* toggle_base@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B539429D1E4A8E2C00AF5BE5 /* toggle_base@3x.png */; };
+		B53942B71E4A8E2C00AF5BE5 /* toggle_base_l@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B539429E1E4A8E2C00AF5BE5 /* toggle_base_l@2x.png */; };
+		B53942B81E4A8E2C00AF5BE5 /* toggle_base_l@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B539429F1E4A8E2C00AF5BE5 /* toggle_base_l@3x.png */; };
+		B53942B91E4A8E2C00AF5BE5 /* toggle_base_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A01E4A8E2C00AF5BE5 /* toggle_base_r@2x.png */; };
+		B53942BA1E4A8E2C00AF5BE5 /* toggle_base_r@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A11E4A8E2C00AF5BE5 /* toggle_base_r@3x.png */; };
+		B53942BB1E4A8E2C00AF5BE5 /* toggle_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A21E4A8E2C00AF5BE5 /* toggle_button.png */; };
+		B53942BC1E4A8E2C00AF5BE5 /* toggle_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A31E4A8E2C00AF5BE5 /* toggle_button@2x.png */; };
+		B53942BD1E4A8E2C00AF5BE5 /* toggle_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A41E4A8E2C00AF5BE5 /* toggle_button@3x.png */; };
+		B53942BE1E4A8E2C00AF5BE5 /* toggle_button_l@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A51E4A8E2C00AF5BE5 /* toggle_button_l@2x.png */; };
+		B53942BF1E4A8E2C00AF5BE5 /* toggle_button_l@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A61E4A8E2C00AF5BE5 /* toggle_button_l@3x.png */; };
+		B53942C01E4A8E2C00AF5BE5 /* toggle_button_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A71E4A8E2C00AF5BE5 /* toggle_button_r@2x.png */; };
+		B53942C11E4A8E2C00AF5BE5 /* toggle_button_r@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942A81E4A8E2C00AF5BE5 /* toggle_button_r@3x.png */; };
+		B53942CC1E4A990200AF5BE5 /* left_button_off@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C21E4A990200AF5BE5 /* left_button_off@2x~ipad.png */; };
+		B53942CD1E4A990200AF5BE5 /* left_button_on@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C31E4A990200AF5BE5 /* left_button_on@2x~ipad.png */; };
+		B53942CE1E4A990200AF5BE5 /* right_button_off@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C41E4A990200AF5BE5 /* right_button_off@2x~ipad.png */; };
+		B53942CF1E4A990200AF5BE5 /* right_button_on@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C51E4A990200AF5BE5 /* right_button_on@2x~ipad.png */; };
+		B53942D01E4A990200AF5BE5 /* toggle_base_l@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C61E4A990200AF5BE5 /* toggle_base_l@2x~ipad.png */; };
+		B53942D11E4A990200AF5BE5 /* toggle_base_r@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C71E4A990200AF5BE5 /* toggle_base_r@2x~ipad.png */; };
+		B53942D21E4A990200AF5BE5 /* toggle_base@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C81E4A990200AF5BE5 /* toggle_base@2x~ipad.png */; };
+		B53942D31E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C91E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png */; };
+		B53942D41E4A990200AF5BE5 /* toggle_button_r@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942CA1E4A990200AF5BE5 /* toggle_button_r@2x~ipad.png */; };
+		B53942D51E4A990200AF5BE5 /* toggle_button@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942CB1E4A990200AF5BE5 /* toggle_button@2x~ipad.png */; };
+		B53942D71E4A99B800AF5BE5 /* RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942D61E4A99B800AF5BE5 /* RadioViewModel.swift */; };
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
 		B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B54BC8B11E36A9DC0043F248 /* LaunchScreen.storyboard */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
@@ -81,6 +117,45 @@
 		B53942821E4A782200AF5BE5 /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
 		B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B539428C1E4A8E2C00AF5BE5 /* ToggleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleBase.h; sourceTree = "<group>"; };
+		B539428D1E4A8E2C00AF5BE5 /* ToggleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleBase.m; sourceTree = "<group>"; };
+		B539428E1E4A8E2C00AF5BE5 /* ToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleButton.h; sourceTree = "<group>"; };
+		B539428F1E4A8E2C00AF5BE5 /* ToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleButton.m; sourceTree = "<group>"; };
+		B53942901E4A8E2C00AF5BE5 /* ToggleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleView.h; sourceTree = "<group>"; };
+		B53942911E4A8E2C00AF5BE5 /* ToggleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleView.m; sourceTree = "<group>"; };
+		B53942931E4A8E2C00AF5BE5 /* left_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_off@2x.png"; sourceTree = "<group>"; };
+		B53942941E4A8E2C00AF5BE5 /* left_button_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_off@3x.png"; sourceTree = "<group>"; };
+		B53942951E4A8E2C00AF5BE5 /* left_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_on@2x.png"; sourceTree = "<group>"; };
+		B53942961E4A8E2C00AF5BE5 /* left_button_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_on@3x.png"; sourceTree = "<group>"; };
+		B53942971E4A8E2C00AF5BE5 /* right_button_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_off@2x.png"; sourceTree = "<group>"; };
+		B53942981E4A8E2C00AF5BE5 /* right_button_off@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_off@3x.png"; sourceTree = "<group>"; };
+		B53942991E4A8E2C00AF5BE5 /* right_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_on@2x.png"; sourceTree = "<group>"; };
+		B539429A1E4A8E2C00AF5BE5 /* right_button_on@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_on@3x.png"; sourceTree = "<group>"; };
+		B539429B1E4A8E2C00AF5BE5 /* toggle_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_base.png; sourceTree = "<group>"; };
+		B539429C1E4A8E2C00AF5BE5 /* toggle_base@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base@2x.png"; sourceTree = "<group>"; };
+		B539429D1E4A8E2C00AF5BE5 /* toggle_base@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base@3x.png"; sourceTree = "<group>"; };
+		B539429E1E4A8E2C00AF5BE5 /* toggle_base_l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_l@2x.png"; sourceTree = "<group>"; };
+		B539429F1E4A8E2C00AF5BE5 /* toggle_base_l@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_l@3x.png"; sourceTree = "<group>"; };
+		B53942A01E4A8E2C00AF5BE5 /* toggle_base_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_r@2x.png"; sourceTree = "<group>"; };
+		B53942A11E4A8E2C00AF5BE5 /* toggle_base_r@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_r@3x.png"; sourceTree = "<group>"; };
+		B53942A21E4A8E2C00AF5BE5 /* toggle_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toggle_button.png; sourceTree = "<group>"; };
+		B53942A31E4A8E2C00AF5BE5 /* toggle_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button@2x.png"; sourceTree = "<group>"; };
+		B53942A41E4A8E2C00AF5BE5 /* toggle_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button@3x.png"; sourceTree = "<group>"; };
+		B53942A51E4A8E2C00AF5BE5 /* toggle_button_l@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_l@2x.png"; sourceTree = "<group>"; };
+		B53942A61E4A8E2C00AF5BE5 /* toggle_button_l@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_l@3x.png"; sourceTree = "<group>"; };
+		B53942A71E4A8E2C00AF5BE5 /* toggle_button_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_r@2x.png"; sourceTree = "<group>"; };
+		B53942A81E4A8E2C00AF5BE5 /* toggle_button_r@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_r@3x.png"; sourceTree = "<group>"; };
+		B53942C21E4A990200AF5BE5 /* left_button_off@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_off@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942C31E4A990200AF5BE5 /* left_button_on@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_button_on@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942C41E4A990200AF5BE5 /* right_button_off@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_off@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942C51E4A990200AF5BE5 /* right_button_on@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_button_on@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942C61E4A990200AF5BE5 /* toggle_base_l@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_l@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942C71E4A990200AF5BE5 /* toggle_base_r@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base_r@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942C81E4A990200AF5BE5 /* toggle_base@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_base@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942C91E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_l@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942CA1E4A990200AF5BE5 /* toggle_button_r@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_r@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942CB1E4A990200AF5BE5 /* toggle_button@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button@2x~ipad.png"; sourceTree = "<group>"; };
+		B53942D61E4A99B800AF5BE5 /* RadioViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewModel.swift; sourceTree = "<group>"; };
 		B54BC8A31E36A9DC0043F248 /* Offradio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offradio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54BC8B21E36A9DC0043F248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,6 +245,7 @@
 		B51BE4DC1E3ABF79005775F4 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				B539428A1E4A8E2C00AF5BE5 /* ToggleView */,
 				B53942821E4A782200AF5BE5 /* SevenSwitch.swift */,
 				B51BE4DD1E3ABF79005775F4 /* RadioKitLib */,
 			);
@@ -268,6 +344,67 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		B539428A1E4A8E2C00AF5BE5 /* ToggleView */ = {
+			isa = PBXGroup;
+			children = (
+				B539428B1E4A8E2C00AF5BE5 /* Classes */,
+				B53942921E4A8E2C00AF5BE5 /* Resources */,
+			);
+			path = ToggleView;
+			sourceTree = "<group>";
+		};
+		B539428B1E4A8E2C00AF5BE5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B539428C1E4A8E2C00AF5BE5 /* ToggleBase.h */,
+				B539428D1E4A8E2C00AF5BE5 /* ToggleBase.m */,
+				B539428E1E4A8E2C00AF5BE5 /* ToggleButton.h */,
+				B539428F1E4A8E2C00AF5BE5 /* ToggleButton.m */,
+				B53942901E4A8E2C00AF5BE5 /* ToggleView.h */,
+				B53942911E4A8E2C00AF5BE5 /* ToggleView.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B53942921E4A8E2C00AF5BE5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B53942C21E4A990200AF5BE5 /* left_button_off@2x~ipad.png */,
+				B53942C31E4A990200AF5BE5 /* left_button_on@2x~ipad.png */,
+				B53942C41E4A990200AF5BE5 /* right_button_off@2x~ipad.png */,
+				B53942C51E4A990200AF5BE5 /* right_button_on@2x~ipad.png */,
+				B53942C61E4A990200AF5BE5 /* toggle_base_l@2x~ipad.png */,
+				B53942C71E4A990200AF5BE5 /* toggle_base_r@2x~ipad.png */,
+				B53942C81E4A990200AF5BE5 /* toggle_base@2x~ipad.png */,
+				B53942C91E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png */,
+				B53942CA1E4A990200AF5BE5 /* toggle_button_r@2x~ipad.png */,
+				B53942CB1E4A990200AF5BE5 /* toggle_button@2x~ipad.png */,
+				B53942931E4A8E2C00AF5BE5 /* left_button_off@2x.png */,
+				B53942941E4A8E2C00AF5BE5 /* left_button_off@3x.png */,
+				B53942951E4A8E2C00AF5BE5 /* left_button_on@2x.png */,
+				B53942961E4A8E2C00AF5BE5 /* left_button_on@3x.png */,
+				B53942971E4A8E2C00AF5BE5 /* right_button_off@2x.png */,
+				B53942981E4A8E2C00AF5BE5 /* right_button_off@3x.png */,
+				B53942991E4A8E2C00AF5BE5 /* right_button_on@2x.png */,
+				B539429A1E4A8E2C00AF5BE5 /* right_button_on@3x.png */,
+				B539429B1E4A8E2C00AF5BE5 /* toggle_base.png */,
+				B539429C1E4A8E2C00AF5BE5 /* toggle_base@2x.png */,
+				B539429D1E4A8E2C00AF5BE5 /* toggle_base@3x.png */,
+				B539429E1E4A8E2C00AF5BE5 /* toggle_base_l@2x.png */,
+				B539429F1E4A8E2C00AF5BE5 /* toggle_base_l@3x.png */,
+				B53942A01E4A8E2C00AF5BE5 /* toggle_base_r@2x.png */,
+				B53942A11E4A8E2C00AF5BE5 /* toggle_base_r@3x.png */,
+				B53942A21E4A8E2C00AF5BE5 /* toggle_button.png */,
+				B53942A31E4A8E2C00AF5BE5 /* toggle_button@2x.png */,
+				B53942A41E4A8E2C00AF5BE5 /* toggle_button@3x.png */,
+				B53942A51E4A8E2C00AF5BE5 /* toggle_button_l@2x.png */,
+				B53942A61E4A8E2C00AF5BE5 /* toggle_button_l@3x.png */,
+				B53942A71E4A8E2C00AF5BE5 /* toggle_button_r@2x.png */,
+				B53942A81E4A8E2C00AF5BE5 /* toggle_button_r@3x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B54BC89A1E36A9DB0043F248 = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +471,7 @@
 				B56960671E495891003BFBC6 /* RadioViewController.storyboard */,
 				B569603C1E4908D0003BFBC6 /* RadioViewController.swift */,
 				B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */,
+				B53942D61E4A99B800AF5BE5 /* RadioViewModel.swift */,
 			);
 			path = "Radio View Controller";
 			sourceTree = "<group>";
@@ -498,13 +636,45 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53942D41E4A990200AF5BE5 /* toggle_button_r@2x~ipad.png in Resources */,
 				B54BC8B31E36A9DC0043F248 /* LaunchScreen.storyboard in Resources */,
+				B53942BD1E4A8E2C00AF5BE5 /* toggle_button@3x.png in Resources */,
+				B53942B11E4A8E2C00AF5BE5 /* right_button_off@3x.png in Resources */,
+				B53942AF1E4A8E2C00AF5BE5 /* left_button_on@3x.png in Resources */,
 				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
+				B53942B61E4A8E2C00AF5BE5 /* toggle_base@3x.png in Resources */,
+				B53942B81E4A8E2C00AF5BE5 /* toggle_base_l@3x.png in Resources */,
+				B53942D01E4A990200AF5BE5 /* toggle_base_l@2x~ipad.png in Resources */,
+				B53942D11E4A990200AF5BE5 /* toggle_base_r@2x~ipad.png in Resources */,
+				B53942AE1E4A8E2C00AF5BE5 /* left_button_on@2x.png in Resources */,
+				B53942CE1E4A990200AF5BE5 /* right_button_off@2x~ipad.png in Resources */,
 				B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */,
+				B53942C01E4A8E2C00AF5BE5 /* toggle_button_r@2x.png in Resources */,
+				B53942CF1E4A990200AF5BE5 /* right_button_on@2x~ipad.png in Resources */,
+				B53942AD1E4A8E2C00AF5BE5 /* left_button_off@3x.png in Resources */,
+				B53942B91E4A8E2C00AF5BE5 /* toggle_base_r@2x.png in Resources */,
+				B53942D31E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png in Resources */,
+				B53942D21E4A990200AF5BE5 /* toggle_base@2x~ipad.png in Resources */,
+				B53942CC1E4A990200AF5BE5 /* left_button_off@2x~ipad.png in Resources */,
+				B53942C11E4A8E2C00AF5BE5 /* toggle_button_r@3x.png in Resources */,
+				B53942AC1E4A8E2C00AF5BE5 /* left_button_off@2x.png in Resources */,
+				B53942BA1E4A8E2C00AF5BE5 /* toggle_base_r@3x.png in Resources */,
+				B53942B21E4A8E2C00AF5BE5 /* right_button_on@2x.png in Resources */,
+				B53942B01E4A8E2C00AF5BE5 /* right_button_off@2x.png in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 				B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */,
 				B569606A1E495896003BFBC6 /* ScheduleViewController.storyboard in Resources */,
 				B56960661E49588B003BFBC6 /* ContactViewController.storyboard in Resources */,
+				B53942BF1E4A8E2C00AF5BE5 /* toggle_button_l@3x.png in Resources */,
+				B53942BB1E4A8E2C00AF5BE5 /* toggle_button.png in Resources */,
+				B53942B41E4A8E2C00AF5BE5 /* toggle_base.png in Resources */,
+				B53942D51E4A990200AF5BE5 /* toggle_button@2x~ipad.png in Resources */,
+				B53942B31E4A8E2C00AF5BE5 /* right_button_on@3x.png in Resources */,
+				B53942CD1E4A990200AF5BE5 /* left_button_on@2x~ipad.png in Resources */,
+				B53942B71E4A8E2C00AF5BE5 /* toggle_base_l@2x.png in Resources */,
+				B53942BE1E4A8E2C00AF5BE5 /* toggle_button_l@2x.png in Resources */,
+				B53942BC1E4A8E2C00AF5BE5 /* toggle_button@2x.png in Resources */,
+				B53942B51E4A8E2C00AF5BE5 /* toggle_base@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,14 +861,18 @@
 				B52A6C421E36BAC2005893D2 /* Log.swift in Sources */,
 				B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */,
 				B56960421E490957003BFBC6 /* Radio.swift in Sources */,
+				B53942D71E4A99B800AF5BE5 /* RadioViewModel.swift in Sources */,
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
+				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
 				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
 				B53942831E4A782200AF5BE5 /* SevenSwitch.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
 				B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */,
+				B53942AB1E4A8E2C00AF5BE5 /* ToggleView.m in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
+				B53942AA1E4A8E2C00AF5BE5 /* ToggleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,12 +1020,13 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = Offradio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -865,12 +1040,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = Offradio/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

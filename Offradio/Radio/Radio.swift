@@ -21,6 +21,7 @@ struct RadioAuthenticationKeys {
 struct OffradioStream {
     let url: String = "http://www.offradio.gr/offradio.acc.m3u"
     static let radio: Offradio = Offradio()
+    
 }
 
 struct RadioStatus {
@@ -54,12 +55,11 @@ final class Offradio {
     }
     
     final func stop() {
-        guard status.isPlaying else { return }
+        guard status.isPlaying && kit.isAudioPlaying() else { return }
         
         self.kit.stopStream()
         
         status.isPlaying = false
     }
-    
     
 }
