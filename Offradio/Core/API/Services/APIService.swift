@@ -81,29 +81,3 @@ public class APIService {
     }
     
 }
-
-extension APIService {
-    
-    func responseHandler(showError:Bool = false, completion:CompletionBlock?, handler:@escaping DataHandler) -> (DataResponse<Any>) -> Void {
-        return { response in
-            let status = response.response?.statusCode ?? 0
-            print("Status: \(status)")
-            
-            switch response.result {
-            case .success (let data):
-                let json = JSON(data)
-                if status >= 200 && status < 300 {
-                    print("Success")
-                    handler(json, response.response?.allHeaderFields)
-                } else {
-                    print("Response failure \(json)")
-                    completion?(false, json, ["status":status])
-                }
-                
-            case .failure (let error):
-                print("\(error.localizedDescription)")
-                completion?(false, nil, ["status": status])
-            }
-        }
-    }
-}

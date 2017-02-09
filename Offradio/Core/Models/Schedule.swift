@@ -6,16 +6,32 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 
 struct ScheduleItem {
     let endTime: String
     let startTime: String
     let title: String
     let bio: Bool
+    
+    var timeTitle: String {
+        return "\(endTime) - \(startTime)"
+    }
+    
+    init(with json: JSON) {
+        self.startTime  = json["startTime"].stringValue
+        self.endTime    = json["endTime"].stringValue
+        self.title      = json["title"].stringValue
+        self.bio        = json["bio"].boolValue
+    }
 }
 
 struct Schedule {
     let day: String
-    let items: [ScheduleItem]
+    var items: [ScheduleItem] = []
+    
+    init(with json: JSON) {
+        self.day = json["day"].stringValue
+        self.items = []
+    }
 }

@@ -15,7 +15,6 @@
 		B50395561E4BA33200D9A71B /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503954F1E4BA33200D9A71B /* APIResponse.swift */; };
 		B50395571E4BA33200D9A71B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395511E4BA33200D9A71B /* APIService.swift */; };
 		B50395601E4BC13C00D9A71B /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503955F1E4BC13C00D9A71B /* ScheduleViewModel.swift */; };
-		B50395651E4BC62A00D9A71B /* ScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395641E4BC62A00D9A71B /* ScheduleDataSource.swift */; };
 		B50395671E4BC81A00D9A71B /* ScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395661E4BC81A00D9A71B /* ScheduleDelegate.swift */; };
 		B503956E1E4BCA0100D9A71B /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395691E4BCA0100D9A71B /* APIURL.swift */; };
 		B503956F1E4BCA0100D9A71B /* NowPlayingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503956B1E4BCA0100D9A71B /* NowPlayingService.swift */; };
@@ -23,6 +22,8 @@
 		B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503956D1E4BCA0100D9A71B /* ScheduleService.swift */; };
 		B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395731E4BCA3C00D9A71B /* Reusable.swift */; };
 		B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395751E4BCAE800D9A71B /* UITableViewExtensions.swift */; };
+		B50395781E4BE74200D9A71B /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395771E4BE74200D9A71B /* ScheduleTableViewCell.swift */; };
+		B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395791E4BEB5E00D9A71B /* Configurable.swift */; };
 		B51BE4E21E3ABF79005775F4 /* libRadioKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */; };
 		B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
@@ -126,7 +127,6 @@
 		B503954F1E4BA33200D9A71B /* APIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		B50395511E4BA33200D9A71B /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		B503955F1E4BC13C00D9A71B /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
-		B50395641E4BC62A00D9A71B /* ScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataSource.swift; sourceTree = "<group>"; };
 		B50395661E4BC81A00D9A71B /* ScheduleDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDelegate.swift; sourceTree = "<group>"; };
 		B50395691E4BCA0100D9A71B /* APIURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIURL.swift; sourceTree = "<group>"; };
 		B503956B1E4BCA0100D9A71B /* NowPlayingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingService.swift; sourceTree = "<group>"; };
@@ -134,6 +134,8 @@
 		B503956D1E4BCA0100D9A71B /* ScheduleService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleService.swift; sourceTree = "<group>"; };
 		B50395731E4BCA3C00D9A71B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		B50395751E4BCAE800D9A71B /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
+		B50395771E4BE74200D9A71B /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		B50395791E4BEB5E00D9A71B /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		B51BE4DE1E3ABF79005775F4 /* BufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferView.h; sourceTree = "<group>"; };
 		B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRadioKit.a; sourceTree = "<group>"; };
 		B51BE4E01E3ABF79005775F4 /* RadioKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioKit.h; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				B50395731E4BCA3C00D9A71B /* Reusable.swift */,
+				B50395791E4BEB5E00D9A71B /* Configurable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -608,8 +611,8 @@
 				B56960691E495896003BFBC6 /* ScheduleViewController.storyboard */,
 				B569605A1E492AB0003BFBC6 /* ScheduleViewController.swift */,
 				B503955F1E4BC13C00D9A71B /* ScheduleViewModel.swift */,
-				B50395641E4BC62A00D9A71B /* ScheduleDataSource.swift */,
 				B50395661E4BC81A00D9A71B /* ScheduleDelegate.swift */,
+				B50395771E4BE74200D9A71B /* ScheduleTableViewCell.swift */,
 			);
 			path = "Schedule View Controller";
 			sourceTree = "<group>";
@@ -975,6 +978,7 @@
 			files = (
 				B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */,
 				B53942851E4A790A00AF5BE5 /* PlayerCircleContainerView.swift in Sources */,
+				B50395781E4BE74200D9A71B /* ScheduleTableViewCell.swift in Sources */,
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
 				B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */,
@@ -994,9 +998,9 @@
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B50395701E4BCA0100D9A71B /* PlaylistService.swift in Sources */,
-				B50395651E4BC62A00D9A71B /* ScheduleDataSource.swift in Sources */,
 				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
 				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
+				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
 				B53942831E4A782200AF5BE5 /* SevenSwitch.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
