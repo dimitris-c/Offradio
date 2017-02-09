@@ -36,7 +36,6 @@
 		B52A6C421E36BAC2005893D2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3C1E36BAC2005893D2 /* Log.swift */; };
 		B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3D1E36BAC2005893D2 /* ViewArranger.swift */; };
 		B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C441E36BCBB005893D2 /* DateFormat.swift */; };
-		B53942831E4A782200AF5BE5 /* SevenSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942821E4A782200AF5BE5 /* SevenSwitch.swift */; };
 		B53942851E4A790A00AF5BE5 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */; };
 		B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */; };
 		B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = B539428D1E4A8E2C00AF5BE5 /* ToggleBase.m */; };
@@ -152,7 +151,6 @@
 		B52A6C3C1E36BAC2005893D2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		B52A6C3D1E36BAC2005893D2 /* ViewArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewArranger.swift; sourceTree = "<group>"; };
 		B52A6C441E36BCBB005893D2 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
-		B53942821E4A782200AF5BE5 /* SevenSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenSwitch.swift; sourceTree = "<group>"; };
 		B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B539428C1E4A8E2C00AF5BE5 /* ToggleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleBase.h; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				B539428A1E4A8E2C00AF5BE5 /* ToggleView */,
-				B53942821E4A782200AF5BE5 /* SevenSwitch.swift */,
 				B51BE4DD1E3ABF79005775F4 /* RadioKitLib */,
 			);
 			path = Vendor;
@@ -1000,7 +997,6 @@
 				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
 				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
-				B53942831E4A782200AF5BE5 /* SevenSwitch.swift in Sources */,
 				B54E08751E4D055C00B54FB3 /* ProducerBioViewController.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
