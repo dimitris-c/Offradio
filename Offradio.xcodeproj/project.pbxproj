@@ -78,6 +78,7 @@
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
+		B54E08751E4D055C00B54FB3 /* ProducerBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08741E4D055C00B54FB3 /* ProducerBioViewController.swift */; };
 		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
 		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
 		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
@@ -90,7 +91,6 @@
 		B569605B1E492AB0003BFBC6 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569605A1E492AB0003BFBC6 /* ScheduleViewController.swift */; };
 		B56960661E49588B003BFBC6 /* ContactViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960651E49588B003BFBC6 /* ContactViewController.storyboard */; };
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
-		B569606A1E495896003BFBC6 /* ScheduleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960691E495896003BFBC6 /* ScheduleViewController.storyboard */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
@@ -203,6 +203,7 @@
 		B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OffradioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffradioUITests.swift; sourceTree = "<group>"; };
 		B54BC8CA1E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B54E08741E4D055C00B54FB3 /* ProducerBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducerBioViewController.swift; sourceTree = "<group>"; };
 		B569603C1E4908D0003BFBC6 /* RadioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		B569603E1E490907003BFBC6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B56960411E490957003BFBC6 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 		B569605A1E492AB0003BFBC6 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B56960651E49588B003BFBC6 /* ContactViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContactViewController.storyboard; sourceTree = "<group>"; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
-		B56960691E495896003BFBC6 /* ScheduleViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScheduleViewController.storyboard; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
 		B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsFactory.swift; sourceTree = "<group>"; };
@@ -608,11 +608,11 @@
 		B569604E1E492A1A003BFBC6 /* Schedule View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B56960691E495896003BFBC6 /* ScheduleViewController.storyboard */,
 				B569605A1E492AB0003BFBC6 /* ScheduleViewController.swift */,
 				B503955F1E4BC13C00D9A71B /* ScheduleViewModel.swift */,
 				B50395661E4BC81A00D9A71B /* ScheduleDelegate.swift */,
 				B50395771E4BE74200D9A71B /* ScheduleTableViewCell.swift */,
+				B54E08741E4D055C00B54FB3 /* ProducerBioViewController.swift */,
 			);
 			path = "Schedule View Controller";
 			sourceTree = "<group>";
@@ -788,7 +788,6 @@
 				B53942B01E4A8E2C00AF5BE5 /* right_button_off@2x.png in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 				B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */,
-				B569606A1E495896003BFBC6 /* ScheduleViewController.storyboard in Resources */,
 				B56960661E49588B003BFBC6 /* ContactViewController.storyboard in Resources */,
 				B53942BF1E4A8E2C00AF5BE5 /* toggle_button_l@3x.png in Resources */,
 				B53942BB1E4A8E2C00AF5BE5 /* toggle_button.png in Resources */,
@@ -1002,6 +1001,7 @@
 				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
 				B53942831E4A782200AF5BE5 /* SevenSwitch.swift in Sources */,
+				B54E08751E4D055C00B54FB3 /* ProducerBioViewController.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
 				B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */,
@@ -1150,6 +1150,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
@@ -1173,6 +1174,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819B564ECCD7BD5F563B5D8C /* Pods-Offradio.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;

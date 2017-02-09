@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RxAlamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RxCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,16 +82,6 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>06DAF447E54DE79BA9946371D01C435D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0934C87C0AE9909603B2CA2CBBFEACE1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>115FA0D867E07C04838493890DBD8D29</key>
 		<dict>
 			<key>primary</key>
@@ -97,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44CAD6CE523055ED339E87154473A254</key>
+		<key>3A8639AD9CD12ABD1CEF764BB19E19E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E20B6EB440CE58679E7A370E51EA0FC</key>
+		<key>3F4637010EF0FE523231066CA06AFF10</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>44CAD6CE523055ED339E87154473A254</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,22 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>727E6A3617FFD0055AE7C14260F6DD35</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8BA0E3F36B7E2F7830E2ACDC34EB3E17</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AB8B591454B0061C48B638D02D9D1BF8</key>
+		<key>B4FA999EFADB78D0AF9B86226AF167F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,7 +132,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BF006E4B13B802987298EAB8DC811FA9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDB1CF6595E8D8E453FE1590235A810F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFA884B5A970E0EC7890556CFAED594B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC0B9D9114F2B4C34AA8EB22ABFA3116</key>
 		<dict>
 			<key>primary</key>
 			<true/>

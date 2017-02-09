@@ -8,7 +8,9 @@
 
 import UIKit
 
-final class ScheduleTableViewCell: UITableViewCell {
+final class ScheduleTableViewCell: UITableViewCell, ConfigurableCell {
+    
+    final private(set) var item: ScheduleItem!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
@@ -23,6 +25,19 @@ final class ScheduleTableViewCell: UITableViewCell {
         
         self.detailTextLabel?.font = UIFont.letterGothicBold(withSize: 15)
         self.detailTextLabel?.textColor = UIColor.white
+        
+    }
+    
+    func configure(with item: ScheduleItem) {
+        self.item = item
+        
+        self.textLabel?.text = item.timeTitle
+        self.detailTextLabel?.text = item.title.uppercased()
+        
+        self.accessoryView = nil
+        if item.hasBio {
+            self.accessoryView = UIImageView(image: #imageLiteral(resourceName: "disclosure-icon"))
+        }
         
     }
     

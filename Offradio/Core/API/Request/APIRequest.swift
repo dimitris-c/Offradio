@@ -38,5 +38,5 @@ final class APIRequest {
                                  encoding: self.parameters.encoding,
                                  headers: self.headers)
     }
-    
+
 }

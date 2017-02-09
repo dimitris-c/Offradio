@@ -20,6 +20,11 @@ PODS:
   - Realm (2.3.0):
     - Realm/Headers (= 2.3.0)
   - Realm/Headers (2.3.0)
+  - RxAlamofire (3.0.2):
+    - RxAlamofire/Core (= 3.0.2)
+  - RxAlamofire/Core (3.0.2):
+    - Alamofire (~> 4.0)
+    - RxSwift (~> 3.0)
   - RxCocoa (3.1.0):
     - RxSwift (~> 3.1)
   - RxSwift (3.1.0)
@@ -38,6 +43,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - Realm
+  - RxAlamofire
   - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
   - SDWebImage
@@ -53,11 +59,12 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
   FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
   Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
+  RxAlamofire: bc53604b29fd2d220cfaa490c736cc4500819f34
   RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
   RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: d90d29846dd68690cae955418e8c1cc3eda2306f
+PODFILE CHECKSUM: 4ed61ce4c9a90654eced03efe9fe762f4b371d3d
 
 COCOAPODS: 1.1.1

@@ -21,10 +21,13 @@ final class ScheduleViewController: UIViewController {
     
     var refreshControl: UIRefreshControl!
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        self.title = "Schedule"
+    }
+    
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.title = "Schedule Offradio"
-        
+        fatalError("not implemented")
     }
     
     override func viewDidLoad() {
@@ -40,7 +43,7 @@ final class ScheduleViewController: UIViewController {
         self.tableView.separatorColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        self.delegate = ScheduleDelegate(withViewController: self)
+        self.delegate = ScheduleDelegate(withViewController: self, dataSource: self.viewModel)
         self.tableView.delegate = self.delegate
         
         self.view.addSubview(self.tableView)
@@ -48,9 +51,8 @@ final class ScheduleViewController: UIViewController {
         let identifier = ScheduleTableViewCell.identifier
         let cellType = ScheduleTableViewCell.self
         
-        self.viewModel.schedule.bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, item, cell in
-            cell.textLabel?.text = item.timeTitle
-            cell.detailTextLabel?.text = item.title.uppercased()
+        self.viewModel.schedule.asObservable().bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, item, cell in
+            cell.configure(with: item)
         }.addDisposableTo(disposeBag)
         
         self.refreshControl = UIRefreshControl()
@@ -60,6 +62,11 @@ final class ScheduleViewController: UIViewController {
             tableView?.addSubview(refreshControl)
             tableView.sendSubview(toBack: refreshControl)
         }
+        
+        self.refreshControl.rx.controlEvent(.valueChanged)
+            .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? true) }
+            .bindTo(self.viewModel.refresh)
+            .addDisposableTo(disposeBag)
         
         self.viewModel.refresh.asObservable().bindTo(self.refreshControl.rx.isRefreshing).addDisposableTo(disposeBag)
         

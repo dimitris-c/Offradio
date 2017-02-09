@@ -9,10 +9,11 @@
 import SwiftyJSON
 
 struct ScheduleItem {
+    
     let endTime: String
     let startTime: String
     let title: String
-    let bio: Bool
+    let hasBio: Bool
     
     var timeTitle: String {
         return "\(endTime) - \(startTime)"
@@ -22,7 +23,7 @@ struct ScheduleItem {
         self.startTime  = json["startTime"].stringValue
         self.endTime    = json["endTime"].stringValue
         self.title      = json["title"].stringValue
-        self.bio        = json["bio"].boolValue
+        self.hasBio     = json["bio"].boolValue
     }
 }
 

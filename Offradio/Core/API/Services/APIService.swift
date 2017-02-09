@@ -10,6 +10,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import RxSwift
 
 typealias DataHandler = (_ response: JSON, _ headers: [AnyHashable: Any]?) -> Void
 typealias CompletionBlock = (_ success: Bool, _ response: Any?, _ headers: [AnyHashable: Any]?) -> Void
@@ -57,6 +58,24 @@ public class APIService {
         return self.request.toAlamofire().validate().responseJSON(queue: APIService.queue, completionHandler: handler)
     }
     
+    func rxCall<T>() -> Observable<T> {
+        return Observable.create({ (observer) -> Disposable in
+            let request = self.call({ (success, data, headers) in
+                if success {
+                    if let items = data as? T {
+                        observer.onNext(items)
+                        observer.onCompleted()
+                    }
+                } else  {
+                    if let error = data as? String {
+                        observer.onError(APIError.error(error))
+                    }
+                }
+            })
+            return Disposables.create(with: { request.cancel() } )
+        })
+    }
+    
     @discardableResult
     func callData(_ completion: @escaping CompletionBlock) -> Request {
         let handler: (DataResponse<Data>) -> Void = { (response) in
@@ -80,4 +99,8 @@ public class APIService {
         return self.request.toAlamofire().validate().responseData(queue: APIService.queue, completionHandler: handler)
     }
     
+}
+
+enum APIError: Error {
+    case error(String?)
 }

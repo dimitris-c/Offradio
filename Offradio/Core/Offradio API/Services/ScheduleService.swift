@@ -23,7 +23,7 @@ final class ProducersBioService: APIService {
     init() {
         let path: String = APIURL().with("producers")
         let request = APIRequest(apiPath: path, method: .get)
-        super.init(request: request, parse: APIResponse())
+        super.init(request: request, parse: ProducerResponseParse())
     }
     
 }
@@ -33,6 +33,16 @@ final class ScheduleResponseParse: ResponseParse {
     func toData(rawData data: JSON) -> Any {
         var items: [ScheduleItem] = []
         items = data.arrayValue.dropFirst().map { ScheduleItem(with: $0) }
+        return items
+    }
+    
+}
+
+final class ProducerResponseParse: ResponseParse {
+    
+    func toData(rawData data: JSON) -> Any {
+        var items: [Producer] = []
+        items = data.map { Producer(with: $0.1) }
         return items
     }
     

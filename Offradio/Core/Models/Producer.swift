@@ -6,10 +6,16 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import Foundation
+import SwiftyJSON
 
 struct Producer {
     let name: String
     let bio: String
     let photoUrl: String
+    
+    init(with json: JSON) {
+        self.name   = json["name"].stringValue
+        self.bio    = json["bio"].stringValue
+        self.photoUrl = json["photoUrl"].stringValue
+    }
 }

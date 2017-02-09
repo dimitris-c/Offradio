@@ -18,6 +18,7 @@ target 'Offradio' do
   pod 'Realm'
   pod 'RxSwift',    '~> 3.0'
   pod 'RxCocoa',    '~> 3.0'
+  pod 'RxAlamofire'
 
   target 'OffradioTests' do
     inherit! :search_paths

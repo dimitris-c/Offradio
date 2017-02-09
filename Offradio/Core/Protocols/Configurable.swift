@@ -10,5 +10,5 @@ import Foundation
 
 protocol ConfigurableCell {
     associatedtype Item
-    func configure<Item>(with item: Item)
+    func configure(with item: Item)
 }

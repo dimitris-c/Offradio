@@ -10,18 +10,26 @@ import Foundation
 
 final class ScheduleDelegate: NSObject, UITableViewDelegate {
     
+    weak var dataSource: ScheduleViewModel?
     weak var viewController: UIViewController?
     
-    init(withViewController viewController: UIViewController) {
+    init(withViewController viewController: UIViewController, dataSource source: ScheduleViewModel) {
         super.init()
-        
         self.viewController = viewController
+        self.dataSource = source
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let dataSource = dataSource else { return }
         
-        Log.debug("selected row at: \(indexPath.row)")
+        let item = dataSource.getSchedule(at: indexPath)
+        if item.hasBio, let bio = dataSource.getProducerBio(for: item.title) {
+            
+            self.viewController?.hideLabelOnBackButton()
+            let producerBioViewController = ProducersBioViewController(with: bio)
+            self.viewController?.navigationController?.pushViewController(producerBioViewController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

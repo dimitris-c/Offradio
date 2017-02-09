@@ -63,7 +63,7 @@ final class MainTabBarViewController: UITabBarController {
     // MARK: View Controllers
     
     fileprivate final func scheduleViewController() -> UINavigationController {
-        let rootViewController = ScheduleViewController.createFromStoryboard()
+        let rootViewController = ScheduleViewController()
         rootViewController.tabBarItem = rootViewController.defaultTabBarItem()
         let scheduleNavigationController = navigationController(withRootViewController: rootViewController)
         return scheduleNavigationController
