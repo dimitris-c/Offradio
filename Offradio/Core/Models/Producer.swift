@@ -16,6 +16,6 @@ struct Producer {
     init(with json: JSON) {
         self.name   = json["name"].stringValue
         self.bio    = json["bio"].stringValue
-        self.photoUrl = json["photoUrl"].stringValue
+        self.photoUrl = json["photo"].stringValue
     }
 }

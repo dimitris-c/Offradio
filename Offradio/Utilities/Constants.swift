@@ -41,6 +41,16 @@ struct Version
 
 //MARK: Extensions for platforms
 
+extension UIEdgeInsets {
+    static func deviceValue<T>(iPhone:T, iPad:T) -> T {
+        if DeviceType.IS_IPAD {
+            return iPad
+        } else {
+            return iPhone
+        }
+    }
+}
+
 extension FloatingPoint {
     static func deviceValue<T>(iPhone:T, iPad:T) -> T {
         if DeviceType.IS_IPAD {

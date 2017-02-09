@@ -79,6 +79,7 @@
 		B54E08801E4D10C400B54FB3 /* ScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E087B1E4D10C400B54FB3 /* ScheduleDelegate.swift */; };
 		B54E08811E4D10C400B54FB3 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E087C1E4D10C400B54FB3 /* ScheduleViewModel.swift */; };
 		B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E087D1E4D10C400B54FB3 /* ScheduleViewController.swift */; };
+		B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08831E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift */; };
 		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
 		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
 		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
@@ -203,6 +204,7 @@
 		B54E087B1E4D10C400B54FB3 /* ScheduleDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDelegate.swift; sourceTree = "<group>"; };
 		B54E087C1E4D10C400B54FB3 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		B54E087D1E4D10C400B54FB3 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		B54E08831E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		B569603C1E4908D0003BFBC6 /* RadioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		B569603E1E490907003BFBC6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B56960411E490957003BFBC6 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 		B52A6C2B1E36B996005893D2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B54E08831E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift */,
 				B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */,
 				B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */,
 				B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */,
@@ -1018,6 +1021,7 @@
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B50395701E4BCA0100D9A71B /* PlaylistService.swift in Sources */,
+				B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
 				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,

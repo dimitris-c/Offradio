@@ -65,6 +65,8 @@ public class APIService {
                     if let items = data as? T {
                         observer.onNext(items)
                         observer.onCompleted()
+                    } else {
+                        observer.onError(APIError.error("Error while decoding data"))
                     }
                 } else  {
                     if let error = data as? String {
