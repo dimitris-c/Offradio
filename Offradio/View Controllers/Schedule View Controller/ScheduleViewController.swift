@@ -19,6 +19,7 @@ final class ScheduleViewController: UIViewController {
     var viewModel: ScheduleViewModel!
     var delegate: ScheduleDelegate!
     
+    var activityIndicator: UIActivityIndicatorView!
     var refreshControl: UIRefreshControl!
     
     init() {
@@ -34,10 +35,15 @@ final class ScheduleViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
         
+        let date = Date()
+        if let weekDay = date.dayOfWeek() {
+            self.title = "Schedule - \(weekDay)"
+        }
+        
         self.viewModel = ScheduleViewModel()
         
         self.tableView = UITableView()
-        self.tableView.backgroundColor = self.view.backgroundColor
+        self.tableView.backgroundColor = self.view.backgroundColor?.withAlphaComponent(0)
         self.tableView.register(cellType: ScheduleTableViewCell.self)
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
@@ -47,6 +53,10 @@ final class ScheduleViewController: UIViewController {
         self.tableView.delegate = self.delegate
         
         self.view.addSubview(self.tableView)
+        
+        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        self.activityIndicator.startAnimating()
+        self.view.addSubview(self.activityIndicator)
         
         let identifier = ScheduleTableViewCell.identifier
         let cellType = ScheduleTableViewCell.self
@@ -69,13 +79,17 @@ final class ScheduleViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         self.viewModel.refresh.asObservable().bindTo(self.refreshControl.rx.isRefreshing).addDisposableTo(disposeBag)
-        
+        self.viewModel.firstLoad.asObservable().bindTo(self.activityIndicator.rx.isAnimating).addDisposableTo(disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         self.tableView.frame = self.view.bounds
+        
+        self.activityIndicator.sizeToFit()
+        self.activityIndicator.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        
     }
     
 }

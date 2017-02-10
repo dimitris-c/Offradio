@@ -13,7 +13,10 @@ import RxAlamofire
 final class ScheduleViewModel {
     let disposeBag: DisposeBag = DisposeBag()
     
+    var firstLoad: Variable<Bool> = Variable<Bool>(true)
+    
     var refresh: Variable<Bool> = Variable<Bool>(false)
+    
     var scheduleService: ScheduleService!
     var producersService: ProducersBioService!
     
@@ -23,7 +26,7 @@ final class ScheduleViewModel {
     init() {
         scheduleService = ScheduleService()
         producersService = ProducersBioService()
-                
+        
         self.fetchSchedule().catchErrorJustReturn([]).bindTo(schedule).addDisposableTo(disposeBag)
         
         self.refresh.asObservable().filter { $0 }.flatMapLatest { _ -> Observable<[ScheduleItem]> in
@@ -45,8 +48,10 @@ final class ScheduleViewModel {
     fileprivate func fetchSchedule() -> Observable<[ScheduleItem]> {
         return self.scheduleService.rxCall().do(onError: { [weak self] (_) in
             self?.refresh.value = false
+            self?.firstLoad.value = false
         }, onCompleted: { [weak self] in
             self?.refresh.value = false
+            self?.firstLoad.value = false
         })
     }
     
@@ -62,12 +67,12 @@ final class ScheduleViewModel {
                     if let items = data as? [ScheduleItem] {
                         observer.onNext(items)
                         observer.onCompleted()
-                        self?.refresh.value = false
                     }
                 } else {
                     let error = APIError.error(data as? String)
                     observer.onError(error)
                 }
+                self?.refresh.value = false
             }
             return Disposables.create(with: { [weak request] in request?.cancel() })
         })

@@ -18,6 +18,7 @@ final class ProducersBioViewController: UIViewController {
     
     fileprivate var producerTopView: UIView!
     fileprivate var producerImageView: UIImageView!
+    fileprivate var producerImageViewIndicator: UIActivityIndicatorView!
     fileprivate var producerNameLabel: UILabel!
     fileprivate var producerBioLabel: UILabel!
     
@@ -45,8 +46,23 @@ final class ProducersBioViewController: UIViewController {
         
         self.producerImageView = UIImageView(frame: .zero)
         self.producerTopView.addSubview(self.producerImageView)
+        
+        self.producerImageViewIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        self.producerImageViewIndicator.startAnimating()
+        self.producerImageView.addSubview(self.producerImageViewIndicator)
+        
         if let imageUrl = URL(string: self.producer.photoUrl) {
-            self.producerImageView.sd_setImage(with: imageUrl)
+            self.producerImageView.sd_setImage(with: imageUrl, completed: { [weak self] (image, error, cacheType, _) in
+                if cacheType == SDImageCacheType.none {
+                    self?.producerImageView.alpha = 0.0
+                    UIView.animate(withDuration: 0.35, animations: {
+                        self?.producerImageView.alpha = 1.0
+                    })
+                } else {
+                    self?.producerImageView.alpha = 1.0
+                }
+                self?.producerImageViewIndicator?.stopAnimating()
+            })
         }
         
         self.producerNameLabel = UILabel(frame: .zero)
@@ -74,6 +90,11 @@ final class ProducersBioViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.producerImageView?.sd_cancelCurrentImageLoad()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -88,6 +109,9 @@ final class ProducersBioViewController: UIViewController {
                                                                iPad: CGSize(width: 320, height: 320))
         self.producerImageView.center.x = self.producerTopView.center.x
         self.producerImageView.frame.origin.y = CGFloat.deviceValue(iPhone: 20, iPad: 40)
+        
+        self.producerImageViewIndicator.sizeToFit()
+        self.producerImageViewIndicator.center = CGPoint(x: self.producerImageView.bounds.midX, y: self.producerImageView.bounds.midY)
         
         self.producerNameLabel.sizeToFit()
         self.producerNameLabel.frame.size.width = self.scrollViewContainer.frame.width
