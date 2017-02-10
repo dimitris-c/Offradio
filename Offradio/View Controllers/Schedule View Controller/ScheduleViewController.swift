@@ -24,7 +24,7 @@ final class ScheduleViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.title = "Schedule"
+        self.title = "Schedule"        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -37,7 +37,7 @@ final class ScheduleViewController: UIViewController {
         
         let date = Date()
         if let weekDay = date.dayOfWeek() {
-            self.title = "Schedule - \(weekDay)"
+            self.navigationItem.title = "Schedule - \(weekDay)"
         }
         
         self.viewModel = ScheduleViewModel()

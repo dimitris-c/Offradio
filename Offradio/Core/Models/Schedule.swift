@@ -15,8 +15,10 @@ struct ScheduleItem {
     let title: String
     let hasBio: Bool
     
+    var isOnAir: Bool = false
+    
     var timeTitle: String {
-        return "\(endTime) - \(startTime)"
+        return "\(startTime) - \(endTime)"
     }
     
     init(with json: JSON) {
@@ -24,6 +26,13 @@ struct ScheduleItem {
         self.endTime    = json["endTime"].stringValue
         self.title      = json["title"].stringValue
         self.hasBio     = json["bio"].boolValue
+    }
+    
+    init(withStartTime startTime: String, endTime: String, title: String, hasBio: Bool) {
+        self.startTime = startTime
+        self.endTime = endTime
+        self.title = title
+        self.hasBio = hasBio
     }
 }
 

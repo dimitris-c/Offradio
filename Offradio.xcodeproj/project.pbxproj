@@ -81,6 +81,10 @@
 		B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E087D1E4D10C400B54FB3 /* ScheduleViewController.swift */; };
 		B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08831E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift */; };
 		B54E08861E4D554E00B54FB3 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08851E4D554E00B54FB3 /* DateExtensions.swift */; };
+		B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08891E4E2FB200B54FB3 /* ContactTableViewCell.swift */; };
+		B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */; };
+		B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088E1E4E307700B54FB3 /* ContactModels.swift */; };
+		B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */; };
 		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
 		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
 		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
@@ -90,7 +94,6 @@
 		B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960501E492A35003BFBC6 /* MainTabBarViewController.swift */; };
 		B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */; };
 		B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960581E492AA1003BFBC6 /* ContactViewController.swift */; };
-		B56960661E49588B003BFBC6 /* ContactViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960651E49588B003BFBC6 /* ContactViewController.storyboard */; };
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
@@ -207,6 +210,10 @@
 		B54E087D1E4D10C400B54FB3 /* ScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		B54E08831E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		B54E08851E4D554E00B54FB3 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		B54E08891E4E2FB200B54FB3 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		B54E088E1E4E307700B54FB3 /* ContactModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModels.swift; sourceTree = "<group>"; };
+		B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		B569603C1E4908D0003BFBC6 /* RadioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		B569603E1E490907003BFBC6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B56960411E490957003BFBC6 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
@@ -216,7 +223,6 @@
 		B56960501E492A35003BFBC6 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioContentViewController.swift; sourceTree = "<group>"; };
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
-		B56960651E49588B003BFBC6 /* ContactViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ContactViewController.storyboard; sourceTree = "<group>"; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
@@ -432,6 +438,7 @@
 				B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */,
 				B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */,
 				B50395751E4BCAE800D9A71B /* UITableViewExtensions.swift */,
+				B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -605,6 +612,15 @@
 			path = "Schedule View Model";
 			sourceTree = "<group>";
 		};
+		B54E088B1E4E306500B54FB3 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */,
+				B54E088E1E4E307700B54FB3 /* ContactModels.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		B56960391E4908B8003BFBC6 /* Radio View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,8 +643,9 @@
 		B569604D1E492A1A003BFBC6 /* Contact View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B56960651E49588B003BFBC6 /* ContactViewController.storyboard */,
+				B54E088B1E4E306500B54FB3 /* View Model */,
 				B56960581E492AA1003BFBC6 /* ContactViewController.swift */,
+				B54E08891E4E2FB200B54FB3 /* ContactTableViewCell.swift */,
 			);
 			path = "Contact View Controller";
 			sourceTree = "<group>";
@@ -815,7 +832,6 @@
 				B53942B01E4A8E2C00AF5BE5 /* right_button_off@2x.png in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 				B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */,
-				B56960661E49588B003BFBC6 /* ContactViewController.storyboard in Resources */,
 				B53942BF1E4A8E2C00AF5BE5 /* toggle_button_l@3x.png in Resources */,
 				B53942BB1E4A8E2C00AF5BE5 /* toggle_button.png in Resources */,
 				B53942B41E4A8E2C00AF5BE5 /* toggle_base.png in Resources */,
@@ -1031,6 +1047,7 @@
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
+				B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */,
 				B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */,
 				B50395561E4BA33200D9A71B /* APIResponse.swift in Sources */,
 				B54E087E1E4D10C400B54FB3 /* ProducerBioViewController.swift in Sources */,
@@ -1039,12 +1056,15 @@
 				B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */,
 				B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */,
 				B503956E1E4BCA0100D9A71B /* APIURL.swift in Sources */,
+				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B54E08801E4D10C400B54FB3 /* ScheduleDelegate.swift in Sources */,
 				B50395521E4BA33200D9A71B /* APIRequest.swift in Sources */,
 				B53942AB1E4A8E2C00AF5BE5 /* ToggleView.m in Sources */,
+				B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
 				B51E3FBC1E4B9F49009F4C37 /* Producer.swift in Sources */,
 				B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */,
+				B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */,
 				B53942AA1E4A8E2C00AF5BE5 /* ToggleButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

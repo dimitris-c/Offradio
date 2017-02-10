@@ -14,11 +14,10 @@ final class ScheduleViewModel {
     let disposeBag: DisposeBag = DisposeBag()
     
     var firstLoad: Variable<Bool> = Variable<Bool>(true)
-    
     var refresh: Variable<Bool> = Variable<Bool>(false)
     
-    var scheduleService: ScheduleService!
-    var producersService: ProducersBioService!
+    fileprivate var scheduleService: ScheduleService!
+    fileprivate var producersService: ProducersBioService!
     
     var schedule: Variable<[ScheduleItem]> = Variable<[ScheduleItem]>([])
     var producers: Variable<[Producer]> = Variable<[Producer]>([])
@@ -37,6 +36,8 @@ final class ScheduleViewModel {
         
     }
     
+    // MARK: Public methods
+    
     func getProducerBio(`for` name: String) -> Producer? {
         return self.producers.value.filter { $0.name == name }.first
     }
@@ -45,6 +46,8 @@ final class ScheduleViewModel {
         return self.schedule.value[indexPath.row]
     }
     
+    // MARK: Internal methods
+
     fileprivate func fetchSchedule() -> Observable<[ScheduleItem]> {
         return self.scheduleService.rxCall().do(onError: { [weak self] (_) in
             self?.refresh.value = false
@@ -59,7 +62,7 @@ final class ScheduleViewModel {
         return self.producersService.rxCall()
     }
 
-    /// DEPRECATED
+    // MARK: DEPRECATED
     fileprivate func fetchItems() -> Observable<[ScheduleItem]> {
         return Observable<[ScheduleItem]>.create({ [weak self] (observer) -> Disposable in
             let request = self?.scheduleService.call { (success, data, headers) in

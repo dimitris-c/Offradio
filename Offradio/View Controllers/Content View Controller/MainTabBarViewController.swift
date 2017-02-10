@@ -78,7 +78,7 @@ final class MainTabBarViewController: UITabBarController {
     }
     
     fileprivate final func contactViewController() -> UINavigationController {
-        let rootViewController = ContactViewController.createFromStoryboard()
+        let rootViewController = ContactViewController()
         rootViewController.tabBarItem = rootViewController.defaultTabBarItem()
         let contactNavigationController = navigationController(withRootViewController: rootViewController)
         return contactNavigationController
