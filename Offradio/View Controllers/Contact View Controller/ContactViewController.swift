@@ -43,8 +43,8 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         self.contactViewModel = ContactViewModel()
         
         let cellIdentifier = ContactTableViewCell.identifier
-        self.contactViewModel.data.asObservable().bindTo(tableView.rx.items(cellIdentifier: cellIdentifier)) { row, model, cell in
-            cell.textLabel?.text = model.title.uppercased()
+        self.contactViewModel.data.asObservable().bindTo(tableView.rx.items(cellIdentifier: cellIdentifier, cellType: ContactTableViewCell.self)) { row, model, cell in
+            cell.configure(with: model)
         }.addDisposableTo(disposeBag)
         
         self.tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
