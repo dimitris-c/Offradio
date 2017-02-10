@@ -17,6 +17,8 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
     fileprivate var tableView: UITableView!
     fileprivate var contactViewModel: ContactViewModel!
     
+    fileprivate var funkytapsLogo: UIButton!
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.title = "Contact Offradio"
@@ -30,6 +32,8 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
         
+        self.contactViewModel = ContactViewModel()
+        
         self.tableView = UITableView(frame: .zero)
         self.tableView.backgroundColor = self.view.backgroundColor
         self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 80, iPad: 100)
@@ -40,7 +44,14 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         
         self.view.addSubview(self.tableView)
         
-        self.contactViewModel = ContactViewModel()
+        self.funkytapsLogo = UIButton(type: .custom)
+        self.funkytapsLogo.setBackgroundImage(#imageLiteral(resourceName: "created-by-funkytaps"), for: .normal)
+        
+        self.funkytapsLogo.rx.tap.subscribe(onNext: {
+            UIApplication.open(url: URL(string: "https://www.niceandneat.gr")!)
+        }).addDisposableTo(disposeBag)
+        
+        self.view.addSubview(self.funkytapsLogo)
         
         let cellIdentifier = ContactTableViewCell.identifier
         let cellType = ContactTableViewCell.self
@@ -64,6 +75,9 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         let height = CGFloat(self.contactViewModel.data.value.count) * self.tableView.rowHeight
         self.tableView.frame.size = CGSize(width: self.view.frame.width, height: height)
         
+        self.funkytapsLogo.sizeToFit()
+        self.funkytapsLogo.center.x = self.view.center.x
+        self.funkytapsLogo.frame.origin.y = self.tableView.frame.maxY + ((self.view.frame.height - self.tableView.frame.maxY) - self.funkytapsLogo.frame.height) * 0.5
     }
     
     final fileprivate func showView(`for` type: ContactItemType) {
