@@ -15,7 +15,7 @@ target 'Offradio' do
   pod 'SDWebImage'
   pod 'Fabric'
   pod 'Crashlytics'
-  pod 'Realm'
+  pod 'RealmSwift'
   pod 'RxSwift',    '~> 3.0'
   pod 'RxCocoa',    '~> 3.0'
   pod 'RxAlamofire'
@@ -33,5 +33,12 @@ end
 
 post_install do |installer|
     require 'fileutils'
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
+    
     #FileUtils.cp_r('Pods/Target Support Files/Pods-Carlito/Pods-Carlito-acknowledgements.plist', 'Carlito/Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
 end
+

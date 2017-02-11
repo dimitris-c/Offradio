@@ -22,7 +22,7 @@ final class RadioViewModel: StormysRadioKitDelegate {
     
     init() {
         
-        self.radio = Offradio()
+        self.radio = OffradioStream.radio
         self.radio.setupRadio()
         self.radio.kit.delegate = self
         

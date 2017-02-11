@@ -7,20 +7,39 @@
 //
 
 import Alamofire
+import SwiftyJSON
 
 final class PlaylistService: APIService {
+    
+    var page: Int = 0
     
     init() {
         let path: String = APIURL().with("playlist")
         let request = APIRequest(apiPath: path, method: .get)
-        super.init(request: request, parse: APIResponse())
+        super.init(request: request, parse: PlaylistResponseParse())
     }
     
-    init(with page: String) {
+    init(withPage page: Int) {
         let path: String = APIURL().with("playlist")
-        let params: Parameters = ["page": page]
+        let params: Parameters = ["page": String(page)]
         let parameters = RequestParameters(parameters: params, encoding: URLEncoding.default)
         let request = APIRequest(apiPath: path, method: .get, parameters: parameters)
-        super.init(request: request, parse: APIResponse())
+        super.init(request: request, parse: PlaylistResponseParse())
     }
+    
+    func with(page: Int) -> APIService {
+        return PlaylistService(withPage: page)
+    }
+    
 }
+
+final class PlaylistResponseParse: ResponseParse {
+    
+    func toData(rawData data: JSON) -> Any {
+        var items: [PlaylistSong] = []
+        items = data["playlist"].arrayValue.map { PlaylistSong(with: $0) }
+        return items
+    }
+    
+}
+

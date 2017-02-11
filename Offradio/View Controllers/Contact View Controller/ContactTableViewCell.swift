@@ -20,7 +20,7 @@ final class ContactTableViewCell: UITableViewCell, ConfigurableCell {
         selectedView.backgroundColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
         self.selectedBackgroundView = selectedView
         
-        self.textLabel?.font = UIFont.letterGothicBold(withSize: 16)
+        self.textLabel?.font = UIFont.letterGothicBold(withSize: CGFloat.deviceValue(iPhone: 16, iPad: 20))
         self.textLabel?.textColor = UIColor.white
         
     }

@@ -33,7 +33,7 @@ final class ScheduleDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Float.deviceValue(iPhone: 60, iPad: 80)
+        return Float.deviceValue(iPhone: 60, iPad: 90)
     }
     
 }

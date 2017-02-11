@@ -20,7 +20,7 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
     
     @IBOutlet weak var bufferCircle: UIImageView!
     @IBOutlet weak var offradioLogo: UIImageView!
-    fileprivate final let gredRedImageSizeiPad: CGSize = CGSize(width: 370, height: 370)
+    
     fileprivate final var greyBackgroundView: UIImageView!
     fileprivate final var redBackgroundView: UIImageView!
     fileprivate final var offradioSwitch: ToggleView!
@@ -76,15 +76,9 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
         super.layoutSubviews()
         
         self.greyBackgroundView.sizeToFit()
-        if DeviceType.IS_IPAD {
-            self.greyBackgroundView.frame.size = gredRedImageSizeiPad
-        }
         self.greyBackgroundView.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         
         self.redBackgroundView.sizeToFit()
-        if DeviceType.IS_IPAD {
-            self.redBackgroundView.frame.size = gredRedImageSizeiPad
-        }
         self.redBackgroundView.center = CGPoint(x: self.bounds.midX, y: self.bounds.midY)
         
         let iPadOffset: CGFloat = 20

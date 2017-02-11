@@ -36,7 +36,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         
         self.tableView = UITableView(frame: .zero)
         self.tableView.backgroundColor = self.view.backgroundColor
-        self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 80, iPad: 100)
+        self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 80, iPad: 120)
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

@@ -35,7 +35,24 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.playerCircleContainer.switched.bindTo(viewModel.toggleRadio).addDisposableTo(disposeBag)
         viewModel.isBuffering.asObservable().bindTo(self.playerCircleContainer.buffering).addDisposableTo(disposeBag)
         viewModel.isPlaying.asObservable().bindTo(self.playerCircleContainer.playing).addDisposableTo(disposeBag)
+     
+        let playlistButton = UIButton(type: .custom)
+        playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon"), for: .normal)
+        playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon-tapped"), for: .highlighted)
+        playlistButton.sizeToFit()
+        let barButton = UIBarButtonItem(customView: playlistButton)
+        self.navigationItem.rightBarButtonItem = barButton
         
+        playlistButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.showPlaylistViewController()
+        }).addDisposableTo(disposeBag)
+        
+    }
+    
+    fileprivate func showPlaylistViewController() {
+        self.hideLabelOnBackButton()
+        let playlistViewController = PlaylistViewController()
+        self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
     
     override func viewWillLayoutSubviews() {
