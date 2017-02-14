@@ -1,4 +1,7 @@
 PODS:
+  - Action (2.2.1):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
   - Alamofire (4.3.0)
   - AlamofireNetworkActivityIndicator (2.1.0):
     - Alamofire (~> 4.1)
@@ -36,6 +39,7 @@ PODS:
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - Action
   - Alamofire
   - AlamofireNetworkActivityIndicator
   - Bolts
@@ -52,6 +56,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Action: 93c6c9eec95eb76428b2d49a6d260466c2f71b7e
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -68,6 +73,6 @@ SPEC CHECKSUMS:
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 50cb8f38417278d3a70f5d81f39d0c041728148f
+PODFILE CHECKSUM: 9fdbc90ee7203ced9d5ccf3b705a81f75e714e3e
 
 COCOAPODS: 1.1.1

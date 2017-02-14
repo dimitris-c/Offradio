@@ -78,6 +78,7 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         
         let arranger = VerticalArranger()
         
+        arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 10)))
         arranger.add(SizeObject(type: .Flexible, view: self.timeLabel))
         arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 5)))
         arranger.add(SizeObject(type: .Flexible, view: self.artistLabel))
