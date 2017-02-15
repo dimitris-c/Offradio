@@ -10,46 +10,72 @@ import Foundation
 import RxSwift
 import RxCocoa
 import Realm
-import Action
 
 final class PlaylistViewModel {
     
     private let disposeBag = DisposeBag()
     
-//    fileprivate var playlistService: PlaylistService!
+    private var service: PlaylistService!
+    
+    let initialLoad: Variable<Bool> = Variable<Bool>(true)
     
     let refresh: Variable<Bool> = Variable<Bool>(false)
     
-    let playlistData: Variable<[PlaylistSong]> = Variable<[PlaylistSong]>([])
+    let indicatorViewAnimating: Variable<Bool> = Variable<Bool>(true)
     
-    fileprivate var totalPagesToFetch: Int = 10
+    var playlistData: Variable<[PlaylistSong]> = Variable<[PlaylistSong]>([])
+    
+    fileprivate var page: Int = 0
+    fileprivate let totalPagesToFetch: Int = 10
     fileprivate var isLoadingNext: Bool = false
     
     init(viewWillAppear: Driver<Void>, scrollViewDidReachBottom: Driver<Void>) {
         
-//        self.playlistService = PlaylistService()
+        self.refresh.asObservable().subscribe(onNext: { [weak self] refresh in
+            guard let strongSelf = self else { return }
+            if refresh && !strongSelf.isLoadingNext {
+                strongSelf.page = 0
+                self?.fetchPlaylist(withPage: 0)
+            }
+        }).addDisposableTo(disposeBag)
+
+        viewWillAppear.asObservable()
+            .map { _ in 0 }
+            .subscribe(onNext: { [weak self] page in
+                self?.fetchPlaylist(withPage: page)
+            })
+            .addDisposableTo(disposeBag)
     
-        
-//        self.fetchPlaylist(withPage: 0).catchErrorJustReturn([]).bindTo(playlistData).addDisposableTo(disposeBag)
-        
-//        self.refresh.asObservable().filter { $0 }.flatMapLatest { _ -> Observable<[PlaylistSong]> in
-//            return self.fetchPlaylist(withPage: 0)
-//        }.bindTo(playlistData).addDisposableTo(disposeBag)
-        
-        
+        scrollViewDidReachBottom.asObservable().subscribe(onNext: { [weak self] _ in
+            guard let strongSelf = self, !strongSelf.isLoadingNext else { return }
+            if strongSelf.page <= strongSelf.totalPagesToFetch {
+                strongSelf.fetchPlaylist(withPage: strongSelf.page)
+                strongSelf.isLoadingNext = true
+                strongSelf.indicatorViewAnimating.value = true
+            }
+        }).addDisposableTo(disposeBag)
         
     }
-
+    
     // MARK: Internal methods
     
-//    fileprivate func fetchPlaylist(withPage page: Int) -> Observable<[PlaylistSong]> {
-//        return self.playlistService.with(page: page).rxCall().do(onError: { [weak self] (_) in
-//                self?.refresh.value = false
-//                self?.isLoadingNext = false
-//            }, onCompleted: { [weak self] in
-//                self?.refresh.value = false
-//                self?.isLoadingNext = false
-//        })
-//    }
+    fileprivate func fetchPlaylist(withPage page: Int) {
+        self.service = PlaylistService(withPage: page)
+        self.service.call({ [weak self] (success, data, headers) in
+            guard let strongSelf = self else { return }
+            if let items = data as? [PlaylistSong] {
+                if strongSelf.page == 0 {
+                    strongSelf.playlistData.value = items
+                } else {
+                    strongSelf.playlistData.value.append(contentsOf: items)
+                }
+                strongSelf.page = strongSelf.page + 1
+            }
+            strongSelf.isLoadingNext = false
+            strongSelf.refresh.value = false
+            strongSelf.indicatorViewAnimating.value = false
+            strongSelf.initialLoad.value = false
+        })
+    }
     
 }

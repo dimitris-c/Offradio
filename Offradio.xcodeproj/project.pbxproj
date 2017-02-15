@@ -95,8 +95,6 @@
 		B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */; };
 		B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960581E492AA1003BFBC6 /* ContactViewController.swift */; };
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
-		B56B18F91E5351E200086F6E /* PaginationResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B18F81E5351E200086F6E /* PaginationResponseType.swift */; };
-		B56B18FB1E5352DA00086F6E /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B18FA1E5352DA00086F6E /* SearchResponse.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
 		B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */; };
@@ -231,8 +229,6 @@
 		B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioContentViewController.swift; sourceTree = "<group>"; };
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
-		B56B18F81E5351E200086F6E /* PaginationResponseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationResponseType.swift; sourceTree = "<group>"; };
-		B56B18FA1E5352DA00086F6E /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
 		B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
@@ -341,7 +337,6 @@
 		B50395681E4BCA0100D9A71B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B56B18F71E5351C400086F6E /* Pagination */,
 				B50395691E4BCA0100D9A71B /* APIURL.swift */,
 			);
 			path = Core;
@@ -686,15 +681,6 @@
 				B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */,
 			);
 			path = "Content View Controller";
-			sourceTree = "<group>";
-		};
-		B56B18F71E5351C400086F6E /* Pagination */ = {
-			isa = PBXGroup;
-			children = (
-				B56B18F81E5351E200086F6E /* PaginationResponseType.swift */,
-				B56B18FA1E5352DA00086F6E /* SearchResponse.swift */,
-			);
-			path = Pagination;
 			sourceTree = "<group>";
 		};
 		B5BA38331E4F609A00DB49C9 /* Playlist View Controller */ = {
@@ -1077,7 +1063,6 @@
 				B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */,
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
 				B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */,
-				B56B18FB1E5352DA00086F6E /* SearchResponse.swift in Sources */,
 				B54E08861E4D554E00B54FB3 /* DateExtensions.swift in Sources */,
 				B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */,
 				B50395571E4BA33200D9A71B /* APIService.swift in Sources */,
@@ -1100,7 +1085,6 @@
 				B50395701E4BCA0100D9A71B /* PlaylistService.swift in Sources */,
 				B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */,
-				B56B18F91E5351E200086F6E /* PaginationResponseType.swift in Sources */,
 				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
 				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
