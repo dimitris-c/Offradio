@@ -29,6 +29,9 @@ class PlaylistSong: Object {
         
     }
 
+    func deepCopy() -> PlaylistSong {
+        return PlaylistSong(value: self)
+    }
 }
 
 struct Playlist {

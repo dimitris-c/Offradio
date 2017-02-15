@@ -21,6 +21,7 @@
 		B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395731E4BCA3C00D9A71B /* Reusable.swift */; };
 		B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395751E4BCAE800D9A71B /* UITableViewExtensions.swift */; };
 		B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395791E4BEB5E00D9A71B /* Configurable.swift */; };
+		B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A01E54CE3000792414 /* PlaylistCellViewModel.swift */; };
 		B51BE4E21E3ABF79005775F4 /* libRadioKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */; };
 		B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
@@ -142,6 +143,7 @@
 		B50395731E4BCA3C00D9A71B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		B50395751E4BCAE800D9A71B /* UITableViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		B50395791E4BEB5E00D9A71B /* Configurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		B507C0A01E54CE3000792414 /* PlaylistCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistCellViewModel.swift; sourceTree = "<group>"; };
 		B51BE4DE1E3ABF79005775F4 /* BufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BufferView.h; sourceTree = "<group>"; };
 		B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRadioKit.a; sourceTree = "<group>"; };
 		B51BE4E01E3ABF79005775F4 /* RadioKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioKit.h; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 			isa = PBXGroup;
 			children = (
 				B5BA383B1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift */,
+				B507C0A01E54CE3000792414 /* PlaylistCellViewModel.swift */,
 			);
 			path = "Playlist Cells";
 			sourceTree = "<group>";
@@ -1107,6 +1110,7 @@
 				B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
 				B51E3FBC1E4B9F49009F4C37 /* Producer.swift in Sources */,
+				B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */,
 				B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */,
 				B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */,
 				B53942AA1E4A8E2C00AF5BE5 /* ToggleButton.m in Sources */,

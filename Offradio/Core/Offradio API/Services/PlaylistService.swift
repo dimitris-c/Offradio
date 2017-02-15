@@ -8,6 +8,7 @@
 
 import Alamofire
 import SwiftyJSON
+import RealmSwift
 
 final class PlaylistService: APIService {
     

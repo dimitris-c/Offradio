@@ -1,7 +1,4 @@
 PODS:
-  - Action (2.2.1):
-    - RxCocoa (~> 3.0)
-    - RxSwift (~> 3.0)
   - Alamofire (4.3.0)
   - AlamofireNetworkActivityIndicator (2.1.0):
     - Alamofire (~> 4.1)
@@ -14,32 +11,34 @@ PODS:
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.11)
-  - FBSDKCoreKit (4.18.0):
+  - FBSDKCoreKit (4.19.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.18.0):
+  - FBSDKLoginKit (4.19.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.18.0):
+  - FBSDKShareKit (4.19.0):
     - FBSDKCoreKit
-  - Realm (2.3.0):
-    - Realm/Headers (= 2.3.0)
-  - Realm/Headers (2.3.0)
-  - RealmSwift (2.3.0):
-    - Realm (= 2.3.0)
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
+  - RealmSwift (2.4.2):
+    - Realm (= 2.4.2)
   - RxAlamofire (3.0.2):
     - RxAlamofire/Core (= 3.0.2)
   - RxAlamofire/Core (3.0.2):
     - Alamofire (~> 4.0)
     - RxSwift (~> 3.0)
-  - RxCocoa (3.1.0):
+  - RxCocoa (3.2.0):
     - RxSwift (~> 3.1)
-  - RxSwift (3.1.0)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - RxRealm (0.5.1):
+    - RealmSwift (~> 2.2)
+    - RxSwift (~> 3.1)
+  - RxSwift (3.2.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
-  - Action
   - Alamofire
   - AlamofireNetworkActivityIndicator
   - Bolts
@@ -51,28 +50,29 @@ DEPENDENCIES:
   - RealmSwift
   - RxAlamofire
   - RxCocoa (~> 3.0)
+  - RxRealm
   - RxSwift (~> 3.0)
   - SDWebImage
   - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Action: 93c6c9eec95eb76428b2d49a6d260466c2f71b7e
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FBSDKCoreKit: 15fef8804a4629f98c6f4e55e81a76c9d725d85e
-  FBSDKLoginKit: 6773073e970b2b15fb12e451ce7f11da0532b880
-  FBSDKShareKit: 0b8d6cc3f103c75297eb3c62caec284a2ccf1b9e
-  Realm: 69d7de9aa569a11eed490aaabc8f2109e3985ecf
-  RealmSwift: dc6f99ea55e59490cec69c860f91932b6bf7efb6
+  FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
+  FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
+  FBSDKShareKit: 5953758366278430dc322d5cdc906db361ed7f81
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
+  RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
   RxAlamofire: bc53604b29fd2d220cfaa490c736cc4500819f34
-  RxCocoa: 50d7564866da9299161e86a263ce12a0873904d8
-  RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  RxCocoa: ccdf43101a70407097a29082f648ba1676075b30
+  RxRealm: c80d17d42fc362f4d8af4ac62de360b014be5c3f
+  RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 9fdbc90ee7203ced9d5ccf3b705a81f75e714e3e
+PODFILE CHECKSUM: a45dec525074544e8d4af0ae07a65dd15403bdb1
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

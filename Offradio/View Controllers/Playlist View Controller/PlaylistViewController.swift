@@ -59,7 +59,8 @@ final class PlaylistViewController: UIViewController {
         
         self.viewModel.playlistData.asObservable()
             .bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, model, cell in
-                cell.configure(with: model)
+                let viewModel = PlaylistCellViewModel(with: model)
+                cell.configure(with: viewModel)
             }.addDisposableTo(disposeBag)
         
         
@@ -87,6 +88,8 @@ final class PlaylistViewController: UIViewController {
         self.viewModel.initialLoad.asObservable()
             .bindTo(self.initialLoadActivityView.rx.isAnimating)
             .addDisposableTo(disposeBag)
+        
+        
     }
     
     override func viewDidLayoutSubviews() {

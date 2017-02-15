@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import SDWebImage
 
 final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
+    fileprivate let disposeBag = DisposeBag()
+    
+    private(set) var viewModel: PlaylistCellViewModel!
     
     private(set) var item: PlaylistSong!
     
@@ -18,6 +23,8 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
     fileprivate var timeLabel: UILabel!
     fileprivate var artistLabel: UILabel!
     fileprivate var songLabel: UILabel!
+    
+    fileprivate var favouriteButton: UIButton!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,6 +57,13 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.songLabel.numberOfLines = 3
         self.contentView.addSubview(self.songLabel)
         
+        self.favouriteButton = UIButton(type: .custom)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon"), for: .normal)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon"), for: .highlighted)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon-added"), for: .selected)
+        self.contentView.addSubview(self.favouriteButton)
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,8 +84,6 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.artistLabel.frame.origin.x = labelsMinX
         self.songLabel.frame.origin.x = labelsMinX
         
-        
-        
         self.timeLabel.frame.size.width = self.contentView.frame.width - self.timeLabel.frame.minX
         self.artistLabel.frame.size.width = self.contentView.frame.width - self.artistLabel.frame.minX
         self.songLabel.frame.size.width = self.contentView.frame.width - self.songLabel.frame.minX
@@ -91,10 +103,15 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.timeLabel.frame.size.width = self.timeLabel.frame.size.width + 5
         self.artistLabel.frame.size.width = self.artistLabel.frame.size.width + 5
         self.songLabel.frame.size.width = self.songLabel.frame.size.width + 5
+        
+        self.favouriteButton.sizeToFit()
+        self.favouriteButton.frame.origin.x = self.albumArtwork.frame.minX + 5
+        self.favouriteButton.frame.origin.y = self.albumArtwork.frame.minY + 5
     }
     
-    func configure(with item: PlaylistSong) {
-        self.item = item
+    func configure(with viewModel: PlaylistCellViewModel) {
+        self.viewModel = viewModel
+        self.item = self.viewModel.item
         
         self.timeLabel.text = self.item.time.uppercased()
         
@@ -106,8 +123,16 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         }
         
         if let url = URL(string: self.item.imageUrl) {
-            self.albumArtwork.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "turn-your-radio-off"))
+            self.albumArtwork.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "artwork-image-placeholder"))
         }
+        
+        self.favouriteButton.rx.tap.asObservable()
+            .scan(false) { state, _ in
+                !state
+            }
+            .startWith(false)
+            .bindTo(self.viewModel.favouriteItem)
+            .addDisposableTo(disposeBag)
         
         self.setNeedsLayout()
     }

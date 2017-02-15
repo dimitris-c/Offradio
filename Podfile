@@ -16,6 +16,7 @@ target 'Offradio' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'RealmSwift'
+  pod 'RxRealm'
   pod 'RxSwift',    '~> 3.0'
   pod 'RxCocoa',    '~> 3.0'
   pod 'RxAlamofire'

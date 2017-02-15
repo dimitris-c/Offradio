@@ -9,7 +9,8 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import Realm
+import RealmSwift
+import RxRealm
 
 final class PlaylistViewModel {
     
