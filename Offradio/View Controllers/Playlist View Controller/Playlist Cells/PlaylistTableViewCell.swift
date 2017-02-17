@@ -12,7 +12,7 @@ import RxCocoa
 import SDWebImage
 
 final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
-    fileprivate let disposeBag = DisposeBag()
+    fileprivate var disposeBag: DisposeBag?
     
     private(set) var viewModel: PlaylistCellViewModel!
     
@@ -34,6 +34,7 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.contentView.backgroundColor = UIColor.clear
         
         self.albumArtwork = UIImageView(frame: CGRect(x: 0, y: 0, width: 160, height: 160))
+        self.albumArtwork.image = UIImage(named: "artwork-image-placeholder")
         self.contentView.addSubview(self.albumArtwork)
         
         self.timeLabel = UILabel(frame: .zero)
@@ -113,32 +114,35 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.viewModel = viewModel
         self.item = self.viewModel.item
         
+        self.disposeBag = DisposeBag()
+        
         self.timeLabel.text = self.item.time.uppercased()
         
-        do {
-            self.artistLabel.text = try self.item.artist.convertHTMLEntities()?.uppercased()
-            self.songLabel.text = try self.item.songTitle.convertHTMLEntities()?.uppercased()
-        } catch {
-            
-        }
+        self.artistLabel.text = try? self.item.artist.convertHTMLEntities()?.uppercased() ?? ""
+        self.songLabel.text = try? self.item.songTitle.convertHTMLEntities()?.uppercased() ?? ""
         
         if let url = URL(string: self.item.imageUrl) {
-            self.albumArtwork.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "artwork-image-placeholder"))
+            self.albumArtwork.sd_setImage(with: url, placeholderImage: UIImage(named: "artwork-image-placeholder"))
         }
         
-        self.favouriteButton.rx.tap.asObservable()
-            .scan(false) { state, _ in
-                !state
-            }
-            .startWith(false)
-            .bindTo(self.viewModel.favouriteItem)
-            .addDisposableTo(disposeBag)
+        self.viewModel.initialise(with: self.favouriteButton.rx.tap.asDriver().scan(false) { state, _ in !state })
+        
+        let disposable = self.viewModel.favourited.asObservable().bindTo(self.favouriteButton.rx.isSelected)
+        self.disposeBag?.insert(disposable)
         
         self.setNeedsLayout()
+        
+    }
+    
+    deinit {
+        Log.debug("DEINIT")
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.disposeBag = nil
+        self.viewModel.disposeBag = nil
+        self.favouriteButton.isSelected = false
         self.albumArtwork.sd_cancelCurrentImageLoad()
     }
 }

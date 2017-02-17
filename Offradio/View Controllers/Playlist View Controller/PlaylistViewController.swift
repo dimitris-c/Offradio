@@ -59,8 +59,7 @@ final class PlaylistViewController: UIViewController {
         
         self.viewModel.playlistData.asObservable()
             .bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, model, cell in
-                let viewModel = PlaylistCellViewModel(with: model)
-                cell.configure(with: viewModel)
+                cell.configure(with: model)
             }.addDisposableTo(disposeBag)
         
         

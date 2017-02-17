@@ -12,42 +12,80 @@ import RealmSwift
 
 final class PlaylistCellViewModel {
     
-    let disposeBag = DisposeBag()
+    var disposeBag: DisposeBag?
     
     private(set) var item: PlaylistSong!
     
-    var favouriteItem: Variable<Bool> = Variable<Bool>(false)
+    var favourited: Variable<Bool> = Variable<Bool>(false)
+    let playlistFavouritesLayer: PlaylistFavouritesLayer = PlaylistFavouritesLayer()
     
     init(with item: PlaylistSong) {
         self.item = item
+    }
+    
+    func initialise(with driver: Driver<Bool>) {
+        disposeBag = DisposeBag()
         
-        favouriteItem.asObservable().subscribe(onNext: { [weak self] shouldFavourite in
+        favourited.value = self.playlistFavouritesLayer.isFavourite(for: self.item.artist, songTitle: self.item.songTitle)
+        
+        let tapObservable = driver.asObservable().subscribe(onNext: { [weak self] shouldFavourite in
             guard let strongSelf = self else { return }
-            Log.debug("should favourite: \(strongSelf.item)")
-            let realm = try! Realm()
-            try! realm.write {
-                let song = PlaylistSong(value: strongSelf.item)
-                realm.add(song)
+            
+            let artist: String = strongSelf.item.artist
+            let songTitle: String = strongSelf.item.songTitle
+            
+            let itemExists: Bool = strongSelf.playlistFavouritesLayer.isFavourite(for: artist, songTitle: songTitle)
+            if shouldFavourite && !itemExists {
+                try? strongSelf.playlistFavouritesLayer.createFavourite(with: strongSelf.item)
+//                strongSelf.addFavourite(for: artist, songTitle: songTitle)
+                strongSelf.favourited.value = true
+            } else {
+                try? strongSelf.playlistFavouritesLayer.delete(item: strongSelf.item)
+//                strongSelf.removeFavourite(for: artist, songTitle: songTitle)
+                strongSelf.favourited.value = false
             }
-        }).addDisposableTo(disposeBag)
+        })
         
-//        favouriteItem.asObservable().subscribe(onNext: { item in
-//            if let item = item  {
-//                Log.debug("should favourite: \(item)")
-//                let realm = try! Realm()
-//                try! realm.write {
-//                    let song = PlaylistSong(value: item)
-//                    song.isFavourite = true
-//                    realm.add(song)
-//                }
-//            }
-//        }).addDisposableTo(disposeBag)
-        
+        disposeBag?.insert(tapObservable)
+    }
+
+    func addFavourite(for artist: String, songTitle title: String) {
+        let realm = try? Realm()
+        do {
+            try realm?.write {
+                let song = PlaylistSong(value: item)
+                song.isFavourite = true
+                realm?.add(song)
+            }
+        } catch {
+            Log.error("couldn't added to favourites")
+        }
+    }
+    
+    func removeFavourite(for artist: String, songTitle title: String) {
+        let realm = try? Realm()
+        do {
+            if let item = realm?.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).first {
+                try realm?.write {
+                    realm?.delete(item)
+                }
+            }
+        } catch {
+            Log.error("couldn't removed from favourites")
+        }
+    }
+    
+    func itemExists(for artist: String, songTitle title: String) -> PlaylistSong? {
+        let realm = try? Realm()
+        return realm?.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).first
     }
     
     func isFavourite(for artist: String, songTitle title: String) -> Bool {
-        let realm = try! Realm()
-        let item = realm.objects(PlaylistSong.self).filter("")
+        let realm = try? Realm()
+        if let item = realm?.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).first {
+            return item.isFavourite
+        }
+        return false
     }
     
 }

@@ -24,7 +24,7 @@ final class PlaylistViewModel {
     
     let indicatorViewAnimating: Variable<Bool> = Variable<Bool>(true)
     
-    var playlistData: Variable<[PlaylistSong]> = Variable<[PlaylistSong]>([])
+    var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
     
     fileprivate var page: Int = 0
     fileprivate let totalPagesToFetch: Int = 10
@@ -66,9 +66,9 @@ final class PlaylistViewModel {
             guard let strongSelf = self else { return }
             if let items = data as? [PlaylistSong] {
                 if strongSelf.page == 0 {
-                    strongSelf.playlistData.value = items
+                    strongSelf.playlistData.value = items.map { PlaylistCellViewModel(with: $0) }
                 } else {
-                    strongSelf.playlistData.value.append(contentsOf: items)
+                    strongSelf.playlistData.value.append(contentsOf: items.map { PlaylistCellViewModel(with: $0) })
                 }
                 strongSelf.page = strongSelf.page + 1
             }
