@@ -72,7 +72,7 @@ final class PlaylistViewController: UIViewController {
         }
         
         self.refreshControl.rx.controlEvent(.valueChanged)
-            .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? true) }
+            .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? false) }
             .bindTo(self.viewModel.refresh)
             .addDisposableTo(disposeBag)
         

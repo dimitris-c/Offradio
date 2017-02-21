@@ -77,6 +77,7 @@
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
+		B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */; };
 		B54E087E1E4D10C400B54FB3 /* ProducerBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08771E4D10C400B54FB3 /* ProducerBioViewController.swift */; };
 		B54E087F1E4D10C400B54FB3 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08791E4D10C400B54FB3 /* ScheduleTableViewCell.swift */; };
 		B54E08801E4D10C400B54FB3 /* ScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E087B1E4D10C400B54FB3 /* ScheduleDelegate.swift */; };
@@ -214,6 +215,7 @@
 		B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OffradioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffradioUITests.swift; sourceTree = "<group>"; };
 		B54BC8CA1E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		B54E08771E4D10C400B54FB3 /* ProducerBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducerBioViewController.swift; sourceTree = "<group>"; };
 		B54E08791E4D10C400B54FB3 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		B54E087B1E4D10C400B54FB3 /* ScheduleDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDelegate.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 				B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */,
 				B5BA38401E4F702200DB49C9 /* UIScrollView+Rx.swift */,
 				B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */,
+				B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1084,6 +1087,7 @@
 				B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */,
 				B50395571E4BA33200D9A71B /* APIService.swift in Sources */,
 				B50395551E4BA33200D9A71B /* RequestParameters.swift in Sources */,
+				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
 				B503956F1E4BCA0100D9A71B /* NowPlayingService.swift in Sources */,

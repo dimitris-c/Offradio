@@ -16,8 +16,10 @@ protocol PlaylistFavouritesProtocol: DataLayerProtocol {
 struct PlaylistFavouritesLayer: DataLayerProtocol {
     
     func isFavourite(`for` artist: String, songTitle title: String) -> Bool {
-        let realm = try? database()
-        return !(realm?.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).isEmpty ?? true)
+        if let realm = try? database() {
+            return !(realm.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@ AND isFavourite == true", artist, title).isEmpty)
+        }
+        return false
     }
     
     func createFavourite(with model: PlaylistSong) throws {
@@ -26,5 +28,16 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
         try create(item: favourite, update: false)
     }
     
+    func deleteFavourite(`for` artist: String, songTitle title: String) throws {
+        if let realm = try? database() {
+            if let item = realm.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).first {
+                try realm.write {
+                    realm.delete(item)
+                }
+            }
+        } else {
+            throw DataAccessError.Connection
+        }
+    }
     
 }

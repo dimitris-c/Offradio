@@ -37,11 +37,9 @@ final class PlaylistCellViewModel {
             let itemExists: Bool = strongSelf.playlistFavouritesLayer.isFavourite(for: artist, songTitle: songTitle)
             if shouldFavourite && !itemExists {
                 try? strongSelf.playlistFavouritesLayer.createFavourite(with: strongSelf.item)
-//                strongSelf.addFavourite(for: artist, songTitle: songTitle)
                 strongSelf.favourited.value = true
             } else {
-                try? strongSelf.playlistFavouritesLayer.delete(item: strongSelf.item)
-//                strongSelf.removeFavourite(for: artist, songTitle: songTitle)
+                try? strongSelf.playlistFavouritesLayer.deleteFavourite(for: artist, songTitle: songTitle)
                 strongSelf.favourited.value = false
             }
         })
@@ -49,43 +47,4 @@ final class PlaylistCellViewModel {
         disposeBag?.insert(tapObservable)
     }
 
-    func addFavourite(for artist: String, songTitle title: String) {
-        let realm = try? Realm()
-        do {
-            try realm?.write {
-                let song = PlaylistSong(value: item)
-                song.isFavourite = true
-                realm?.add(song)
-            }
-        } catch {
-            Log.error("couldn't added to favourites")
-        }
-    }
-    
-    func removeFavourite(for artist: String, songTitle title: String) {
-        let realm = try? Realm()
-        do {
-            if let item = realm?.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).first {
-                try realm?.write {
-                    realm?.delete(item)
-                }
-            }
-        } catch {
-            Log.error("couldn't removed from favourites")
-        }
-    }
-    
-    func itemExists(for artist: String, songTitle title: String) -> PlaylistSong? {
-        let realm = try? Realm()
-        return realm?.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).first
-    }
-    
-    func isFavourite(for artist: String, songTitle title: String) -> Bool {
-        let realm = try? Realm()
-        if let item = realm?.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).first {
-            return item.isFavourite
-        }
-        return false
-    }
-    
 }

@@ -19,7 +19,6 @@ enum DataAccessError: Error {
 protocol DataLayerProtocol {
     func database() throws -> Realm
     func create(item anItem: Object, update: Bool) throws
-    func delete(item anImte: Object) throws
 }
 
 extension DataLayerProtocol {
@@ -43,19 +42,4 @@ extension DataLayerProtocol {
         }
     }
     
-    func delete(item anItem: Object) throws {
-        let realm = try database()
-        
-        do {
-            try realm.write {
-//                if let item = realm.objects(Item.self).filter("self = %@", anItem).first {
-                    realm.delete(anItem)
-//                } else {
-//                    throw DataAccessError.Deletion
-//                }
-            }
-        } catch {
-            throw DataAccessError.Deletion
-        }
-    }
 }
