@@ -34,7 +34,6 @@
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
 		B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C391E36BAC2005893D2 /* Constants.swift */; };
 		B52A6C421E36BAC2005893D2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3C1E36BAC2005893D2 /* Log.swift */; };
-		B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3D1E36BAC2005893D2 /* ViewArranger.swift */; };
 		B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C441E36BCBB005893D2 /* DateFormat.swift */; };
 		B53942851E4A790A00AF5BE5 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */; };
 		B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */; };
@@ -78,6 +77,8 @@
 		B54BC8BE1E36A9DC0043F248 /* OffradioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8BD1E36A9DC0043F248 /* OffradioTests.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
 		B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */; };
+		B54DC4CE1E5CA39400FA376D /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DC4CD1E5CA39400FA376D /* FavouritesViewController.swift */; };
+		B54DC4D01E5CA3A600FA376D /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DC4CF1E5CA3A600FA376D /* FavouritesViewModel.swift */; };
 		B54E087E1E4D10C400B54FB3 /* ProducerBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08771E4D10C400B54FB3 /* ProducerBioViewController.swift */; };
 		B54E087F1E4D10C400B54FB3 /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08791E4D10C400B54FB3 /* ScheduleTableViewCell.swift */; };
 		B54E08801E4D10C400B54FB3 /* ScheduleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E087B1E4D10C400B54FB3 /* ScheduleDelegate.swift */; };
@@ -107,6 +108,10 @@
 		B5BA38411E4F702200DB49C9 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38401E4F702200DB49C9 /* UIScrollView+Rx.swift */; };
 		B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */; };
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
+		B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125211E5CC82400579D4B /* HorizontalArranger.swift */; };
+		B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125221E5CC82400579D4B /* SizeObject.swift */; };
+		B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125231E5CC82400579D4B /* VerticalArranger.swift */; };
+		B5F125281E5CC82400579D4B /* ViewArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125241E5CC82400579D4B /* ViewArranger.swift */; };
 		E5E44A20BE4620E661879F5D /* Pods_OffradioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -163,7 +168,6 @@
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
 		B52A6C391E36BAC2005893D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Utilities/Constants.swift; sourceTree = "<group>"; };
 		B52A6C3C1E36BAC2005893D2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		B52A6C3D1E36BAC2005893D2 /* ViewArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewArranger.swift; sourceTree = "<group>"; };
 		B52A6C441E36BCBB005893D2 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		B53942841E4A790A00AF5BE5 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 		B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffradioUITests.swift; sourceTree = "<group>"; };
 		B54BC8CA1E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		B54DC4CD1E5CA39400FA376D /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		B54DC4CF1E5CA3A600FA376D /* FavouritesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		B54E08771E4D10C400B54FB3 /* ProducerBioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducerBioViewController.swift; sourceTree = "<group>"; };
 		B54E08791E4D10C400B54FB3 /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
 		B54E087B1E4D10C400B54FB3 /* ScheduleDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +252,10 @@
 		B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsFactory.swift; sourceTree = "<group>"; };
 		B5BB24901E4B82F6006FC751 /* Offradio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Offradio.entitlements; sourceTree = "<group>"; };
+		B5F125211E5CC82400579D4B /* HorizontalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalArranger.swift; sourceTree = "<group>"; };
+		B5F125221E5CC82400579D4B /* SizeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeObject.swift; sourceTree = "<group>"; };
+		B5F125231E5CC82400579D4B /* VerticalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalArranger.swift; sourceTree = "<group>"; };
+		B5F125241E5CC82400579D4B /* ViewArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewArranger.swift; sourceTree = "<group>"; };
 		BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.debug.xcconfig"; sourceTree = "<group>"; };
 		F3307E9F50442DCB082FC1A7 /* Pods-OffradioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests.release.xcconfig"; sourceTree = "<group>"; };
 		F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Offradio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -449,6 +459,7 @@
 		B52A6C2A1E36B8F3005893D2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B54DC4CC1E5CA35200FA376D /* Favourites View Controller */,
 				B5BA38331E4F609A00DB49C9 /* Playlist View Controller */,
 				B569604F1E492A35003BFBC6 /* Content View Controller */,
 				B569604D1E492A1A003BFBC6 /* Contact View Controller */,
@@ -489,9 +500,9 @@
 		B52A6C371E36BAC2005893D2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B5F125201E5CC82400579D4B /* ViewArranger */,
 				B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */,
 				B52A6C3C1E36BAC2005893D2 /* Log.swift */,
-				B52A6C3D1E36BAC2005893D2 /* ViewArranger.swift */,
 				B52A6C441E36BCBB005893D2 /* DateFormat.swift */,
 			);
 			path = Utilities;
@@ -619,6 +630,15 @@
 			path = OffradioUITests;
 			sourceTree = "<group>";
 		};
+		B54DC4CC1E5CA35200FA376D /* Favourites View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B54DC4CD1E5CA39400FA376D /* FavouritesViewController.swift */,
+				B54DC4CF1E5CA3A600FA376D /* FavouritesViewModel.swift */,
+			);
+			path = "Favourites View Controller";
+			sourceTree = "<group>";
+		};
 		B54E08761E4D10C400B54FB3 /* Producer Bio */ = {
 			isa = PBXGroup;
 			children = (
@@ -735,6 +755,17 @@
 				B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		B5F125201E5CC82400579D4B /* ViewArranger */ = {
+			isa = PBXGroup;
+			children = (
+				B5F125211E5CC82400579D4B /* HorizontalArranger.swift */,
+				B5F125221E5CC82400579D4B /* SizeObject.swift */,
+				B5F125231E5CC82400579D4B /* VerticalArranger.swift */,
+				B5F125241E5CC82400579D4B /* ViewArranger.swift */,
+			);
+			path = ViewArranger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1078,6 +1109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */,
+				B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */,
 				B53942851E4A790A00AF5BE5 /* PlayerCircleContainerView.swift in Sources */,
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
 				B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */,
@@ -1093,6 +1125,7 @@
 				B503956F1E4BCA0100D9A71B /* NowPlayingService.swift in Sources */,
 				B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */,
 				B52A6C421E36BAC2005893D2 /* Log.swift in Sources */,
+				B54DC4D01E5CA3A600FA376D /* FavouritesViewModel.swift in Sources */,
 				B54E08811E4D10C400B54FB3 /* ScheduleViewModel.swift in Sources */,
 				B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */,
 				B5BA38411E4F702200DB49C9 /* UIScrollView+Rx.swift in Sources */,
@@ -1107,7 +1140,6 @@
 				B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */,
 				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
-				B52A6C431E36BAC2005893D2 /* ViewArranger.swift in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
@@ -1117,16 +1149,20 @@
 				B50395561E4BA33200D9A71B /* APIResponse.swift in Sources */,
 				B54E087E1E4D10C400B54FB3 /* ProducerBioViewController.swift in Sources */,
 				B50395541E4BA33200D9A71B /* Headers.swift in Sources */,
+				B54DC4CE1E5CA39400FA376D /* FavouritesViewController.swift in Sources */,
+				B5F125281E5CC82400579D4B /* ViewArranger.swift in Sources */,
 				B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */,
 				B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */,
 				B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */,
 				B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */,
 				B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */,
 				B503956E1E4BCA0100D9A71B /* APIURL.swift in Sources */,
+				B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */,
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B54E08801E4D10C400B54FB3 /* ScheduleDelegate.swift in Sources */,
 				B50395521E4BA33200D9A71B /* APIRequest.swift in Sources */,
 				B53942AB1E4A8E2C00AF5BE5 /* ToggleView.m in Sources */,
+				B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */,
 				B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
 				B51E3FBC1E4B9F49009F4C37 /* Producer.swift in Sources */,

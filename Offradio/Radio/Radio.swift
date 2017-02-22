@@ -29,7 +29,7 @@ struct RadioStatus {
     var playbackWasInterrupted: Bool = false
 }
 
-final class Offradio {
+final class Offradio: RadioProtocol {
     let kit: RadioKit = RadioKit()
     private var status = RadioStatus()
     

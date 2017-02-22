@@ -28,13 +28,13 @@ final class PlaylistViewModel {
     
     fileprivate var page: Int = 0
     fileprivate let totalPagesToFetch: Int = 10
-    fileprivate var isLoadingNext: Bool = false
+//    fileprivate var isLoadingNext: Bool = false
     
     init(viewWillAppear: Driver<Void>, scrollViewDidReachBottom: Driver<Void>) {
         
         self.refresh.asObservable().subscribe(onNext: { [weak self] refresh in
             guard let strongSelf = self else { return }
-            if refresh && !strongSelf.isLoadingNext {
+            if refresh && !strongSelf.indicatorViewAnimating.value {
                 strongSelf.page = 0
                 self?.fetchPlaylist(withPage: 0)
             }
@@ -48,10 +48,10 @@ final class PlaylistViewModel {
             .addDisposableTo(disposeBag)
     
         scrollViewDidReachBottom.asObservable().subscribe(onNext: { [weak self] _ in
-            guard let strongSelf = self, !strongSelf.isLoadingNext else { return }
+            guard let strongSelf = self, !strongSelf.indicatorViewAnimating.value else { return }
             if strongSelf.page <= strongSelf.totalPagesToFetch {
                 strongSelf.fetchPlaylist(withPage: strongSelf.page)
-                strongSelf.isLoadingNext = true
+//                strongSelf.isLoadingNext = true
                 strongSelf.indicatorViewAnimating.value = true
             }
         }).addDisposableTo(disposeBag)
@@ -72,7 +72,7 @@ final class PlaylistViewModel {
                 }
                 strongSelf.page = strongSelf.page + 1
             }
-            strongSelf.isLoadingNext = false
+//            strongSelf.isLoadingNext = false
             strongSelf.refresh.value = false
             strongSelf.indicatorViewAnimating.value = false
             strongSelf.initialLoad.value = false

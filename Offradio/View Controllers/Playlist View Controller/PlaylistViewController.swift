@@ -51,11 +51,22 @@ final class PlaylistViewController: UIViewController {
         self.initialLoadActivityView.startAnimating()
         self.view.addSubview(self.initialLoadActivityView)
         
-        let identifier = PlaylistTableViewCell.identifier
-        let cellType = PlaylistTableViewCell.self
+        let favouritesListButton = UIButton(type: .custom)
+        favouritesListButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button"), for: .normal)
+        favouritesListButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .highlighted)
+        favouritesListButton.sizeToFit()
+        favouritesListButton.rx.tap.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.showFavouritesList()
+            }).addDisposableTo(disposeBag)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favouritesListButton)
+        
 
         self.viewModel = PlaylistViewModel(viewWillAppear: rx.viewWillAppear.asDriver(),
                                            scrollViewDidReachBottom: tableView.rx.reachedBottom.asDriver())
+        
+        let identifier = PlaylistTableViewCell.identifier
+        let cellType = PlaylistTableViewCell.self
         
         self.viewModel.playlistData.asObservable()
             .bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, model, cell in
@@ -91,11 +102,16 @@ final class PlaylistViewController: UIViewController {
         
     }
     
+    fileprivate final func showFavouritesList() {
+        let favourites = FavouritesViewController()
+        self.hideLabelOnBackButton()
+        self.navigationController?.pushViewController(favourites, animated: true)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         self.tableView.frame = self.view.bounds
-        
         
         self.tableViewActivityContainerView.frame.size.width = self.view.bounds.width
         self.tableViewActivityContainerView.frame.size.height = CGFloat.deviceValue(iPhone: 60, iPad: 80)

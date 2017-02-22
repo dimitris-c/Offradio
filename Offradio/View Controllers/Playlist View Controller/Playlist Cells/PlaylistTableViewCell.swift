@@ -26,6 +26,10 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
     
     fileprivate var favouriteButton: UIButton!
     
+    // This cell is shared both on Playlist and on Favourites view controllers
+    // The boolean below changes the layout for each case.
+    var shownInFavouritesList: Bool = false
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.00)
@@ -62,10 +66,9 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon"), for: .normal)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon"), for: .highlighted)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon-added"), for: .selected)
-        let shadow = ShadowAttributes(color: UIColor.black, offset: CGSize.zero, radius: 5, opacity: 0.5)
+        let shadow = ShadowAttributes(color: UIColor.black, offset: CGSize.zero, radius: 5, opacity: 0.3)
         self.favouriteButton.applyShadow(with: shadow)
         self.contentView.addSubview(self.favouriteButton)
-        
         
     }
     
@@ -132,12 +135,13 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         let disposable = self.viewModel.favourited.asObservable().bindTo(self.favouriteButton.rx.isSelected)
         self.disposeBag?.insert(disposable)
         
+        if shownInFavouritesList {
+            self.timeLabel.isHidden = true
+            self.favouriteButton.isHidden = true
+        }
+        
         self.setNeedsLayout()
         
-    }
-    
-    deinit {
-        Log.debug("DEINIT")
     }
     
     override func prepareForReuse() {
@@ -145,6 +149,8 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.disposeBag = nil
         self.viewModel.disposeBag = nil
         self.favouriteButton.isSelected = false
+        self.timeLabel.isHidden = false
+        self.favouriteButton.isHidden = false
         self.albumArtwork.sd_cancelCurrentImageLoad()
     }
 }

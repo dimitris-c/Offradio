@@ -34,8 +34,3 @@ class PlaylistSong: Object {
     }
     
 }
-
-struct Playlist {
-    let items: [PlaylistSong]
-    let page: Int
-}

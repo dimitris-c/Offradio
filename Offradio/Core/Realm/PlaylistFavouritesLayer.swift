@@ -9,10 +9,6 @@
 import Foundation
 import RealmSwift
 
-protocol PlaylistFavouritesProtocol: DataLayerProtocol {
-    
-}
-
 struct PlaylistFavouritesLayer: DataLayerProtocol {
     
     func isFavourite(`for` artist: String, songTitle title: String) -> Bool {
@@ -38,6 +34,11 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
         } else {
             throw DataAccessError.Connection
         }
+    }
+    
+    func allFavourites() -> Results<PlaylistSong> {
+        let realm = try! database()
+        return realm.objects(PlaylistSong.self)
     }
     
 }
