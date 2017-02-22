@@ -6,7 +6,9 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+
+extension UITableViewCell: Reusable { }
 
 extension UITableView {
     // Registers a UITableViewCell subclass conforming to Reusable
@@ -21,5 +23,3 @@ extension UITableView {
         return cell
     }
 }
-
-extension UITableViewCell: Reusable { }

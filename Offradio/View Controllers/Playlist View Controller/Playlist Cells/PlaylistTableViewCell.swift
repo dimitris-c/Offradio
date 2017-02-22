@@ -96,8 +96,10 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         
         let arranger = VerticalArranger()
         
-        arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 10)))
-        arranger.add(SizeObject(type: .Flexible, view: self.timeLabel))
+        if !shownInFavouritesList {
+            arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 10)))
+            arranger.add(SizeObject(type: .Flexible, view: self.timeLabel))
+        }
         arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 5)))
         arranger.add(SizeObject(type: .Flexible, view: self.artistLabel))
         arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 5)))
@@ -137,7 +139,6 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         
         if shownInFavouritesList {
             self.timeLabel.isHidden = true
-            self.favouriteButton.isHidden = true
         }
         
         self.setNeedsLayout()
@@ -150,7 +151,6 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.viewModel.disposeBag = nil
         self.favouriteButton.isSelected = false
         self.timeLabel.isHidden = false
-        self.favouriteButton.isHidden = false
         self.albumArtwork.sd_cancelCurrentImageLoad()
     }
 }

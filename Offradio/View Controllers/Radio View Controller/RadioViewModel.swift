@@ -25,16 +25,17 @@ final class RadioViewModel: StormysRadioKitDelegate {
         self.radio = OffradioStream.radio
         self.radio.setupRadio()
         self.radio.kit.delegate = self
-        
-        toggleRadio.asObservable().distinctUntilChanged().subscribe { [weak self] (event) in
-            if let shouldTurnRadioOn = event.element {
+
+        toggleRadio.asObservable()
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] shouldTurnRadioOn in
                 if shouldTurnRadioOn {
                     self?.radio.start()
                 } else {
                     self?.radio.stop()
                 }
-            }
-        }.addDisposableTo(disposeBag)
+            })
+            .addDisposableTo(disposeBag)
         
     }
     

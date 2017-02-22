@@ -50,10 +50,9 @@ final class FavouritesViewController: UIViewController {
         
         self.viewModel.playlistData.asObservable()
             .bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, model, cell in
+                cell.shownInFavouritesList = true
                 cell.configure(with: model)
             }.addDisposableTo(disposeBag)
-        
-        
         
     }
     

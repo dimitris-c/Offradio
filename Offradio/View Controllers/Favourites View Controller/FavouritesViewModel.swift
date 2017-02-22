@@ -18,18 +18,20 @@ final class FavouritesViewModel {
     let favouritesDataLayer: PlaylistFavouritesLayer = PlaylistFavouritesLayer()
     var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
     
+    var changeSet: Variable<RealmChangeset?> = Variable<RealmChangeset?>(nil)
+    
     init(viewWillAppear: Driver<Void>) {
         
-//        playlistData.value = favouritesDataLayer.allFavourites().map { PlaylistCellViewModel(with: $0) }
-                
         Observable.changeset(from: favouritesDataLayer.allFavourites())
-            .subscribe(onNext: { results, changes in
-            if let changes = changes {
-
-            } else {
-                
-            }
-        }).addDisposableTo(disposeBag)
+            .subscribe(onNext: { [weak self] results, changes in
+                self?.playlistData.value = results.map { PlaylistCellViewModel(with: $0) }
+                if let changes = changes {
+                    self?.changeSet.value = changes
+                }
+            }, onCompleted: { _ in
+                self.changeSet.value = nil
+            })
+            .addDisposableTo(disposeBag)
         
     }
 }

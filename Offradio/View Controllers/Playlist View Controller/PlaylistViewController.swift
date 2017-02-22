@@ -52,8 +52,8 @@ final class PlaylistViewController: UIViewController {
         self.view.addSubview(self.initialLoadActivityView)
         
         let favouritesListButton = UIButton(type: .custom)
-        favouritesListButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button"), for: .normal)
-        favouritesListButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .highlighted)
+        favouritesListButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon"), for: .normal)
+        favouritesListButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon-added"), for: .highlighted)
         favouritesListButton.sizeToFit()
         favouritesListButton.rx.tap.asObservable()
             .subscribe(onNext: { [weak self] _ in

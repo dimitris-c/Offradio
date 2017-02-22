@@ -112,6 +112,7 @@
 		B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125221E5CC82400579D4B /* SizeObject.swift */; };
 		B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125231E5CC82400579D4B /* VerticalArranger.swift */; };
 		B5F125281E5CC82400579D4B /* ViewArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125241E5CC82400579D4B /* ViewArranger.swift */; };
+		B5FA39EE1E5DF1BE001B4760 /* UITableView+RxRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA39ED1E5DF1BE001B4760 /* UITableView+RxRealm.swift */; };
 		E5E44A20BE4620E661879F5D /* Pods_OffradioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -256,6 +257,7 @@
 		B5F125221E5CC82400579D4B /* SizeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeObject.swift; sourceTree = "<group>"; };
 		B5F125231E5CC82400579D4B /* VerticalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalArranger.swift; sourceTree = "<group>"; };
 		B5F125241E5CC82400579D4B /* ViewArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewArranger.swift; sourceTree = "<group>"; };
+		B5FA39ED1E5DF1BE001B4760 /* UITableView+RxRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+RxRealm.swift"; sourceTree = "<group>"; };
 		BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.debug.xcconfig"; sourceTree = "<group>"; };
 		F3307E9F50442DCB082FC1A7 /* Pods-OffradioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests.release.xcconfig"; sourceTree = "<group>"; };
 		F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Offradio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -478,6 +480,7 @@
 				B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */,
 				B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */,
 				B50395751E4BCAE800D9A71B /* UITableViewExtensions.swift */,
+				B5FA39ED1E5DF1BE001B4760 /* UITableView+RxRealm.swift */,
 				B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */,
 				B5BA38401E4F702200DB49C9 /* UIScrollView+Rx.swift */,
 				B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */,
@@ -1134,6 +1137,7 @@
 				B56960421E490957003BFBC6 /* Radio.swift in Sources */,
 				B53942D71E4A99B800AF5BE5 /* RadioViewModel.swift in Sources */,
 				B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */,
+				B5FA39EE1E5DF1BE001B4760 /* UITableView+RxRealm.swift in Sources */,
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B50395701E4BCA0100D9A71B /* PlaylistService.swift in Sources */,
