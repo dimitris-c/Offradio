@@ -14,7 +14,7 @@ struct HorizontalArranger : ViewArranger {
     
     //Resize resizeable views to fit constraint size
     func resizeToFit() {
-        for var object in objects {
+        for object in objects {
             object.resizeWithFixedHeight()
         }
     }
@@ -29,7 +29,7 @@ struct HorizontalArranger : ViewArranger {
                 }
             }
             let spacerWidth = totalWidth / CGFloat(spacerObjects.count)
-            for var spacer in spacerObjects {
+            for spacer in spacerObjects {
                 spacer.size.width = spacerWidth
             }
         }

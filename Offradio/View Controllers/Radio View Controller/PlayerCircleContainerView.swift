@@ -12,7 +12,7 @@ import RxCocoa
 
 final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
     
-    let disposeBag = DisposeBag()
+    fileprivate let disposeBag = DisposeBag()
     
     let switched: PublishSubject<Bool> = PublishSubject<Bool>()
     let buffering: Variable<Bool> = Variable<Bool>(false)
