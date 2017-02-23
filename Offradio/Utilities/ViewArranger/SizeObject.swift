@@ -6,37 +6,50 @@
 //  Copyright © 2016 decimal. All rights reserved.
 //
 
-enum SizeObjectType: String {
-    case Fixed
-    case Flexible
-    case Spacer
+public enum SizeObjectType: String {
+    case fixed
+    case flexible
+    case spacer
 }
 
-class SizeObject {
+public protocol SizeObjectProtocol {
+    var type: SizeObjectType { get set }
+    var view: UIView? { get }
     
-    var type: SizeObjectType!
+    func setAttached(x positionX: CGFloat)
+    func setAttached(y positionY: CGFloat)
+    func setAttached(height sizeHeight:CGFloat)
+    func setAttached(width sizeWidth:CGFloat)
+}
+
+extension SizeObjectProtocol {
+    func setAttached(x positionX:CGFloat) {
+        view?.frame.origin.x = positionX
+    }
+    
+    func setAttached(y positionY:CGFloat) {
+        view?.frame.origin.y = positionY
+    }
+    
+    func setAttached(height sizeHeight:CGFloat) {
+        view?.frame.size.height = sizeHeight
+    }
+    
+    func setAttached(width sizeWidth:CGFloat) {
+        view?.frame.size.width = sizeWidth
+    }
+}
+
+final class SizeObject: SizeObjectProtocol {
+
+    public var type: SizeObjectType
+    public var view: UIView?
+    
     var size: CGSize!
-    var view: UIView?
     var resizeBoth: Bool
     
     var attachedSize:CGSize? {
         return view?.bounds.size
-    }
-    
-    func setAttachedX(_ x:CGFloat) {
-        view?.frame.origin.x = x
-    }
-    
-    func setAttachedY(_ y:CGFloat) {
-        view?.frame.origin.y = y
-    }
-    
-    func setAttachedHeight(_ height:CGFloat) {
-        view?.frame.size.height = height
-    }
-    
-    func setAttachedWidth(_ width:CGFloat) {
-        view?.frame.size.width = width
     }
     
     func resizeWithFixedWidth() {
@@ -52,12 +65,12 @@ class SizeObject {
     }
     
     func sizeThatFits(_ size:CGSize) {
-        if type == .Flexible {
+        if type == .flexible {
             view?.sizeToFit()
             if let size = view?.sizeThatFits(size) {
                 self.size = size
             }
-        } else if type == .Fixed {
+        } else if type == .fixed {
             if let size = attachedSize {
                 self.size = size
             }

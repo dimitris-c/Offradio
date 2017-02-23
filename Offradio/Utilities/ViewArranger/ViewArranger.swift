@@ -8,27 +8,37 @@
 
 import UIKit
 
-class ViewArranger : NSObject {
-    var objects = [SizeObject]()
-    var spacerObjects = [SizeObject]()
-    var flexibleObjects = [SizeObject]()
+protocol ViewArranger {
+    var objects: [SizeObject] { get set }
+    var spacerObjects: [SizeObject] { get set }
+    var flexibleObjects: [SizeObject] { get set }
     
-    final func addObjects(_ objects:[SizeObject]) {
+    mutating func add(objects array: [SizeObject])
+    mutating func add(object item: SizeObject)
+    mutating func clear()
+    
+    func resizeToFit()
+    func arrange(to dimension: CGFloat?) -> CGFloat
+}
+
+extension ViewArranger {
+    
+    mutating func add(objects array: [SizeObject]) {
         for object in objects {
-            add(object)
+            add(object: object)
         }
     }
     
-    final func add(_ object:SizeObject) {
-        objects.append(object)
-        if object.type == .Spacer {
-            spacerObjects.append(object)
-        } else if object.type == .Flexible {
-            flexibleObjects.append(object)
+    mutating func add(object item: SizeObject) {
+        objects.append(item)
+        if item.type == .spacer {
+            spacerObjects.append(item)
+        } else if item.type == .flexible {
+            flexibleObjects.append(item)
         }
     }
     
-    final func clear() {
+    final mutating func clear() {
         objects.removeAll()
         spacerObjects.removeAll()
         flexibleObjects.removeAll()

@@ -6,27 +6,30 @@
 //  Copyright © 2016 decimal. All rights reserved.
 //
 
-final class HorizontalArranger : ViewArranger {
+struct HorizontalArranger : ViewArranger {
+    
+    var objects: [SizeObject]           = []
+    var spacerObjects: [SizeObject]     = []
+    var flexibleObjects: [SizeObject]   = []
     
     //Resize resizeable views to fit constraint size
-    final func resizeToFit() {
-        for object in objects {
+    func resizeToFit() {
+        for var object in objects {
             object.resizeWithFixedHeight()
         }
     }
     
-    final func arrange(toWidth width:CGFloat? = nil) -> CGFloat {
-        
+    func arrange(to dimension: CGFloat? = nil) -> CGFloat {
         //If there are any spacer objects, find their width
-        if let width = width , spacerObjects.count > 0 {
+        if let width = dimension , spacerObjects.count > 0 {
             var totalWidth = width
             for object in objects {
-                if object.type != .Spacer {
+                if object.type != .spacer {
                     totalWidth -= object.size.width
                 }
             }
             let spacerWidth = totalWidth / CGFloat(spacerObjects.count)
-            for spacer in spacerObjects {
+            for var spacer in spacerObjects {
                 spacer.size.width = spacerWidth
             }
         }
@@ -34,10 +37,10 @@ final class HorizontalArranger : ViewArranger {
         var x:CGFloat = 0
         for object in objects {
             
-            object.setAttachedX(x)
-            object.setAttachedWidth(object.size.width)
+            object.setAttached(x: x)
+            object.setAttached(width: object.size.width)
             if object.resizeBoth {
-                object.setAttachedHeight(object.size.height)
+                object.setAttached(height: object.size.height)
             }
             
             x += object.size.width

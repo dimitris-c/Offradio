@@ -94,16 +94,16 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.artistLabel.frame.size.width = self.contentView.frame.width - self.artistLabel.frame.minX
         self.songLabel.frame.size.width = self.contentView.frame.width - self.songLabel.frame.minX
         
-        let arranger = VerticalArranger()
+        var arranger = VerticalArranger()
         
         if !shownInFavouritesList {
-            arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 10)))
-            arranger.add(SizeObject(type: .Flexible, view: self.timeLabel))
+            arranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 10)))
+            arranger.add(object: SizeObject(type: .flexible, view: self.timeLabel))
         }
-        arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 5)))
-        arranger.add(SizeObject(type: .Flexible, view: self.artistLabel))
-        arranger.add(SizeObject(type: .Fixed, size: CGSize(width: 0, height: 5)))
-        arranger.add(SizeObject(type: .Flexible, view: self.songLabel))
+        arranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 5)))
+        arranger.add(object: SizeObject(type: .flexible, view: self.artistLabel))
+        arranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 5)))
+        arranger.add(object: SizeObject(type: .flexible, view: self.songLabel))
         
         arranger.resizeToFit()
         arranger.arrange()

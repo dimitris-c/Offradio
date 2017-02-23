@@ -6,23 +6,26 @@
 //  Copyright © 2016 decimal. All rights reserved.
 //
 
-final class VerticalArranger : ViewArranger {
+struct VerticalArranger : ViewArranger {
+    
+    var objects: [SizeObject]           = []
+    var spacerObjects: [SizeObject]     = []
+    var flexibleObjects: [SizeObject]   = []
     
     //Resize resizeable views to fit constraint size
-    final func resizeToFit() {
+    func resizeToFit() {
         for object in objects {
             object.resizeWithFixedWidth()
         }
     }
-    
+
     @discardableResult
-    final func arrange(toHeight height:CGFloat? = nil) -> CGFloat {
-        
+    func arrange(to dimension: CGFloat? = nil) -> CGFloat {
         //If there are any spacer objects, find their height
-        if let height = height , spacerObjects.count > 0 {
+        if let height = dimension , spacerObjects.count > 0 {
             var totalHeight = height
             for object in objects {
-                if object.type != .Spacer {
+                if object.type != .spacer {
                     totalHeight -= object.size.height
                 }
             }
@@ -34,11 +37,11 @@ final class VerticalArranger : ViewArranger {
         //Arrange views
         var y:CGFloat = 0
         for object in objects {
-            object.setAttachedY(y)
-            if object.type == .Flexible {
-                object.setAttachedHeight(object.size.height)
+            object.setAttached(y: y)
+            if object.type == .flexible {
+                object.setAttached(height: object.size.height)
                 if object.resizeBoth {
-                    object.setAttachedWidth(object.size.width)
+                    object.setAttached(width: object.size.width)
                 }
             }
             y += object.size.height
