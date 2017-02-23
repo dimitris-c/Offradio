@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.3.0)
   - AlamofireNetworkActivityIndicator (2.1.0):
     - Alamofire (~> 4.1)
+  - AutoScrollLabel (0.4.3)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -41,6 +42,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireNetworkActivityIndicator
+  - AutoScrollLabel
   - Bolts
   - Crashlytics
   - Fabric
@@ -58,6 +60,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireNetworkActivityIndicator: 4716f6554bdfb9c7cf13b1e0e3af21163129690a
+  AutoScrollLabel: bee53a1d4532569b49cbecaf9b80ca003bed3767
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
@@ -73,6 +76,6 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: a45dec525074544e8d4af0ae07a65dd15403bdb1
+PODFILE CHECKSUM: fe72088b2880a24773a2adc45dbbae9a73b45d07
 
 COCOAPODS: 1.2.0

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E1CD2936F4C734ADDED2D53B1C07BCEC'
-               BlueprintName = 'RealmSwift'
+               BlueprintIdentifier = 'C1F4C965ADC7C8A126FD853692457E93'
+               BlueprintName = 'AutoScrollLabel'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RealmSwift.framework'>
+               BuildableName = 'AutoScrollLabel.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

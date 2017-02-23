@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "46DA2A455488FC6576DE2138F74DBE2F"
+               BlueprintIdentifier = "267207F369DDE433B21419461BEF3320"
                BuildableName = "Pods_Offradio.framework"
                BlueprintName = "Pods-Offradio"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "46DA2A455488FC6576DE2138F74DBE2F"
+            BlueprintIdentifier = "267207F369DDE433B21419461BEF3320"
             BuildableName = "Pods_Offradio.framework"
             BlueprintName = "Pods-Offradio"
             ReferencedContainer = "container:Pods.xcodeproj">
