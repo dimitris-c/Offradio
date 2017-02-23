@@ -16,7 +16,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     @IBOutlet weak var playerCircleContainer: PlayerCircleContainerView!
     
     fileprivate final var turnYourRadioOffLabel: UILabel!
-    fileprivate final var nowPlayingButton: UIButton!
+    fileprivate final var nowPlayingButton: NowPlayingButton!
     
     fileprivate final let disposeBag: DisposeBag = DisposeBag()
     fileprivate final var viewModel: RadioViewModel!
@@ -65,14 +65,16 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         let effectiveHeight = self.view.frame.height - self.playerCircleContainer.frame.maxY
         Log.debug("\(effectiveHeight)")
         
         self.turnYourRadioOffLabel.sizeToFit()
-        self.turnYourRadioOffLabel.frame.origin.y = self.playerCircleContainer.frame.maxY + ((effectiveHeight - self.view.frame.height) * 0.5)
+        let width = self.turnYourRadioOffLabel.frame.width + 5
+        self.turnYourRadioOffLabel.frame.size.width = width
+        self.turnYourRadioOffLabel.frame.origin.y = self.playerCircleContainer.frame.maxY + ((effectiveHeight - self.turnYourRadioOffLabel.frame.height) * 0.5)
         self.turnYourRadioOffLabel.center.x = self.view.center.x
     }
     
