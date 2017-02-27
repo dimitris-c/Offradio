@@ -91,6 +91,8 @@
 		B5656F161E64814C00E5DB0E /* DummyModel.json in Resources */ = {isa = PBXBuildFile; fileRef = B5656F121E64814C00E5DB0E /* DummyModel.json */; };
 		B5656F171E64814C00E5DB0E /* DummyPersons.json in Resources */ = {isa = PBXBuildFile; fileRef = B5656F131E64814C00E5DB0E /* DummyPersons.json */; };
 		B5656F181E64814C00E5DB0E /* mock-person.json in Resources */ = {isa = PBXBuildFile; fileRef = B5656F141E64814C00E5DB0E /* mock-person.json */; };
+		B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F191E64857D00E5DB0E /* Offradio.swift */; };
+		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
 		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
 		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
 		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
@@ -244,6 +246,8 @@
 		B5656F121E64814C00E5DB0E /* DummyModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyModel.json; sourceTree = "<group>"; };
 		B5656F131E64814C00E5DB0E /* DummyPersons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyPersons.json; sourceTree = "<group>"; };
 		B5656F141E64814C00E5DB0E /* mock-person.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mock-person.json"; sourceTree = "<group>"; };
+		B5656F191E64857D00E5DB0E /* Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offradio.swift; sourceTree = "<group>"; };
+		B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioMetadata.swift; sourceTree = "<group>"; };
 		B569603C1E4908D0003BFBC6 /* RadioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		B569603E1E490907003BFBC6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B56960411E490957003BFBC6 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
@@ -727,6 +731,8 @@
 			isa = PBXGroup;
 			children = (
 				B56960411E490957003BFBC6 /* Radio.swift */,
+				B5656F191E64857D00E5DB0E /* Offradio.swift */,
+				B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */,
 			);
 			path = Radio;
 			sourceTree = "<group>";
@@ -1217,7 +1223,9 @@
 				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
+				B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
+				B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */,
 				B507C0A61E56869800792414 /* DataLayer.swift in Sources */,
 				B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */,
 				B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */,
