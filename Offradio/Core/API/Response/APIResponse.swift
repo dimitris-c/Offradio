@@ -10,15 +10,20 @@ import Foundation
 import SwiftyJSON
 
 public protocol ResponseParse {
-    func toData(rawData data: JSON) -> Any // Should be something different from Any, another protocol
+    associatedtype Model
+    func toData(rawData data: JSON) -> Model?
 }
 
-class APIResponse: ResponseParse {
-
-    final let json: JSON? = nil
-    
-    func toData(rawData data: JSON) -> Any {
-        return data
+class APIResponse<T>: ResponseParse {
+    // default implemention does nothing...
+    func toData(rawData data: JSON) -> T? {
+        return data as? T
     }
     
+}
+
+class JSONResponse: APIResponse<JSON> {
+    override func toData(rawData data: JSON) -> JSON {
+        return data
+    }
 }

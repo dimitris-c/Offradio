@@ -64,7 +64,7 @@ final class PlaylistViewModel {
         self.service = PlaylistService(withPage: page)
         self.service.call({ [weak self] (success, data, headers) in
             guard let strongSelf = self else { return }
-            if let items = data as? [PlaylistSong] {
+            if let items = data.value {
                 if strongSelf.page == 0 {
                     strongSelf.playlistData.value = items.map { PlaylistCellViewModel(with: $0) }
                 } else {

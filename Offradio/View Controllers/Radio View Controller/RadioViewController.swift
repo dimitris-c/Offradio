@@ -42,10 +42,22 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.turnYourRadioOffLabel.numberOfLines = 1
         self.view.addSubview(self.turnYourRadioOffLabel)
         
+        self.nowPlayingButton = NowPlayingButton(frame: .zero)
+        self.view.addSubview(self.nowPlayingButton)
+        
+        self.nowPlayingButton.rx.tap.asObservable().subscribe(onNext: { _ in
+            //
+        }).addDisposableTo(disposeBag)
+        
         self.playerCircleContainer.switched.bindTo(viewModel.toggleRadio).addDisposableTo(disposeBag)
         viewModel.isBuffering.asObservable().bindTo(self.playerCircleContainer.buffering).addDisposableTo(disposeBag)
         viewModel.isPlaying.asObservable().bindTo(self.playerCircleContainer.playing).addDisposableTo(disposeBag)
      
+        viewModel.nowPlaying.asObservable()
+            .map { $0?.current.title ?? "" }
+            .bindTo(self.nowPlayingButton.title)
+            .addDisposableTo(disposeBag)
+        
         let playlistButton = UIButton(type: .custom)
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon"), for: .normal)
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon-tapped"), for: .highlighted)
@@ -56,7 +68,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         playlistButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.showPlaylistViewController()
         }).addDisposableTo(disposeBag)
-        
+
     }
     
     fileprivate func showPlaylistViewController() {
@@ -69,20 +81,22 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLayoutSubviews()
         
         let effectiveHeight = self.view.frame.height - self.playerCircleContainer.frame.maxY
-        Log.debug("\(effectiveHeight)")
         
         self.turnYourRadioOffLabel.sizeToFit()
         let width = self.turnYourRadioOffLabel.frame.width + 5
         self.turnYourRadioOffLabel.frame.size.width = width
         self.turnYourRadioOffLabel.frame.origin.y = self.playerCircleContainer.frame.maxY + ((effectiveHeight - self.turnYourRadioOffLabel.frame.height) * 0.5)
         self.turnYourRadioOffLabel.center.x = self.view.center.x
+        
+        self.nowPlayingButton.sizeToFit()
+        self.nowPlayingButton.frame.origin.y = self.playerCircleContainer.frame.maxY + ((effectiveHeight - self.nowPlayingButton.frame.height) * 0.5)
+        self.nowPlayingButton.center.x = self.view.center.x
     }
     
 }
 
 // MARK: TabBarItemProtocol
 extension RadioViewController {
-    
     
     func defaultTabBarItem() -> UITabBarItem {
         let item = UITabBarItem(title: "", image: #imageLiteral(resourceName: "listen"), tag: TabIdentifier.listen.rawValue)

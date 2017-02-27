@@ -28,8 +28,9 @@ final class ScheduleViewModel {
         
         self.fetchSchedule().catchErrorJustReturn([]).bindTo(schedule).addDisposableTo(disposeBag)
         
-        self.refresh.asObservable().filter { $0 }.flatMapLatest { _ -> Observable<[ScheduleItem]> in
-            return self.fetchSchedule()
+        self.refresh.asObservable().filter { $0 }.flatMapLatest { [weak self] _ -> Observable<[ScheduleItem]> in
+            guard let strongSelf = self else { return Observable.empty() }
+            return strongSelf.fetchSchedule()
         }.bindTo(schedule).addDisposableTo(disposeBag)
         
         self.fetchProducers().catchErrorJustReturn([]).bindTo(producers).addDisposableTo(disposeBag)
@@ -67,12 +68,12 @@ final class ScheduleViewModel {
         return Observable<[ScheduleItem]>.create({ [weak self] (observer) -> Disposable in
             let request = self?.scheduleService.call { (success, data, headers) in
                 if success {
-                    if let items = data as? [ScheduleItem] {
+                    if let items = data.value {
                         observer.onNext(items)
                         observer.onCompleted()
                     }
                 } else {
-                    let error = APIError.error(data as? String)
+                    let error = APIError.error(data.error?.localizedDescription)
                     observer.onError(error)
                 }
                 self?.refresh.value = false

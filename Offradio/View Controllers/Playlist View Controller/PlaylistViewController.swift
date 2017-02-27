@@ -102,6 +102,11 @@ final class PlaylistViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
     fileprivate final func showFavouritesList() {
         let favourites = FavouritesViewController()
         self.hideLabelOnBackButton()

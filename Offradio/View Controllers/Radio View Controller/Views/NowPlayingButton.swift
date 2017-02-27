@@ -18,6 +18,12 @@ final class NowPlayingButton: UIControl {
     final fileprivate var scrollLabel: CBAutoScrollLabel!
     
     final let title: Variable<String> = Variable<String>("")
+    
+    override var isHighlighted: Bool {
+        didSet(newValue) {
+            self.backgroundImageView.isHighlighted = !newValue
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +33,7 @@ final class NowPlayingButton: UIControl {
         self.backgroundImageView.sizeToFit()
         self.addSubview(self.backgroundImageView)
         
-        let scrollLabelOffset: CGFloat = CGFloat.deviceValue(iPhone: 20, iPad: 24)
+        let scrollLabelOffset: CGFloat = CGFloat.deviceValue(iPhone: 50, iPad: 65)
         let scrollLabelSize = CGSize(width: self.backgroundImageView.frame.width - scrollLabelOffset,
                                      height: self.backgroundImageView.frame.height)
         
@@ -42,16 +48,19 @@ final class NowPlayingButton: UIControl {
         self.scrollLabel.textColor = UIColor.white
         self.addSubview(self.scrollLabel)
         
-        
-        
         self.title.asObservable().subscribe(onNext: { title in
             self.scrollLabel.setText(title, refreshLabels: true)
         }).addDisposableTo(disposeBag)
+        
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return self.backgroundImageView.bounds.size
     }
     
     override func layoutSubviews() {
@@ -60,8 +69,15 @@ final class NowPlayingButton: UIControl {
         self.backgroundImageView.sizeToFit()
         
         self.scrollLabel.sizeToFit()
-        self.scrollLabel.frame.origin = CGPoint(x: 30, y: 11)
+        let paddingLeft = CGFloat.deviceValue(iPhone: 30, iPad: 35)
+        self.scrollLabel.frame.origin = CGPoint(x: paddingLeft, y: 0)
         
     }
     
+}
+
+extension Reactive where Base: NowPlayingButton {
+    var tap: ControlEvent<Void> {
+        return controlEvent(.touchUpInside)
+    }
 }

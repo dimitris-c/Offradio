@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-final class NowPlayingService: APIService {
+final class NowPlayingService: APIService<NowPlaying> {
     
     init() {
         let path: String = APIURL().with("nowplaying")
@@ -18,11 +18,26 @@ final class NowPlayingService: APIService {
     
 }
 
-final class NowPlayingParse: ResponseParse {
+final class NowPlayingParse: APIResponse<NowPlaying> {
     
-    func toData(rawData data: JSON) -> Any {
-        
-        return data
+    override func toData(rawData data: JSON) -> NowPlaying {
+        return NowPlaying(json: data)
     }
     
+}
+
+final class CRCService: APIService<String> {
+    
+    init() {
+        let path: String = APIURL().baseUrl + "/mob_player.crc?noCache=\(Date().timeIntervalSince1970)"
+        let request = APIRequest(apiPath: path, method: .get)
+        super.init(request: request, parse: CRCResponse())
+    }
+    
+}
+
+final class CRCResponse: APIResponse<String> {
+    override func toData(rawData data: JSON) -> String? {
+        return data.stringValue
+    }
 }

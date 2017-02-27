@@ -10,7 +10,7 @@ import Alamofire
 import SwiftyJSON
 import RealmSwift
 
-final class PlaylistService: APIService {
+final class PlaylistService: APIService<[PlaylistSong]> {
     
     var page: Int = 0
     
@@ -28,15 +28,15 @@ final class PlaylistService: APIService {
         super.init(request: request, parse: PlaylistResponseParse())
     }
     
-    func with(page: Int) -> APIService {
+    func with(page: Int) -> APIService<[PlaylistSong]> {
         return PlaylistService(withPage: page)
     }
     
 }
 
-final class PlaylistResponseParse: ResponseParse {
+final class PlaylistResponseParse: APIResponse<[PlaylistSong]> {
     
-    func toData(rawData data: JSON) -> Any {
+    override func toData(rawData data: JSON) -> [PlaylistSong] {
         var items: [PlaylistSong] = []
         items = data["playlist"].arrayValue.map { PlaylistSong(with: $0) }
         return items

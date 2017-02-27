@@ -20,6 +20,8 @@ final class RadioViewModel: StormysRadioKitDelegate {
     let isBuffering: Variable<Bool> = Variable<Bool>(false)
     let isPlaying: Variable<Bool> = Variable<Bool>(false)
     
+    let nowPlaying: Variable<NowPlaying?> = Variable<NowPlaying?>(nil)
+    
     init() {
         
         self.radio = OffradioStream.radio
@@ -36,6 +38,8 @@ final class RadioViewModel: StormysRadioKitDelegate {
                 }
             })
             .addDisposableTo(disposeBag)
+        
+        radio.nowPlaying.nowPlaying.asObservable().bindTo(nowPlaying).addDisposableTo(disposeBag)
         
     }
     
