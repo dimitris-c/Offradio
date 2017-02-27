@@ -43,6 +43,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.view.addSubview(self.turnYourRadioOffLabel)
         
         self.nowPlayingButton = NowPlayingButton(frame: .zero)
+        self.nowPlayingButton.alpha = 0.0
         self.view.addSubview(self.nowPlayingButton)
         
         self.nowPlayingButton.rx.tap.asObservable().subscribe(onNext: { _ in
@@ -52,6 +53,10 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.playerCircleContainer.switched.bindTo(viewModel.toggleRadio).addDisposableTo(disposeBag)
         viewModel.isBuffering.asObservable().bindTo(self.playerCircleContainer.buffering).addDisposableTo(disposeBag)
         viewModel.isPlaying.asObservable().bindTo(self.playerCircleContainer.playing).addDisposableTo(disposeBag)
+        
+        viewModel.isPlaying.asObservable().subscribe(onNext: { [weak self] isPlaying in
+            self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
+        }).addDisposableTo(disposeBag)
      
         viewModel.nowPlaying.asObservable()
             .map { $0.current.title }
@@ -69,6 +74,13 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
             self?.showPlaylistViewController()
         }).addDisposableTo(disposeBag)
 
+    }
+    
+    fileprivate func fadeNowPlayingButton(shouldFadeIn: Bool) {
+        let targetAlpha: CGFloat = shouldFadeIn ? 1.0 : 0.0
+        UIView.animate(withDuration: 0.3) { 
+            self.nowPlayingButton.alpha = targetAlpha
+        }
     }
     
     fileprivate func showPlaylistViewController() {

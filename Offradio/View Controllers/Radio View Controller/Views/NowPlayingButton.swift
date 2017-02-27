@@ -20,8 +20,8 @@ final class NowPlayingButton: UIControl {
     final let title: Variable<String> = Variable<String>("")
     
     override var isHighlighted: Bool {
-        didSet(newValue) {
-            self.backgroundImageView.isHighlighted = !newValue
+        didSet {
+            self.backgroundImageView.isHighlighted = isHighlighted
         }
     }
 
