@@ -17,7 +17,6 @@ import AlamofireNetworkActivityIndicator
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let crcService: CRCService = CRCService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         

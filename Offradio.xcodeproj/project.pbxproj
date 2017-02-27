@@ -1403,7 +1403,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -1426,7 +1426,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
