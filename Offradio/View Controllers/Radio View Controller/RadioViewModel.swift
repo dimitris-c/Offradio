@@ -22,9 +22,10 @@ final class RadioViewModel: StormysRadioKitDelegate {
     
     let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(NowPlaying.empty)
     
-    init() {
+    init(with radio: Offradio) {
         
-        self.radio = OffradioStream.radio
+        self.radio = radio
+        
         self.radio.setupRadio()
         self.radio.kit.delegate = self
 

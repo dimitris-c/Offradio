@@ -15,6 +15,8 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     
     @IBOutlet weak var playerCircleContainer: PlayerCircleContainerView!
     
+    final var offradio: Offradio!
+    
     fileprivate final var turnYourRadioOffLabel: UILabel!
     fileprivate final var nowPlayingButton: NowPlayingButton!
     
@@ -30,7 +32,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
         
-        self.viewModel = RadioViewModel()
+        self.viewModel = RadioViewModel(with: self.offradio)
 
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()

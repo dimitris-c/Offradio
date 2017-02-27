@@ -19,12 +19,16 @@ public enum TabIdentifier: Int {
 
 final class MainTabBarViewController: UITabBarController {
     
-    var button: UIButton?
+    var offradio: Offradio!
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    init(with radio: Offradio) {
+        super.init(nibName: nil, bundle: nil)
+        self.offradio = radio
         
-        self.viewControllers = defaultViewControllers()
+        let radioViewController = offradioViewController(with: self.offradio)
+        self.viewControllers = [scheduleViewController(),
+                                radioViewController,
+                                contactViewController()]
         
         self.view.backgroundColor = UIColor.white
         self.setupTabBarAppearance()
@@ -46,11 +50,6 @@ final class MainTabBarViewController: UITabBarController {
         self.tabBar.isTranslucent = false
     }
 
-    fileprivate final func defaultViewControllers() -> [UIViewController] {
-        return [scheduleViewController(),
-                offradioViewController(),
-                contactViewController()]
-    }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -69,12 +68,14 @@ final class MainTabBarViewController: UITabBarController {
         return scheduleNavigationController
     }
     
-    fileprivate final func offradioViewController() -> UINavigationController {
+    fileprivate final func offradioViewController(with radio: Offradio) -> UINavigationController {
         let radioViewController = RadioViewController.createFromStoryboard()
-        radioViewController.tabBarItem = radioViewController.defaultTabBarItem()
-        let searchNavigationController = navigationController(withRootViewController: radioViewController)
+        radioViewController.offradio = radio
         
-        return searchNavigationController
+        radioViewController.tabBarItem = radioViewController.defaultTabBarItem()
+        let radioNavigationController = navigationController(withRootViewController: radioViewController)
+        
+        return radioNavigationController
     }
     
     fileprivate final func contactViewController() -> UINavigationController {

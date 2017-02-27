@@ -16,11 +16,14 @@ final class OffradioContentViewController: UIViewController {
     
     var tabBarViewContainer:UIView?
     var mainTabBarController:MainTabBarViewController?
+    var radio: Offradio!
     
     init() {
         super.init(nibName: nil, bundle: nil)
         
-        mainTabBarController = MainTabBarViewController()
+        self.radio = Offradio()
+        
+        mainTabBarController = MainTabBarViewController(with: self.radio)
         
         if let mainTabBarController = mainTabBarController {
             self.addContainerViewController(mainTabBarController)
