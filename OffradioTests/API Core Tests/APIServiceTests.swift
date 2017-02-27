@@ -20,10 +20,18 @@ class APIServiceTests: XCTestCase {
     var dummyModelAPIService: APIService<DummyModel>?
     var dummyModelArrayAPIService: APIService<[DummyModel]>?
     
+    var mockJSONData: JSON?
+    
     override func setUp() {
         super.setUp()
         
+        let bundle          = Bundle(for: type(of: self))
+        let path            = bundle.path(forResource: "mock-person", ofType: "json")!
+        let jsonData        = NSData(contentsOfFile: path)
+        self.mockJSONData   = JSON(jsonData!)
+        
     }
+
     
     override func tearDown() {
         super.tearDown()
@@ -160,6 +168,43 @@ class APIServiceTests: XCTestCase {
         XCTAssertEqual(dummyModel.value!.lastName, "Chatzieleftheriou")
         XCTAssertEqual(dummyModel.value!.fullName, "Dimitris Chatzieleftheriou")
         
+    }
+    
+    func testAPIMockDataReturnsPassedData() {
+        
+        let expectation = self.expectation(description: "MockJSONAPiService should return json")
+        
+        var result: JSON?
+        let service = MockJSONAPIService(with: self.mockJSONData!)
+        service.call { (success, data, headers) in
+            if success {
+                result = data.value
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
+        
+        XCTAssertNotNil(result)
+        
+    }
+    
+    func testAPIMockDataReturnsPassedDataAsReactive() {
+        let expectation = self.expectation(description: "MockJSONAPiService should return json")
+        
+        let result: Variable<JSON?> = Variable<JSON?>(nil)
+        let service = MockJSONAPIService(with: self.mockJSONData!)
+        
+        let observable = service.rxCall().asObservable().subscribe(onNext: { (json) in
+            result.value = json
+            expectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
+        
+        observable.dispose()
+        
+        XCTAssertNotNil(result)
     }
     
 }
