@@ -20,7 +20,7 @@ final class RadioViewModel: StormysRadioKitDelegate {
     let isBuffering: Variable<Bool> = Variable<Bool>(false)
     let isPlaying: Variable<Bool> = Variable<Bool>(false)
     
-    let nowPlaying: Variable<NowPlaying?> = Variable<NowPlaying?>(nil)
+    let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(NowPlaying.empty)
     
     init() {
         

@@ -11,7 +11,7 @@ import SwiftyJSON
 final class NowPlayingService: APIService<NowPlaying> {
     
     init() {
-        let path: String = APIURL().with("nowplaying")
+        let path: String = APIURL().with("nowplaying?noCache=\(Date().timeIntervalSince1970)")
         let request = APIRequest(apiPath: path, method: .get)
         super.init(request: request, parse: NowPlayingParse())
     }

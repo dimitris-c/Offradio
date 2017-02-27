@@ -16,7 +16,7 @@ final class OffradioMetadata {
     
     fileprivate let crc: Variable<String> = Variable<String>("")
     fileprivate let crcService: CRCService = CRCService()
-    fileprivate let nowPlayingService: NowPlayingService = NowPlayingService()
+    fileprivate var nowPlayingService: NowPlayingService!
     
     fileprivate var timerDisposeBag: DisposeBag?
     
@@ -54,7 +54,8 @@ final class OffradioMetadata {
     }
     
     fileprivate func fetchNowPlaying() -> Observable<NowPlaying> {
-        return self.nowPlayingService.rxCall()
+        self.nowPlayingService = NowPlayingService()
+        return self.nowPlayingService!.rxCall()
     }
     
 }

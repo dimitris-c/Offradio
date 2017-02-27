@@ -22,7 +22,7 @@ final class PlaylistViewModel {
     
     let refresh: Variable<Bool> = Variable<Bool>(false)
     
-    let indicatorViewAnimating: Variable<Bool> = Variable<Bool>(true)
+    let indicatorViewAnimating: Variable<Bool> = Variable<Bool>(false)
     
     var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
     

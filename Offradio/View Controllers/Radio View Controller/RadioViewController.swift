@@ -54,7 +54,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         viewModel.isPlaying.asObservable().bindTo(self.playerCircleContainer.playing).addDisposableTo(disposeBag)
      
         viewModel.nowPlaying.asObservable()
-            .map { $0?.current.title ?? "" }
+            .map { $0.current.title }
             .bindTo(self.nowPlayingButton.title)
             .addDisposableTo(disposeBag)
         
