@@ -95,6 +95,7 @@
 		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
 		B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */; };
 		B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F271E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift */; };
+		B5656F301E65025B00E5DB0E /* LastFMApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F2F1E65025B00E5DB0E /* LastFMApiService.swift */; };
 		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
 		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
 		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
@@ -252,6 +253,7 @@
 		B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioMetadata.swift; sourceTree = "<group>"; };
 		B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioCommandCenter.swift; sourceTree = "<group>"; };
 		B5656F271E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioNowPlayingInfoCenter.swift; sourceTree = "<group>"; };
+		B5656F2F1E65025B00E5DB0E /* LastFMApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastFMApiService.swift; sourceTree = "<group>"; };
 		B569603C1E4908D0003BFBC6 /* RadioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewController.swift; sourceTree = "<group>"; };
 		B569603E1E490907003BFBC6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B56960411E490957003BFBC6 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
@@ -466,10 +468,11 @@
 			children = (
 				B52A6C271E36B3DB005893D2 /* API */,
 				B52A6C391E36BAC2005893D2 /* Constants.swift */,
-				B507C0A21E55061800792414 /* Realm */,
+				B5656F2C1E6501B200E5DB0E /* LastFM API */,
 				B52A6C2C1E36B9BB005893D2 /* Models */,
 				B50395581E4BA4E800D9A71B /* Offradio API */,
 				B50395721E4BCA3000D9A71B /* Protocols */,
+				B507C0A21E55061800792414 /* Realm */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -718,6 +721,14 @@
 				B5656F141E64814C00E5DB0E /* mock-person.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B5656F2C1E6501B200E5DB0E /* LastFM API */ = {
+			isa = PBXGroup;
+			children = (
+				B5656F2F1E65025B00E5DB0E /* LastFMApiService.swift */,
+			);
+			path = "LastFM API";
 			sourceTree = "<group>";
 		};
 		B56960391E4908B8003BFBC6 /* Radio View Controller */ = {
@@ -1194,6 +1205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */,
+				B5656F301E65025B00E5DB0E /* LastFMApiService.swift in Sources */,
 				B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */,
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
 				B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */,

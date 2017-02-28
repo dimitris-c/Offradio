@@ -16,6 +16,7 @@ final class OffradioMetadata {
     
     fileprivate let crc: Variable<String> = Variable<String>("")
     fileprivate let crcService: CRCService = CRCService()
+    fileprivate var lastFMApiService: LastFMApiService!
     fileprivate var nowPlayingService: NowPlayingService!
     
     fileprivate var timerDisposeBag: DisposeBag?
@@ -35,7 +36,11 @@ final class OffradioMetadata {
         let crcDisposable = crc.asObservable()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return self.fetchNowPlaying()
-            }.bindTo(nowPlaying)
+            }
+            .flatMapLatest({ nowPlaying -> Observable<NowPlaying> in
+                return self.fetchLastFMInfo(with: nowPlaying)
+            })
+            .bindTo(nowPlaying)
         
         timerDisposeBag?.insert(crcDisposable)
         timerDisposeBag?.insert(crcTimerDisposable)
@@ -52,6 +57,11 @@ final class OffradioMetadata {
     fileprivate func fetchNowPlaying() -> Observable<NowPlaying> {
         self.nowPlayingService = NowPlayingService()
         return self.nowPlayingService.rxCall()
+    }
+    
+    fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
+        self.lastFMApiService = LastFMApiService(with: nowPlaying.current.artist)
+        return self.lastFMApiService.rxCall()
     }
     
 }
