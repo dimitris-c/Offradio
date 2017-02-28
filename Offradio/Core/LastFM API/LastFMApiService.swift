@@ -21,7 +21,7 @@ struct LastFMImage {
 struct LastFMArtist {
     let images: [LastFMImage]
     init(with json: JSON) {
-        self.images = json["image"].map { LastFMImage(with: $1) }
+        self.images = json["image"].arrayValue.map { LastFMImage(with: $0) }
     }
 }
 
@@ -34,7 +34,7 @@ final class LastFMApiService: APIService<LastFMArtist> {
                       "format"  : "json",
                       "artist"  : artist]
         let parameters = RequestParameters(parameters: params, encoding: URLEncoding.default)
-        let request = APIRequest(apiPath: "", method: .get, parameters: parameters)
+        let request = APIRequest(apiPath: apiPath, method: .get, parameters: parameters)
         super.init(request: request, parse: LastFMAPIResponseParse())
     }
     
@@ -42,6 +42,7 @@ final class LastFMApiService: APIService<LastFMArtist> {
 
 final class LastFMAPIResponseParse: APIResponse<LastFMArtist> {
     override func toData(rawData data: JSON) -> LastFMArtist? {
-        return LastFMArtist(with: data)
+        let artist = data["artist"]
+        return LastFMArtist(with: artist)
     }
 }

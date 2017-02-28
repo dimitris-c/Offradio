@@ -30,16 +30,13 @@ final class OffradioMetadata {
                 guard let strongSelf = self else { return Observable.empty() }
                 return strongSelf.fetchCRC()
             })
-            .distinctUntilChanged()
             .bindTo(crc)
         
         let crcDisposable = crc.asObservable()
+            .distinctUntilChanged()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return self.fetchNowPlaying()
             }
-            .flatMapLatest({ nowPlaying -> Observable<NowPlaying> in
-                return self.fetchLastFMInfo(with: nowPlaying)
-            })
             .bindTo(nowPlaying)
         
         timerDisposeBag?.insert(crcDisposable)
@@ -58,10 +55,17 @@ final class OffradioMetadata {
         self.nowPlayingService = NowPlayingService()
         return self.nowPlayingService.rxCall()
     }
-    
+
+    // Currently Not Used
     fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
         self.lastFMApiService = LastFMApiService(with: nowPlaying.current.artist)
-        return self.lastFMApiService.rxCall()
+        return self.lastFMApiService.rxCall().map({ (artist) -> NowPlaying in
+            let filtered = artist.images.filter { $0.size == "mega" }
+            if let image = filtered.first {
+                return nowPlaying.update(with: image.url)
+            }
+            return nowPlaying
+        })
     }
     
 }

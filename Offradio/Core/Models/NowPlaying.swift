@@ -22,12 +22,21 @@ struct Show {
         self.largePhoto = json["largephoto"].stringValue
         self.body = json["body"].stringValue
     }
+    
+    func isEmpty() -> Bool {
+        return self.name.isEmpty &&
+            self.photo.isEmpty &&
+            self.largePhoto.isEmpty &&
+            self.body.isEmpty
+    }
+    
 }
 
 struct CurrentTrack {
     let track: String
     let image: String
     let artist: String
+    let lastFMImageUrl: String
     
     var title: String {
         guard !artist.isEmpty && !track.isEmpty else {
@@ -42,12 +51,31 @@ struct CurrentTrack {
         self.track = json["track"].stringValue
         self.image = json["image"].stringValue
         self.artist = json["artist"].stringValue
+        self.lastFMImageUrl = ""
+    }
+    
+    init(track: String, image: String, artist: String, lastFMImageUrl: String) {
+        self.track = track
+        self.image = image
+        self.artist = artist
+        self.lastFMImageUrl = lastFMImageUrl
+    }
+    
+    func update(with lastFmImageUrl: String) -> CurrentTrack {
+        return CurrentTrack(track: self.track,
+                            image: self.image,
+                            artist: self.artist,
+                            lastFMImageUrl: lastFmImageUrl)
+    }
+    
+    func isEmpty() -> Bool {
+        return self.title.isEmpty && self.image.isEmpty && self.artist.isEmpty
     }
 }
 
 struct NowPlaying {
     let show: Show
-    let current:CurrentTrack
+    let current: CurrentTrack
     
     static let empty = NowPlaying(show: .empty, current: .empty)
     
@@ -61,4 +89,12 @@ struct NowPlaying {
         self.current = current
     }
     
+    func update(with lastFmImageUrl: String) -> NowPlaying {
+        let current = self.current.update(with: lastFmImageUrl)
+        return NowPlaying(show: self.show, current: current)
+    }
+    
+    func isEmpty() -> Bool {
+        return self.show.isEmpty() && self.current.isEmpty()
+    }
 }
