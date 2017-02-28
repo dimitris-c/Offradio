@@ -27,11 +27,7 @@ final class OffradioMetadata {
         let crcTimerDisposable = crcTimer.asObservable()
             .flatMapLatest({ [weak self] _ -> Observable<String> in
                 guard let strongSelf = self else { return Observable.empty() }
-                Log.debug("fetching")
                 return strongSelf.fetchCRC()
-            })
-            .do(onNext: { crc in
-                Log.debug("crc: \(crc)")
             })
             .distinctUntilChanged()
             .bindTo(crc)
@@ -55,7 +51,7 @@ final class OffradioMetadata {
     
     fileprivate func fetchNowPlaying() -> Observable<NowPlaying> {
         self.nowPlayingService = NowPlayingService()
-        return self.nowPlayingService!.rxCall()
+        return self.nowPlayingService.rxCall()
     }
     
 }

@@ -59,4 +59,12 @@ final class Offradio: RadioProtocol {
         status.isPlaying = false
     }
     
+    final func toggleRadio() {
+        if status.isPlaying {
+            self.stop()
+        } else {
+            self.start()
+        }
+    }
+    
 }

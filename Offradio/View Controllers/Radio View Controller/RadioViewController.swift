@@ -62,6 +62,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
      
         viewModel.nowPlaying.asObservable()
             .map { $0.current.title }
+            .map { try $0.convertHTMLEntities() ?? $0 }
             .bindTo(self.nowPlayingButton.title)
             .addDisposableTo(disposeBag)
         

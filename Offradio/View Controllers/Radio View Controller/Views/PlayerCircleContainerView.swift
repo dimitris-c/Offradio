@@ -119,7 +119,7 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
     fileprivate final func setPlaying() {
         guard playing.value else { return }
         
-        self.offradioSwitch.changeRightImageOnDemand()
+        self.offradioSwitch.setOn(true, animated: true)
         
         UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: { 
             self.redBackgroundView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -130,6 +130,8 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
     
     fileprivate final func setStopped() {
         guard !playing.value else { return }
+        
+        self.offradioSwitch.setOn(false, animated: true)
         
         UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
             self.redBackgroundView.alpha = 0.0

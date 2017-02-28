@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 public protocol TabBarItemProtocol {
     func defaultTabBarItem() -> UITabBarItem
@@ -16,14 +17,20 @@ final class OffradioContentViewController: UIViewController {
     
     var tabBarViewContainer:UIView?
     var mainTabBarController:MainTabBarViewController?
-    var radio: Offradio!
+    
+    var offradio: Offradio!
+    fileprivate var commandCenter: OffradioCommandCenter!
+    fileprivate var nowPlayingInfoCenter: OffradioNowPlayingInfoCenter!
     
     init() {
         super.init(nibName: nil, bundle: nil)
         
-        self.radio = Offradio()
+        self.offradio = Offradio()
+        self.commandCenter = OffradioCommandCenter(with: self.offradio)
+        self.nowPlayingInfoCenter = OffradioNowPlayingInfoCenter(with: self.offradio)
+        self.commandCenter.isEnabled = true
         
-        mainTabBarController = MainTabBarViewController(with: self.radio)
+        self.mainTabBarController = MainTabBarViewController(with: self.offradio)
         
         if let mainTabBarController = mainTabBarController {
             self.addContainerViewController(mainTabBarController)
