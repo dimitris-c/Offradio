@@ -11,6 +11,7 @@ import MediaPlayer
 final class OffradioCommandCenter {
     fileprivate final let sharedCenter = MPRemoteCommandCenter.shared()
     fileprivate final var offradio: Offradio!
+    fileprivate final var favouritesDataLayer: PlaylistFavouritesLayer!
     
     final var isEnabled: Bool {
         didSet {
@@ -26,6 +27,8 @@ final class OffradioCommandCenter {
         self.offradio = radio
         self.isEnabled = false
         
+        self.favouritesDataLayer = PlaylistFavouritesLayer()
+        
         self.sharedCenter.playCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
             self?.offradio.start()
             return .success
@@ -35,11 +38,26 @@ final class OffradioCommandCenter {
             return .success
         }
 
+        self.sharedCenter.likeCommand.localizedTitle = "Add Favourite"
+        self.sharedCenter.likeCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let strongSelf = self else { return .noSuchContent }
+            let playlistSong = strongSelf.offradio.offradioMetadata.nowPlaying.value.current.toPlaylistSong()
+            if !strongSelf.favouritesDataLayer.isFavourite(for: playlistSong.artist,
+                                                           songTitle: playlistSong.songTitle) {
+                try? strongSelf.favouritesDataLayer.createFavourite(with: playlistSong)
+                return .success
+            }
+            else {
+                return .noSuchContent
+            }
+        }
+        
     }
     
     func enableCommands() {
         self.sharedCenter.playCommand.isEnabled = true
         self.sharedCenter.pauseCommand.isEnabled = true
+        self.sharedCenter.likeCommand.isEnabled = true
     }
     
     func disableCommands() {
@@ -47,6 +65,8 @@ final class OffradioCommandCenter {
         self.sharedCenter.playCommand.isEnabled = false
         self.sharedCenter.pauseCommand.removeTarget(self)
         self.sharedCenter.pauseCommand.isEnabled = false
+        self.sharedCenter.likeCommand.removeTarget(self)
+        self.sharedCenter.likeCommand.isEnabled = false
     }
     
 }

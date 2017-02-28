@@ -47,4 +47,8 @@ struct CurrentTrack {
     func isEmpty() -> Bool {
         return self.title.isEmpty && self.image.isEmpty && self.artist.isEmpty
     }
+    
+    func toPlaylistSong() -> PlaylistSong {
+        return PlaylistSong(self.artist, songTitle: self.track, imageUrl: self.image)
+    }
 }

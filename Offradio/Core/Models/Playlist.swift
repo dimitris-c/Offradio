@@ -28,6 +28,14 @@ class PlaylistSong: Object {
         self.imageUrl = json["imageurl"].stringValue
         
     }
+    
+    convenience init(_ artist: String, songTitle: String, imageUrl: String) {
+        self.init()
+        
+        self.artist = artist
+        self.songTitle = songTitle
+        self.imageUrl = imageUrl
+    }
 
     func deepCopy() -> PlaylistSong {
         return PlaylistSong(value: self)

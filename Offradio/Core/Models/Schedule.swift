@@ -40,6 +40,10 @@ struct Schedule {
     let day: String
     var items: [ScheduleItem] = []
     
+    var dayFormatted: String {
+        return "Schedule - \(day)"
+    }
+    
     init(with json: JSON) {
         self.day = json.arrayValue.first?["day"].stringValue ?? ""
         self.items = json.arrayValue.dropFirst().map { ScheduleItem(with: $0) }

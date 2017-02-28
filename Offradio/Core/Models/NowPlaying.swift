@@ -32,4 +32,5 @@ struct NowPlaying {
     func isEmpty() -> Bool {
         return self.show.isEmpty() && self.current.isEmpty()
     }
+    
 }

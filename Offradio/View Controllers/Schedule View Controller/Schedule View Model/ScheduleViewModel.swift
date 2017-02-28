@@ -19,9 +19,9 @@ final class ScheduleViewModel {
     fileprivate var scheduleService: ScheduleService!
     fileprivate var producersService: ProducersBioService!
     
-    var navigationTitle: Variable<String> = Variable<String>("Offradio")
-    var schedule: Variable<[ScheduleItem]> = Variable<[ScheduleItem]>([])
-    var producers: Variable<[Producer]> = Variable<[Producer]>([])
+    let navigationTitle: Variable<String> = Variable<String>("Offradio")
+    let schedule: Variable<[ScheduleItem]> = Variable<[ScheduleItem]>([])
+    let producers: Variable<[Producer]> = Variable<[Producer]>([])
     
     init() {
         scheduleService = ScheduleService()
@@ -29,7 +29,7 @@ final class ScheduleViewModel {
         
         self.fetchSchedule()
             .do(onNext: { [weak self] schedule in
-                self?.navigationTitle.value = schedule.day
+                self?.navigationTitle.value = schedule.dayFormatted
             })
             .map { $0.items }
             .catchErrorJustReturn([])
