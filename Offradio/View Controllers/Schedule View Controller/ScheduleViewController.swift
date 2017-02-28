@@ -63,9 +63,12 @@ final class ScheduleViewController: UIViewController {
         let identifier = ScheduleTableViewCell.identifier
         let cellType = ScheduleTableViewCell.self
         
-        self.viewModel.schedule.asObservable().bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, item, cell in
-            cell.configure(with: item)
-        }.addDisposableTo(disposeBag)
+        self.viewModel.navigationTitle.asObservable().bindTo(self.navigationItem.rx.title).addDisposableTo(disposeBag)
+        
+        self.viewModel.schedule.asObservable()
+            .bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, item, cell in
+                cell.configure(with: item)
+            }.addDisposableTo(disposeBag)
         
         self.refreshControl = UIRefreshControl()
         if #available(iOS 10.0, *) {

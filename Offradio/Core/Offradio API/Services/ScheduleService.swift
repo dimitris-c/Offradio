@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-final class ScheduleService: APIService<[ScheduleItem]> {
+final class ScheduleService: APIService<Schedule> {
 
     init() {
         let path: String = APIURL().with("schedule")
@@ -28,12 +28,13 @@ final class ProducersBioService: APIService<[Producer]> {
     
 }
 
-final class ScheduleResponseParse: APIResponse<[ScheduleItem]> {
+final class ScheduleResponseParse: APIResponse<Schedule> {
     
-    override func toData(rawData data: JSON) -> [ScheduleItem] {
+    override func toData(rawData data: JSON) -> Schedule {
         var items: [ScheduleItem] = []
         items = data.arrayValue.dropFirst().map { ScheduleItem(with: $0) }
-        return items
+        
+        return Schedule(with: data)
     }
     
 }

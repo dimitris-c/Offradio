@@ -41,7 +41,7 @@ struct Schedule {
     var items: [ScheduleItem] = []
     
     init(with json: JSON) {
-        self.day = json["day"].stringValue
-        self.items = []
+        self.day = json.arrayValue.first?["day"].stringValue ?? ""
+        self.items = json.arrayValue.dropFirst().map { ScheduleItem(with: $0) }
     }
 }

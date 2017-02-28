@@ -19,6 +19,7 @@ final class ScheduleViewModel {
     fileprivate var scheduleService: ScheduleService!
     fileprivate var producersService: ProducersBioService!
     
+    var navigationTitle: Variable<String> = Variable<String>("Offradio")
     var schedule: Variable<[ScheduleItem]> = Variable<[ScheduleItem]>([])
     var producers: Variable<[Producer]> = Variable<[Producer]>([])
     
@@ -26,12 +27,24 @@ final class ScheduleViewModel {
         scheduleService = ScheduleService()
         producersService = ProducersBioService()
         
-        self.fetchSchedule().catchErrorJustReturn([]).bindTo(schedule).addDisposableTo(disposeBag)
+        self.fetchSchedule()
+            .do(onNext: { [weak self] schedule in
+                self?.navigationTitle.value = schedule.day
+            })
+            .map { $0.items }
+            .catchErrorJustReturn([])
+            .bindTo(schedule)
+            .addDisposableTo(disposeBag)
         
-        self.refresh.asObservable().filter { $0 }.flatMapLatest { [weak self] _ -> Observable<[ScheduleItem]> in
-            guard let strongSelf = self else { return Observable.empty() }
-            return strongSelf.fetchSchedule()
-        }.bindTo(schedule).addDisposableTo(disposeBag)
+        self.refresh.asObservable()
+            .filter { $0 }
+            .flatMapLatest { [weak self] _ -> Observable<Schedule> in
+                guard let strongSelf = self else { return Observable.empty() }
+                return strongSelf.fetchSchedule()
+            }
+            .map { $0.items }
+            .bindTo(schedule)
+            .addDisposableTo(disposeBag)
         
         self.fetchProducers().catchErrorJustReturn([]).bindTo(producers).addDisposableTo(disposeBag)
         
@@ -49,7 +62,7 @@ final class ScheduleViewModel {
     
     // MARK: Internal methods
 
-    fileprivate func fetchSchedule() -> Observable<[ScheduleItem]> {
+    fileprivate func fetchSchedule() -> Observable<Schedule> {
         return self.scheduleService.rxCall().do(onError: { [weak self] (_) in
             self?.refresh.value = false
             self?.firstLoad.value = false
@@ -61,25 +74,6 @@ final class ScheduleViewModel {
     
     fileprivate func fetchProducers() -> Observable<[Producer]> {
         return self.producersService.rxCall()
-    }
-
-    // MARK: DEPRECATED
-    fileprivate func fetchItems() -> Observable<[ScheduleItem]> {
-        return Observable<[ScheduleItem]>.create({ [weak self] (observer) -> Disposable in
-            let request = self?.scheduleService.call { (success, data, headers) in
-                if success {
-                    if let items = data.value {
-                        observer.onNext(items)
-                        observer.onCompleted()
-                    }
-                } else {
-                    let error = APIError.error(data.error?.localizedDescription)
-                    observer.onError(error)
-                }
-                self?.refresh.value = false
-            }
-            return Disposables.create(with: { [weak request] in request?.cancel() })
-        })
     }
     
 }

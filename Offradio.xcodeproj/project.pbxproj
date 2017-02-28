@@ -123,6 +123,8 @@
 		B5BA38411E4F702200DB49C9 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38401E4F702200DB49C9 /* UIScrollView+Rx.swift */; };
 		B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */; };
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
+		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
+		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125211E5CC82400579D4B /* HorizontalArranger.swift */; };
 		B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125221E5CC82400579D4B /* SizeObject.swift */; };
 		B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125231E5CC82400579D4B /* VerticalArranger.swift */; };
@@ -283,6 +285,8 @@
 		B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsFactory.swift; sourceTree = "<group>"; };
 		B5BB24901E4B82F6006FC751 /* Offradio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Offradio.entitlements; sourceTree = "<group>"; };
+		B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTrack.swift; sourceTree = "<group>"; };
+		B5D923771E65E4800013A3F4 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		B5F125211E5CC82400579D4B /* HorizontalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalArranger.swift; sourceTree = "<group>"; };
 		B5F125221E5CC82400579D4B /* SizeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeObject.swift; sourceTree = "<group>"; };
 		B5F125231E5CC82400579D4B /* VerticalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalArranger.swift; sourceTree = "<group>"; };
@@ -524,10 +528,12 @@
 		B52A6C2C1E36B9BB005893D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */,
 				B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */,
 				B51E3FB71E4B9C06009F4C37 /* Playlist.swift */,
-				B51E3FB91E4B9E50009F4C37 /* Schedule.swift */,
 				B51E3FBB1E4B9F49009F4C37 /* Producer.swift */,
+				B51E3FB91E4B9E50009F4C37 /* Schedule.swift */,
+				B5D923771E65E4800013A3F4 /* Show.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1213,6 +1219,7 @@
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
 				B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */,
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
+				B5D923781E65E4800013A3F4 /* Show.swift in Sources */,
 				B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */,
 				B54E08861E4D554E00B54FB3 /* DateExtensions.swift in Sources */,
 				B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */,
@@ -1269,6 +1276,7 @@
 				B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */,
 				B50395521E4BA33200D9A71B /* APIRequest.swift in Sources */,
 				B53942AB1E4A8E2C00AF5BE5 /* ToggleView.m in Sources */,
+				B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */,
 				B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */,
 				B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
