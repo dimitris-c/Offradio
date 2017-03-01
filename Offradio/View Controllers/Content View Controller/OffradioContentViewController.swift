@@ -77,40 +77,4 @@ final class OffradioContentViewController: UIViewController {
         return mainTabBarController
     }
     
-    override func remoteControlReceived(with event: UIEvent?) {
-        guard let event = event else {
-            super.remoteControlReceived(with: nil)
-            return
-        }
-        
-        
-        if event.type == UIEventType.remoteControl  {
-            switch event.subtype {
-            case UIEventSubtype.remoteControlTogglePlayPause:
-//                if ([offradioStreamer getStreamStatus] == SRK_STATUS_STOPPED || [offradioStreamer getStreamStatus] == SRK_STATUS_PAUSED) {
-//                    [Radio start];
-//                    
-//                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^ {
-//                        [[ORMobileApiClient sharedClient] getNowPlayingWithCompletion:nil errorHandler:nil];
-//                        });
-//                    
-//                } else if ([offradioStreamer getStreamStatus] == SRK_STATUS_PLAYING) {
-//                    [Radio stop];
-//                }
-                break;
-            case UIEventSubtype.remoteControlPlay:
-                
-                break;
-            case UIEventSubtype.remoteControlPause,
-                UIEventSubtype.remoteControlStop:
-                
-                break
-            default:
-                break
-            }
-        } else {
-            super.remoteControlReceived(with: event)
-        }
-        
-    }
 }

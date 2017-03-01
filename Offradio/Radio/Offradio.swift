@@ -7,8 +7,6 @@
 //
 
 import MediaPlayer
-import RxSwift
-import RxCocoa
 
 struct OffradioStream {
     let url: String = "http://www.offradio.gr/offradio.acc.m3u"

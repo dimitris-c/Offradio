@@ -28,6 +28,7 @@
 		B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
 		B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB91E4B9E50009F4C37 /* Schedule.swift */; };
 		B51E3FBC1E4B9F49009F4C37 /* Producer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FBB1E4B9F49009F4C37 /* Producer.swift */; };
+		B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E5FC1E672622003A75EE /* ProducersService.swift */; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
@@ -181,6 +182,7 @@
 		B51E3FB71E4B9C06009F4C37 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		B51E3FB91E4B9E50009F4C37 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B51E3FBB1E4B9F49009F4C37 /* Producer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Producer.swift; sourceTree = "<group>"; };
+		B524E5FC1E672622003A75EE /* ProducersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducersService.swift; sourceTree = "<group>"; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				B503956B1E4BCA0100D9A71B /* NowPlayingService.swift */,
 				B503956C1E4BCA0100D9A71B /* PlaylistService.swift */,
 				B503956D1E4BCA0100D9A71B /* ScheduleService.swift */,
+				B524E5FC1E672622003A75EE /* ProducersService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1227,6 +1230,7 @@
 				B54E08861E4D554E00B54FB3 /* DateExtensions.swift in Sources */,
 				B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */,
 				B50395571E4BA33200D9A71B /* APIService.swift in Sources */,
+				B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */,
 				B50395551E4BA33200D9A71B /* RequestParameters.swift in Sources */,
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,

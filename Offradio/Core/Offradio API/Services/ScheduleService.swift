@@ -18,33 +18,10 @@ final class ScheduleService: APIService<Schedule> {
     
 }
 
-final class ProducersBioService: APIService<[Producer]> {
-
-    init() {
-        let path: String = APIURL().with("producers")
-        let request = APIRequest(apiPath: path, method: .get)
-        super.init(request: request, parse: ProducerResponseParse())
-    }
-    
-}
-
 final class ScheduleResponseParse: APIResponse<Schedule> {
     
-    override func toData(rawData data: JSON) -> Schedule {
-        var items: [ScheduleItem] = []
-        items = data.arrayValue.dropFirst().map { ScheduleItem(with: $0) }
-        
+    override func toData(rawData data: JSON) -> Schedule {        
         return Schedule(with: data)
-    }
-    
-}
-
-final class ProducerResponseParse: APIResponse<[Producer]> {
-    
-    override func toData(rawData data: JSON) -> [Producer] {
-        var items: [Producer] = []
-        items = data.map { Producer(with: $0.1) }
-        return items
     }
     
 }
