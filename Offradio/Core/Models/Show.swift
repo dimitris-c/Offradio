@@ -14,13 +14,22 @@ struct Show {
     let largePhoto: String
     let body: String
     
-    static let empty = Show(json: JSON([]))
+    static let empty = Show("", photo: "", largePhoto: "", body: "")
+    
+    static let `default` = Show("Offradio", photo: "", largePhoto: "", body: "Turn Your Radio Off")
     
     init(json: JSON) {
         self.name = json["name"].stringValue
         self.photo = json["photo"].stringValue
         self.largePhoto = json["largephoto"].stringValue
         self.body = json["body"].stringValue
+    }
+    
+    init(_ name: String, photo: String, largePhoto: String, body: String) {
+        self.name = name
+        self.photo = photo
+        self.largePhoto = largePhoto
+        self.body = body
     }
     
     func isEmpty() -> Bool {

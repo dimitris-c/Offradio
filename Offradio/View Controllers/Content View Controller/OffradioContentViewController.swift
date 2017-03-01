@@ -35,7 +35,6 @@ final class OffradioContentViewController: UIViewController {
         if let mainTabBarController = mainTabBarController {
             self.addContainerViewController(mainTabBarController)
         }
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

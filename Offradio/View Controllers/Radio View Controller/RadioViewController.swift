@@ -110,6 +110,34 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     
 }
 
+
+extension RadioViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+//        guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
+//        
+//        let item = viewModel.getSchedule(at: indexPath)
+//        if item.hasBio, let bio = viewModel.getProducerBio(for: item.title) {
+//            
+//            let producerBioViewController = ProducersBioViewController(with: bio)
+//            let cellRect = tableView.rectForRow(at: indexPath)
+//            let sourceRect = previewingContext.sourceView.convert(cellRect, to: tableView)
+//            previewingContext.sourceRect = sourceRect
+//            
+//            return producerBioViewController
+//        }
+//        
+        return nil
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        self.hideLabelOnBackButton()
+        show(viewControllerToCommit, sender: self)
+    }
+    
+}
+
+
 // MARK: TabBarItemProtocol
 extension RadioViewController {
     
