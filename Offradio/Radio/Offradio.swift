@@ -17,7 +17,7 @@ final class Offradio: RadioProtocol {
     let kit: RadioKit = RadioKit()
     private var status = RadioStatus()
     
-    var offradioMetadata: OffradioMetadata!
+    var metadata: OffradioMetadata!
     
     init() {
         let keys = RadioKitAuthenticationKeys()
@@ -25,7 +25,7 @@ final class Offradio: RadioProtocol {
         self.kit.authenticateLibrary(withKey1: keys.key1, andKey2: keys.key2)
         self.setupRadio()
         
-        self.offradioMetadata = OffradioMetadata()
+        self.metadata = OffradioMetadata()
         
         if let version = self.kit.version() {
             Log.debug("RadioKit version: \(version)")
@@ -44,7 +44,7 @@ final class Offradio: RadioProtocol {
         guard !status.isPlaying else { return }
         
         self.kit.startStream()
-        self.offradioMetadata.startTimer()
+        self.metadata.startTimer()
         
         status.isPlaying = true
     }
@@ -53,7 +53,7 @@ final class Offradio: RadioProtocol {
         guard status.isPlaying && kit.isAudioPlaying() else { return }
         
         self.kit.stopStream()
-        self.offradioMetadata.stopTimer()
+        self.metadata.stopTimer()
         
         status.isPlaying = false
     }

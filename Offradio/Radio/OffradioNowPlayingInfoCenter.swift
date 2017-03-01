@@ -19,13 +19,13 @@ class OffradioNowPlayingInfoCenter {
     init(with radio: Offradio) {
         self.offradio = radio
         
-        self.offradio.offradioMetadata.nowPlaying.asObservable()
+        self.offradio.metadata.nowPlaying.asObservable()
             .skipWhile({ $0.isEmpty() })
             .subscribe(onNext: { [weak self] nowPlaying in
                 self?.updateInfo(with: nowPlaying)
         }).addDisposableTo(disposeBag)
         
-        self.offradio.offradioMetadata.nowPlaying.asObservable()
+        self.offradio.metadata.nowPlaying.asObservable()
             .skipWhile({ $0.isEmpty() })
             .flatMapLatest { nowPlaying -> Observable<UIImage?> in
                 if let url = URL(string: nowPlaying.current.image) {
