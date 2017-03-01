@@ -31,6 +31,9 @@
 		B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E5FC1E672622003A75EE /* ProducersService.swift */; };
 		B524E6001E673BD6003A75EE /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E5FF1E673BD6003A75EE /* NowPlayingViewController.swift */; };
 		B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */; };
+		B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6061E6741FD003A75EE /* ProducerView.swift */; };
+		B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */; };
+		B524E60D1E67436E003A75EE /* NowPlayingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B524E60C1E67436E003A75EE /* NowPlayingViewController.storyboard */; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
@@ -187,6 +190,9 @@
 		B524E5FC1E672622003A75EE /* ProducersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducersService.swift; sourceTree = "<group>"; };
 		B524E5FF1E673BD6003A75EE /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
+		B524E6061E6741FD003A75EE /* ProducerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducerView.swift; sourceTree = "<group>"; };
+		B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTrackView.swift; sourceTree = "<group>"; };
+		B524E60C1E67436E003A75EE /* NowPlayingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NowPlayingViewController.storyboard; sourceTree = "<group>"; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
@@ -459,8 +465,19 @@
 			children = (
 				B524E5FF1E673BD6003A75EE /* NowPlayingViewController.swift */,
 				B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */,
+				B524E6051E6741FD003A75EE /* Views */,
+				B524E60C1E67436E003A75EE /* NowPlayingViewController.storyboard */,
 			);
 			path = "NowPlaying View Controller";
+			sourceTree = "<group>";
+		};
+		B524E6051E6741FD003A75EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B524E6061E6741FD003A75EE /* ProducerView.swift */,
+				B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B52A6C1F1E36B3BE005893D2 /* Resources */ = {
@@ -1034,6 +1051,7 @@
 				B53942CF1E4A990200AF5BE5 /* right_button_on@2x~ipad.png in Resources */,
 				B53942AD1E4A8E2C00AF5BE5 /* left_button_off@3x.png in Resources */,
 				B53942B91E4A8E2C00AF5BE5 /* toggle_base_r@2x.png in Resources */,
+				B524E60D1E67436E003A75EE /* NowPlayingViewController.storyboard in Resources */,
 				B53942D31E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png in Resources */,
 				B53942D21E4A990200AF5BE5 /* toggle_base@2x~ipad.png in Resources */,
 				B53942CC1E4A990200AF5BE5 /* left_button_off@2x~ipad.png in Resources */,
@@ -1247,6 +1265,7 @@
 				B50395571E4BA33200D9A71B /* APIService.swift in Sources */,
 				B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */,
 				B50395551E4BA33200D9A71B /* RequestParameters.swift in Sources */,
+				B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */,
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
@@ -1306,6 +1325,7 @@
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
 				B51E3FBC1E4B9F49009F4C37 /* Producer.swift in Sources */,
 				B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */,
+				B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */,
 				B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */,
 				B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */,
 				B53942AA1E4A8E2C00AF5BE5 /* ToggleButton.m in Sources */,

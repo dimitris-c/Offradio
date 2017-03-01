@@ -10,13 +10,28 @@ import RxSwift
 import RxCocoa
 
 final class NowPlayingViewModel {
+    fileprivate let disposeBag = DisposeBag()
     
     fileprivate var radioMetadata: OffradioMetadata!
     
-    let show: Variable<Show> = Variable<Show>(.empty)
+    let currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(.empty)
+    let show: Variable<Show>                 = Variable<Show>(.default)
     
     init(with radioMetadata: OffradioMetadata) {
         self.radioMetadata = radioMetadata
+        
+        self.radioMetadata.nowPlaying.asObservable()
+            .map { $0.show }
+            .startWith(Show.default)
+            .bindTo(show)
+            .addDisposableTo(disposeBag)
+        
+        self.radioMetadata.nowPlaying.asObservable()
+            .map { $0.current }
+            .startWith(CurrentTrack.empty)
+            .bindTo(currentTrack)
+            .addDisposableTo(disposeBag)
+        
     }
     
 }

@@ -38,7 +38,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.playerCircleContainer.rearrangeViews()
         
         self.turnYourRadioOffLabel = UILabel()
-        self.turnYourRadioOffLabel.font = UIFont.leagueGothicItalic(withSize: 26)
+        self.turnYourRadioOffLabel.font = UIFont.leagueGothicItalic(withSize: CGFloat.deviceValue(iPhone: 26, iPad: 36))
         self.turnYourRadioOffLabel.textColor = UIColor.white
         self.turnYourRadioOffLabel.text = "TURN YOUR RADIO OFF"
         self.turnYourRadioOffLabel.numberOfLines = 1
@@ -48,8 +48,8 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.nowPlayingButton.alpha = 0.0
         self.view.addSubview(self.nowPlayingButton)
         
-        self.nowPlayingButton.rx.tap.asObservable().subscribe(onNext: { _ in
-            //
+        self.nowPlayingButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
+            self?.showNowPlayingViewController()
         }).addDisposableTo(disposeBag)
         
         self.playerCircleContainer.switched.bindTo(viewModel.toggleRadio).addDisposableTo(disposeBag)
@@ -90,6 +90,12 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.hideLabelOnBackButton()
         let playlistViewController = PlaylistViewController()
         self.navigationController?.pushViewController(playlistViewController, animated: true)
+    }
+    
+    fileprivate func showNowPlayingViewController() {
+        self.hideLabelOnBackButton()
+        let nowPlayingViewController = NowPlayingViewController.createFromStoryboard()
+        self.navigationController?.pushViewController(nowPlayingViewController, animated: true)
     }
     
     override func viewDidLayoutSubviews() {
