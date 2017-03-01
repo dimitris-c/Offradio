@@ -10,7 +10,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import FBSDKCoreKit
-import Alamofire
+import RealmSwift
 import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Fabric.with([Crashlytics.self])
         
+        RealmMigrationLayer.performMigration()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         NetworkActivityIndicatorManager.shared.isEnabled = true
         

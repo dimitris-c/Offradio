@@ -17,6 +17,8 @@ class PlaylistSong: Object {
     dynamic var songTitle: String = ""
     dynamic var imageUrl: String = ""
     
+//    dynamic var sanitizedTitle: String = ""
+    
     dynamic var isFavourite: Bool = false
     
     convenience init(with json: JSON) {
