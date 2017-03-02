@@ -19,7 +19,7 @@ public enum TabIdentifier: Int {
 
 final class MainTabBarViewController: UITabBarController {
     
-    var offradio: Offradio!
+    fileprivate var offradio: Offradio!
     
     init(with radio: Offradio) {
         super.init(nibName: nil, bundle: nil)

@@ -28,7 +28,7 @@ final class NowPlayingViewModel {
         
         self.radioMetadata.nowPlaying.asObservable()
             .map { $0.current }
-            .startWith(CurrentTrack.empty)
+            .startWith(CurrentTrack.default)
             .bindTo(currentTrack)
             .addDisposableTo(disposeBag)
         

@@ -13,6 +13,7 @@ import RxCocoa
 
 final class RadioViewController: UIViewController, TabBarItemProtocol {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var playerCircleContainer: PlayerCircleContainerView!
     
     final var offradio: Offradio!
@@ -33,7 +34,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
         
         self.viewModel = RadioViewModel(with: self.offradio)
-
+        
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
         
@@ -42,14 +43,17 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.turnYourRadioOffLabel.textColor = UIColor.white
         self.turnYourRadioOffLabel.text = "TURN YOUR RADIO OFF"
         self.turnYourRadioOffLabel.numberOfLines = 1
-        self.view.addSubview(self.turnYourRadioOffLabel)
+        self.scrollView.addSubview(self.turnYourRadioOffLabel)
         
         self.nowPlayingButton = NowPlayingButton(frame: .zero)
-        self.nowPlayingButton.alpha = 0.0
-        self.view.addSubview(self.nowPlayingButton)
+        self.nowPlayingButton.alpha = 1.0
+        self.scrollView.addSubview(self.nowPlayingButton)
+        
+        self.registerForPreviewing(with: self, sourceView: self.nowPlayingButton)
         
         self.nowPlayingButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
-            self?.showNowPlayingViewController()
+            guard let strongSelf = self else { return }
+            strongSelf.showNowPlayingViewController(with: strongSelf.offradio.metadata)
         }).addDisposableTo(disposeBag)
         
         self.playerCircleContainer.switched.bindTo(viewModel.toggleRadio).addDisposableTo(disposeBag)
@@ -57,7 +61,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         viewModel.isPlaying.asObservable().bindTo(self.playerCircleContainer.playing).addDisposableTo(disposeBag)
         
         viewModel.isPlaying.asObservable().subscribe(onNext: { [weak self] isPlaying in
-            self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
+//            self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
         }).addDisposableTo(disposeBag)
      
         viewModel.nowPlaying.asObservable()
@@ -92,26 +96,26 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
     
-    fileprivate func showNowPlayingViewController() {
+    fileprivate func showNowPlayingViewController(with offradioMetadata: OffradioMetadata) {
         self.hideLabelOnBackButton()
-        let nowPlayingViewController = NowPlayingViewController.createFromStoryboard()
+        let nowPlayingViewController = NowPlayingViewController(with: offradioMetadata)
         self.navigationController?.pushViewController(nowPlayingViewController, animated: true)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let effectiveHeight = self.view.frame.height - self.playerCircleContainer.frame.maxY
+        let effectiveHeight = self.scrollView.frame.height - self.playerCircleContainer.frame.maxY
         
         self.turnYourRadioOffLabel.sizeToFit()
         let width = self.turnYourRadioOffLabel.frame.width + 5
         self.turnYourRadioOffLabel.frame.size.width = width
         self.turnYourRadioOffLabel.frame.origin.y = self.playerCircleContainer.frame.maxY + ((effectiveHeight - self.turnYourRadioOffLabel.frame.height) * 0.5)
-        self.turnYourRadioOffLabel.center.x = self.view.center.x
+        self.turnYourRadioOffLabel.center.x = self.scrollView.center.x
         
         self.nowPlayingButton.sizeToFit()
         self.nowPlayingButton.frame.origin.y = self.playerCircleContainer.frame.maxY + ((effectiveHeight - self.nowPlayingButton.frame.height) * 0.5)
-        self.nowPlayingButton.center.x = self.view.center.x
+        self.nowPlayingButton.center.x = self.scrollView.center.x
     }
     
 }
@@ -120,20 +124,12 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
 extension RadioViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-//        guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
-//        
-//        let item = viewModel.getSchedule(at: indexPath)
-//        if item.hasBio, let bio = viewModel.getProducerBio(for: item.title) {
-//            
-//            let producerBioViewController = ProducersBioViewController(with: bio)
-//            let cellRect = tableView.rectForRow(at: indexPath)
-//            let sourceRect = previewingContext.sourceView.convert(cellRect, to: tableView)
-//            previewingContext.sourceRect = sourceRect
-//            
-//            return producerBioViewController
-//        }
-//        
-        return nil
+
+        let sourceRect = previewingContext.sourceView.convert(self.nowPlayingButton.frame, from: self.view)
+        previewingContext.sourceRect = sourceRect
+        let nowPlayingViewController = NowPlayingViewController(with: self.offradio.metadata)
+        return nowPlayingViewController
+        
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {

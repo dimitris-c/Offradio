@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="nPQ-HT-ddf">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -12,68 +12,92 @@
         <!--Radio View Controller-->
         <scene sceneID="vms-iK-2Bz">
             <objects>
-                <viewController id="nPQ-HT-ddf" customClass="RadioViewController" customModule="Offradio" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="nPQ-HT-ddf" customClass="RadioViewController" customModule="Offradio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mz6-hH-DyC"/>
                         <viewControllerLayoutGuide type="bottom" id="gjC-6H-UXD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SuE-NJ-R9f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWL-jk-KEO" customClass="PlayerCircleContainerView" customModule="Offradio" customModuleProvider="target">
-                                <rect key="frame" x="58" y="124" width="259" height="259"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBu-rw-R5r">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outer-circle-buffer-bg" translatesAutoresizingMaskIntoConstraints="NO" id="DYA-fu-OGF">
-                                        <rect key="frame" x="0.0" y="0.0" width="259" height="259"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outer-circle-buffer" translatesAutoresizingMaskIntoConstraints="NO" id="mB5-wc-bEr">
-                                        <rect key="frame" x="0.0" y="0.0" width="259" height="259"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="offradio-player-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gil-Nj-ZkO">
-                                        <rect key="frame" x="14" y="12" width="197" height="140"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tu-Xc-IK6">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fWL-jk-KEO" customClass="PlayerCircleContainerView" customModule="Offradio" customModuleProvider="target">
+                                                <rect key="frame" x="77.333333333333314" y="80" width="259" height="259"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outer-circle-buffer-bg" translatesAutoresizingMaskIntoConstraints="NO" id="DYA-fu-OGF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="259" height="259"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="outer-circle-buffer" translatesAutoresizingMaskIntoConstraints="NO" id="mB5-wc-bEr">
+                                                        <rect key="frame" x="0.0" y="0.0" width="259" height="259"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="offradio-player-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gil-Nj-ZkO">
+                                                        <rect key="frame" x="14" y="12" width="197" height="140"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="197" id="DwN-0i-sEN">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                                            </constraint>
+                                                            <constraint firstAttribute="height" constant="140" id="MY1-z6-Po8">
+                                                                <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                                                            </constraint>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="mB5-wc-bEr" firstAttribute="height" secondItem="fWL-jk-KEO" secondAttribute="height" id="2PB-UU-6ox"/>
+                                                    <constraint firstItem="DYA-fu-OGF" firstAttribute="centerX" secondItem="fWL-jk-KEO" secondAttribute="centerX" id="7dr-K9-aAQ"/>
+                                                    <constraint firstItem="mB5-wc-bEr" firstAttribute="centerY" secondItem="fWL-jk-KEO" secondAttribute="centerY" id="L9m-7d-N4S"/>
+                                                    <constraint firstItem="DYA-fu-OGF" firstAttribute="width" secondItem="fWL-jk-KEO" secondAttribute="width" id="RDO-Lf-qFY"/>
+                                                    <constraint firstItem="mB5-wc-bEr" firstAttribute="width" secondItem="fWL-jk-KEO" secondAttribute="width" id="RJW-Fx-fTh"/>
+                                                    <constraint firstItem="mB5-wc-bEr" firstAttribute="centerX" secondItem="fWL-jk-KEO" secondAttribute="centerX" id="SCd-uc-FJF"/>
+                                                    <constraint firstItem="Gil-Nj-ZkO" firstAttribute="leading" secondItem="fWL-jk-KEO" secondAttribute="leadingMargin" constant="6" id="Tan-6a-bfs"/>
+                                                    <constraint firstItem="Gil-Nj-ZkO" firstAttribute="top" secondItem="fWL-jk-KEO" secondAttribute="topMargin" constant="4" id="VVH-rx-8pI"/>
+                                                    <constraint firstAttribute="height" constant="259" id="bHd-Ze-26d">
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="388"/>
+                                                    </constraint>
+                                                    <constraint firstItem="DYA-fu-OGF" firstAttribute="height" secondItem="fWL-jk-KEO" secondAttribute="height" id="rm9-ZZ-YBM"/>
+                                                    <constraint firstItem="DYA-fu-OGF" firstAttribute="centerY" secondItem="fWL-jk-KEO" secondAttribute="centerY" id="xMQ-Ro-25n"/>
+                                                    <constraint firstAttribute="width" constant="259" id="yhv-2p-dz8">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="259"/>
+                                                        <variation key="heightClass=regular-widthClass=regular" constant="388"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="bufferCircle" destination="mB5-wc-bEr" id="ryU-rk-EKs"/>
+                                                    <outlet property="offradioLogo" destination="Gil-Nj-ZkO" id="giE-y7-IwB"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="197" id="DwN-0i-sEN">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                            <constraint firstItem="fWL-jk-KEO" firstAttribute="top" secondItem="8Tu-Xc-IK6" secondAttribute="top" constant="80" id="0Qc-Me-DnM">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="155"/>
                                             </constraint>
-                                            <constraint firstAttribute="height" constant="140" id="MY1-z6-Po8">
-                                                <variation key="heightClass=regular-widthClass=regular" constant="200"/>
-                                            </constraint>
+                                            <constraint firstItem="fWL-jk-KEO" firstAttribute="centerX" secondItem="8Tu-Xc-IK6" secondAttribute="centerX" id="w3b-nn-jfn"/>
                                         </constraints>
-                                    </imageView>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="mB5-wc-bEr" firstAttribute="height" secondItem="fWL-jk-KEO" secondAttribute="height" id="2PB-UU-6ox"/>
-                                    <constraint firstItem="DYA-fu-OGF" firstAttribute="centerX" secondItem="fWL-jk-KEO" secondAttribute="centerX" id="7dr-K9-aAQ"/>
-                                    <constraint firstItem="mB5-wc-bEr" firstAttribute="centerY" secondItem="fWL-jk-KEO" secondAttribute="centerY" id="L9m-7d-N4S"/>
-                                    <constraint firstItem="DYA-fu-OGF" firstAttribute="width" secondItem="fWL-jk-KEO" secondAttribute="width" id="RDO-Lf-qFY"/>
-                                    <constraint firstItem="mB5-wc-bEr" firstAttribute="width" secondItem="fWL-jk-KEO" secondAttribute="width" id="RJW-Fx-fTh"/>
-                                    <constraint firstItem="mB5-wc-bEr" firstAttribute="centerX" secondItem="fWL-jk-KEO" secondAttribute="centerX" id="SCd-uc-FJF"/>
-                                    <constraint firstItem="Gil-Nj-ZkO" firstAttribute="leading" secondItem="fWL-jk-KEO" secondAttribute="leadingMargin" constant="6" id="Tan-6a-bfs"/>
-                                    <constraint firstItem="Gil-Nj-ZkO" firstAttribute="top" secondItem="fWL-jk-KEO" secondAttribute="topMargin" constant="4" id="VVH-rx-8pI"/>
-                                    <constraint firstAttribute="height" constant="259" id="bHd-Ze-26d">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="388"/>
-                                    </constraint>
-                                    <constraint firstItem="DYA-fu-OGF" firstAttribute="height" secondItem="fWL-jk-KEO" secondAttribute="height" id="rm9-ZZ-YBM"/>
-                                    <constraint firstItem="DYA-fu-OGF" firstAttribute="centerY" secondItem="fWL-jk-KEO" secondAttribute="centerY" id="xMQ-Ro-25n"/>
-                                    <constraint firstAttribute="width" constant="259" id="yhv-2p-dz8">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="259"/>
-                                        <variation key="heightClass=regular-widthClass=regular" constant="388"/>
-                                    </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="8Tu-Xc-IK6" secondAttribute="bottom" id="3XQ-qQ-eA1"/>
+                                    <constraint firstItem="8Tu-Xc-IK6" firstAttribute="centerX" secondItem="DBu-rw-R5r" secondAttribute="centerX" id="BIP-KT-wyr"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Tu-Xc-IK6" secondAttribute="trailing" id="OlU-Ua-BPx"/>
+                                    <constraint firstItem="8Tu-Xc-IK6" firstAttribute="centerY" secondItem="DBu-rw-R5r" secondAttribute="centerY" id="iwV-1F-YHC"/>
+                                    <constraint firstItem="8Tu-Xc-IK6" firstAttribute="leading" secondItem="DBu-rw-R5r" secondAttribute="leading" id="jtB-U9-TJB"/>
+                                    <constraint firstItem="8Tu-Xc-IK6" firstAttribute="top" secondItem="DBu-rw-R5r" secondAttribute="top" id="zPi-rm-16r"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="bufferCircle" destination="mB5-wc-bEr" id="ryU-rk-EKs"/>
-                                    <outlet property="offradioLogo" destination="Gil-Nj-ZkO" id="giE-y7-IwB"/>
-                                </connections>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fWL-jk-KEO" firstAttribute="centerX" secondItem="SuE-NJ-R9f" secondAttribute="centerX" id="7gU-ok-jhI"/>
-                            <constraint firstItem="fWL-jk-KEO" firstAttribute="top" secondItem="mz6-hH-DyC" secondAttribute="bottom" constant="92" id="WB5-kI-rif">
-                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
-                            </constraint>
+                            <constraint firstItem="DBu-rw-R5r" firstAttribute="leading" secondItem="SuE-NJ-R9f" secondAttribute="leading" id="FOj-qF-G0S"/>
+                            <constraint firstItem="gjC-6H-UXD" firstAttribute="top" secondItem="DBu-rw-R5r" secondAttribute="bottom" id="ViH-pT-gr4"/>
+                            <constraint firstItem="DBu-rw-R5r" firstAttribute="top" secondItem="mz6-hH-DyC" secondAttribute="bottom" id="mwG-i1-mMe"/>
+                            <constraint firstAttribute="trailing" secondItem="DBu-rw-R5r" secondAttribute="trailing" id="qg1-uO-UBc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uQZ-vt-uGX"/>
@@ -82,15 +106,16 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="playerCircleContainer" destination="fWL-jk-KEO" id="haR-Ml-Xg8"/>
+                        <outlet property="scrollView" destination="DBu-rw-R5r" id="arU-gv-GIR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHk-F0-nBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1120.3125" y="-150"/>
+            <point key="canvasLocation" x="-1088.4057971014493" y="-203.80434782608697"/>
         </scene>
     </scenes>
     <resources>
-        <image name="offradio-player-logo" width="199" height="140"/>
+        <image name="offradio-player-logo" width="197" height="140"/>
         <image name="outer-circle-buffer" width="259" height="259"/>
         <image name="outer-circle-buffer-bg" width="280" height="280"/>
     </resources>

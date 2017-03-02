@@ -33,7 +33,6 @@
 		B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */; };
 		B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6061E6741FD003A75EE /* ProducerView.swift */; };
 		B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */; };
-		B524E60D1E67436E003A75EE /* NowPlayingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B524E60C1E67436E003A75EE /* NowPlayingViewController.storyboard */; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
@@ -192,7 +191,6 @@
 		B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
 		B524E6061E6741FD003A75EE /* ProducerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducerView.swift; sourceTree = "<group>"; };
 		B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTrackView.swift; sourceTree = "<group>"; };
-		B524E60C1E67436E003A75EE /* NowPlayingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NowPlayingViewController.storyboard; sourceTree = "<group>"; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
@@ -466,7 +464,6 @@
 				B524E5FF1E673BD6003A75EE /* NowPlayingViewController.swift */,
 				B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */,
 				B524E6051E6741FD003A75EE /* Views */,
-				B524E60C1E67436E003A75EE /* NowPlayingViewController.storyboard */,
 			);
 			path = "NowPlaying View Controller";
 			sourceTree = "<group>";
@@ -1051,7 +1048,6 @@
 				B53942CF1E4A990200AF5BE5 /* right_button_on@2x~ipad.png in Resources */,
 				B53942AD1E4A8E2C00AF5BE5 /* left_button_off@3x.png in Resources */,
 				B53942B91E4A8E2C00AF5BE5 /* toggle_base_r@2x.png in Resources */,
-				B524E60D1E67436E003A75EE /* NowPlayingViewController.storyboard in Resources */,
 				B53942D31E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png in Resources */,
 				B53942D21E4A990200AF5BE5 /* toggle_base@2x~ipad.png in Resources */,
 				B53942CC1E4A990200AF5BE5 /* left_button_off@2x~ipad.png in Resources */,

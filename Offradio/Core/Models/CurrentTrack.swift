@@ -23,6 +23,8 @@ struct CurrentTrack {
     
     static let empty = CurrentTrack(json: "")
     
+    static let `default` = CurrentTrack(track: "Turn Your Radio Off", image: "", artist: "Offradio", lastFMImageUrl: "")
+    
     init(json: JSON) {
         self.track = json["track"].stringValue
         self.image = json["image"].stringValue

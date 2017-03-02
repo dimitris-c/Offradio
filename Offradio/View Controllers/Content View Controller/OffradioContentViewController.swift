@@ -18,7 +18,7 @@ final class OffradioContentViewController: UIViewController {
     var tabBarViewContainer:UIView?
     var mainTabBarController:MainTabBarViewController?
     
-    var offradio: Offradio!
+    fileprivate var offradio: Offradio!
     fileprivate var commandCenter: OffradioCommandCenter!
     fileprivate var nowPlayingInfoCenter: OffradioNowPlayingInfoCenter!
     
