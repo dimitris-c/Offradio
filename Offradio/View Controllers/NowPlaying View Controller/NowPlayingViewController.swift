@@ -18,6 +18,7 @@ final class NowPlayingViewController: UIViewController {
     
     fileprivate var scrollView: UIScrollView!
     
+    fileprivate var currentTrackViewInitialHeight: CGFloat = 0.0
     fileprivate var currentTrackView: CurrentTrackView!
     fileprivate var producerView: ProducerView!
     
@@ -53,11 +54,12 @@ final class NowPlayingViewController: UIViewController {
         
         self.scrollView.frame = self.view.bounds
         
-        let (currentTrackRect, remainderRect) = self.view.bounds.divided(atDistance: self.view.frame.height * 0.65,
+        let (currentTrackRect, remainderRect) = self.view.bounds.divided(atDistance: self.view.frame.height * 0.55,
                                                                          from: .minYEdge)
         self.currentTrackView.frame = currentTrackRect.integral
         self.producerView.frame = remainderRect.integral
-        
+     
+        currentTrackViewInitialHeight = self.currentTrackView.frame.size.height
     }
     
 }
@@ -65,7 +67,11 @@ final class NowPlayingViewController: UIViewController {
 extension NowPlayingViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        let y = -scrollView.contentOffset.y
+//        if y > 0 {
+            self.currentTrackView.frame.origin.y = scrollView.contentOffset.y
+            self.currentTrackView.frame.size.height = currentTrackViewInitialHeight + y
+//        }
     }
     
 }

@@ -20,6 +20,7 @@ final class CurrentTrackView: UIView {
         super.init(frame: .zero)
         
         self.albumArtwork = UIImageView(image: #imageLiteral(resourceName: "artwork-image-placeholder"))
+        self.albumArtwork.contentMode = .scaleAspectFill
         self.addSubview(self.albumArtwork)
         
         currentTrack.asObservable()
