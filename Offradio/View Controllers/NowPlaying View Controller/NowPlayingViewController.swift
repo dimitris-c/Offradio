@@ -30,6 +30,7 @@ final class NowPlayingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = true
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
         
         self.scrollView = UIScrollView(frame: .zero)
@@ -68,10 +69,10 @@ extension NowPlayingViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = -scrollView.contentOffset.y
-//        if y > 0 {
+        if y > 0 {
             self.currentTrackView.frame.origin.y = scrollView.contentOffset.y
             self.currentTrackView.frame.size.height = currentTrackViewInitialHeight + y
-//        }
+        }
     }
     
 }
