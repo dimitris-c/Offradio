@@ -31,7 +31,7 @@ final class NowPlayingViewModel {
             .startWith(CurrentTrack.default)
             .bindTo(currentTrack)
             .addDisposableTo(disposeBag)
-        
+
     }
     
 }

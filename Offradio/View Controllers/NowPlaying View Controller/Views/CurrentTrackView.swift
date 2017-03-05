@@ -27,6 +27,7 @@ final class CurrentTrackView: UIView {
     
     init(with currentTrack: Driver<CurrentTrack>) {
         super.init(frame: .zero)
+        self.clipsToBounds = true
         
         self.albumArtwork = UIImageView(image: #imageLiteral(resourceName: "artwork-image-placeholder"))
         self.albumArtwork.clipsToBounds = true
@@ -44,17 +45,9 @@ final class CurrentTrackView: UIView {
             })
             .addDisposableTo(disposeBag)
         
-        currentTrack.asObservable()
-            .map{ try? $0.artist.convertHTMLEntities() ?? "" }
-            .startWith("Offradio")
-            .bindTo(artistLabel.rx.text)
-            .addDisposableTo(disposeBag)
-        
-        currentTrack.asObservable()
-            .map{ try? $0.track.convertHTMLEntities() ?? "" }
-            .startWith("Turn Your Radio Off")
-            .bindTo(songTitleLabel.rx.text)
-            .addDisposableTo(disposeBag)
+        currentTrack.asObservable().subscribe(onNext: { [weak self] track in
+            self?.updateSong(with: track)
+        }).addDisposableTo(disposeBag)
         
     }
     
@@ -64,7 +57,6 @@ final class CurrentTrackView: UIView {
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .highlighted)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .selected)
         self.addSubview(self.shareButton)
-        
         
         self.bottomViewsContainer = UIView()
         self.addSubview(self.bottomViewsContainer)
@@ -124,33 +116,36 @@ final class CurrentTrackView: UIView {
     
     fileprivate func updateSong(with track: CurrentTrack) {
         let animations = {
-            self.nowPlayingIcon.frame.origin.y   = self.bottomViewsContainer.frame.height
-            self.artistLabel.frame.origin.y      = self.bottomViewsContainer.frame.height
-            self.songTitleLabel.frame.origin.y   = self.bottomViewsContainer.frame.height
+            self.nowPlayingIcon.frame.origin.y   = self.bottomViewsContainer.frame.maxY
+            self.artistLabel.frame.origin.y      = self.bottomViewsContainer.frame.maxY
+            self.songTitleLabel.frame.origin.y   = self.bottomViewsContainer.frame.maxY
         }
         
         let completion: (Bool) -> () = { completed in
-            self.artistLabel.text = track.artist
-            self.songTitleLabel.text = track.track
+            self.artistLabel.text = try? track.artist.convertHTMLEntities() ?? CurrentTrack.default.artist
+            self.songTitleLabel.text = try? track.track.convertHTMLEntities() ?? CurrentTrack.default.track
             self.showLabelsAnimated()
         }
         
-        UIView.animate(withDuration: 0.45,
-                       delay: 0,
-                       usingSpringWithDamping: 0.7,
-                       initialSpringVelocity: 0,
-                       options: .curveEaseOut,
+        UIView.animate(withDuration: 0.35,
+                       delay: 0.0,
+                       options: .curveEaseInOut,
                        animations: animations,
                        completion: completion)
         
     }
     
     fileprivate func showLabelsAnimated() {
+        let animations: () -> Void = { [weak self] in
+            self?.layoutSubviews()
+        }
         
-        UIView.animate(withDuration: 0.55, delay: 0.1, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.9, options: .curveEaseOut,
-                       animations: { 
-                        self.layoutSubviews()
-        },
+        UIView.animate(withDuration: 0.55,
+                       delay: 0.1,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.9,
+                       options: .curveEaseInOut,
+                       animations: animations,
                        completion: nil)
         
     }
