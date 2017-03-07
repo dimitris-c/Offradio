@@ -25,9 +25,9 @@ class PlaylistSong: Object {
         self.init()
         
         self.time = json["time"].stringValue
-        self.artist = json["artist"].stringValue
-        self.songTitle = json["songtitle"].stringValue
-        self.imageUrl = json["imageurl"].stringValue
+        self.artist = try! json["artist"].stringValue.convertHTMLEntities()
+        self.songTitle = try! json["songtitle"].stringValue.convertHTMLEntities()
+        self.imageUrl = try! json["imageurl"].stringValue.convertHTMLEntities()
         
     }
     

@@ -20,7 +20,8 @@ final class CurrentTrackView: UIView {
     fileprivate var nowPlayingIcon: UIImageView!
     fileprivate var artistLabel: UILabel!
     fileprivate var songTitleLabel: UILabel!
-    fileprivate var bottomGradient: UIView!
+    fileprivate var bottomGradientView: UIView!
+    fileprivate var bottomGradient: CAGradientLayer!
     
     fileprivate var shareButton: UIButton!
     fileprivate var favouriteButton: UIButton!
@@ -28,11 +29,6 @@ final class CurrentTrackView: UIView {
     init(with currentTrack: Driver<CurrentTrack>) {
         super.init(frame: .zero)
         self.clipsToBounds = true
-        
-        self.albumArtwork = UIImageView(image: #imageLiteral(resourceName: "artwork-image-placeholder"))
-        self.albumArtwork.clipsToBounds = true
-        self.albumArtwork.contentMode = .scaleAspectFill
-        self.addSubview(self.albumArtwork)
         
         self.supplySubviews()
         
@@ -45,13 +41,26 @@ final class CurrentTrackView: UIView {
             })
             .addDisposableTo(disposeBag)
         
-        currentTrack.asObservable().subscribe(onNext: { [weak self] track in
+        currentTrack.asObservable()
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] track in
             self?.updateSong(with: track)
         }).addDisposableTo(disposeBag)
         
     }
     
     fileprivate func supplySubviews() {
+        self.albumArtwork = UIImageView(image: #imageLiteral(resourceName: "artwork-image-placeholder"))
+        self.albumArtwork.clipsToBounds = true
+        self.albumArtwork.contentMode = .scaleAspectFill
+        self.addSubview(self.albumArtwork)
+        
+        self.bottomGradientView = UIView()
+        self.addSubview(bottomGradientView)
+        self.bottomGradient = CAGradientLayer()
+        self.bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.7).cgColor]
+        self.bottomGradientView.layer.addSublayer(bottomGradient)
+        
         self.shareButton = UIButton(type: .custom)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon"), for: .normal)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .highlighted)
@@ -85,6 +94,7 @@ final class CurrentTrackView: UIView {
         bottomViewsArranger.add(object: SizeObject(type: .flexible, view: self.nowPlayingIcon))
         bottomViewsArranger.add(object: SizeObject(type: .flexible, view: self.artistLabel))
         bottomViewsArranger.add(object: SizeObject(type: .flexible, view: self.songTitleLabel))
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -112,9 +122,14 @@ final class CurrentTrackView: UIView {
         
         bottomViewsContainer.frame.origin.y     = self.bounds.maxY - height - padding
         bottomViewsContainer.frame.size.height  = height
+        
+        self.bottomGradientView.frame.size      = self.albumArtwork.bounds.size
+        self.bottomGradientView.frame.origin.y  = self.bounds.maxY - self.bounds.height * 0.5
+        self.bottomGradient.frame               = self.bottomGradientView.bounds
     }
     
     fileprivate func updateSong(with track: CurrentTrack) {
+        
         let animations = {
             self.nowPlayingIcon.frame.origin.y   = self.bottomViewsContainer.frame.maxY
             self.artistLabel.frame.origin.y      = self.bottomViewsContainer.frame.maxY
@@ -122,8 +137,8 @@ final class CurrentTrackView: UIView {
         }
         
         let completion: (Bool) -> () = { completed in
-            self.artistLabel.text = try? track.artist.convertHTMLEntities() ?? CurrentTrack.default.artist
-            self.songTitleLabel.text = try? track.track.convertHTMLEntities() ?? CurrentTrack.default.track
+            self.artistLabel.text    = track.artist.uppercased()
+            self.songTitleLabel.text = track.track.uppercased()
             self.showLabelsAnimated()
         }
         

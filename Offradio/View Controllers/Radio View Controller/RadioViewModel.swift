@@ -71,4 +71,9 @@ final class RadioViewModel: StormysRadioKitDelegate {
         isPlaying.value = false
     }
     
+    func srkMetaChanged() {
+        Log.debug("metadata changed")
+        self.radio.metadata.forceRefresh()
+    }
+    
 }

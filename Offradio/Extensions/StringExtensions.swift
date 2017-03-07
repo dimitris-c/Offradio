@@ -10,8 +10,8 @@ import Foundation
 
 extension String {
     
-    func convertHTMLEntities() throws -> String? {
-        guard let data = data(using: .utf8) else { return nil }
+    func convertHTMLEntities(fallback: String = "") throws -> String {
+        guard let data = data(using: .utf8) else { return fallback }
         
         return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
                                                         NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],

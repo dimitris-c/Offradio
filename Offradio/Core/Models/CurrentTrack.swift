@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-struct CurrentTrack {
+struct CurrentTrack: Equatable {
     let track: String
     let image: String
     let artist: String
@@ -26,9 +26,21 @@ struct CurrentTrack {
     static let `default` = CurrentTrack(track: "Turn Your Radio Off", image: "", artist: "Offradio", lastFMImageUrl: "")
     
     init(json: JSON) {
-        self.track = json["track"].stringValue
+        do {
+            let trackDefault = CurrentTrack.default.track
+            self.track = try json["track"].stringValue.convertHTMLEntities(fallback: trackDefault).capitalized
+        } catch {
+            self.track = CurrentTrack.default.track
+        }
+        
+        do {
+            let artistDefault = CurrentTrack.default.artist
+            self.artist = try json["artist"].stringValue.convertHTMLEntities(fallback: artistDefault).capitalized
+        } catch {
+            self.artist = CurrentTrack.default.artist
+        }
+        
         self.image = json["image"].stringValue
-        self.artist = json["artist"].stringValue
         self.lastFMImageUrl = ""
     }
     
@@ -53,4 +65,13 @@ struct CurrentTrack {
     func toPlaylistSong() -> PlaylistSong {
         return PlaylistSong(self.artist, songTitle: self.track, imageUrl: self.image)
     }
+}
+
+extension CurrentTrack {
+    public static func ==(lhs: CurrentTrack, rhs: CurrentTrack) -> Bool {
+        return lhs.track == rhs.track ||
+        lhs.image == rhs.image ||
+        lhs.artist == rhs.artist
+    }
+    
 }

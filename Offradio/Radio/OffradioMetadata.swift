@@ -47,6 +47,11 @@ final class OffradioMetadata {
         timerDisposeBag = nil
     }
     
+    func forceRefresh() {
+        stopTimer()
+        startTimer()
+    }
+    
     fileprivate func fetchCRC() -> Observable<String> {
         return self.crcService.request.toAlamofire().rx.string()
     }

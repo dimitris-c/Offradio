@@ -125,8 +125,8 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         
         self.timeLabel.text = self.item.time.uppercased()
         
-        self.artistLabel.text = try? self.item.artist.convertHTMLEntities()?.uppercased() ?? ""
-        self.songLabel.text = try? self.item.songTitle.convertHTMLEntities()?.uppercased() ?? ""
+        self.artistLabel.text = self.item.artist.uppercased()
+        self.songLabel.text = self.item.songTitle.uppercased()
         
         if let url = URL(string: self.item.imageUrl) {
             self.albumArtwork.sd_setImage(with: url, placeholderImage: UIImage(named: "artwork-image-placeholder"))
