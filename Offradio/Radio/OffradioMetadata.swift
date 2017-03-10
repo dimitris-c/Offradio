@@ -65,7 +65,7 @@ final class OffradioMetadata {
     fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
         self.lastFMApiService = LastFMApiService(with: nowPlaying.current.artist)
         return self.lastFMApiService.rxCall().map({ (artist) -> NowPlaying in
-            let filtered = artist.images.filter { $0.size == "mega" }
+            let filtered = artist.images.filter { $0.size == "mega" || $0.size == "large" }
             if let image = filtered.first {
                 return nowPlaying.update(with: image.url)
             }

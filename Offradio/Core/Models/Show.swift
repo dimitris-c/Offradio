@@ -19,10 +19,10 @@ struct Show {
     static let `default` = Show("Offradio", photo: "", largePhoto: "", body: "Turn Your Radio Off")
     
     init(json: JSON) {
-        self.name = json["name"].stringValue
+        self.name = json["name"].stringValue.htmlUnescape()
         self.photo = json["photo"].stringValue
         self.largePhoto = json["largephoto"].stringValue
-        self.body = json["body"].stringValue
+        self.body = json["body"].stringValue.htmlUnescape()
     }
     
     init(_ name: String, photo: String, largePhoto: String, body: String) {

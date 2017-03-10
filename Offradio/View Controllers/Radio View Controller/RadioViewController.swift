@@ -14,6 +14,7 @@ import RxCocoa
 final class RadioViewController: UIViewController, TabBarItemProtocol {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var playerCircleContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var playerCircleContainer: PlayerCircleContainerView!
     
     final var offradio: Offradio!
@@ -66,7 +67,6 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
      
         viewModel.nowPlaying.asObservable()
             .map { $0.current.title }
-            .map { try $0.convertHTMLEntities() ?? $0 }
             .bindTo(self.nowPlayingButton.title)
             .addDisposableTo(disposeBag)
         
@@ -104,6 +104,10 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        if DeviceType.IS_IPHONE_5 {
+            self.playerCircleContainerTopConstraint.constant = 30
+        }
         
         let effectiveHeight = self.scrollView.frame.height - self.playerCircleContainer.frame.maxY
         

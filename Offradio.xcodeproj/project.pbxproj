@@ -122,6 +122,10 @@
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
+		B5B1922C1E70A289009A8960 /* HTMLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192281E70A289009A8960 /* HTMLConstants.swift */; };
+		B5B1922D1E70A289009A8960 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192291E70A289009A8960 /* ParseError.swift */; };
+		B5B1922E1E70A289009A8960 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */; };
+		B5B1922F1E70A289009A8960 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922B1E70A289009A8960 /* Utilities.swift */; };
 		B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */; };
 		B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA383B1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift */; };
 		B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA383D1E4F67CB00DB49C9 /* PlaylistViewModel.swift */; };
@@ -289,6 +293,10 @@
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
+		B5B192281E70A289009A8960 /* HTMLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLConstants.swift; sourceTree = "<group>"; };
+		B5B192291E70A289009A8960 /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
+		B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTMLEntities.swift"; sourceTree = "<group>"; };
+		B5B1922B1E70A289009A8960 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		B5BA383B1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		B5BA383D1E4F67CB00DB49C9 /* PlaylistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
@@ -441,6 +449,7 @@
 		B51BE4DC1E3ABF79005775F4 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				B5B192271E70A289009A8960 /* HTMLEntities */,
 				B539428A1E4A8E2C00AF5BE5 /* ToggleView */,
 				B51BE4DD1E3ABF79005775F4 /* RadioKitLib */,
 			);
@@ -858,6 +867,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B5B192271E70A289009A8960 /* HTMLEntities */ = {
+			isa = PBXGroup;
+			children = (
+				B5B192281E70A289009A8960 /* HTMLConstants.swift */,
+				B5B192291E70A289009A8960 /* ParseError.swift */,
+				B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */,
+				B5B1922B1E70A289009A8960 /* Utilities.swift */,
+			);
+			path = HTMLEntities;
+			sourceTree = "<group>";
+		};
 		B5BA38331E4F609A00DB49C9 /* Playlist View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1252,8 +1272,10 @@
 				B5656F301E65025B00E5DB0E /* LastFMApiService.swift in Sources */,
 				B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */,
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
+				B5B1922E1E70A289009A8960 /* String+HTMLEntities.swift in Sources */,
 				B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */,
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
+				B5B1922F1E70A289009A8960 /* Utilities.swift in Sources */,
 				B5D923781E65E4800013A3F4 /* Show.swift in Sources */,
 				B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */,
 				B54E08861E4D554E00B54FB3 /* DateExtensions.swift in Sources */,
@@ -1284,6 +1306,7 @@
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B58649FD1E61C4A800501AF7 /* ModelResult.swift in Sources */,
+				B5B1922C1E70A289009A8960 /* HTMLConstants.swift in Sources */,
 				B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */,
 				B50395701E4BCA0100D9A71B /* PlaylistService.swift in Sources */,
 				B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */,
@@ -1310,6 +1333,7 @@
 				B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */,
 				B503956E1E4BCA0100D9A71B /* APIURL.swift in Sources */,
 				B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */,
+				B5B1922D1E70A289009A8960 /* ParseError.swift in Sources */,
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B54E08801E4D10C400B54FB3 /* ScheduleDelegate.swift in Sources */,
 				B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */,

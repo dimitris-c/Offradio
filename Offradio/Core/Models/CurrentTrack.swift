@@ -26,20 +26,8 @@ struct CurrentTrack: Equatable {
     static let `default` = CurrentTrack(track: "Turn Your Radio Off", image: "", artist: "Offradio", lastFMImageUrl: "")
     
     init(json: JSON) {
-        do {
-            let trackDefault = CurrentTrack.default.track
-            self.track = try json["track"].stringValue.convertHTMLEntities(fallback: trackDefault).capitalized
-        } catch {
-            self.track = CurrentTrack.default.track
-        }
-        
-        do {
-            let artistDefault = CurrentTrack.default.artist
-            self.artist = try json["artist"].stringValue.convertHTMLEntities(fallback: artistDefault).capitalized
-        } catch {
-            self.artist = CurrentTrack.default.artist
-        }
-        
+        self.track = json["track"].stringValue.htmlUnescape().capitalized
+        self.artist = json["artist"].stringValue.htmlUnescape().capitalized
         self.image = json["image"].stringValue
         self.lastFMImageUrl = ""
     }

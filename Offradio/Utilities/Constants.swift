@@ -14,7 +14,7 @@ struct ScreenSize {
     }
     
     static var SCREEN_HEIGHT:CGFloat {
-        return UIScreen.main.bounds.width
+        return UIScreen.main.bounds.height
     }
     
     static let SCREEN_MAX_LENGTH    = max(ScreenSize.SCREEN_WIDTH, ScreenSize.SCREEN_HEIGHT)

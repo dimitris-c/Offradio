@@ -41,7 +41,7 @@ final class NowPlayingViewController: UIViewController {
         self.currentTrackView = CurrentTrackView(with: self.viewModel.currentTrack.asDriver())
         self.scrollView.addSubview(self.currentTrackView)
         
-        self.producerView = ProducerView(frame: .zero)
+        self.producerView = ProducerView(with: self.viewModel.show.asDriver())
         self.scrollView.addSubview(self.producerView)
         
     }
