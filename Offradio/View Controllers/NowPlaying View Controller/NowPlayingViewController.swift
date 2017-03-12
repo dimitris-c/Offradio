@@ -44,10 +44,27 @@ final class NowPlayingViewController: UIViewController {
         self.producerView = ProducerView(with: self.viewModel.show.asDriver())
         self.scrollView.addSubview(self.producerView)
         
+        let playlistButton = UIButton(type: .custom)
+        playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon"), for: .normal)
+        playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon-tapped"), for: .highlighted)
+        playlistButton.sizeToFit()
+        let barButton = UIBarButtonItem(customView: playlistButton)
+        self.navigationItem.rightBarButtonItem = barButton
+        
+        playlistButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.showPlaylistViewController()
+        }).addDisposableTo(disposeBag)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    fileprivate func showPlaylistViewController() {
+        self.hideLabelOnBackButton()
+        let playlistViewController = PlaylistViewController()
+        self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
     
     override func viewWillLayoutSubviews() {

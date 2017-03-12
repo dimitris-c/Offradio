@@ -58,7 +58,7 @@ final class CurrentTrackView: UIView {
         self.bottomGradientView = UIView()
         self.addSubview(bottomGradientView)
         self.bottomGradient = CAGradientLayer()
-        self.bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.7).cgColor]
+        self.bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.9).cgColor]
         self.bottomGradientView.layer.addSublayer(bottomGradient)
         
         self.shareButton = UIButton(type: .custom)
