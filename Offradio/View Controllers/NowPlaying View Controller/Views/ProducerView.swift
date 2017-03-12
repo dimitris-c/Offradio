@@ -86,9 +86,15 @@ final class ProducerView: UIView {
         self.container.center = CGPoint(x: self.frame.width * 0.5,
                                         y: self.frame.height * 0.5)
         
+        self.onAirIconView.frame.origin.x       = self.producerImageView.frame.maxX + 10
+        self.producerNameLabel.frame.origin.x   = self.producerImageView.frame.maxX + 10
+        self.producerBodyLabel.frame.origin.x   = self.producerImageView.frame.maxX + 10
+        
         var verticalArranger = VerticalArranger()
         verticalArranger.add(object: SizeObject(type: .fixed, view: self.onAirIconView))
+        verticalArranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 5)))
         verticalArranger.add(object: SizeObject(type: .flexible, view: self.producerNameLabel))
+        verticalArranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 5)))
         verticalArranger.add(object: SizeObject(type: .flexible, view: self.producerBodyLabel))
         
         verticalArranger.resizeToFit()
