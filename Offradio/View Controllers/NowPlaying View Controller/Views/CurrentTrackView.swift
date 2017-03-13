@@ -23,6 +23,8 @@ final class CurrentTrackView: UIView {
     fileprivate var bottomGradientView: UIView!
     fileprivate var bottomGradient: CAGradientLayer!
     
+    fileprivate var shareView: CurrentTrackShareView!
+    
     fileprivate var shareButton: UIButton!
     fileprivate var favouriteButton: UIButton!
     
@@ -95,6 +97,9 @@ final class CurrentTrackView: UIView {
         bottomViewsArranger.add(object: SizeObject(type: .flexible, view: self.artistLabel))
         bottomViewsArranger.add(object: SizeObject(type: .flexible, view: self.songTitleLabel))
         
+        self.shareView = CurrentTrackShareView(frame: .zero)
+        self.addSubview(self.shareView)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -104,6 +109,7 @@ final class CurrentTrackView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        self.shareView.frame    = self.bounds
         self.albumArtwork.frame = self.bounds
         
         self.shareButton.sizeToFit()

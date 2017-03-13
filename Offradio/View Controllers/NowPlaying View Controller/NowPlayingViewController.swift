@@ -19,6 +19,7 @@ final class NowPlayingViewController: UIViewController {
     fileprivate var scrollView: UIScrollView!
     
     fileprivate var currentTrackViewInitialHeight: CGFloat = 0.0
+    fileprivate var favouriteButton: UIButton!
     fileprivate var currentTrackView: CurrentTrackView!
     fileprivate var producerView: ProducerView!
     
@@ -41,6 +42,24 @@ final class NowPlayingViewController: UIViewController {
         self.currentTrackView = CurrentTrackView(with: self.viewModel.currentTrack.asDriver())
         self.scrollView.addSubview(self.currentTrackView)
         
+        self.favouriteButton = UIButton(type: .custom)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button"), for: .normal)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .highlighted)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .selected)
+        self.currentTrackView.addSubview(self.favouriteButton)
+        
+        self.viewModel.favouriteTrack.asObservable()
+            .bindTo(self.favouriteButton.rx.isSelected)
+            .addDisposableTo(disposeBag)
+        
+        self.favouriteButton.rx.tap.asObservable()
+            .scan(false) { state, _ in !state }
+            .do(onNext: { [weak self] state in
+                self?.favouriteButton.isSelected = state
+            })
+            .bindTo(self.viewModel.favouriteTrack)
+            .addDisposableTo(disposeBag)
+        
         self.producerView = ProducerView(with: self.viewModel.show.asDriver())
         self.scrollView.addSubview(self.producerView)
         
@@ -57,6 +76,13 @@ final class NowPlayingViewController: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.viewModel.checkForUpdatesInFavourite()
+        
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -71,6 +97,9 @@ final class NowPlayingViewController: UIViewController {
         super.viewWillLayoutSubviews()
         
         self.scrollView.frame = self.view.bounds
+        
+        self.favouriteButton.sizeToFit()
+        self.favouriteButton.frame.origin = CGPoint(x: 5, y: 5)
         
         let (currentTrackRect, remainderRect) = self.view.bounds.divided(atDistance: self.view.frame.height * 0.55,
                                                                          from: .minYEdge)

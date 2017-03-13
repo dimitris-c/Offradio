@@ -57,8 +57,8 @@ struct CurrentTrack: Equatable {
 
 extension CurrentTrack {
     public static func ==(lhs: CurrentTrack, rhs: CurrentTrack) -> Bool {
-        return lhs.track == rhs.track ||
-        lhs.image == rhs.image ||
+        return lhs.track == rhs.track &&
+        lhs.image == rhs.image &&
         lhs.artist == rhs.artist
     }
     
