@@ -15,7 +15,6 @@ struct ShadowAttributes {
     static let zero = ShadowAttributes(color: UIColor.clear, offset: CGSize.zero, radius: 0, opacity: 0)
 }
 
-
 extension UIView {
     
     func applyShadow(with attributes: ShadowAttributes) {

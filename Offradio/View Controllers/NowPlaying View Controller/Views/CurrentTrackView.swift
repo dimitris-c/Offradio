@@ -67,6 +67,9 @@ final class CurrentTrackView: UIView {
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon"), for: .normal)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .highlighted)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .selected)
+        self.shareButton.rx.tap.subscribe(onNext: { [weak self] _ in
+            self?.showShareTrackView()
+        }).addDisposableTo(disposeBag)
         self.addSubview(self.shareButton)
         
         self.bottomViewsContainer = UIView()
@@ -98,6 +101,7 @@ final class CurrentTrackView: UIView {
         bottomViewsArranger.add(object: SizeObject(type: .flexible, view: self.songTitleLabel))
         
         self.shareView = CurrentTrackShareView(frame: .zero)
+        self.shareView.alpha = 0
         self.addSubview(self.shareView)
         
     }
@@ -168,6 +172,10 @@ final class CurrentTrackView: UIView {
                        options: .curveEaseInOut,
                        animations: animations,
                        completion: nil)
+        
+    }
+    
+    fileprivate func showShareTrackView() {
         
     }
     

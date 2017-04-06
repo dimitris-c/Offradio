@@ -42,7 +42,7 @@ final class AnimationsFactory {
         animation.isAdditive = true
         animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionLinear)
         animation.fromValue = NSNumber(floatLiteral: 0)
-        animation.toValue = NSNumber(floatLiteral: M_PI * 2.0)
+        animation.toValue = NSNumber(floatLiteral: Double.pi * 2.0)
         
         return animation
     }

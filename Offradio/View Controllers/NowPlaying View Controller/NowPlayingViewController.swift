@@ -46,6 +46,10 @@ final class NowPlayingViewController: UIViewController {
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button"), for: .normal)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .highlighted)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .selected)
+        self.favouriteButton.applyShadow(with: ShadowAttributes(color: UIColor.black,
+                                                                offset: CGSize(width: 0, height: 0),
+                                                                radius: 3,
+                                                                opacity: 0.5))
         self.currentTrackView.addSubview(self.favouriteButton)
         
         self.viewModel.favouriteTrack.asObservable()

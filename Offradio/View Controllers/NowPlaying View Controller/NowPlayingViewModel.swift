@@ -50,7 +50,8 @@ final class NowPlayingViewModel {
                     if favourite && !(self?.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) ?? false) {
                         let model = track.toPlaylistSong()
                         try? self?.favouritesLayer.createFavourite(with: model)
-                    } else {
+                    }
+                    else if !favourite {
                         try? self?.favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
                     }
                 }
