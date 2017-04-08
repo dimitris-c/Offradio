@@ -46,8 +46,10 @@ final class CurrentTrackView: UIView {
         currentTrack.asObservable()
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] track in
-            self?.updateSong(with: track)
+                self?.updateSong(with: track)
         }).addDisposableTo(disposeBag)
+        
+        
         
     }
     
@@ -103,6 +105,10 @@ final class CurrentTrackView: UIView {
         self.shareView = CurrentTrackShareView(frame: .zero)
         self.shareView.alpha = 0
         self.addSubview(self.shareView)
+        
+        self.shareView.closeButtonTap.subscribe(onNext: { [weak self] _ in
+            self?.hideShareTrackView()
+        }).addDisposableTo(disposeBag)
         
     }
     
@@ -176,6 +182,20 @@ final class CurrentTrackView: UIView {
     }
     
     fileprivate func showShareTrackView() {
+        
+        UIView.animate(withDuration: 0.2) {
+            self.shareButton.alpha = 0
+            self.shareView.alpha = 1
+        }
+        
+    }
+    
+    fileprivate func hideShareTrackView() {
+        
+        UIView.animate(withDuration: 0.2) {
+            self.shareButton.alpha = 1
+            self.shareView.alpha = 0
+        }
         
     }
     

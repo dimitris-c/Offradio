@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxCocoa
 
 enum ShareType {
     case facebook
@@ -34,6 +35,10 @@ final class CurrentTrackShareView: UIView {
     final fileprivate var facebookButton: UIButton!
     final fileprivate var twitterButton: UIButton!
     final fileprivate var emailButton: UIButton!
+    
+    var closeButtonTap: ControlEvent<Void> {
+        return self.closeButton.rx.tap
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -86,7 +91,6 @@ final class CurrentTrackShareView: UIView {
         self.closeButton.frame.origin.y = 5
         
     }
-    
     
     
 }
