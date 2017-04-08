@@ -26,15 +26,6 @@
       "scale" : "2x"
     },
     {
-      "extent" : "full-screen",
-      "idiom" : "ipad",
-      "subtype" : "1366h",
-      "filename" : "Default-iPadPro.png",
-      "minimum-system-version" : "8.0",
-      "orientation" : "portrait",
-      "scale" : "2x"
-    },
-    {
       "orientation" : "portrait",
       "idiom" : "iphone",
       "filename" : "Default@2x.png",

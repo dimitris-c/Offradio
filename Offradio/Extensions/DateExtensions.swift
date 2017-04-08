@@ -33,6 +33,9 @@ extension Date {
         return dateFormatter.string(from: self).capitalized
     }
     
+    var unixTimestamp: Int {
+        return Int(self.timeIntervalSince1970 * 1000)
+    }
 }
 
 extension Calendar {
