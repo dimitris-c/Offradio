@@ -15,6 +15,7 @@ target 'Offradio' do
   pod 'SDWebImage'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'TwitterKit'
   pod 'RealmSwift'
   pod 'RxRealm'
   pod 'RxSwift',    '~> 3.0'

@@ -19,7 +19,6 @@ final class NowPlayingViewController: UIViewController {
     fileprivate var scrollView: UIScrollView!
     
     fileprivate var currentTrackViewInitialHeight: CGFloat = 0.0
-    fileprivate var favouriteButton: UIButton!
     fileprivate var currentTrackView: CurrentTrackView!
     fileprivate var producerView: ProducerView!
     
@@ -39,27 +38,22 @@ final class NowPlayingViewController: UIViewController {
         self.scrollView.delegate = self
         self.view.addSubview(self.scrollView)
         
-        self.currentTrackView = CurrentTrackView(with: self.viewModel.currentTrack.asDriver())
+        self.currentTrackView = CurrentTrackView(with: self.viewModel.currentTrack)
         self.scrollView.addSubview(self.currentTrackView)
         
-        self.favouriteButton = UIButton(type: .custom)
-        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button"), for: .normal)
-        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .highlighted)
-        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .selected)
-        self.favouriteButton.applyShadow(with: ShadowAttributes(color: UIColor.black,
-                                                                offset: CGSize(width: 0, height: 0),
-                                                                radius: 3,
-                                                                opacity: 0.5))
-        self.currentTrackView.addSubview(self.favouriteButton)
-        
+        self.currentTrackView.shareOn.asObservable().subscribe(onNext: { [weak self] type in
+            guard let sSelf = self else { return }
+            ShareUtility.share(on: type, with: sSelf.viewModel.currentTrack.value, using: sSelf)
+        }).addDisposableTo(disposeBag)
+
         self.viewModel.favouriteTrack.asObservable()
-            .bindTo(self.favouriteButton.rx.isSelected)
+            .bindTo(self.currentTrackView.favouriteButton.rx.isSelected)
             .addDisposableTo(disposeBag)
         
-        self.favouriteButton.rx.tap.asObservable()
+        self.currentTrackView.favouriteButton.rx.tap.asObservable()
             .scan(false) { state, _ in !state }
             .do(onNext: { [weak self] state in
-                self?.favouriteButton.isSelected = state
+                self?.currentTrackView.favouriteButton.isSelected = state
             })
             .bindTo(self.viewModel.favouriteTrack)
             .addDisposableTo(disposeBag)
@@ -101,9 +95,6 @@ final class NowPlayingViewController: UIViewController {
         super.viewWillLayoutSubviews()
         
         self.scrollView.frame = self.view.bounds
-        
-        self.favouriteButton.sizeToFit()
-        self.favouriteButton.frame.origin = CGPoint(x: 5, y: 5)
         
         let (currentTrackRect, remainderRect) = self.view.bounds.divided(atDistance: self.view.frame.height * 0.55,
                                                                          from: .minYEdge)

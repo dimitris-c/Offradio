@@ -25,14 +25,26 @@ final class CurrentTrackView: UIView {
     
     fileprivate var shareView: CurrentTrackShareView!
     
+    final let shareOn: Variable<ShareType> = Variable<ShareType>(.none)
     fileprivate var shareButton: UIButton!
-    fileprivate var favouriteButton: UIButton!
+    var favouriteButton: UIButton!
+    fileprivate var currentTrack: Variable<CurrentTrack>!
     
-    init(with currentTrack: Driver<CurrentTrack>) {
+    init(with currentTrack: Variable<CurrentTrack>) {
         super.init(frame: .zero)
         self.clipsToBounds = true
         
         self.supplySubviews()
+        
+        self.shareView = CurrentTrackShareView(frame: .zero)
+        self.shareView.alpha = 0
+        self.addSubview(self.shareView)
+        
+        self.shareView.closeButtonTap.subscribe(onNext: { [weak self] _ in
+            self?.hideShareTrackView()
+        }).addDisposableTo(disposeBag)
+        
+        self.shareView.shareOn.asObservable().bindTo(shareOn).addDisposableTo(disposeBag)
         
         currentTrack.asObservable()
             .map { $0.image }
@@ -48,8 +60,6 @@ final class CurrentTrackView: UIView {
             .subscribe(onNext: { [weak self] track in
                 self?.updateSong(with: track)
         }).addDisposableTo(disposeBag)
-        
-        
         
     }
     
@@ -102,13 +112,15 @@ final class CurrentTrackView: UIView {
         bottomViewsArranger.add(object: SizeObject(type: .flexible, view: self.artistLabel))
         bottomViewsArranger.add(object: SizeObject(type: .flexible, view: self.songTitleLabel))
         
-        self.shareView = CurrentTrackShareView(frame: .zero)
-        self.shareView.alpha = 0
-        self.addSubview(self.shareView)
-        
-        self.shareView.closeButtonTap.subscribe(onNext: { [weak self] _ in
-            self?.hideShareTrackView()
-        }).addDisposableTo(disposeBag)
+        self.favouriteButton = UIButton(type: .custom)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button"), for: .normal)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .highlighted)
+        self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .selected)
+        self.favouriteButton.applyShadow(with: ShadowAttributes(color: UIColor.black,
+                                                                offset: CGSize(width: 0, height: 0),
+                                                                radius: 3,
+                                                                opacity: 0.5))
+        self.addSubview(self.favouriteButton)
         
     }
     
@@ -125,6 +137,8 @@ final class CurrentTrackView: UIView {
         self.shareButton.sizeToFit()
         self.shareButton.frame.origin = CGPoint(x: self.bounds.width - self.shareButton.frame.width - 10,
                                                 y: 10)
+        self.favouriteButton.sizeToFit()
+        self.favouriteButton.frame.origin = CGPoint(x: 5, y: 5)
         
         self.bottomViewsArranger.resizeToFit()
         
@@ -188,13 +202,18 @@ final class CurrentTrackView: UIView {
             self.shareView.alpha = 1
         }
         
+        self.shareView.showButtons()
+        
+        
     }
     
     fileprivate func hideShareTrackView() {
         
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.2, animations: {
             self.shareButton.alpha = 1
             self.shareView.alpha = 0
+        }) { completed in
+            self.shareView.hideButtons()
         }
         
     }

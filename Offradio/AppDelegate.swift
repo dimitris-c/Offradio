@@ -8,6 +8,7 @@
 
 import UIKit
 import Fabric
+import TwitterKit
 import Crashlytics
 import FBSDKCoreKit
 import RealmSwift
@@ -24,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
         URLCache.shared = cache
         
-        Fabric.with([Crashlytics.self])
+        Fabric.with([Crashlytics.self,
+                     Twitter.self])
         
         RealmMigrationLayer.performMigration()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

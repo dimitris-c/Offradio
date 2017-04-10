@@ -40,6 +40,19 @@ extension SizeObjectProtocol {
     }
 }
 
+
+protocol SizeObjectConvertible {
+    func toSizeObject(withType type: SizeObjectType) -> SizeObject
+}
+
+extension SizeObjectConvertible where Self: UIView {
+    func toSizeObject(withType type: SizeObjectType) -> SizeObject {
+        return SizeObject(type: type, view: self, resizeBoth: true)
+    }
+}
+
+extension UIView: SizeObjectConvertible { }
+
 final class SizeObject: SizeObjectProtocol {
 
     public var type: SizeObjectType
