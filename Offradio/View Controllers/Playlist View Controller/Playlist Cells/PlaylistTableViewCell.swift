@@ -134,7 +134,7 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         
         self.viewModel.initialise(with: self.favouriteButton.rx.tap.asDriver().scan(false) { state, _ in !state })
         
-        let disposable = self.viewModel.favourited.asObservable().bindTo(self.favouriteButton.rx.isSelected)
+        let disposable = self.viewModel.favourited.asObservable().bind(to: self.favouriteButton.rx.isSelected)
         self.disposeBag?.insert(disposable)
         
         if shownInFavouritesList {

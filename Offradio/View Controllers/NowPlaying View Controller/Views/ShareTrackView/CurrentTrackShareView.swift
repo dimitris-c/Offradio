@@ -60,7 +60,7 @@ final class CurrentTrackShareView: UIView {
         self.shareButtons = [self.facebookButton, self.twitterButton, self.emailButton]
         
         self.shareButtons.forEach { button in
-            button.rx.tap.map { button.shareType }.bindTo(self.shareOn).addDisposableTo(disposeBag)
+            button.rx.tap.map { button.shareType }.bind(to: self.shareOn).addDisposableTo(disposeBag)
         }
     }
     

@@ -55,7 +55,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         
         let cellIdentifier = ContactTableViewCell.identifier
         let cellType = ContactTableViewCell.self
-        self.contactViewModel.data.asObservable().bindTo(tableView.rx.items(cellIdentifier: cellIdentifier, cellType: cellType)) { row, model, cell in
+        self.contactViewModel.data.asObservable().bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: cellType)) { row, model, cell in
             cell.configure(with: model)
         }.addDisposableTo(disposeBag)
         

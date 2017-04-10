@@ -44,7 +44,7 @@ final class CurrentTrackView: UIView {
             self?.hideShareTrackView()
         }).addDisposableTo(disposeBag)
         
-        self.shareView.shareOn.asObservable().bindTo(shareOn).addDisposableTo(disposeBag)
+        self.shareView.shareOn.asObservable().bind(to: shareOn).addDisposableTo(disposeBag)
         
         currentTrack.asObservable()
             .map { $0.image }

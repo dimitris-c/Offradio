@@ -156,7 +156,7 @@ class APIServiceTests: XCTestCase {
         self.dummyModelAPIService = APIService<DummyModel>(request: request, parse: response)
         let disposable = self.dummyModelAPIService?.rxCall().do(onNext: { model in
             expectation.fulfill()
-        }).bindTo(dummyModel)
+        }).bind(to: dummyModel)
         
         waitForExpectations(timeout: timeout, handler: nil)
         

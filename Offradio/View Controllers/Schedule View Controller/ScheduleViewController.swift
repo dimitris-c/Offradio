@@ -63,10 +63,10 @@ final class ScheduleViewController: UIViewController {
         let identifier = ScheduleTableViewCell.identifier
         let cellType = ScheduleTableViewCell.self
         
-        self.viewModel.navigationTitle.asObservable().bindTo(self.navigationItem.rx.title).addDisposableTo(disposeBag)
+        self.viewModel.navigationTitle.asObservable().bind(to: self.navigationItem.rx.title).addDisposableTo(disposeBag)
         
         self.viewModel.schedule.asObservable()
-            .bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, item, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, item, cell in
                 cell.configure(with: item)
             }.addDisposableTo(disposeBag)
         
@@ -80,11 +80,11 @@ final class ScheduleViewController: UIViewController {
         
         self.refreshControl.rx.controlEvent(.valueChanged)
             .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? true) }
-            .bindTo(self.viewModel.refresh)
+            .bind(to: self.viewModel.refresh)
             .addDisposableTo(disposeBag)
         
-        self.viewModel.refresh.asObservable().bindTo(self.refreshControl.rx.isRefreshing).addDisposableTo(disposeBag)
-        self.viewModel.firstLoad.asObservable().bindTo(self.activityIndicator.rx.isAnimating).addDisposableTo(disposeBag)
+        self.viewModel.refresh.asObservable().bind(to: self.refreshControl.rx.isRefreshing).addDisposableTo(disposeBag)
+        self.viewModel.firstLoad.asObservable().bind(to: self.activityIndicator.rx.isAnimating).addDisposableTo(disposeBag)
     }
     
     override func viewDidLayoutSubviews() {

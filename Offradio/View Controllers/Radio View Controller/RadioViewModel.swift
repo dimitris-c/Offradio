@@ -41,7 +41,7 @@ final class RadioViewModel: StormysRadioKitDelegate {
             .addDisposableTo(disposeBag)
         
         radio.metadata.nowPlaying.asObservable()
-            .bindTo(nowPlaying)
+            .bind(to: nowPlaying)
             .addDisposableTo(disposeBag)
         
     }

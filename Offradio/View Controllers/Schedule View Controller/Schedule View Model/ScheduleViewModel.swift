@@ -33,7 +33,7 @@ final class ScheduleViewModel {
             })
             .map { $0.items }
             .catchErrorJustReturn([])
-            .bindTo(schedule)
+            .bind(to: schedule)
             .addDisposableTo(disposeBag)
         
         self.refresh.asObservable()
@@ -43,10 +43,10 @@ final class ScheduleViewModel {
                 return strongSelf.fetchSchedule()
             }
             .map { $0.items }
-            .bindTo(schedule)
+            .bind(to: schedule)
             .addDisposableTo(disposeBag)
         
-        self.fetchProducers().catchErrorJustReturn([]).bindTo(producers).addDisposableTo(disposeBag)
+        self.fetchProducers().catchErrorJustReturn([]).bind(to: producers).addDisposableTo(disposeBag)
         
     }
     

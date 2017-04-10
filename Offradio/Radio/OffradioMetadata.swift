@@ -30,14 +30,14 @@ final class OffradioMetadata {
                 guard let strongSelf = self else { return Observable.empty() }
                 return strongSelf.fetchCRC()
             })
-            .bindTo(crc)
+            .bind(to: crc)
         
         let crcDisposable = crc.asObservable()
             .distinctUntilChanged()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return self.fetchNowPlaying()
             }
-            .bindTo(nowPlaying)
+            .bind(to: nowPlaying)
         
         timerDisposeBag?.insert(crcDisposable)
         timerDisposeBag?.insert(crcTimerDisposable)

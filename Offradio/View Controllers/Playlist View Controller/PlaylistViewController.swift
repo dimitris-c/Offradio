@@ -69,7 +69,7 @@ final class PlaylistViewController: UIViewController {
         let cellType = PlaylistTableViewCell.self
         
         self.viewModel.playlistData.asObservable()
-            .bindTo(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, model, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, model, cell in
                 cell.configure(with: model)
             }.addDisposableTo(disposeBag)
         
@@ -84,19 +84,19 @@ final class PlaylistViewController: UIViewController {
         
         self.refreshControl.rx.controlEvent(.valueChanged)
             .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? false) }
-            .bindTo(self.viewModel.refresh)
+            .bind(to: self.viewModel.refresh)
             .addDisposableTo(disposeBag)
         
         self.viewModel.refresh.asObservable()
-            .bindTo(self.refreshControl.rx.isRefreshing)
+            .bind(to: self.refreshControl.rx.isRefreshing)
             .addDisposableTo(disposeBag)
         
         self.viewModel.indicatorViewAnimating.asObservable()
-            .bindTo(self.tableViewActivityView.rx.isAnimating)
+            .bind(to: self.tableViewActivityView.rx.isAnimating)
             .addDisposableTo(disposeBag)
         
         self.viewModel.initialLoad.asObservable()
-            .bindTo(self.initialLoadActivityView.rx.isAnimating)
+            .bind(to: self.initialLoadActivityView.rx.isAnimating)
             .addDisposableTo(disposeBag)
         
         

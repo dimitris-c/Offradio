@@ -45,13 +45,13 @@ final class ProducerView: UIView {
         currentTrack.asObservable()
             .map { $0.name }
             .ifEmpty(default: Show.default.name)
-            .bindTo(self.producerNameLabel.rx.text)
+            .bind(to: self.producerNameLabel.rx.text)
             .addDisposableTo(disposeBag)
         
         currentTrack.asObservable()
             .map { $0.body }
             .ifEmpty(default: Show.default.body)
-            .bindTo(self.producerBodyLabel.rx.text)
+            .bind(to: self.producerBodyLabel.rx.text)
             .addDisposableTo(disposeBag)
         
     }

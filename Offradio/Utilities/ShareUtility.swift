@@ -42,7 +42,7 @@ class ShareUtility {
         print("Sharing \(currentTrack) on Twitter")
         
         let composer = TWTRComposer()
-        composer.setText("I've turned my Radio OFF! Listening to \() #nowplaying \(currentTrack.title) @offradio http://offradio.gr/player")
+        composer.setText("I've turned my Radio OFF! Listening to \(currentTrack.artist) #nowplaying \(currentTrack.title) @offradio http://offradio.gr/player")
         composer.setURL(URL(string: "http://www.offradio.gr/player"))
         composer.setImage(UIImage(named: "turn-your-radio-off"))
         

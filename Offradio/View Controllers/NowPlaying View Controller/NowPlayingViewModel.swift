@@ -29,7 +29,7 @@ final class NowPlayingViewModel {
         self.radioMetadata.nowPlaying.asObservable()
             .map { $0.show }
             .startWith(Show.default)
-            .bindTo(show)
+            .bind(to: show)
             .addDisposableTo(disposeBag)
         
         self.radioMetadata.nowPlaying.asObservable()
@@ -40,7 +40,7 @@ final class NowPlayingViewModel {
                     self?.favouriteTrack.value = self?.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) ?? false
                 }
             })
-            .bindTo(currentTrack)
+            .bind(to: currentTrack)
             .addDisposableTo(disposeBag)
         
         self.favouriteTrack.asObservable()

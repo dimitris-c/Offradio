@@ -47,7 +47,7 @@ final class NowPlayingViewController: UIViewController {
         }).addDisposableTo(disposeBag)
 
         self.viewModel.favouriteTrack.asObservable()
-            .bindTo(self.currentTrackView.favouriteButton.rx.isSelected)
+            .bind(to: self.currentTrackView.favouriteButton.rx.isSelected)
             .addDisposableTo(disposeBag)
         
         self.currentTrackView.favouriteButton.rx.tap.asObservable()
@@ -55,7 +55,7 @@ final class NowPlayingViewController: UIViewController {
             .do(onNext: { [weak self] state in
                 self?.currentTrackView.favouriteButton.isSelected = state
             })
-            .bindTo(self.viewModel.favouriteTrack)
+            .bind(to: self.viewModel.favouriteTrack)
             .addDisposableTo(disposeBag)
         
         self.producerView = ProducerView(with: self.viewModel.show.asDriver())
