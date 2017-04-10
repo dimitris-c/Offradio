@@ -16,6 +16,8 @@ class ShareUtility {
         switch type {
         case .facebook:
             self.shareOnFacebook(with: currentTrack, using: viewController)
+        case .twitter:
+            self.shareOnTwitter(with: currentTrack, using: viewController)
         default: break
         }
     }
@@ -40,9 +42,9 @@ class ShareUtility {
         print("Sharing \(currentTrack) on Twitter")
         
         let composer = TWTRComposer()
-        composer.setText("")
-        composer.setURL(URL(string: ""))
-        composer.setImage(UIImage(named: ""))
+        composer.setText("I've turned my Radio OFF! Listening to \() #nowplaying \(currentTrack.title) @offradio http://offradio.gr/player")
+        composer.setURL(URL(string: "http://www.offradio.gr/player"))
+        composer.setImage(UIImage(named: "turn-your-radio-off"))
         
         composer.show(from: viewController) { result in
             
