@@ -17,9 +17,16 @@ final class NowPlayingViewModel {
     fileprivate var radioMetadata: OffradioMetadata!
     fileprivate var favouritesLayer: PlaylistFavouritesLayer!
     
+    var nowPlaying: Variable<NowPlaying>? {
+        if let metadata = self.radioMetadata {
+            return metadata.nowPlaying
+        }
+        return nil
+    }
+    
     let favouriteTrack: Variable<Bool>       = Variable<Bool>(false)
-    let currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(.empty)
-    let show: Variable<Show>                 = Variable<Show>(.default)
+    let currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(CurrentTrack.empty)
+    let show: Variable<Show>                 = Variable<Show>(Show.default)
     
     init(with radioMetadata: OffradioMetadata) {
         self.radioMetadata = radioMetadata

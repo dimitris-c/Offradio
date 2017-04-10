@@ -9,8 +9,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import MessageUI
 
-final class NowPlayingViewController: UIViewController {
+final class NowPlayingViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     fileprivate let disposeBag = DisposeBag()
     
@@ -42,8 +43,8 @@ final class NowPlayingViewController: UIViewController {
         self.scrollView.addSubview(self.currentTrackView)
         
         self.currentTrackView.shareOn.asObservable().subscribe(onNext: { [weak self] type in
-            guard let sSelf = self else { return }
-            ShareUtility.share(on: type, with: sSelf.viewModel.currentTrack.value, using: sSelf)
+            guard let sSelf = self, let nowPlaying = sSelf.viewModel.nowPlaying?.value else { return }
+            ShareUtility.share(on: type, with: nowPlaying, using: sSelf)
         }).addDisposableTo(disposeBag)
 
         self.viewModel.favouriteTrack.asObservable()
@@ -104,6 +105,12 @@ final class NowPlayingViewController: UIViewController {
         currentTrackViewInitialHeight = self.currentTrackView.frame.size.height
     }
     
+    // MARK: MFMailComposeViewController Delegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.becomeFirstResponder()
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension NowPlayingViewController: UIScrollViewDelegate {
