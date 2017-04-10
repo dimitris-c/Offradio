@@ -11,6 +11,7 @@ import RxCocoa
 import RxAlamofire
 
 final class OffradioMetadata {
+    fileprivate let disposeBag = DisposeBag()
     
     let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)
     
@@ -33,6 +34,7 @@ final class OffradioMetadata {
             .bind(to: crc)
         
         let crcDisposable = crc.asObservable()
+            .skipWhile { $0.isEmpty }
             .distinctUntilChanged()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return self.fetchNowPlaying()
@@ -48,8 +50,7 @@ final class OffradioMetadata {
     }
     
     func forceRefresh() {
-        stopTimer()
-        startTimer()
+        self.fetchNowPlaying().bind(to: nowPlaying).addDisposableTo(disposeBag)
     }
     
     fileprivate func fetchCRC() -> Observable<String> {

@@ -85,13 +85,13 @@ struct TwitterTitleFactory {
     func title(with nowPlaying: NowPlaying) -> String {
         var fullTitle = "\(firstPart) Listening to \(nowPlaying.show.name) \(hashtag) \(nowPlaying.current.title) \(mention) \(playerLink)"
         if fullTitle.characters.count > 140 {
-            fullTitle = "\(firstPart) Listening to \(nowPlaying.current.title) \(hashtag) \(mention) \(playerLink)"
+            fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
         }
-        if fullTitle.characters.count > 140 {
+        else if fullTitle.characters.count > 140 {
             fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention) \(playerLink)"
         }
-        if fullTitle.characters.count > 140 {
-            fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
+        else if fullTitle.characters.count > 140 {
+            fullTitle = "\(firstPart) Listening to \(nowPlaying.current.title) \(hashtag) \(mention) \(playerLink)"
         }
         return fullTitle
     }

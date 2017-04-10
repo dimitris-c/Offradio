@@ -15,8 +15,9 @@ struct OffradioStream {
 
 final class Offradio: RadioProtocol {
     let kit: RadioKit = RadioKit()
-    private var status = RadioStatus()
-    
+    fileprivate var status = RadioStatus()
+    fileprivate var playbackWasInterrupted: Bool = false
+    var isInForeground: Bool = true
     var metadata: OffradioMetadata!
     
     init() {
@@ -30,6 +31,8 @@ final class Offradio: RadioProtocol {
         if let version = self.kit.version() {
             Log.debug("RadioKit version: \(version)")
         }
+        
+        addNotifications()
     }
     
     final func setupRadio() {
@@ -66,4 +69,71 @@ final class Offradio: RadioProtocol {
         }
     }
     
+}
+
+extension Offradio {
+    
+    final fileprivate func addNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleInterruption),
+                                               name: NSNotification.Name.AVAudioSessionInterruption,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleRouteChange),
+                                               name: NSNotification.Name.AVAudioSessionRouteChange,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(movedToBackground),
+                                               name: NSNotification.Name.UIApplicationDidEnterBackground,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(movedToForeground),
+                                               name: NSNotification.Name.UIApplicationWillEnterForeground,
+                                               object: nil)
+    }
+    
+    @objc final fileprivate func movedToBackground() {
+        isInForeground = false
+        self.metadata.stopTimer()
+    }
+    
+    @objc final fileprivate func movedToForeground() {
+        if status.isPlaying && !isInForeground {
+            self.metadata.startTimer()
+        }
+        isInForeground = true
+    }
+    
+    @objc final fileprivate func handleInterruption(_ notification: Notification) {
+        print("\(String(describing: notification.userInfo))")
+        
+        guard let interruptionState = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
+        if interruptionState.uintValue == AVAudioSessionInterruptionType.began.rawValue {
+            if kit.getStreamStatus() == SRK_STATUS_PLAYING || kit.getStreamStatus() == SRK_STATUS_PAUSED {
+                playbackWasInterrupted = true
+                self.stop()
+            }
+        }
+        else if interruptionState.uintValue == AVAudioSessionInterruptionType.ended.rawValue {
+            if self.playbackWasInterrupted {
+                self.playbackWasInterrupted = false
+                self.start()
+            }
+        }
+    }
+    
+    @objc final fileprivate func handleRouteChange(_ notification: Notification) {
+        print("\(String(describing: notification.userInfo))")
+        if let reason: NSNumber = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? NSNumber {
+            if (reason.uintValue == AVAudioSessionRouteChangeReason.categoryChange.rawValue) {
+                if kit.getStreamStatus() == SRK_STATUS_PAUSED && status.isPlaying {
+                    self.start()
+                }
+            }
+        }
+    }
+
 }
