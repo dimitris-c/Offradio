@@ -33,6 +33,10 @@
 		B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */; };
 		B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6061E6741FD003A75EE /* ProducerView.swift */; };
 		B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */; };
+		B5269DC61E9D890900ED7A60 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */; };
+		B5269DC91E9D890900ED7A60 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5269DC81E9D890900ED7A60 /* TodayViewController.swift */; };
+		B5269DCC1E9D890900ED7A60 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5269DCA1E9D890900ED7A60 /* MainInterface.storyboard */; };
+		B5269DD01E9D890900ED7A60 /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5269DC41E9D890900ED7A60 /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
@@ -149,6 +153,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B5269DCE1E9D890900ED7A60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54BC89B1E36A9DB0043F248 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5269DC31E9D890900ED7A60;
+			remoteInfo = TodayWidget;
+		};
 		B54BC8BA1E36A9DC0043F248 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B54BC89B1E36A9DB0043F248 /* Project object */;
@@ -164,6 +175,20 @@
 			remoteInfo = Offradio;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5269DD41E9D890900ED7A60 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B5269DD01E9D890900ED7A60 /* TodayWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05C5D6DC0F4FDA8BBB1DAB1F /* Pods-OffradioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioUITests/Pods-OffradioUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +225,11 @@
 		B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NowPlayingViewModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B524E6061E6741FD003A75EE /* ProducerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProducerView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B5269DC41E9D890900ED7A60 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		B5269DC81E9D890900ED7A60 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		B5269DCB1E9D890900ED7A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B5269DCD1E9D890900ED7A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
@@ -328,6 +358,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B5269DC11E9D890900ED7A60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5269DC61E9D890900ED7A60 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54BC8A01E36A9DB0043F248 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +417,7 @@
 				F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */,
 				95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */,
 				0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */,
+				B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -495,6 +534,16 @@
 				B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B5269DC71E9D890900ED7A60 /* TodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B5269DC81E9D890900ED7A60 /* TodayViewController.swift */,
+				B5269DCA1E9D890900ED7A60 /* MainInterface.storyboard */,
+				B5269DCD1E9D890900ED7A60 /* Info.plist */,
+			);
+			path = TodayWidget;
 			sourceTree = "<group>";
 		};
 		B52A6C1F1E36B3BE005893D2 /* Resources */ = {
@@ -682,6 +731,7 @@
 				B54BC8A51E36A9DC0043F248 /* Offradio */,
 				B54BC8BC1E36A9DC0043F248 /* OffradioTests */,
 				B54BC8C71E36A9DC0043F248 /* OffradioUITests */,
+				B5269DC71E9D890900ED7A60 /* TodayWidget */,
 				B54BC8A41E36A9DC0043F248 /* Products */,
 				35C7325E9D0BD0544DE9EE3B /* Pods */,
 				7270B8A41F99A77388A95EEF /* Frameworks */,
@@ -694,6 +744,7 @@
 				B54BC8A31E36A9DC0043F248 /* Offradio.app */,
 				B54BC8B91E36A9DC0043F248 /* OffradioTests.xctest */,
 				B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */,
+				B5269DC41E9D890900ED7A60 /* TodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -950,6 +1001,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B5269DC31E9D890900ED7A60 /* TodayWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5269DD31E9D890900ED7A60 /* Build configuration list for PBXNativeTarget "TodayWidget" */;
+			buildPhases = (
+				B5269DC01E9D890900ED7A60 /* Sources */,
+				B5269DC11E9D890900ED7A60 /* Frameworks */,
+				B5269DC21E9D890900ED7A60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodayWidget;
+			productName = TodayWidget;
+			productReference = B5269DC41E9D890900ED7A60 /* TodayWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B54BC8A21E36A9DB0043F248 /* Offradio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B54BC8CD1E36A9DC0043F248 /* Build configuration list for PBXNativeTarget "Offradio" */;
@@ -961,10 +1029,12 @@
 				D07345AF44A5FDFE72120D15 /* [CP] Embed Pods Frameworks */,
 				001F021AD1209C7AD0B62390 /* [CP] Copy Pods Resources */,
 				B52A6C1E1E36B242005893D2 /* Fabric */,
+				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B5269DCF1E9D890900ED7A60 /* PBXTargetDependency */,
 			);
 			name = Offradio;
 			productName = Offradio;
@@ -1019,10 +1089,14 @@
 		B54BC89B1E36A9DB0043F248 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = decimal;
 				TargetAttributes = {
+					B5269DC31E9D890900ED7A60 = {
+						CreatedOnToolsVersion = 8.3;
+						ProvisioningStyle = Automatic;
+					};
 					B54BC8A21E36A9DB0043F248 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5Y92JCRVR7;
@@ -1066,11 +1140,20 @@
 				B54BC8A21E36A9DB0043F248 /* Offradio */,
 				B54BC8B81E36A9DC0043F248 /* OffradioTests */,
 				B54BC8C31E36A9DC0043F248 /* OffradioUITests */,
+				B5269DC31E9D890900ED7A60 /* TodayWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B5269DC21E9D890900ED7A60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5269DCC1E9D890900ED7A60 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54BC8A11E36A9DB0043F248 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1286,6 +1369,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B5269DC01E9D890900ED7A60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5269DC91E9D890900ED7A60 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54BC89F1E36A9DB0043F248 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1404,6 +1495,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B5269DCF1E9D890900ED7A60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5269DC31E9D890900ED7A60 /* TodayWidget */;
+			targetProxy = B5269DCE1E9D890900ED7A60 /* PBXContainerItemProxy */;
+		};
 		B54BC8BB1E36A9DC0043F248 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B54BC8A21E36A9DB0043F248 /* Offradio */;
@@ -1416,7 +1512,48 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		B5269DCA1E9D890900ED7A60 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5269DCB1E9D890900ED7A60 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		B5269DD11E9D890900ED7A60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 5Y92JCRVR7;
+				INFOPLIST_FILE = TodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.TodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B5269DD21E9D890900ED7A60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = 5Y92JCRVR7;
+				INFOPLIST_FILE = TodayWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.TodayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		B54BC8CB1E36A9DC0043F248 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1517,6 +1654,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
@@ -1527,6 +1665,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
@@ -1541,6 +1680,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = Offradio/Info.plist;
@@ -1550,6 +1690,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
@@ -1622,6 +1763,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B5269DD31E9D890900ED7A60 /* Build configuration list for PBXNativeTarget "TodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5269DD11E9D890900ED7A60 /* Debug */,
+				B5269DD21E9D890900ED7A60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B54BC89E1E36A9DB0043F248 /* Build configuration list for PBXProject "Offradio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
