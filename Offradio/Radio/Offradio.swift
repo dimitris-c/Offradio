@@ -15,8 +15,7 @@ struct OffradioStream {
 
 final class Offradio: RadioProtocol {
     let kit: RadioKit = RadioKit()
-    fileprivate var status = RadioStatus()
-    fileprivate var playbackWasInterrupted: Bool = false
+    var status = RadioStatus()
     var isInForeground: Bool = true
     var metadata: OffradioMetadata!
     
@@ -59,6 +58,7 @@ final class Offradio: RadioProtocol {
         self.metadata.stopTimer()
         
         status.isPlaying = false
+        
     }
     
     final func toggleRadio() {
@@ -108,19 +108,25 @@ extension Offradio {
     }
     
     @objc final fileprivate func handleInterruption(_ notification: Notification) {
-        print("\(String(describing: notification.userInfo))")
+        let info = notification.userInfo
+        print("\(String(describing: info))")
         
-        guard let interruptionState = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
+        guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
         if interruptionState.uintValue == AVAudioSessionInterruptionType.began.rawValue {
             if kit.getStreamStatus() == SRK_STATUS_PLAYING || kit.getStreamStatus() == SRK_STATUS_PAUSED {
-                playbackWasInterrupted = true
+                self.status.playbackWasInterrupted = true
                 self.stop()
             }
         }
         else if interruptionState.uintValue == AVAudioSessionInterruptionType.ended.rawValue {
-            if self.playbackWasInterrupted {
-                self.playbackWasInterrupted = false
-                self.start()
+            if let info = info, let reasonInt = info[AVAudioSessionInterruptionOptionKey] as? UInt {
+                let interruptionOption = AVAudioSessionInterruptionOptions(rawValue: reasonInt)
+                if interruptionOption == AVAudioSessionInterruptionOptions.shouldResume {
+                    if self.status.playbackWasInterrupted {
+                        self.status.playbackWasInterrupted = false
+                        self.start()
+                    }
+                }
             }
         }
     }
