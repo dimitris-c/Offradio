@@ -30,9 +30,9 @@ PODS:
     - RxSwift (~> 3.0)
   - RxCocoa (3.4.0):
     - RxSwift (~> 3.4)
-  - RxRealm (0.5.2):
-    - RealmSwift (~> 2.4)
-    - RxSwift (~> 3.1)
+  - RxRealm (0.6.0):
+    - RealmSwift (~> 2.5)
+    - RxSwift (~> 3.2)
   - RxSwift (3.4.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
@@ -76,7 +76,7 @@ SPEC CHECKSUMS:
   RealmSwift: f719e7511c902b8908593e8f143f59e47931bdb6
   RxAlamofire: bc53604b29fd2d220cfaa490c736cc4500819f34
   RxCocoa: d14ef6b6029e1ddc6e966508c09289090de68ff9
-  RxRealm: df024f04e64c3a9723dab63a6ec8621b3db6473f
+  RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
@@ -85,4 +85,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 77e91101916c90b8203d9576c4fd3941c279e197
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
