@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-TodayWidget.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -153,6 +158,11 @@
 			<true/>
 		</dict>
 		<key>AAC7C1DA02C4AF02C3BB0E893D649979</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B77D42B9654492D0A2F0E87BB41F2DEB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

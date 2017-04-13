@@ -50,9 +50,6 @@ struct CurrentTrack: Equatable {
         return self.title.isEmpty && self.image.isEmpty && self.artist.isEmpty
     }
     
-    func toPlaylistSong() -> PlaylistSong {
-        return PlaylistSong(self.artist, songTitle: self.track, imageUrl: self.image)
-    }
 }
 
 extension CurrentTrack {

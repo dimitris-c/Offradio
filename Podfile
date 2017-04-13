@@ -22,7 +22,7 @@ target 'Offradio' do
   pod 'RxCocoa',    '~> 3.0'
   pod 'RxAlamofire'
   pod 'AutoScrollLabel'
-
+  
   target 'OffradioTests' do
     inherit! :search_paths
     # Pods for testing
@@ -31,6 +31,10 @@ target 'Offradio' do
   target 'OffradioUITests' do
     inherit! :search_paths
     # Pods for testing
+  end
+  
+  target 'TodayWidget' do
+      inherit! :search_paths
   end
 end
 
