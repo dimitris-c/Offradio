@@ -90,7 +90,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         }
     }
     
-    fileprivate func showPlaylistViewController() {
+    func showPlaylistViewController() {
         self.hideLabelOnBackButton()
         let playlistViewController = PlaylistViewController()
         self.navigationController?.pushViewController(playlistViewController, animated: true)

@@ -52,6 +52,28 @@ final class OffradioContentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func showPlaylist() {
+        self.mainTabBarController?.selectedIndex = TabIdentifier.listen.rawValue
+        let radioViewController = getOffradioViewController()
+        radioViewController?.showPlaylistViewController()
+    }
+    
+    func turnRadioOn() {
+        self.mainTabBarController?.selectedIndex = TabIdentifier.listen.rawValue
+        delayMain(0.2) { [weak self] in
+            self?.offradio.start()
+        }
+    }
+    
+    func showSchedule() {
+        self.mainTabBarController?.selectedIndex = TabIdentifier.schedule.rawValue
+    }
+    
+    fileprivate func getOffradioViewController() -> RadioViewController? {
+        let radioNavVC = self.mainTabBarController?.selectedViewController as? UINavigationController
+        return radioNavVC?.visibleViewController as? RadioViewController
+    }
+    
     override var shouldAutorotate: Bool {
         return mainTabBarController?.shouldAutorotate ?? false
     }

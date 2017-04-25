@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         Theme.setupNavBarAppearance()
-        
+                
         return true
     }
 
@@ -72,6 +72,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                                             sourceApplication: sourceApplication,
                                                                             annotation: annotation)
         return handled
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        guard let viewController = window?.rootViewController as? OffradioContentViewController else {
+            completionHandler(false)
+            return
+        }
+        
+        let handledShortCutItem = Shortcuts().handle(shortcut: shortcutItem, for: viewController)
+        completionHandler(handledShortCutItem)
     }
 
 }

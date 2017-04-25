@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2FC85D66549865E3B59F0384 /* Pods_OffradioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */; };
-		48160FFFB954BE27D0877BD9 /* Pods_TodayWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF63031856E604D65F9C8F21 /* Pods_TodayWidget.framework */; };
 		8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */; };
 		B50395521E4BA33200D9A71B /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503954A1E4BA33200D9A71B /* APIRequest.swift */; };
 		B50395551E4BA33200D9A71B /* RequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503954D1E4BA33200D9A71B /* RequestParameters.swift */; };
@@ -34,10 +33,6 @@
 		B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */; };
 		B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6061E6741FD003A75EE /* ProducerView.swift */; };
 		B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */; };
-		B5269DC61E9D890900ED7A60 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */; };
-		B5269DC91E9D890900ED7A60 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5269DC81E9D890900ED7A60 /* TodayViewController.swift */; };
-		B5269DCC1E9D890900ED7A60 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5269DCA1E9D890900ED7A60 /* MainInterface.storyboard */; };
-		B5269DD01E9D890900ED7A60 /* TodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5269DC41E9D890900ED7A60 /* TodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B5269DD91E9D8F3800ED7A60 /* OffradioWidgetShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5269DD81E9D8F3800ED7A60 /* OffradioWidgetShareData.swift */; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
@@ -129,6 +124,8 @@
 		B58649FB1E61BF7C00501AF7 /* DummyAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649FA1E61BF7C00501AF7 /* DummyAPIResponse.swift */; };
 		B58649FD1E61C4A800501AF7 /* ModelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649FC1E61C4A800501AF7 /* ModelResult.swift */; };
 		B58649FF1E61C53400501AF7 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649FE1E61C53400501AF7 /* APIServiceTests.swift */; };
+		B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */; };
+		B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AE1EAFC0E5005321CA /* Shortcuts.swift */; };
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
@@ -143,25 +140,6 @@
 		B5BA38411E4F702200DB49C9 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38401E4F702200DB49C9 /* UIScrollView+Rx.swift */; };
 		B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */; };
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
-		B5C0F8BF1EA0236000E22C78 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
-		B5C0F8C11EA0236000E22C78 /* Producer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FBB1E4B9F49009F4C37 /* Producer.swift */; };
-		B5C0F8C21EA0236000E22C78 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB91E4B9E50009F4C37 /* Schedule.swift */; };
-		B5C0F8C31EA0236000E22C78 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
-		B5C0F8C41EA0236500E22C78 /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395691E4BCA0100D9A71B /* APIURL.swift */; };
-		B5C0F8C51EA0236C00E22C78 /* NowPlayingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503956B1E4BCA0100D9A71B /* NowPlayingService.swift */; };
-		B5C0F8CA1EA0256100E22C78 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395511E4BA33200D9A71B /* APIService.swift */; };
-		B5C0F8CB1EA0256300E22C78 /* LastFMApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F2F1E65025B00E5DB0E /* LastFMApiService.swift */; };
-		B5C0F8CC1EA0256E00E22C78 /* RequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503954D1E4BA33200D9A71B /* RequestParameters.swift */; };
-		B5C0F8CD1EA0257500E22C78 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503954A1E4BA33200D9A71B /* APIRequest.swift */; };
-		B5C0F8CE1EA0257A00E22C78 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503954F1E4BA33200D9A71B /* APIResponse.swift */; };
-		B5C0F8CF1EA025AF00E22C78 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
-		B5C0F8D01EA025B200E22C78 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3C1E36BAC2005893D2 /* Log.swift */; };
-		B5C0F8D11EA0262D00E22C78 /* ModelResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649FC1E61C4A800501AF7 /* ModelResult.swift */; };
-		B5C0F8D21EA0267000E22C78 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */; };
-		B5C0F8D31EA0267500E22C78 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192291E70A289009A8960 /* ParseError.swift */; };
-		B5C0F8D41EA0267900E22C78 /* HTMLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192281E70A289009A8960 /* HTMLConstants.swift */; };
-		B5C0F8D51EA0267B00E22C78 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922B1E70A289009A8960 /* Utilities.swift */; };
-		B5C0F8D61EA0271600E22C78 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */; };
@@ -174,13 +152,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B5269DCE1E9D890900ED7A60 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B54BC89B1E36A9DB0043F248 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B5269DC31E9D890900ED7A60;
-			remoteInfo = TodayWidget;
-		};
 		B54BC8BA1E36A9DC0043F248 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B54BC89B1E36A9DB0043F248 /* Project object */;
@@ -204,7 +175,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B5269DD01E9D890900ED7A60 /* TodayWidget.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,11 +217,7 @@
 		B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NowPlayingViewModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B524E6061E6741FD003A75EE /* ProducerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProducerView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B5269DC41E9D890900ED7A60 /* TodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		B5269DC81E9D890900ED7A60 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		B5269DCB1E9D890900ED7A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		B5269DCD1E9D890900ED7A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5269DD81E9D8F3800ED7A60 /* OffradioWidgetShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWidgetShareData.swift; sourceTree = "<group>"; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
@@ -352,6 +318,8 @@
 		B58649FA1E61BF7C00501AF7 /* DummyAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyAPIResponse.swift; sourceTree = "<group>"; };
 		B58649FC1E61C4A800501AF7 /* ModelResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelResult.swift; sourceTree = "<group>"; };
 		B58649FE1E61C53400501AF7 /* APIServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = APIServiceTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsEnum.swift; sourceTree = "<group>"; };
+		B58678AE1EAFC0E5005321CA /* Shortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -367,7 +335,6 @@
 		B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsFactory.swift; sourceTree = "<group>"; };
 		B5BB24901E4B82F6006FC751 /* Offradio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Offradio.entitlements; sourceTree = "<group>"; };
-		B5C0F8B71EA01CDF00E22C78 /* TodayWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayWidget.entitlements; sourceTree = "<group>"; };
 		B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTrack.swift; sourceTree = "<group>"; };
 		B5D923771E65E4800013A3F4 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigrationLayer.swift; sourceTree = "<group>"; };
@@ -384,15 +351,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B5269DC11E9D890900ED7A60 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5269DC61E9D890900ED7A60 /* NotificationCenter.framework in Frameworks */,
-				48160FFFB954BE27D0877BD9 /* Pods_TodayWidget.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B54BC8A01E36A9DB0043F248 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -564,17 +522,6 @@
 				B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B5269DC71E9D890900ED7A60 /* TodayWidget */ = {
-			isa = PBXGroup;
-			children = (
-				B5C0F8B71EA01CDF00E22C78 /* TodayWidget.entitlements */,
-				B5269DC81E9D890900ED7A60 /* TodayViewController.swift */,
-				B5269DCA1E9D890900ED7A60 /* MainInterface.storyboard */,
-				B5269DCD1E9D890900ED7A60 /* Info.plist */,
-			);
-			path = TodayWidget;
 			sourceTree = "<group>";
 		};
 		B5269DD71E9D8F3800ED7A60 /* Shared Data */ = {
@@ -770,7 +717,6 @@
 				B54BC8A51E36A9DC0043F248 /* Offradio */,
 				B54BC8BC1E36A9DC0043F248 /* OffradioTests */,
 				B54BC8C71E36A9DC0043F248 /* OffradioUITests */,
-				B5269DC71E9D890900ED7A60 /* TodayWidget */,
 				B54BC8A41E36A9DC0043F248 /* Products */,
 				35C7325E9D0BD0544DE9EE3B /* Pods */,
 				7270B8A41F99A77388A95EEF /* Frameworks */,
@@ -783,7 +729,6 @@
 				B54BC8A31E36A9DC0043F248 /* Offradio.app */,
 				B54BC8B91E36A9DC0043F248 /* OffradioTests.xctest */,
 				B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */,
-				B5269DC41E9D890900ED7A60 /* TodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -797,6 +742,7 @@
 				B5BB248D1E4B6B8A006FC751 /* Animations */,
 				B56960401E490943003BFBC6 /* Radio */,
 				B5269DD71E9D8F3800ED7A60 /* Shared Data */,
+				B58678AB1EAFC08F005321CA /* Shortcuts */,
 				B52A6C261E36B3CE005893D2 /* Core */,
 				B52A6C2B1E36B996005893D2 /* Extensions */,
 				B52A6C251E36B3C6005893D2 /* Theme */,
@@ -972,6 +918,15 @@
 			path = "APIResponse Helpers";
 			sourceTree = "<group>";
 		};
+		B58678AB1EAFC08F005321CA /* Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */,
+				B58678AE1EAFC0E5005321CA /* Shortcuts.swift */,
+			);
+			path = Shortcuts;
+			sourceTree = "<group>";
+		};
 		B5955D7C1E5F6C34002C1405 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1041,25 +996,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B5269DC31E9D890900ED7A60 /* TodayWidget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B5269DD31E9D890900ED7A60 /* Build configuration list for PBXNativeTarget "TodayWidget" */;
-			buildPhases = (
-				A5B9E7364652474A1D5BF8DB /* [CP] Check Pods Manifest.lock */,
-				B5269DC01E9D890900ED7A60 /* Sources */,
-				B5269DC11E9D890900ED7A60 /* Frameworks */,
-				B5269DC21E9D890900ED7A60 /* Resources */,
-				B1906DB3964AE1A5422F70FE /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TodayWidget;
-			productName = TodayWidget;
-			productReference = B5269DC41E9D890900ED7A60 /* TodayWidget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		B54BC8A21E36A9DB0043F248 /* Offradio */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B54BC8CD1E36A9DC0043F248 /* Build configuration list for PBXNativeTarget "Offradio" */;
@@ -1076,7 +1012,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B5269DCF1E9D890900ED7A60 /* PBXTargetDependency */,
 			);
 			name = Offradio;
 			productName = Offradio;
@@ -1135,18 +1070,6 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = decimal;
 				TargetAttributes = {
-					B5269DC31E9D890900ED7A60 = {
-						CreatedOnToolsVersion = 8.3;
-						ProvisioningStyle = Automatic;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
-							};
-							com.apple.Keychain = {
-								enabled = 1;
-							};
-						};
-					};
 					B54BC8A21E36A9DB0043F248 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5Y92JCRVR7;
@@ -1193,20 +1116,11 @@
 				B54BC8A21E36A9DB0043F248 /* Offradio */,
 				B54BC8B81E36A9DC0043F248 /* OffradioTests */,
 				B54BC8C31E36A9DC0043F248 /* OffradioUITests */,
-				B5269DC31E9D890900ED7A60 /* TodayWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B5269DC21E9D890900ED7A60 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5269DCC1E9D890900ED7A60 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B54BC8A11E36A9DB0043F248 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1360,36 +1274,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A5B9E7364652474A1D5BF8DB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		B1906DB3964AE1A5422F70FE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B52A6C1E1E36B242005893D2 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1452,33 +1336,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B5269DC01E9D890900ED7A60 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B5C0F8CF1EA025AF00E22C78 /* ASyncMethods.swift in Sources */,
-				B5C0F8C51EA0236C00E22C78 /* NowPlayingService.swift in Sources */,
-				B5C0F8D01EA025B200E22C78 /* Log.swift in Sources */,
-				B5C0F8C21EA0236000E22C78 /* Schedule.swift in Sources */,
-				B5269DC91E9D890900ED7A60 /* TodayViewController.swift in Sources */,
-				B5C0F8CA1EA0256100E22C78 /* APIService.swift in Sources */,
-				B5C0F8C11EA0236000E22C78 /* Producer.swift in Sources */,
-				B5C0F8D41EA0267900E22C78 /* HTMLConstants.swift in Sources */,
-				B5C0F8D31EA0267500E22C78 /* ParseError.swift in Sources */,
-				B5C0F8CB1EA0256300E22C78 /* LastFMApiService.swift in Sources */,
-				B5C0F8C41EA0236500E22C78 /* APIURL.swift in Sources */,
-				B5C0F8C31EA0236000E22C78 /* Show.swift in Sources */,
-				B5C0F8BF1EA0236000E22C78 /* NowPlaying.swift in Sources */,
-				B5C0F8D11EA0262D00E22C78 /* ModelResult.swift in Sources */,
-				B5C0F8CD1EA0257500E22C78 /* APIRequest.swift in Sources */,
-				B5C0F8CC1EA0256E00E22C78 /* RequestParameters.swift in Sources */,
-				B5C0F8D61EA0271600E22C78 /* Playlist.swift in Sources */,
-				B5C0F8D21EA0267000E22C78 /* String+HTMLEntities.swift in Sources */,
-				B5C0F8D51EA0267B00E22C78 /* Utilities.swift in Sources */,
-				B5C0F8CE1EA0257A00E22C78 /* APIResponse.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B54BC89F1E36A9DB0043F248 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1532,6 +1389,7 @@
 				B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */,
 				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
+				B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
@@ -1571,6 +1429,7 @@
 				B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */,
 				B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */,
 				B53942AA1E4A8E2C00AF5BE5 /* ToggleButton.m in Sources */,
+				B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1598,11 +1457,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B5269DCF1E9D890900ED7A60 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B5269DC31E9D890900ED7A60 /* TodayWidget */;
-			targetProxy = B5269DCE1E9D890900ED7A60 /* PBXContainerItemProxy */;
-		};
 		B54BC8BB1E36A9DC0043F248 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B54BC8A21E36A9DB0043F248 /* Offradio */;
@@ -1615,52 +1469,7 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		B5269DCA1E9D890900ED7A60 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5269DCB1E9D890900ED7A60 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		B5269DD11E9D890900ED7A60 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDF5DBEC5F603E8970316FB8 /* Pods-TodayWidget.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
-				DEVELOPMENT_TEAM = 5Y92JCRVR7;
-				INFOPLIST_FILE = TodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.TodayWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		B5269DD21E9D890900ED7A60 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AEF1E524DC3C6E8166A9B1A /* Pods-TodayWidget.release.xcconfig */;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = TodayWidget/TodayWidget.entitlements;
-				DEVELOPMENT_TEAM = 5Y92JCRVR7;
-				INFOPLIST_FILE = TodayWidget/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.TodayWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		B54BC8CB1E36A9DC0043F248 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1870,15 +1679,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B5269DD31E9D890900ED7A60 /* Build configuration list for PBXNativeTarget "TodayWidget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B5269DD11E9D890900ED7A60 /* Debug */,
-				B5269DD21E9D890900ED7A60 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B54BC89E1E36A9DB0043F248 /* Build configuration list for PBXProject "Offradio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
