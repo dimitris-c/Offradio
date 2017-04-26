@@ -35,7 +35,6 @@
 		B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */; };
 		B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6061E6741FD003A75EE /* ProducerView.swift */; };
 		B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */; };
-		B5269DD91E9D8F3800ED7A60 /* OffradioWidgetShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5269DD81E9D8F3800ED7A60 /* OffradioWidgetShareData.swift */; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
@@ -273,7 +272,6 @@
 		B524E6061E6741FD003A75EE /* ProducerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProducerView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		B5269DD81E9D8F3800ED7A60 /* OffradioWidgetShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWidgetShareData.swift; sourceTree = "<group>"; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
@@ -618,14 +616,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B5269DD71E9D8F3800ED7A60 /* Shared Data */ = {
-			isa = PBXGroup;
-			children = (
-				B5269DD81E9D8F3800ED7A60 /* OffradioWidgetShareData.swift */,
-			);
-			path = "Shared Data";
-			sourceTree = "<group>";
-		};
 		B52A6C1F1E36B3BE005893D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -839,7 +829,6 @@
 				B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */,
 				B5BB248D1E4B6B8A006FC751 /* Animations */,
 				B56960401E490943003BFBC6 /* Radio */,
-				B5269DD71E9D8F3800ED7A60 /* Shared Data */,
 				B58678AB1EAFC08F005321CA /* Shortcuts */,
 				B52A6C261E36B3CE005893D2 /* Core */,
 				B52A6C2B1E36B996005893D2 /* Extensions */,
@@ -1688,7 +1677,6 @@
 				B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */,
 				B50395551E4BA33200D9A71B /* RequestParameters.swift in Sources */,
 				B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */,
-				B5269DD91E9D8F3800ED7A60 /* OffradioWidgetShareData.swift in Sources */,
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
