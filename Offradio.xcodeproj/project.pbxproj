@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F9065341D85B5A284593BD9 /* Pods_OffradioWatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DEA525FFB3D1534F0F6F73 /* Pods_OffradioWatchKit_Extension.framework */; };
 		2FC85D66549865E3B59F0384 /* Pods_OffradioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */; };
+		43F99C32C863861A63F0AC3C /* Pods_OffradioWatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C5A4FC31A8E0AF747C735F9 /* Pods_OffradioWatchKit.framework */; };
 		8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */; };
 		B50395521E4BA33200D9A71B /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503954A1E4BA33200D9A71B /* APIRequest.swift */; };
 		B50395551E4BA33200D9A71B /* RequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503954D1E4BA33200D9A71B /* RequestParameters.swift */; };
@@ -232,10 +234,15 @@
 /* Begin PBXFileReference section */
 		05C5D6DC0F4FDA8BBB1DAB1F /* Pods-OffradioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioUITests/Pods-OffradioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OffradioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E4E24A391D1CC6552338283 /* Pods-OffradioWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioWatchKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioWatchKit/Pods-OffradioWatchKit.release.xcconfig"; sourceTree = "<group>"; };
+		19CEAEA3EFF603460DA03D99 /* Pods-OffradioWatchKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioWatchKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioWatchKit/Pods-OffradioWatchKit.debug.xcconfig"; sourceTree = "<group>"; };
 		23E26FC1A6E4FE410F671920 /* Pods-OffradioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioUITests/Pods-OffradioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5AEF1E524DC3C6E8166A9B1A /* Pods-TodayWidget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.release.xcconfig"; sourceTree = "<group>"; };
 		6232C0D2873BE6069CA161F0 /* Pods-OffradioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		64DEA525FFB3D1534F0F6F73 /* Pods_OffradioWatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OffradioWatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65FDBAAC998B95DCFBF7856C /* Pods-OffradioWatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioWatchKit Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		819B564ECCD7BD5F563B5D8C /* Pods-Offradio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.release.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.release.xcconfig"; sourceTree = "<group>"; };
+		8C5A4FC31A8E0AF747C735F9 /* Pods_OffradioWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OffradioWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95070E035A81D40C76C891ED /* Pods_OffradioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OffradioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B503954A1E4BA33200D9A71B /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		B503954D1E4BA33200D9A71B /* RequestParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestParameters.swift; sourceTree = "<group>"; };
@@ -408,6 +415,7 @@
 		B5F125241E5CC82400579D4B /* ViewArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewArranger.swift; sourceTree = "<group>"; };
 		B5FA39ED1E5DF1BE001B4760 /* UITableView+RxRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+RxRealm.swift"; sourceTree = "<group>"; };
 		BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.debug.xcconfig"; sourceTree = "<group>"; };
+		E6B751C09ECFDB3EF2CBA6FC /* Pods-OffradioWatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioWatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		EDF5DBEC5F603E8970316FB8 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
 		F3307E9F50442DCB082FC1A7 /* Pods-OffradioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests.release.xcconfig"; sourceTree = "<group>"; };
 		F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Offradio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -415,6 +423,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		39C6CB3820D5889B31457C64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				43F99C32C863861A63F0AC3C /* Pods_OffradioWatchKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54BC8A01E36A9DB0043F248 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -446,6 +462,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F9065341D85B5A284593BD9 /* Pods_OffradioWatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +480,10 @@
 				05C5D6DC0F4FDA8BBB1DAB1F /* Pods-OffradioUITests.release.xcconfig */,
 				EDF5DBEC5F603E8970316FB8 /* Pods-TodayWidget.debug.xcconfig */,
 				5AEF1E524DC3C6E8166A9B1A /* Pods-TodayWidget.release.xcconfig */,
+				19CEAEA3EFF603460DA03D99 /* Pods-OffradioWatchKit.debug.xcconfig */,
+				0E4E24A391D1CC6552338283 /* Pods-OffradioWatchKit.release.xcconfig */,
+				E6B751C09ECFDB3EF2CBA6FC /* Pods-OffradioWatchKit Extension.debug.xcconfig */,
+				65FDBAAC998B95DCFBF7856C /* Pods-OffradioWatchKit Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -477,6 +498,8 @@
 				0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */,
 				B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */,
 				FF63031856E604D65F9C8F21 /* Pods_TodayWidget.framework */,
+				8C5A4FC31A8E0AF747C735F9 /* Pods_OffradioWatchKit.framework */,
+				64DEA525FFB3D1534F0F6F73 /* Pods_OffradioWatchKit_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1209,8 +1232,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B58678F61EAFCF4A005321CA /* Build configuration list for PBXNativeTarget "OffradioWatchKit" */;
 			buildPhases = (
+				620B8CD5AF5FB1366C7C13DB /* [CP] Check Pods Manifest.lock */,
 				B58678D51EAFCF4A005321CA /* Resources */,
 				B58678F51EAFCF4A005321CA /* Embed App Extensions */,
+				39C6CB3820D5889B31457C64 /* Frameworks */,
+				AC7C3A74657003E008F7588C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1226,9 +1252,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B58678F21EAFCF4A005321CA /* Build configuration list for PBXNativeTarget "OffradioWatchKit Extension" */;
 			buildPhases = (
+				F47790714685A2E73A650C63 /* [CP] Check Pods Manifest.lock */,
 				B58678DF1EAFCF4A005321CA /* Sources */,
 				B58678E01EAFCF4A005321CA /* Frameworks */,
 				B58678E11EAFCF4A005321CA /* Resources */,
+				A5F2C0595FD15E4B434800BE /* [CP] Embed Pods Frameworks */,
+				32F24A44CAC88BA4256ED9B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1440,6 +1469,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		32F24A44CAC88BA4256ED9B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		3AB8904C27EF3B5D589F5DD7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1485,6 +1529,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		620B8CD5AF5FB1366C7C13DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		67802758F0E08A4AEC03C5A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1498,6 +1557,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A5F2C0595FD15E4B434800BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC7C3A74657003E008F7588C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioWatchKit/Pods-OffradioWatchKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B52A6C1E1E36B242005893D2 /* Fabric */ = {
@@ -1542,6 +1631,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Offradio/Pods-Offradio-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F47790714685A2E73A650C63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FE5C08E6C9165E17FAEB8166 /* [CP] Copy Pods Resources */ = {
@@ -1935,6 +2039,7 @@
 		};
 		B58678F31EAFCF4A005321CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6B751C09ECFDB3EF2CBA6FC /* Pods-OffradioWatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1954,6 +2059,7 @@
 		};
 		B58678F41EAFCF4A005321CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65FDBAAC998B95DCFBF7856C /* Pods-OffradioWatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1973,6 +2079,7 @@
 		};
 		B58678F71EAFCF4A005321CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19CEAEA3EFF603460DA03D99 /* Pods-OffradioWatchKit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1993,6 +2100,7 @@
 		};
 		B58678F81EAFCF4A005321CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E4E24A391D1CC6552338283 /* Pods-OffradioWatchKit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

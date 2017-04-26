@@ -1,0 +1,6 @@
+framework module Pods_OffradioWatchKit_Extension {
+  umbrella header "Pods-OffradioWatchKit Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}

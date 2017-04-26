@@ -33,7 +33,11 @@ target 'Offradio' do
     # Pods for testing
   end
   
-  target 'TodayWidget' do
+  target 'OffradioWatchKit Extension' do
+      inherit! :search_paths
+  end
+  
+  target 'OffradioWatchKit' do
       inherit! :search_paths
   end
 end
