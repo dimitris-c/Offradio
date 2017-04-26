@@ -34,12 +34,10 @@ target 'Offradio' do
   end
   
   target 'OffradioWatchKit Extension' do
-      inherit! :search_paths
+      platform :watchos, '2.0'
+      
   end
   
-  target 'OffradioWatchKit' do
-      inherit! :search_paths
-  end
 end
 
 post_install do |installer|
