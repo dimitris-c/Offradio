@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>OffradioWatchKit.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -33,6 +38,16 @@
 			<true/>
 		</dict>
 		<key>B54BC8C31E36A9DC0043F248</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B58678B11EAFCF1C005321CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B58678D61EAFCF4A005321CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

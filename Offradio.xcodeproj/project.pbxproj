@@ -118,6 +118,7 @@
 		B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */; };
 		B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960581E492AA1003BFBC6 /* ContactViewController.swift */; };
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
+		B5745E551EB0D5BB00A60283 /* OffradioWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5745E541EB0D5BB00A60283 /* OffradioWatchSession.swift */; };
 		B58649F41E61BC2F00501AF7 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F31E61BC2F00501AF7 /* APIRequestTests.swift */; };
 		B58649F61E61BC8600501AF7 /* APIResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F51E61BC8600501AF7 /* APIResponseTests.swift */; };
 		B58649F91E61BF3B00501AF7 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F81E61BF3B00501AF7 /* DummyModel.swift */; };
@@ -126,6 +127,17 @@
 		B58649FF1E61C53400501AF7 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649FE1E61C53400501AF7 /* APIServiceTests.swift */; };
 		B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */; };
 		B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AE1EAFC0E5005321CA /* Shortcuts.swift */; };
+		B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58678D91EAFCF4A005321CA /* Interface.storyboard */; };
+		B58678DD1EAFCF4A005321CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58678DC1EAFCF4A005321CA /* Assets.xcassets */; };
+		B58678E41EAFCF4A005321CA /* OffradioWatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B58678E91EAFCF4A005321CA /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678E81EAFCF4A005321CA /* InterfaceController.swift */; };
+		B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */; };
+		B58678ED1EAFCF4A005321CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58678EC1EAFCF4A005321CA /* Assets.xcassets */; };
+		B58678F11EAFCF4A005321CA /* OffradioWatchKit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */; };
+		B58678FF1EAFD2A5005321CA /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58678FD1EAFD2A5005321CA /* LeagueGothic-Italic.otf */; };
+		B58679001EAFD2A5005321CA /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58678FE1EAFD2A5005321CA /* LetterGothicStd-Bold.otf */; };
+		B58679051EAFD2AA005321CA /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58679031EAFD2AA005321CA /* LeagueGothic-Italic.otf */; };
+		B58679061EAFD2AA005321CA /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */; };
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
@@ -166,6 +178,20 @@
 			remoteGlobalIDString = B54BC8A21E36A9DB0043F248;
 			remoteInfo = Offradio;
 		};
+		B58678E51EAFCF4A005321CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54BC89B1E36A9DB0043F248 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B58678E21EAFCF4A005321CA;
+			remoteInfo = "OffradioWatchKit Extension";
+		};
+		B58678EF1EAFCF4A005321CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54BC89B1E36A9DB0043F248 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B58678D61EAFCF4A005321CA;
+			remoteInfo = OffradioWatchKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -175,6 +201,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58678D41EAFCF1C005321CA /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B58678F11EAFCF4A005321CA /* OffradioWatchKit.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58678F51EAFCF4A005321CA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B58678E41EAFCF4A005321CA /* OffradioWatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +360,7 @@
 		B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioContentViewController.swift; sourceTree = "<group>"; };
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
+		B5745E541EB0D5BB00A60283 /* OffradioWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchSession.swift; sourceTree = "<group>"; };
 		B58649F31E61BC2F00501AF7 /* APIRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
 		B58649F51E61BC8600501AF7 /* APIResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponseTests.swift; sourceTree = "<group>"; };
 		B58649F81E61BF3B00501AF7 /* DummyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
@@ -320,6 +369,21 @@
 		B58649FE1E61C53400501AF7 /* APIServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = APIServiceTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsEnum.swift; sourceTree = "<group>"; };
 		B58678AE1EAFC0E5005321CA /* Shortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
+		B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OffradioWatchKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B58678DA1EAFCF4A005321CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B58678DC1EAFCF4A005321CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B58678DE1EAFCF4A005321CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OffradioWatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B58678E81EAFCF4A005321CA /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		B58678EC1EAFCF4A005321CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B58678EE1EAFCF4A005321CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OffradioWatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		B58678FA1EAFD035005321CA /* OffradioWatchKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OffradioWatchKit.entitlements; sourceTree = "<group>"; };
+		B58678FD1EAFD2A5005321CA /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
+		B58678FE1EAFD2A5005321CA /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
+		B58679031EAFD2AA005321CA /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
+		B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -375,6 +439,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E44A20BE4620E661879F5D /* Pods_OffradioUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58678E01EAFCF4A005321CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +788,8 @@
 				B54BC8A51E36A9DC0043F248 /* Offradio */,
 				B54BC8BC1E36A9DC0043F248 /* OffradioTests */,
 				B54BC8C71E36A9DC0043F248 /* OffradioUITests */,
+				B58678D81EAFCF4A005321CA /* OffradioWatchKit */,
+				B58678E71EAFCF4A005321CA /* OffradioWatchKit Extension */,
 				B54BC8A41E36A9DC0043F248 /* Products */,
 				35C7325E9D0BD0544DE9EE3B /* Pods */,
 				7270B8A41F99A77388A95EEF /* Frameworks */,
@@ -729,6 +802,8 @@
 				B54BC8A31E36A9DC0043F248 /* Offradio.app */,
 				B54BC8B91E36A9DC0043F248 /* OffradioTests.xctest */,
 				B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */,
+				B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */,
+				B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -748,6 +823,7 @@
 				B52A6C251E36B3C6005893D2 /* Theme */,
 				B52A6C2A1E36B8F3005893D2 /* View Controllers */,
 				B52A6C371E36BAC2005893D2 /* Utilities */,
+				B5745E531EB0D5AD00A60283 /* OffradioWatch */,
 				B52A6C1F1E36B3BE005893D2 /* Resources */,
 				B51BE4E31E3ABFC5005775F4 /* Offradio-Bridging-Header.h */,
 				B51BE4DC1E3ABF79005775F4 /* Vendor */,
@@ -896,6 +972,14 @@
 			path = "Content View Controller";
 			sourceTree = "<group>";
 		};
+		B5745E531EB0D5AD00A60283 /* OffradioWatch */ = {
+			isa = PBXGroup;
+			children = (
+				B5745E541EB0D5BB00A60283 /* OffradioWatchSession.swift */,
+			);
+			path = OffradioWatch;
+			sourceTree = "<group>";
+		};
 		B58649F21E61BC2F00501AF7 /* API Core Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -925,6 +1009,65 @@
 				B58678AE1EAFC0E5005321CA /* Shortcuts.swift */,
 			);
 			path = Shortcuts;
+			sourceTree = "<group>";
+		};
+		B58678D81EAFCF4A005321CA /* OffradioWatchKit */ = {
+			isa = PBXGroup;
+			children = (
+				B58678FB1EAFD2A5005321CA /* Resources */,
+				B58678FA1EAFD035005321CA /* OffradioWatchKit.entitlements */,
+				B58678D91EAFCF4A005321CA /* Interface.storyboard */,
+				B58678DC1EAFCF4A005321CA /* Assets.xcassets */,
+				B58678DE1EAFCF4A005321CA /* Info.plist */,
+			);
+			path = OffradioWatchKit;
+			sourceTree = "<group>";
+		};
+		B58678E71EAFCF4A005321CA /* OffradioWatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B58679011EAFD2AA005321CA /* Resources */,
+				B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */,
+				B58678E81EAFCF4A005321CA /* InterfaceController.swift */,
+				B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */,
+				B58678EC1EAFCF4A005321CA /* Assets.xcassets */,
+				B58678EE1EAFCF4A005321CA /* Info.plist */,
+			);
+			path = "OffradioWatchKit Extension";
+			sourceTree = "<group>";
+		};
+		B58678FB1EAFD2A5005321CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B58678FC1EAFD2A5005321CA /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B58678FC1EAFD2A5005321CA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B58678FD1EAFD2A5005321CA /* LeagueGothic-Italic.otf */,
+				B58678FE1EAFD2A5005321CA /* LetterGothicStd-Bold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B58679011EAFD2AA005321CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B58679021EAFD2AA005321CA /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B58679021EAFD2AA005321CA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B58679031EAFD2AA005321CA /* LeagueGothic-Italic.otf */,
+				B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B5955D7C1E5F6C34002C1405 /* Views */ = {
@@ -1008,10 +1151,12 @@
 				001F021AD1209C7AD0B62390 /* [CP] Copy Pods Resources */,
 				B52A6C1E1E36B242005893D2 /* Fabric */,
 				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
+				B58678D41EAFCF1C005321CA /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B58678F01EAFCF4A005321CA /* PBXTargetDependency */,
 			);
 			name = Offradio;
 			productName = Offradio;
@@ -1060,6 +1205,40 @@
 			productReference = B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		B58678D61EAFCF4A005321CA /* OffradioWatchKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B58678F61EAFCF4A005321CA /* Build configuration list for PBXNativeTarget "OffradioWatchKit" */;
+			buildPhases = (
+				B58678D51EAFCF4A005321CA /* Resources */,
+				B58678F51EAFCF4A005321CA /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B58678E61EAFCF4A005321CA /* PBXTargetDependency */,
+			);
+			name = OffradioWatchKit;
+			productName = OffradioWatchKit;
+			productReference = B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B58678E21EAFCF4A005321CA /* OffradioWatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B58678F21EAFCF4A005321CA /* Build configuration list for PBXNativeTarget "OffradioWatchKit Extension" */;
+			buildPhases = (
+				B58678DF1EAFCF4A005321CA /* Sources */,
+				B58678E01EAFCF4A005321CA /* Frameworks */,
+				B58678E11EAFCF4A005321CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OffradioWatchKit Extension";
+			productName = "OffradioWatchKit Extension";
+			productReference = B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1098,6 +1277,30 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = B54BC8A21E36A9DB0043F248;
 					};
+					B58678D61EAFCF4A005321CA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes.watchos.app = {
+								enabled = 0;
+							};
+						};
+					};
+					B58678E21EAFCF4A005321CA = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = B54BC89E1E36A9DB0043F248 /* Build configuration list for PBXProject "Offradio" */;
@@ -1114,6 +1317,8 @@
 			projectRoot = "";
 			targets = (
 				B54BC8A21E36A9DB0043F248 /* Offradio */,
+				B58678D61EAFCF4A005321CA /* OffradioWatchKit */,
+				B58678E21EAFCF4A005321CA /* OffradioWatchKit Extension */,
 				B54BC8B81E36A9DC0043F248 /* OffradioTests */,
 				B54BC8C31E36A9DC0043F248 /* OffradioUITests */,
 			);
@@ -1178,6 +1383,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58678D51EAFCF4A005321CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58678DD1EAFCF4A005321CA /* Assets.xcassets in Resources */,
+				B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */,
+				B58679001EAFD2A5005321CA /* LetterGothicStd-Bold.otf in Resources */,
+				B58678FF1EAFD2A5005321CA /* LeagueGothic-Italic.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B58678E11EAFCF4A005321CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58679051EAFD2AA005321CA /* LeagueGothic-Italic.otf in Resources */,
+				B58679061EAFD2AA005321CA /* LetterGothicStd-Bold.otf in Resources */,
+				B58678ED1EAFCF4A005321CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1378,6 +1604,7 @@
 				B56960421E490957003BFBC6 /* Radio.swift in Sources */,
 				B53942D71E4A99B800AF5BE5 /* RadioViewModel.swift in Sources */,
 				B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */,
+				B5745E551EB0D5BB00A60283 /* OffradioWatchSession.swift in Sources */,
 				B5FA39EE1E5DF1BE001B4760 /* UITableView+RxRealm.swift in Sources */,
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
@@ -1454,6 +1681,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B58678DF1EAFCF4A005321CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */,
+				B58678E91EAFCF4A005321CA /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1467,7 +1703,28 @@
 			target = B54BC8A21E36A9DB0043F248 /* Offradio */;
 			targetProxy = B54BC8C51E36A9DC0043F248 /* PBXContainerItemProxy */;
 		};
+		B58678E61EAFCF4A005321CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B58678E21EAFCF4A005321CA /* OffradioWatchKit Extension */;
+			targetProxy = B58678E51EAFCF4A005321CA /* PBXContainerItemProxy */;
+		};
+		B58678F01EAFCF4A005321CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B58678D61EAFCF4A005321CA /* OffradioWatchKit */;
+			targetProxy = B58678EF1EAFCF4A005321CA /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B58678D91EAFCF4A005321CA /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B58678DA1EAFCF4A005321CA /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B54BC8CB1E36A9DC0043F248 /* Debug */ = {
@@ -1676,6 +1933,84 @@
 			};
 			name = Release;
 		};
+		B58678F31EAFCF4A005321CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = 5Y92JCRVR7;
+				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		B58678F41EAFCF4A005321CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
+				DEVELOPMENT_TEAM = 5Y92JCRVR7;
+				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		B58678F71EAFCF4A005321CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
+				DEVELOPMENT_TEAM = 5Y92JCRVR7;
+				IBSC_MODULE = OffradioWatchKit_Extension;
+				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		B58678F81EAFCF4A005321CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
+				DEVELOPMENT_TEAM = 5Y92JCRVR7;
+				IBSC_MODULE = OffradioWatchKit_Extension;
+				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1711,6 +2046,24 @@
 			buildConfigurations = (
 				B54BC8D41E36A9DC0043F248 /* Debug */,
 				B54BC8D51E36A9DC0043F248 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B58678F21EAFCF4A005321CA /* Build configuration list for PBXNativeTarget "OffradioWatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B58678F31EAFCF4A005321CA /* Debug */,
+				B58678F41EAFCF4A005321CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B58678F61EAFCF4A005321CA /* Build configuration list for PBXNativeTarget "OffradioWatchKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B58678F71EAFCF4A005321CA /* Debug */,
+				B58678F81EAFCF4A005321CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
