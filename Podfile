@@ -33,6 +33,10 @@ target 'Offradio' do
     # Pods for testing
   end
   
+  target 'OffradioWatchKit' do
+      
+  end
+  
   target 'OffradioWatchKit Extension' do
       platform :watchos, '2.0'
       inherit! :search_paths
