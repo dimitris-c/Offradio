@@ -151,6 +151,12 @@
 		B58679061EAFD2AA005321CA /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */; };
 		B58E75591EB384AD00D06C15 /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E75581EB384AD00D06C15 /* NowPlayingController.swift */; };
 		B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
+		B58E755B1EB39F9100D06C15 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
+		B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
+		B58E755D1EB39FA400D06C15 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */; };
+		B58E755E1EB39FB700D06C15 /* HTMLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192281E70A289009A8960 /* HTMLConstants.swift */; };
+		B58E755F1EB39FBA00D06C15 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192291E70A289009A8960 /* ParseError.swift */; };
+		B58E75601EB39FBD00D06C15 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922B1E70A289009A8960 /* Utilities.swift */; };
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
@@ -1306,7 +1312,6 @@
 				TargetAttributes = {
 					B54BC8A21E36A9DB0043F248 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5Y92JCRVR7;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1819,9 +1824,15 @@
 				B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */,
 				B58E75591EB384AD00D06C15 /* NowPlayingController.swift in Sources */,
 				B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */,
+				B58E755E1EB39FB700D06C15 /* HTMLConstants.swift in Sources */,
+				B58E75601EB39FBD00D06C15 /* Utilities.swift in Sources */,
 				B52C2D481EB1091700AF8514 /* OffradioWatchRadioAction.swift in Sources */,
 				B52C2D421EB0F18700AF8514 /* Radio.swift in Sources */,
+				B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */,
+				B58E755D1EB39FA400D06C15 /* String+HTMLEntities.swift in Sources */,
+				B58E755F1EB39FBA00D06C15 /* ParseError.swift in Sources */,
 				B58678E91EAFCF4A005321CA /* InterfaceController.swift in Sources */,
+				B58E755B1EB39F9100D06C15 /* Show.swift in Sources */,
 				B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1965,6 +1976,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = Offradio/Info.plist;
@@ -1977,6 +1989,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1991,6 +2004,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = Offradio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -2002,6 +2016,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

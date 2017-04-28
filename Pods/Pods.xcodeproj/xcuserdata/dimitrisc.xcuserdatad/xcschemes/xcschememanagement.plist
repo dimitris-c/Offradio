@@ -99,7 +99,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyJSON.xcscheme</key>
+		<key>SwiftyJSON-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SwiftyJSON-watchOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -107,12 +112,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0251C76CAD30AD8E6B470210AB578B73</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>031FEAF7B050CE7AA1398451EA511DD9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>115FA0D867E07C04838493890DBD8D29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>128C704B3E143A6DA23480CDE68DDC89</key>
+		<key>1A4BFECAFACCF5E8BD1B1F8BDDCFE4C6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,32 +137,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>267207F369DDE433B21419461BEF3320</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2AE6F92BAA67A47DBB2791B8C581FB54</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>44CAD6CE523055ED339E87154473A254</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>476D30A40C68C4322AD929A3EBA06C20</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>62CFF034D3BCEC4A6C7051F3C4BD82FC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>69899082C0242CF030B1EE6C23BBF036</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +147,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C1097D113998FABDDD50729C72014A8</key>
+		<key>71EFA5D00BD31C56F70EC0C3341E39A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>787BB9DD73B7BA322423503E6EEC82A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,7 +162,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AAC7C1DA02C4AF02C3BB0E893D649979</key>
+		<key>9DC237FD47B2D560D1796D73F3AB511E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EA7280FB3BC224513223A0D46361840</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,7 +177,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BE31C531210795193D846A4F1C3DAB29</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BEF7E6E85DB5CDE5D7A18F4F2EB8494B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C1324C7E7C8B515F31CBD3E2AC2BFF87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -187,12 +197,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D2241B84973F98A32511E100C304A6E2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E1CD2936F4C734ADDED2D53B1C07BCEC</key>
+		<key>D921EC2FE77DEBBE5380DA30FDB1F02D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,7 +207,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F48D6187CE3A06BFE370CBB54E97B56A</key>
+		<key>FA6FA3071E924DE9875DC906851B5B31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD3E9AB090ED736794EE6A8E54E061A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
