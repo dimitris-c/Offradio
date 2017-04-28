@@ -40,6 +40,16 @@
 		B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C391E36BAC2005893D2 /* Constants.swift */; };
 		B52A6C421E36BAC2005893D2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3C1E36BAC2005893D2 /* Log.swift */; };
 		B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C441E36BCBB005893D2 /* DateFormat.swift */; };
+		B52C2D3E1EB0E12200AF8514 /* OffradioWatchCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C2D3D1EB0E12200AF8514 /* OffradioWatchCommunication.swift */; };
+		B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C2D3D1EB0E12200AF8514 /* OffradioWatchCommunication.swift */; };
+		B52C2D421EB0F18700AF8514 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
+		B52C2D441EB0F5E000AF8514 /* RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C2D431EB0F5E000AF8514 /* RadioViewModel.swift */; };
+		B52C2D471EB1090F00AF8514 /* OffradioWatchRadioAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C2D461EB1090F00AF8514 /* OffradioWatchRadioAction.swift */; };
+		B52C2D481EB1091700AF8514 /* OffradioWatchRadioAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C2D461EB1090F00AF8514 /* OffradioWatchRadioAction.swift */; };
+		B52C2D4A1EB25A3100AF8514 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D491EB25A3100AF8514 /* WatchConnectivity.framework */; };
+		B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4B1EB25A3B00AF8514 /* WatchConnectivity.framework */; };
+		B52C2D4E1EB25A3B00AF8514 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4C1EB25A3B00AF8514 /* WatchKit.framework */; };
+		B52C2D501EB25A4300AF8514 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */; };
 		B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */; };
 		B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */ = {isa = PBXBuildFile; fileRef = B539428D1E4A8E2C00AF5BE5 /* ToggleBase.m */; };
 		B53942AA1E4A8E2C00AF5BE5 /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B539428F1E4A8E2C00AF5BE5 /* ToggleButton.m */; };
@@ -76,7 +86,6 @@
 		B53942D31E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942C91E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png */; };
 		B53942D41E4A990200AF5BE5 /* toggle_button_r@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942CA1E4A990200AF5BE5 /* toggle_button_r@2x~ipad.png */; };
 		B53942D51E4A990200AF5BE5 /* toggle_button@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B53942CB1E4A990200AF5BE5 /* toggle_button@2x~ipad.png */; };
-		B53942D71E4A99B800AF5BE5 /* RadioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53942D61E4A99B800AF5BE5 /* RadioViewModel.swift */; };
 		B53FC4751E9C04C600DC82AD /* CurrentTrackShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */; };
 		B53FC4761E9C04C600DC82AD /* TrackShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4741E9C04C600DC82AD /* TrackShareViewModel.swift */; };
 		B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4771E9C04DF00DC82AD /* ShareButton.swift */; };
@@ -138,6 +147,8 @@
 		B58679001EAFD2A5005321CA /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58678FE1EAFD2A5005321CA /* LetterGothicStd-Bold.otf */; };
 		B58679051EAFD2AA005321CA /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58679031EAFD2AA005321CA /* LeagueGothic-Italic.otf */; };
 		B58679061EAFD2AA005321CA /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */; };
+		B58E75591EB384AD00D06C15 /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E75581EB384AD00D06C15 /* NowPlayingController.swift */; };
+		B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
@@ -275,6 +286,13 @@
 		B52A6C391E36BAC2005893D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Utilities/Constants.swift; sourceTree = "<group>"; };
 		B52A6C3C1E36BAC2005893D2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		B52A6C441E36BCBB005893D2 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		B52C2D3D1EB0E12200AF8514 /* OffradioWatchCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchCommunication.swift; sourceTree = "<group>"; };
+		B52C2D431EB0F5E000AF8514 /* RadioViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioViewModel.swift; sourceTree = "<group>"; };
+		B52C2D461EB1090F00AF8514 /* OffradioWatchRadioAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchRadioAction.swift; sourceTree = "<group>"; };
+		B52C2D491EB25A3100AF8514 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		B52C2D4B1EB25A3B00AF8514 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
+		B52C2D4C1EB25A3B00AF8514 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
+		B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 		B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B539428C1E4A8E2C00AF5BE5 /* ToggleBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToggleBase.h; sourceTree = "<group>"; };
 		B539428D1E4A8E2C00AF5BE5 /* ToggleBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToggleBase.m; sourceTree = "<group>"; };
@@ -314,7 +332,6 @@
 		B53942C91E4A990200AF5BE5 /* toggle_button_l@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_l@2x~ipad.png"; sourceTree = "<group>"; };
 		B53942CA1E4A990200AF5BE5 /* toggle_button_r@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button_r@2x~ipad.png"; sourceTree = "<group>"; };
 		B53942CB1E4A990200AF5BE5 /* toggle_button@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toggle_button@2x~ipad.png"; sourceTree = "<group>"; };
-		B53942D61E4A99B800AF5BE5 /* RadioViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RadioViewModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackShareView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B53FC4741E9C04C600DC82AD /* TrackShareViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackShareViewModel.swift; sourceTree = "<group>"; };
 		B53FC4771E9C04DF00DC82AD /* ShareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
@@ -386,6 +403,7 @@
 		B58678FE1EAFD2A5005321CA /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B58679031EAFD2AA005321CA /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
+		B58E75581EB384AD00D06C15 /* NowPlayingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingController.swift; sourceTree = "<group>"; };
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -429,6 +447,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */,
+				B52C2D4E1EB25A3B00AF8514 /* WatchKit.framework in Frameworks */,
 				B56960461E4909E0003BFBC6 /* MediaPlayer.framework in Frameworks */,
 				B56960441E4909D0003BFBC6 /* MobileCoreServices.framework in Frameworks */,
 				B51BE4E21E3ABF79005775F4 /* libRadioKit.a in Frameworks */,
@@ -456,6 +476,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52C2D501EB25A4300AF8514 /* WatchKit.framework in Frameworks */,
+				B52C2D4A1EB25A3100AF8514 /* WatchConnectivity.framework in Frameworks */,
 				2F9065341D85B5A284593BD9 /* Pods_OffradioWatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +505,10 @@
 		7270B8A41F99A77388A95EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */,
+				B52C2D4B1EB25A3B00AF8514 /* WatchConnectivity.framework */,
+				B52C2D4C1EB25A3B00AF8514 /* WatchKit.framework */,
+				B52C2D491EB25A3100AF8514 /* WatchConnectivity.framework */,
 				B56960451E4909E0003BFBC6 /* MediaPlayer.framework */,
 				B56960431E4909D0003BFBC6 /* MobileCoreServices.framework */,
 				F57F6E387D03608F5F3F87B0 /* Pods_Offradio.framework */,
@@ -931,7 +957,6 @@
 				B5955D7C1E5F6C34002C1405 /* Views */,
 				B56960671E495891003BFBC6 /* RadioViewController.storyboard */,
 				B569603C1E4908D0003BFBC6 /* RadioViewController.swift */,
-				B53942D61E4A99B800AF5BE5 /* RadioViewModel.swift */,
 			);
 			path = "Radio View Controller";
 			sourceTree = "<group>";
@@ -940,6 +965,7 @@
 			isa = PBXGroup;
 			children = (
 				B56960411E490957003BFBC6 /* Radio.swift */,
+				B52C2D431EB0F5E000AF8514 /* RadioViewModel.swift */,
 				B5656F191E64857D00E5DB0E /* Offradio.swift */,
 				B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */,
 				B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */,
@@ -982,6 +1008,8 @@
 			isa = PBXGroup;
 			children = (
 				B5745E541EB0D5BB00A60283 /* OffradioWatchSession.swift */,
+				B52C2D3D1EB0E12200AF8514 /* OffradioWatchCommunication.swift */,
+				B52C2D461EB1090F00AF8514 /* OffradioWatchRadioAction.swift */,
 			);
 			path = OffradioWatch;
 			sourceTree = "<group>";
@@ -1035,6 +1063,7 @@
 				B58679011EAFD2AA005321CA /* Resources */,
 				B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */,
 				B58678E81EAFCF4A005321CA /* InterfaceController.swift */,
+				B58E75581EB384AD00D06C15 /* NowPlayingController.swift */,
 				B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */,
 				B58678EC1EAFCF4A005321CA /* Assets.xcassets */,
 				B58678EE1EAFCF4A005321CA /* Info.plist */,
@@ -1642,10 +1671,12 @@
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
+				B52C2D471EB1090F00AF8514 /* OffradioWatchRadioAction.swift in Sources */,
 				B53FC4751E9C04C600DC82AD /* CurrentTrackShareView.swift in Sources */,
 				B503956F1E4BCA0100D9A71B /* NowPlayingService.swift in Sources */,
 				B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */,
 				B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */,
+				B52C2D441EB0F5E000AF8514 /* RadioViewModel.swift in Sources */,
 				B52A6C421E36BAC2005893D2 /* Log.swift in Sources */,
 				B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */,
 				B54DC4D01E5CA3A600FA376D /* FavouritesViewModel.swift in Sources */,
@@ -1656,7 +1687,6 @@
 				B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */,
 				B54E087F1E4D10C400B54FB3 /* ScheduleTableViewCell.swift in Sources */,
 				B56960421E490957003BFBC6 /* Radio.swift in Sources */,
-				B53942D71E4A99B800AF5BE5 /* RadioViewModel.swift in Sources */,
 				B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */,
 				B5745E551EB0D5BB00A60283 /* OffradioWatchSession.swift in Sources */,
 				B5FA39EE1E5DF1BE001B4760 /* UITableView+RxRealm.swift in Sources */,
@@ -1678,6 +1708,7 @@
 				B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */,
 				B507C0A61E56869800792414 /* DataLayer.swift in Sources */,
 				B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */,
+				B52C2D3E1EB0E12200AF8514 /* OffradioWatchCommunication.swift in Sources */,
 				B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */,
 				B50395561E4BA33200D9A71B /* APIResponse.swift in Sources */,
 				B54E087E1E4D10C400B54FB3 /* ProducerBioViewController.swift in Sources */,
@@ -1740,7 +1771,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */,
+				B58E75591EB384AD00D06C15 /* NowPlayingController.swift in Sources */,
+				B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */,
+				B52C2D481EB1091700AF8514 /* OffradioWatchRadioAction.swift in Sources */,
+				B52C2D421EB0F18700AF8514 /* Radio.swift in Sources */,
 				B58678E91EAFCF4A005321CA /* InterfaceController.swift in Sources */,
+				B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

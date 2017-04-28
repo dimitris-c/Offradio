@@ -21,11 +21,11 @@ final class MainTabBarViewController: UITabBarController {
     
     fileprivate var offradio: Offradio!
     
-    init(with radio: Offradio) {
+    init(with radio: Offradio, andViewModel model: RadioViewModel) {
         super.init(nibName: nil, bundle: nil)
         self.offradio = radio
         
-        let radioViewController = offradioViewController(with: self.offradio)
+        let radioViewController = offradioViewController(with: self.offradio, andViewModel: model)
         self.viewControllers = [scheduleViewController(),
                                 radioViewController,
                                 contactViewController()]
@@ -68,9 +68,10 @@ final class MainTabBarViewController: UITabBarController {
         return scheduleNavigationController
     }
     
-    fileprivate final func offradioViewController(with radio: Offradio) -> UINavigationController {
+    fileprivate final func offradioViewController(with radio: Offradio, andViewModel model: RadioViewModel) -> UINavigationController {
         let radioViewController = RadioViewController.createFromStoryboard()
         radioViewController.offradio = radio
+        radioViewController.viewModel = model
         
         radioViewController.tabBarItem = radioViewController.defaultTabBarItem()
         let radioNavigationController = navigationController(withRootViewController: radioViewController)

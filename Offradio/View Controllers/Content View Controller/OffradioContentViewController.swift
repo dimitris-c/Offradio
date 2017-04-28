@@ -19,18 +19,20 @@ final class OffradioContentViewController: UIViewController {
     var mainTabBarController:MainTabBarViewController?
     
     fileprivate var offradio: Offradio!
+    fileprivate var offradioViewModel: RadioViewModel!
     fileprivate var commandCenter: OffradioCommandCenter!
     fileprivate var nowPlayingInfoCenter: OffradioNowPlayingInfoCenter!
     
-    init() {
+    init(with radio: Offradio, andViewModel model: RadioViewModel) {
         super.init(nibName: nil, bundle: nil)
         
-        self.offradio = Offradio()
+        self.offradio = radio
+        self.offradioViewModel = model
         self.commandCenter = OffradioCommandCenter(with: self.offradio)
         self.nowPlayingInfoCenter = OffradioNowPlayingInfoCenter(with: self.offradio)
         self.commandCenter.isEnabled = true
         
-        self.mainTabBarController = MainTabBarViewController(with: self.offradio)
+        self.mainTabBarController = MainTabBarViewController(with: self.offradio, andViewModel: self.offradioViewModel)
         
         if let mainTabBarController = mainTabBarController {
             self.addContainerViewController(mainTabBarController)

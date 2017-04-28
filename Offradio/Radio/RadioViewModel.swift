@@ -22,9 +22,12 @@ final class RadioViewModel: StormysRadioKitDelegate {
     
     let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(NowPlaying.empty)
     
-    init(with radio: Offradio) {
+    let watchCommunication: OffradioWatchCommunication!
+    
+    init(with radio: Offradio, and watchCommunication: OffradioWatchCommunication) {
         
         self.radio = radio
+        self.watchCommunication = watchCommunication
         
         self.radio.setupRadio()
         self.radio.kit.delegate = self
@@ -63,12 +66,14 @@ final class RadioViewModel: StormysRadioKitDelegate {
         Log.debug("started")
         isBuffering.value = false
         isPlaying.value = true
+        watchCommunication.sendTurnRadioOn()
     }
     
     func srkPlayStopped() {
         Log.debug("stopped")
         isBuffering.value = false
         isPlaying.value = false
+        watchCommunication.sendTurnRadioOff()
     }
     
     func srkMetaChanged() {

@@ -6,8 +6,6 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import MediaPlayer
-
 protocol RadioProtocol {
     func start()
     func stop()
@@ -21,4 +19,10 @@ struct RadioKitAuthenticationKeys {
 struct RadioStatus {
     var isPlaying: Bool = false
     var playbackWasInterrupted: Bool = false
+}
+
+enum RadioState: Int {
+    case stopped
+    case buffering
+    case playing
 }

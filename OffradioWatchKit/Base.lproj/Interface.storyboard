@@ -4,20 +4,22 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--offradio-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="OffradioWatchKit" customModuleProvider="target">
+                <controller title="offradio" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="OffradioWatchKit" customModuleProvider="target">
                     <items>
                         <group width="1" alignment="left" id="SwL-KL-Zt5">
                             <items>
                                 <button alignment="center" id="qzr-3H-dMS">
                                     <group key="contentGroup" width="1" height="1" alignment="left" contentMode="scaleAspectFit" id="Vmf-79-Ubm"/>
+                                    <connections>
+                                        <action selector="toggleRadio" destination="AgC-eL-Hgc" id="Oex-Lm-bQE"/>
+                                    </connections>
                                 </button>
                             </items>
                         </group>
@@ -27,16 +29,38 @@
                         </label>
                     </items>
                     <connections>
+                        <outlet property="mainTitle" destination="hZZ-fT-d43" id="tV8-i5-g8Q"/>
+                        <outlet property="playButtonGroup" destination="Vmf-79-Ubm" id="NaA-Pt-TTL"/>
                         <segue destination="WJl-tv-Lnh" kind="relationship" relationship="nextPage" id="0Nb-eY-xnG"/>
                     </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="-232" y="34"/>
         </scene>
-        <!--Interface Controller-->
+        <!--#nowplaying-->
         <scene sceneID="aae-FZ-dCj">
             <objects>
-                <controller id="WJl-tv-Lnh">
+                <controller title="#nowplaying" id="WJl-tv-Lnh" customClass="NowPlayingController" customModule="OffradioWatchKit_Extension">
+                    <items>
+                        <group width="1" height="90" alignment="center" id="0iU-QL-zpw">
+                            <items>
+                                <button alignment="left" id="jtf-UR-jlb">
+                                    <group key="contentGroup" width="1" height="1" alignment="left" contentMode="scaleAspectFill" spacing="0.0" id="PHk-TF-dSh">
+                                        <items>
+                                            <group width="25" height="25" alignment="left" radius="12" id="Oxe-Tc-y3k">
+                                                <items>
+                                                    <imageView width="15" height="15" alignment="center" verticalAlignment="center" image="favourite-button-icon" contentMode="scaleAspectFit" id="FXy-1B-mFV"/>
+                                                </items>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <edgeInsets key="margins" left="0.0" right="0.0" top="1" bottom="0.0"/>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="5" right="0.0" top="5" bottom="0.0"/>
+                                    </group>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
                     <connections>
                         <segue destination="dhj-VP-TsJ" kind="relationship" relationship="nextPage" id="85i-UF-BAJ"/>
                     </connections>
@@ -44,10 +68,22 @@
             </objects>
             <point key="canvasLocation" x="35" y="34"/>
         </scene>
-        <!--Interface Controller-->
+        <!--#onair-->
         <scene sceneID="iWk-2X-bk3">
             <objects>
-                <controller id="dhj-VP-TsJ">
+                <controller title="#onair" id="dhj-VP-TsJ">
+                    <items>
+                        <group width="130" alignment="center" contentMode="center" id="n4T-8b-YUp">
+                            <items>
+                                <imageView width="1" height="110" alignment="center" contentMode="scaleAspectFit" id="sMg-vj-lDD">
+                                    <variation key="device=watch38mm" height="85"/>
+                                </imageView>
+                            </items>
+                        </group>
+                        <label width="110" alignment="center" textAlignment="center" numberOfLines="0" id="miG-ml-cBe">
+                            <fontDescription key="font" type="system" weight="light" pointSize="16"/>
+                        </label>
+                    </items>
                     <connections>
                         <segue destination="oLJ-Sy-Xsh" kind="relationship" relationship="nextPage" id="spA-2v-epT"/>
                     </connections>
@@ -55,12 +91,48 @@
             </objects>
             <point key="canvasLocation" x="297" y="34"/>
         </scene>
-        <!--Interface Controller-->
+        <!--playlist-->
         <scene sceneID="cEz-VM-L1d">
             <objects>
-                <controller id="oLJ-Sy-Xsh"/>
+                <controller title="playlist" id="oLJ-Sy-Xsh">
+                    <items>
+                        <group width="1" alignment="center" contentMode="center" id="yqa-FW-29f">
+                            <items>
+                                <table alignment="left" id="811-bt-oQ5">
+                                    <items>
+                                        <tableRow identifier="playlistRow" selectable="NO" id="S6Q-UD-OhG" customClass="PlaylistTableViewRow">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" spacing="0.0" id="ue5-ES-l43">
+                                                <items>
+                                                    <group width="136" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
+                                                        <items>
+                                                            <label width="129" height="20" alignment="left" text="10:00" numberOfLines="2" id="TK7-Bp-ZNf">
+                                                                <color key="textColor" red="0.9859483242" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="font" type="boldSystem" pointSize="11"/>
+                                                            </label>
+                                                            <label width="136" alignment="left" text="Label" numberOfLines="0" id="If9-Sx-TBX">
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="font" type="system" pointSize="15"/>
+                                                            </label>
+                                                        </items>
+                                                        <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="4"/>
+                                                    </group>
+                                                </items>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </group>
+                                            <connections>
+                                                <outlet property="artistSongTitle" destination="If9-Sx-TBX" id="18Z-8c-FPU"/>
+                                                <outlet property="timeTitle" destination="TK7-Bp-ZNf" id="qaU-4i-0nO"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                </table>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="566" y="33"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.9859483242" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

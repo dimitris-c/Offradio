@@ -17,13 +17,13 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     @IBOutlet weak var playerCircleContainerTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var playerCircleContainer: PlayerCircleContainerView!
     
+    fileprivate final let disposeBag: DisposeBag = DisposeBag()
+    
     final var offradio: Offradio!
+    final var viewModel: RadioViewModel!
     
     fileprivate final var turnYourRadioOffLabel: UILabel!
     fileprivate final var nowPlayingButton: NowPlayingButton!
-    
-    fileprivate final let disposeBag: DisposeBag = DisposeBag()
-    fileprivate final var viewModel: RadioViewModel!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -34,7 +34,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
         
-        self.viewModel = RadioViewModel(with: self.offradio)
+//        self.viewModel = RadioViewModel(with: self.offradio)
         
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()

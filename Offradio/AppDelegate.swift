@@ -19,6 +19,9 @@ import AlamofireNetworkActivityIndicator
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var offradio: Offradio!
+    var offradioViewModel: RadioViewModel!
     var watchSession: OffradioWatchSession?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -35,13 +38,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        window?.rootViewController = OffradioContentViewController()
+        self.offradio = Offradio()
+        let watchCommunication = OffradioWatchCommunication()
+        self.offradioViewModel = RadioViewModel(with: self.offradio, and: watchCommunication)
+        
+        let content = OffradioContentViewController(with: self.offradio, andViewModel: self.offradioViewModel)
+        window?.rootViewController = content
         
         window?.makeKeyAndVisible()
         
         Theme.setupNavBarAppearance()
         
-        watchSession = OffradioWatchSession()
+        watchSession = OffradioWatchSession(with: self.offradio, andViewModel: self.offradioViewModel)
         watchSession?.activate()
         
         return true
