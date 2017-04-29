@@ -32,13 +32,10 @@ target 'Offradio' do
     inherit! :search_paths
     # Pods for testing
   end
-  
-  target 'OffradioWatchKit' do
-      platform :watchos, '2.0'
-  end
-  
+
   target 'OffradioWatchKit Extension' do
       platform :watchos, '2.0'
+      pod 'RxSwift',    '~> 3.0'
       pod 'SwiftyJSON'
       
   end

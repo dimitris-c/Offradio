@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "71EFA5D00BD31C56F70EC0C3341E39A1"
-               BuildableName = "Pods_Offradio_OffradioWatchKit.framework"
-               BlueprintName = "Pods-Offradio-OffradioWatchKit"
+               BlueprintIdentifier = "445CE3F9CE7F8F4003A1C7CFACD784F5"
+               BuildableName = "RxSwift.framework"
+               BlueprintName = "RxSwift-iOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "71EFA5D00BD31C56F70EC0C3341E39A1"
-            BuildableName = "Pods_Offradio_OffradioWatchKit.framework"
-            BlueprintName = "Pods-Offradio-OffradioWatchKit"
+            BlueprintIdentifier = "445CE3F9CE7F8F4003A1C7CFACD784F5"
+            BuildableName = "RxSwift.framework"
+            BlueprintName = "RxSwift-iOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
