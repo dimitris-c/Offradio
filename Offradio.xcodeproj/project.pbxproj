@@ -93,6 +93,7 @@
 		B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4771E9C04DF00DC82AD /* ShareButton.swift */; };
 		B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4791E9C04F400DC82AD /* ShareType.swift */; };
 		B53FC47C1E9C0C8A00DC82AD /* ShareUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */; };
+		B5483B861EB4BB1E004AC6BF /* OffradioWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */; };
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
 		B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */; };
@@ -129,7 +130,7 @@
 		B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */; };
 		B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960581E492AA1003BFBC6 /* ContactViewController.swift */; };
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
-		B5745E551EB0D5BB00A60283 /* OffradioWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5745E541EB0D5BB00A60283 /* OffradioWatchSession.swift */; };
+		B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */; };
 		B58649F41E61BC2F00501AF7 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F31E61BC2F00501AF7 /* APIRequestTests.swift */; };
 		B58649F61E61BC8600501AF7 /* APIResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F51E61BC8600501AF7 /* APIResponseTests.swift */; };
 		B58649F91E61BF3B00501AF7 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F81E61BF3B00501AF7 /* DummyModel.swift */; };
@@ -349,6 +350,7 @@
 		B53FC4771E9C04DF00DC82AD /* ShareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		B53FC4791E9C04F400DC82AD /* ShareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareType.swift; sourceTree = "<group>"; };
 		B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtility.swift; sourceTree = "<group>"; };
+		B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchSession.swift; sourceTree = "<group>"; };
 		B54BC8A31E36A9DC0043F248 /* Offradio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offradio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54BC8B41E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -391,7 +393,7 @@
 		B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioContentViewController.swift; sourceTree = "<group>"; };
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
-		B5745E541EB0D5BB00A60283 /* OffradioWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchSession.swift; sourceTree = "<group>"; };
+		B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioAppWatchSession.swift; sourceTree = "<group>"; };
 		B58649F31E61BC2F00501AF7 /* APIRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
 		B58649F51E61BC8600501AF7 /* APIResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponseTests.swift; sourceTree = "<group>"; };
 		B58649F81E61BF3B00501AF7 /* DummyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
@@ -1027,7 +1029,7 @@
 		B5745E531EB0D5AD00A60283 /* OffradioWatch */ = {
 			isa = PBXGroup;
 			children = (
-				B5745E541EB0D5BB00A60283 /* OffradioWatchSession.swift */,
+				B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */,
 				B52C2D3D1EB0E12200AF8514 /* OffradioWatchCommunication.swift */,
 				B52C2D461EB1090F00AF8514 /* OffradioWatchRadioAction.swift */,
 			);
@@ -1082,6 +1084,7 @@
 			children = (
 				B58679011EAFD2AA005321CA /* Resources */,
 				B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */,
+				B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */,
 				B58678E81EAFCF4A005321CA /* InterfaceController.swift */,
 				B58E75581EB384AD00D06C15 /* NowPlayingController.swift */,
 				B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */,
@@ -1739,7 +1742,7 @@
 				B54E087F1E4D10C400B54FB3 /* ScheduleTableViewCell.swift in Sources */,
 				B56960421E490957003BFBC6 /* Radio.swift in Sources */,
 				B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */,
-				B5745E551EB0D5BB00A60283 /* OffradioWatchSession.swift in Sources */,
+				B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */,
 				B5FA39EE1E5DF1BE001B4760 /* UITableView+RxRealm.swift in Sources */,
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
@@ -1831,6 +1834,7 @@
 				B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */,
 				B58E755D1EB39FA400D06C15 /* String+HTMLEntities.swift in Sources */,
 				B58E755F1EB39FBA00D06C15 /* ParseError.swift in Sources */,
+				B5483B861EB4BB1E004AC6BF /* OffradioWatchSession.swift in Sources */,
 				B58678E91EAFCF4A005321CA /* InterfaceController.swift in Sources */,
 				B58E755B1EB39F9100D06C15 /* Show.swift in Sources */,
 				B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */,

@@ -29,7 +29,6 @@ final class RadioViewModel: StormysRadioKitDelegate {
         self.radio = radio
         self.watchCommunication = watchCommunication
         
-        self.radio.setupRadio()
         self.radio.kit.delegate = self
 
         toggleRadio.asObservable()

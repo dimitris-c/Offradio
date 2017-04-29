@@ -38,7 +38,7 @@ class OffradioWatchCommunication {
         WCSession.default().sendMessage(message, replyHandler: { replyInfo in
             
         }) { error in
-            
+            print(error.localizedDescription)
         }
     }
     

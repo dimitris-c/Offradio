@@ -10,7 +10,7 @@ import WatchKit
 import WatchConnectivity
 import Foundation
 
-class InterfaceController: WKInterfaceController, WCSessionDelegate {
+class InterfaceController: WKInterfaceController {
     
     @IBOutlet var mainTitle: WKInterfaceLabel!
     @IBOutlet var playButtonGroup: WKInterfaceGroup!
@@ -19,10 +19,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        if WCSession.isSupported() {
-            WCSession.default().delegate = self
-            WCSession.default().activate()
-        }
         
         mainTitle.setTextColor(UIColor.white)
         playButtonGroup.setBackgroundImageNamed("play-button-disabled")
@@ -45,26 +41,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         } else {
             communication.sendTurnRadioOff()
         }
-    }
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("\(activationState.rawValue)")
-    }
-    
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        guard let actionString = message["action"] as? String else { return }
-        guard let action = OffradioWatchAction(rawValue: actionString) else { return }
-        if action == .toggleRadio {
-            let shouldToggleRadio: Bool = message["data"] as? Bool ?? false
-            self.adjustIcon(with: shouldToggleRadio)
-        }
-        else if action == .radioStatus {
-            let rawStatus = message["data"] as? Int ?? 0
-            let status: RadioState = RadioState(rawValue: rawStatus) ?? .stopped
-            let audioIsPlaying = status == .playing
-            self.adjustIcon(with: audioIsPlaying)
-        }
-        replyHandler(["":""])
     }
     
     fileprivate func adjustIcon(with status: Bool) {

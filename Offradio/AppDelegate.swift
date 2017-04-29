@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var offradio: Offradio!
     var offradioViewModel: RadioViewModel!
-    var watchSession: OffradioWatchSession?
+    var watchSession: OffradioAppWatchSession?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Theme.setupNavBarAppearance()
         
-        watchSession = OffradioWatchSession(with: self.offradio, andViewModel: self.offradioViewModel)
+        watchSession = OffradioAppWatchSession(with: self.offradio, andViewModel: self.offradioViewModel)
         watchSession?.activate()
         
         return true

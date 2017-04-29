@@ -9,17 +9,13 @@
 import WatchKit
 import WatchConnectivity
 
-class NowPlayingController: WKInterfaceController, WCSessionDelegate {
+class NowPlayingController: WKInterfaceController {
     
     let communication = OffradioWatchCommunication()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        if WCSession.isSupported() {
-            WCSession.default().delegate = self
-            WCSession.default().activate()
-        }
-        
+
     }
     
     override func willActivate() {
@@ -31,14 +27,6 @@ class NowPlayingController: WKInterfaceController, WCSessionDelegate {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
-    }
-
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("\(activationState.rawValue)")
-    }
-    
-    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
-        
     }
     
 }

@@ -8,7 +8,7 @@
 
 import WatchConnectivity
 
-class OffradioWatchSession: NSObject, WCSessionDelegate {
+class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     
     var radio: Offradio!
     var viewModel: RadioViewModel!
@@ -42,7 +42,7 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
         
         identifier = application.beginBackgroundTask(expirationHandler: endBlock)
         
-        let replyHandler =  { (replyInfo: [String: Any]) in
+        let replyHandler = { (replyInfo: [String: Any]) in
             replyHandler(replyInfo)
             endBlock()
         }
@@ -76,6 +76,7 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
         case .toggleRadio:
             let data: Bool = message["data"] as? Bool ?? false
             self.toggleRadio(with: data)
+            reply(["":""])
             break
         case .radioStatus:
             self.radioStatus(withReply: { (state) in
@@ -85,15 +86,13 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
         default:
             break
         }
-        
-
     }
     
     fileprivate func toggleRadio(with status: Bool) {
         if status {
-            self.radio.start()
+            self.viewModel.toggleRadio.onNext(true)
         } else {
-            self.radio.stop()
+            self.viewModel.toggleRadio.onNext(false)
         }
     }
     
