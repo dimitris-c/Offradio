@@ -14,6 +14,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     var disposeBag: DisposeBag? = DisposeBag()
     var radio: Offradio!
     var viewModel: RadioViewModel!
+    let playlistService: PlaylistService = PlaylistService(withPage: 0)
     
     init(with radio: Offradio, andViewModel model: RadioViewModel) {
         super.init()
@@ -98,8 +99,10 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
             })
             break
         case .playlist:
-            
-            breal
+            self.fetchPlaylist(withReply: { songs in
+                
+            })
+            break
         }
     }
     
@@ -117,7 +120,13 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
     
     fileprivate func fetchPlaylist(withReply reply: @escaping ([PlaylistSong]) -> Void) {
-        
+        self.playlistService.call { (success, result, headers) in
+            if success, let data = result.value {
+                reply(data)
+                return
+            }
+            reply([])
+        }
     }
     
     fileprivate func fetchCurrentTrack(withReply reply: @escaping (CurrentTrack) -> Void) {
