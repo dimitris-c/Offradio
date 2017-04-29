@@ -14,6 +14,13 @@ struct Song {
     let songTitle: String
     let imageUrl: String
  
+    var title: String {
+        guard !artist.isEmpty && !songTitle.isEmpty else {
+            return "Turn your radio off"
+        }
+        return artist + " - " + songTitle
+    }
+    
     init(with json: JSON) {
         
         self.time = json["time"].stringValue
@@ -21,6 +28,13 @@ struct Song {
         self.songTitle = json["songtitle"].stringValue.htmlUnescape()
         self.imageUrl = json["imageurl"].stringValue.htmlUnescape()
         
+    }
+    
+    init(with time:String, artist: String, songTitle: String, imageUrl: String) {
+        self.time = time
+        self.artist = artist
+        self.songTitle = songTitle
+        self.imageUrl = imageUrl
     }
     
     func toDictionary() -> [String: Any] {

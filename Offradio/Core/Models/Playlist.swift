@@ -43,4 +43,7 @@ class PlaylistSong: Object {
         return PlaylistSong(value: self)
     }
     
+    func toSong() -> Song {
+        return Song(with: time, artist: artist, songTitle: songTitle, imageUrl: imageUrl)
+    }
 }

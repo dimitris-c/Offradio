@@ -100,7 +100,11 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
             break
         case .playlist:
             self.fetchPlaylist(withReply: { songs in
-                
+                var data: [[String: Any]] = []
+                for song in songs {
+                    data.append(song.toDictionary())
+                }
+                reply(["action": OffradioWatchAction.playlist.rawValue, "data": data])
             })
             break
         }
@@ -119,10 +123,11 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
         reply(status)
     }
     
-    fileprivate func fetchPlaylist(withReply reply: @escaping ([PlaylistSong]) -> Void) {
+    fileprivate func fetchPlaylist(withReply reply: @escaping ([Song]) -> Void) {
         self.playlistService.call { (success, result, headers) in
             if success, let data = result.value {
-                reply(data)
+                let songs = data.map { $0.toSong() }
+                reply(songs)
                 return
             }
             reply([])
