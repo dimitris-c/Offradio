@@ -37,6 +37,7 @@ target 'Offradio' do
       platform :watchos, '2.0'
       pod 'RxSwift',    '~> 3.0'
       pod 'SwiftyJSON'
+      pod 'SDWebImage'
       
   end
   

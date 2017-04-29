@@ -9,12 +9,19 @@
 import WatchKit
 import WatchConnectivity
 import Foundation
+import RxSwift
 
 class InterfaceController: WKInterfaceController {
     
     @IBOutlet var mainTitle: WKInterfaceLabel!
     @IBOutlet var playButtonGroup: WKInterfaceGroup!
-    var radioStatus: RadioState = .stopped
+    
+    let disposeBag: DisposeBag = DisposeBag()
+    
+    var radioStatus: RadioState {
+        return OffradioWatchSession.shared.radioState.value
+    }
+    
     let communication = OffradioWatchCommunication()
         
     override func awake(withContext context: Any?) {
@@ -28,6 +35,10 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         communication.getRadioStatus()
+        OffradioWatchSession.shared.radioState.asObservable().subscribe(onNext: { [weak self] state in
+            let isPlaying = state == RadioState.playing
+            self?.adjustIcon(with: isPlaying)
+        }).addDisposableTo(disposeBag)
     }
     
     override func didDeactivate() {
@@ -45,11 +56,9 @@ class InterfaceController: WKInterfaceController {
     
     fileprivate func adjustIcon(with status: Bool) {
         if status {
-            radioStatus = .playing
             playButtonGroup.setBackgroundImageNamed("play-button-enabled")
             mainTitle.setTextColor(UIColor(red:0.98, green:0.05, blue:0.12, alpha:1.00))
         } else {
-            radioStatus = .stopped
             playButtonGroup.setBackgroundImageNamed("play-button-disabled")
             mainTitle.setTextColor(UIColor.white)
         }

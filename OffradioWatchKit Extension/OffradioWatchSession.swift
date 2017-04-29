@@ -7,12 +7,14 @@
 //
 
 import WatchConnectivity
+import RxSwift
 
 class OffradioWatchSession: NSObject, WCSessionDelegate {
     
     static let shared: OffradioWatchSession = OffradioWatchSession()
     
-    var radioState: RadioState = .stopped
+    let radioState: Variable<RadioState> = Variable<RadioState>(.stopped)
+    let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)
     
     func activate() {
         if WCSession.isSupported() {
@@ -32,14 +34,23 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         guard let actionString = message["action"] as? String else { return }
         guard let action = OffradioWatchAction(rawValue: actionString) else { return }
-        if action == .toggleRadio {
-            let shouldToggleRadio: Bool = message["data"] as? Bool ?? false
-            radioState = shouldToggleRadio ? .playing : .stopped
-        }
-        else if action == .radioStatus {
+        switch action {
+        case .radioStatus:
             let rawStatus = message["data"] as? Int ?? 0
-            radioState = RadioState(rawValue: rawStatus) ?? .stopped
+            radioState.value = RadioState(rawValue: rawStatus) ?? .stopped
+            break
+        case .toggleRadio:
+            let shouldToggleRadio: Bool = message["data"] as? Bool ?? false
+            radioState.value = shouldToggleRadio ? .playing : .stopped
+            break
+        case .nowPlaying:
+            break
+        case .producer:
+            break
+        case .playlist:
+            break
         }
+        
         replyHandler(["":""])
     }
 

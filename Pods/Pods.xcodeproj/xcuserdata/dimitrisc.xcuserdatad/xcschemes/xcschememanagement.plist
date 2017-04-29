@@ -94,7 +94,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SDWebImage.xcscheme</key>
+		<key>SDWebImage-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage-watchOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -112,17 +117,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B3FE2ECE31072790C94E1A6FE52E7FE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>115FA0D867E07C04838493890DBD8D29</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>12B93407EA92752CCDE6100A01B748C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>445CE3F9CE7F8F4003A1C7CFACD784F5</key>
+		<key>2AC2CF4223D77CFE2C89FC658C6867B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,12 +137,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>546D36E549B0E22C0A501919D009F81D</key>
+		<key>4D85DF3D32727A20A02D12FDBD090AB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6C030843458ED48BBD39F8FCB22296CA</key>
+		<key>5D4FE3304CD038A7D96C26457FB164EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>623C00C103757C627727B8D2656B9819</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6320C4DEABBCCF795BFF11226A420070</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>851D54E61833B65F550DBB6C04289AFD</key>
+		<key>75E6D66DD19042535086C12A5C4E4542</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>790DD412DDC648C83B5D319A5B77F99B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>804290AC91538C9E2B4CCFBA40BDFCD8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,27 +182,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9264392419827ADB416AA9F748344A0E</key>
+		<key>9282BA4FFA49ED1F76737B3603B7AAC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92754703BB1C9F194994056397EA4E61</key>
+		<key>A6E6C45D8FAD41A61EF421A832C69070</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5776B4148AA397BC5D4F43A6CB5FDD4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A8333ED9A5C45D619BF502A72D7D39CF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>ABCDDF6C5E2773F042FBBB0968AD9423</key>
+		<key>B0E943E6C0FBB5961800F17E96D2F5D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -207,7 +212,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D023FD267176D26253F4FBB27C65942D</key>
+		<key>C77B428CE4EBED76245D359D8FD2CB44</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C84CFB362E3D87F8CDC3C63334AABC6C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
