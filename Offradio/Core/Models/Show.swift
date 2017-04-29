@@ -39,4 +39,11 @@ struct Show {
             self.body.isEmpty
     }
     
+    func toDictionary() -> [String: Any] {
+        return ["name": name,
+                "photo": photo,
+                "largephoto": largePhoto,
+                "body": body]
+    }
+
 }

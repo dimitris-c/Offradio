@@ -7,9 +7,11 @@
 //
 
 import WatchConnectivity
+import RxSwift
 
 class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     
+    var disposeBag: DisposeBag? = DisposeBag()
     var radio: Offradio!
     var viewModel: RadioViewModel!
     
@@ -83,8 +85,21 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
                 reply(["action": OffradioWatchAction.radioStatus.rawValue, "data": state.rawValue])
             })
             break
-        default:
+        case .currentTrack:
+            self.fetchCurrentTrack(withReply: { track in
+                let data = track.toDictionary()
+                reply(["action": OffradioWatchAction.currentTrack.rawValue, "data": data])
+            })
             break
+        case .currentShow:
+            self.fetchCurrentShow(withReply: { show in
+                let data = show.toDictionary()
+                reply(["action": OffradioWatchAction.currentShow.rawValue, "data": data])
+            })
+            break
+        case .playlist:
+            
+            breal
         }
     }
     
@@ -99,5 +114,34 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     fileprivate func radioStatus(withReply reply: (RadioState) -> Void) {
         let status = self.radio.status.isPlaying ? RadioState.playing : RadioState.stopped
         reply(status)
+    }
+    
+    fileprivate func fetchPlaylist(withReply reply: @escaping ([PlaylistSong]) -> Void) {
+        
+    }
+    
+    fileprivate func fetchCurrentTrack(withReply reply: @escaping (CurrentTrack) -> Void) {
+        let disposable = self.radio.metadata.fetchNowPlaying().asObservable()
+            .catchErrorJustReturn(NowPlaying.empty)
+            .map { $0.current }
+            .subscribe(onNext: { track in
+                reply(track)
+            },onCompleted: { [weak self] in
+                self?.disposeBag = nil
+            })
+        disposeBag?.insert(disposable)
+    }
+    
+    
+    fileprivate func fetchCurrentShow(withReply reply: @escaping (Show) -> Void) {
+        let disposable = self.radio.metadata.fetchNowPlaying().asObservable()
+            .catchErrorJustReturn(NowPlaying.empty)
+            .map { $0.show }
+            .subscribe(onNext: { show in
+                reply(show)
+            }, onCompleted: { [weak self] in
+                self?.disposeBag = nil
+            })
+        disposeBag?.insert(disposable)
     }
 }

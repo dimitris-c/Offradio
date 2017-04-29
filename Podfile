@@ -36,6 +36,7 @@ target 'Offradio' do
   target 'OffradioWatchKit Extension' do
       platform :watchos, '2.0'
       pod 'RxSwift',    '~> 3.0'
+      pod 'RealmSwift'
       pod 'SwiftyJSON'
       pod 'SDWebImage'
       

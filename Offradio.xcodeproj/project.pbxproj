@@ -92,6 +92,11 @@
 		B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4791E9C04F400DC82AD /* ShareType.swift */; };
 		B53FC47C1E9C0C8A00DC82AD /* ShareUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */; };
 		B5483B861EB4BB1E004AC6BF /* OffradioWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */; };
+		B5483B901EB4EFA2004AC6BF /* CurrentShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B8C1EB4EFA2004AC6BF /* CurrentShowController.swift */; };
+		B5483B911EB4EFA2004AC6BF /* CurrentTrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B8D1EB4EFA2004AC6BF /* CurrentTrackController.swift */; };
+		B5483B921EB4EFA2004AC6BF /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B8E1EB4EFA2004AC6BF /* InterfaceController.swift */; };
+		B5483B931EB4EFA2004AC6BF /* PlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B8F1EB4EFA2004AC6BF /* PlaylistController.swift */; };
+		B5483B941EB4F087004AC6BF /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
 		B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */; };
@@ -140,15 +145,9 @@
 		B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58678D91EAFCF4A005321CA /* Interface.storyboard */; };
 		B58678DD1EAFCF4A005321CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58678DC1EAFCF4A005321CA /* Assets.xcassets */; };
 		B58678E41EAFCF4A005321CA /* OffradioWatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B58678E91EAFCF4A005321CA /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678E81EAFCF4A005321CA /* InterfaceController.swift */; };
 		B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */; };
 		B58678ED1EAFCF4A005321CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58678EC1EAFCF4A005321CA /* Assets.xcassets */; };
 		B58678F11EAFCF4A005321CA /* OffradioWatchKit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */; };
-		B58678FF1EAFD2A5005321CA /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58678FD1EAFD2A5005321CA /* LeagueGothic-Italic.otf */; };
-		B58679001EAFD2A5005321CA /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58678FE1EAFD2A5005321CA /* LetterGothicStd-Bold.otf */; };
-		B58679051EAFD2AA005321CA /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58679031EAFD2AA005321CA /* LeagueGothic-Italic.otf */; };
-		B58679061EAFD2AA005321CA /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */; };
-		B58E75591EB384AD00D06C15 /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E75581EB384AD00D06C15 /* NowPlayingController.swift */; };
 		B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B58E755B1EB39F9100D06C15 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
@@ -348,6 +347,10 @@
 		B53FC4791E9C04F400DC82AD /* ShareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareType.swift; sourceTree = "<group>"; };
 		B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareUtility.swift; sourceTree = "<group>"; };
 		B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchSession.swift; sourceTree = "<group>"; };
+		B5483B8C1EB4EFA2004AC6BF /* CurrentShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentShowController.swift; sourceTree = "<group>"; };
+		B5483B8D1EB4EFA2004AC6BF /* CurrentTrackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTrackController.swift; sourceTree = "<group>"; };
+		B5483B8E1EB4EFA2004AC6BF /* InterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		B5483B8F1EB4EFA2004AC6BF /* PlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
 		B54BC8A31E36A9DC0043F248 /* Offradio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offradio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B54BC8B41E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -404,17 +407,11 @@
 		B58678DC1EAFCF4A005321CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B58678DE1EAFCF4A005321CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OffradioWatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B58678E81EAFCF4A005321CA /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		B58678EC1EAFCF4A005321CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B58678EE1EAFCF4A005321CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OffradioWatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		B58678FA1EAFD035005321CA /* OffradioWatchKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OffradioWatchKit.entitlements; sourceTree = "<group>"; };
-		B58678FD1EAFD2A5005321CA /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
-		B58678FE1EAFD2A5005321CA /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
-		B58679031EAFD2AA005321CA /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
-		B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
-		B58E75581EB384AD00D06C15 /* NowPlayingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingController.swift; sourceTree = "<group>"; };
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -829,6 +826,17 @@
 			path = ShareTrackView;
 			sourceTree = "<group>";
 		};
+		B5483B8B1EB4EFA2004AC6BF /* InterfaceControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5483B8C1EB4EFA2004AC6BF /* CurrentShowController.swift */,
+				B5483B8D1EB4EFA2004AC6BF /* CurrentTrackController.swift */,
+				B5483B8E1EB4EFA2004AC6BF /* InterfaceController.swift */,
+				B5483B8F1EB4EFA2004AC6BF /* PlaylistController.swift */,
+			);
+			path = InterfaceControllers;
+			sourceTree = "<group>";
+		};
 		B54BC89A1E36A9DB0043F248 = {
 			isa = PBXGroup;
 			children = (
@@ -1062,7 +1070,6 @@
 		B58678D81EAFCF4A005321CA /* OffradioWatchKit */ = {
 			isa = PBXGroup;
 			children = (
-				B58678FB1EAFD2A5005321CA /* Resources */,
 				B58678FA1EAFD035005321CA /* OffradioWatchKit.entitlements */,
 				B58678D91EAFCF4A005321CA /* Interface.storyboard */,
 				B58678DC1EAFCF4A005321CA /* Assets.xcassets */,
@@ -1074,50 +1081,14 @@
 		B58678E71EAFCF4A005321CA /* OffradioWatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B58679011EAFD2AA005321CA /* Resources */,
+				B5483B8B1EB4EFA2004AC6BF /* InterfaceControllers */,
 				B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */,
 				B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */,
-				B58678E81EAFCF4A005321CA /* InterfaceController.swift */,
-				B58E75581EB384AD00D06C15 /* NowPlayingController.swift */,
 				B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */,
 				B58678EC1EAFCF4A005321CA /* Assets.xcassets */,
 				B58678EE1EAFCF4A005321CA /* Info.plist */,
 			);
 			path = "OffradioWatchKit Extension";
-			sourceTree = "<group>";
-		};
-		B58678FB1EAFD2A5005321CA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B58678FC1EAFD2A5005321CA /* Fonts */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		B58678FC1EAFD2A5005321CA /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				B58678FD1EAFD2A5005321CA /* LeagueGothic-Italic.otf */,
-				B58678FE1EAFD2A5005321CA /* LetterGothicStd-Bold.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		B58679011EAFD2AA005321CA /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B58679021EAFD2AA005321CA /* Fonts */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		B58679021EAFD2AA005321CA /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				B58679031EAFD2AA005321CA /* LeagueGothic-Italic.otf */,
-				B58679041EAFD2AA005321CA /* LetterGothicStd-Bold.otf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B5955D7C1E5F6C34002C1405 /* Views */ = {
@@ -1445,8 +1416,6 @@
 			files = (
 				B58678DD1EAFCF4A005321CA /* Assets.xcassets in Resources */,
 				B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */,
-				B58679001EAFD2A5005321CA /* LetterGothicStd-Bold.otf in Resources */,
-				B58678FF1EAFD2A5005321CA /* LeagueGothic-Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1454,8 +1423,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58679051EAFD2AA005321CA /* LeagueGothic-Italic.otf in Resources */,
-				B58679061EAFD2AA005321CA /* LetterGothicStd-Bold.otf in Resources */,
 				B58678ED1EAFCF4A005321CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1784,8 +1751,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5483B921EB4EFA2004AC6BF /* InterfaceController.swift in Sources */,
+				B5483B941EB4F087004AC6BF /* Playlist.swift in Sources */,
 				B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */,
-				B58E75591EB384AD00D06C15 /* NowPlayingController.swift in Sources */,
 				B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */,
 				B58E755E1EB39FB700D06C15 /* HTMLConstants.swift in Sources */,
 				B58E75601EB39FBD00D06C15 /* Utilities.swift in Sources */,
@@ -1793,11 +1761,13 @@
 				B52C2D421EB0F18700AF8514 /* Radio.swift in Sources */,
 				B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */,
 				B58E755D1EB39FA400D06C15 /* String+HTMLEntities.swift in Sources */,
+				B5483B931EB4EFA2004AC6BF /* PlaylistController.swift in Sources */,
 				B58E755F1EB39FBA00D06C15 /* ParseError.swift in Sources */,
 				B5483B861EB4BB1E004AC6BF /* OffradioWatchSession.swift in Sources */,
-				B58678E91EAFCF4A005321CA /* InterfaceController.swift in Sources */,
+				B5483B901EB4EFA2004AC6BF /* CurrentShowController.swift in Sources */,
 				B58E755B1EB39F9100D06C15 /* Show.swift in Sources */,
 				B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */,
+				B5483B911EB4EFA2004AC6BF /* CurrentTrackController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

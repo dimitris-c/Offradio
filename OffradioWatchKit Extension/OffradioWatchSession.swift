@@ -7,6 +7,7 @@
 //
 
 import WatchConnectivity
+import SwiftyJSON
 import RxSwift
 
 class OffradioWatchSession: NSObject, WCSessionDelegate {
@@ -14,7 +15,6 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
     static let shared: OffradioWatchSession = OffradioWatchSession()
     
     let radioState: Variable<RadioState> = Variable<RadioState>(.stopped)
-    let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)
     
     func activate() {
         if WCSession.isSupported() {
@@ -43,9 +43,9 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
             let shouldToggleRadio: Bool = message["data"] as? Bool ?? false
             radioState.value = shouldToggleRadio ? .playing : .stopped
             break
-        case .nowPlaying:
+        case .currentTrack:
             break
-        case .producer:
+        case .currentShow:
             break
         case .playlist:
             break

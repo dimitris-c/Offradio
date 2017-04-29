@@ -57,7 +57,7 @@ final class OffradioMetadata {
         return self.crcService.request.toAlamofire().rx.string()
     }
     
-    fileprivate func fetchNowPlaying() -> Observable<NowPlaying> {
+    func fetchNowPlaying() -> Observable<NowPlaying> {
         self.nowPlayingService = NowPlayingService()
         return self.nowPlayingService.rxCall()
     }

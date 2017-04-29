@@ -11,7 +11,7 @@ import Foundation
 enum OffradioWatchAction: String {
     case radioStatus
     case toggleRadio
-    case nowPlaying
-    case producer
+    case currentTrack
+    case currentShow
     case playlist
 }

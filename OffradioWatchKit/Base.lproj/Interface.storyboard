@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+    <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,7 +16,7 @@
                         <group width="1" alignment="left" id="SwL-KL-Zt5">
                             <items>
                                 <button alignment="center" id="qzr-3H-dMS">
-                                    <group key="contentGroup" width="1" height="1" alignment="left" contentMode="scaleAspectFit" id="Vmf-79-Ubm"/>
+                                    <group key="contentGroup" width="1" height="130" alignment="left" contentMode="scaleAspectFit" id="Vmf-79-Ubm"/>
                                     <connections>
                                         <action selector="toggleRadio" destination="AgC-eL-Hgc" id="Oex-Lm-bQE"/>
                                     </connections>
@@ -40,7 +40,7 @@
         <!--#nowplaying-->
         <scene sceneID="aae-FZ-dCj">
             <objects>
-                <controller title="#nowplaying" id="WJl-tv-Lnh" customClass="NowPlayingController" customModule="OffradioWatchKit_Extension">
+                <controller title="#nowplaying" id="WJl-tv-Lnh" customClass="CurrentTrackController" customModule="OffradioWatchKit" customModuleProvider="target">
                     <items>
                         <group width="1" height="90" alignment="center" id="0iU-QL-zpw">
                             <items>
@@ -57,39 +57,47 @@
                                         </items>
                                         <edgeInsets key="margins" left="5" right="0.0" top="5" bottom="0.0"/>
                                     </group>
+                                    <connections>
+                                        <action selector="toggleFavourite" destination="WJl-tv-Lnh" id="ibl-Q0-geg"/>
+                                    </connections>
                                 </button>
                             </items>
                         </group>
+                        <label width="128" alignment="center" text=" " numberOfLines="0" id="z8p-1p-lsk"/>
                     </items>
                     <connections>
+                        <outlet property="albumArtwork" destination="PHk-TF-dSh" id="fs4-MX-nNz"/>
+                        <outlet property="songTitle" destination="z8p-1p-lsk" id="cjQ-gp-uJC"/>
                         <segue destination="dhj-VP-TsJ" kind="relationship" relationship="nextPage" id="85i-UF-BAJ"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="35" y="34"/>
+            <point key="canvasLocation" x="20" y="34"/>
         </scene>
         <!--#onair-->
         <scene sceneID="iWk-2X-bk3">
             <objects>
-                <controller title="#onair" id="dhj-VP-TsJ">
+                <controller title="#onair" id="dhj-VP-TsJ" customClass="CurrentShowController" customModule="OffradioWatchKit" customModuleProvider="target">
                     <items>
                         <group width="130" alignment="center" contentMode="center" id="n4T-8b-YUp">
                             <items>
-                                <imageView width="1" height="110" alignment="center" contentMode="scaleAspectFit" id="sMg-vj-lDD">
+                                <imageView width="1" height="110" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="sMg-vj-lDD">
                                     <variation key="device=watch38mm" height="85"/>
                                 </imageView>
                             </items>
                         </group>
-                        <label width="110" alignment="center" textAlignment="center" numberOfLines="0" id="miG-ml-cBe">
+                        <label width="129" alignment="center" textAlignment="center" numberOfLines="0" id="miG-ml-cBe">
                             <fontDescription key="font" type="system" weight="light" pointSize="16"/>
                         </label>
                     </items>
                     <connections>
+                        <outlet property="producerArtwork" destination="sMg-vj-lDD" id="bQf-rF-Hsb"/>
+                        <outlet property="producerName" destination="miG-ml-cBe" id="duP-lZ-Kjl"/>
                         <segue destination="oLJ-Sy-Xsh" kind="relationship" relationship="nextPage" id="spA-2v-epT"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="297" y="34"/>
+            <point key="canvasLocation" x="281" y="34"/>
         </scene>
         <!--playlist-->
         <scene sceneID="cEz-VM-L1d">
@@ -103,9 +111,9 @@
                                         <tableRow identifier="playlistRow" selectable="NO" id="S6Q-UD-OhG" customClass="PlaylistTableViewRow">
                                             <group key="rootItem" width="1" height="0.0" alignment="left" spacing="0.0" id="ue5-ES-l43">
                                                 <items>
-                                                    <group width="136" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
+                                                    <group width="156" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
                                                         <items>
-                                                            <label width="129" height="20" alignment="left" text="10:00" numberOfLines="2" id="TK7-Bp-ZNf">
+                                                            <label width="129" height="20" alignment="left" text="10:00" id="TK7-Bp-ZNf">
                                                                 <color key="textColor" red="0.9859483242" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="font" type="boldSystem" pointSize="11"/>
                                                             </label>
@@ -131,7 +139,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="566" y="33"/>
+            <point key="canvasLocation" x="536.15384615384619" y="33.564102564102569"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.9859483242" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

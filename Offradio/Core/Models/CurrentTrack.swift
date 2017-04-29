@@ -50,6 +50,12 @@ struct CurrentTrack: Equatable {
         return self.title.isEmpty && self.image.isEmpty && self.artist.isEmpty
     }
     
+    func toDictionary() -> [String: Any] {
+        return ["track": track,
+                "image": image,
+                "artist": artist,
+                "lastFMImageUrl": lastFMImageUrl]
+    }
 }
 
 extension CurrentTrack {
