@@ -43,6 +43,9 @@ final class RadioViewModel: StormysRadioKitDelegate {
             .addDisposableTo(disposeBag)
         
         radio.metadata.nowPlaying.asObservable()
+            .do(onNext: { [weak self] track in
+                self?.watchCommunication.sendCurrentTrack(with: track.current)
+            })
             .bind(to: nowPlaying)
             .addDisposableTo(disposeBag)
         

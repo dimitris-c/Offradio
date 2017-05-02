@@ -13,7 +13,9 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
     
     func isFavourite(`for` artist: String, songTitle title: String) -> Bool {
         if let realm = try? database() {
-            return !(realm.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@ AND isFavourite == true", artist, title).isEmpty)
+            return !(realm.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@ AND isFavourite == true",
+                                                             artist,
+                                                             title).isEmpty)
         }
         return false
     }

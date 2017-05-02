@@ -15,6 +15,8 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
     static let shared: OffradioWatchSession = OffradioWatchSession()
     
     let radioState: Variable<RadioState> = Variable<RadioState>(.stopped)
+    let currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(CurrentTrack.default)
+    let isFavourite: Variable<Bool> = Variable<Bool>(false)
     
     func activate() {
         if WCSession.isSupported() {
@@ -44,10 +46,13 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
             radioState.value = shouldToggleRadio ? .playing : .stopped
             break
         case .currentTrack:
-            break
-        case .currentShow:
-            break
-        case .playlist:
+            if let data = message["data"] as? [String: Any] {                
+                let track = CurrentTrack(json: JSON(data))
+                currentTrack.value = track
+            }
+        case .favouriteStatus:
+            self.isFavourite.value = message["data"] as? Bool ?? false
+        default:
             break
         }
         

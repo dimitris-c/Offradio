@@ -18,20 +18,43 @@ class CurrentTrackController: WKInterfaceController {
     
     @IBOutlet var albumArtwork: WKInterfaceGroup!
     @IBOutlet var songTitle: WKInterfaceLabel!
+    @IBOutlet var favouriteIcon: WKInterfaceImage!
+    
+    fileprivate var currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(CurrentTrack.empty)
+    fileprivate var isFavourite: Bool = false
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         
         songTitle.setText("Turn Your Radio Off")
+        self.currentTrack.asObservable()
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] track in
+                self?.checkFavouriteStatus(with: track)
+        }).addDisposableTo(disposeBag)
+        
+        OffradioWatchSession.shared.currentTrack.asObservable()
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] track in
+                self?.currentTrack.value = track
+                DispatchQueue.main.async {
+                    self?.songTitle.setText(track.title)
+                    if let url = URL(string: track.image) {
+                        self?.loadAlbumArtwork(url: url)
+                    }
+                }
+            }).addDisposableTo(disposeBag)
+        
     }
 
     override func didAppear() {
         super.didAppear()
-        communication.getCurrentTrack { info in
+        communication.getCurrentTrack { [weak self] info in
             if let data = info["data"] as? [String: Any] {
                 let json = JSON(data)
                 let track = CurrentTrack(json: json)
-                DispatchQueue.main.async { [weak self] in
+                self?.currentTrack.value = track
+                DispatchQueue.main.async {
                     self?.songTitle.setText(track.title)
                     if let url = URL(string: track.image) {
                         self?.loadAlbumArtwork(url: url)
@@ -40,9 +63,30 @@ class CurrentTrackController: WKInterfaceController {
             }
         }
     }
+    
+    fileprivate func checkFavouriteStatus(with track: CurrentTrack) {
+        communication.getIsFavourite(for: track) { replyInfo in
+            let data = replyInfo["data"] as? [String: Any]
+            let isFavourite: Bool = data?["isFavourite"] as? Bool ?? false
+            self.adjustFavouriteIcon(with: isFavourite)
+        }
+    }
 
     @IBAction func toggleFavourite() {
-        
+        self.communication.toggleFavourite(for: self.currentTrack.value) { replyInfo in
+            if let data = replyInfo["data"] as? [String: Any] {
+                let favourite = data["isFavourite"] as? Bool ?? false
+                self.adjustFavouriteIcon(with: favourite)
+            }
+        }
+    }
+    
+    fileprivate func adjustFavouriteIcon(with status: Bool) {
+        if status {
+            self.favouriteIcon.setImageNamed("favourite-button-icon-added")
+        } else {
+            self.favouriteIcon.setImageNamed("favourite-button-icon")
+        }
     }
     
     fileprivate func loadAlbumArtwork(url: URL) {

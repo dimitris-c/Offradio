@@ -14,4 +14,6 @@ enum OffradioWatchAction: String {
     case currentTrack
     case currentShow
     case playlist
+    case favouriteStatus
+    case toggleFavourite
 }

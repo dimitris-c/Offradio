@@ -7,6 +7,7 @@
 //
 
 import WatchConnectivity
+import SwiftyJSON
 import RxSwift
 
 class OffradioAppWatchSession: NSObject, WCSessionDelegate {
@@ -15,6 +16,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     var radio: Offradio!
     var viewModel: RadioViewModel!
     let playlistService: PlaylistService = PlaylistService(withPage: 0)
+    let playlistFavouritesLayer = PlaylistFavouritesLayer()
     
     init(with radio: Offradio, andViewModel model: RadioViewModel) {
         super.init()
@@ -106,6 +108,31 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
                 }
                 reply(["action": OffradioWatchAction.playlist.rawValue, "data": data])
             })
+            break
+        case .toggleFavourite:
+            if let data = message["data"] as? [String: Any] {
+                let track = CurrentTrack(json: JSON(data))
+                let isAlreadyFavourite: Bool = playlistFavouritesLayer.isFavourite(for: track.artist,
+                                                                            songTitle: track.track)
+                if !isAlreadyFavourite {
+                    try? self.playlistFavouritesLayer.createFavourite(with: track.toPlaylistSong())
+                } else {
+                    try? self.playlistFavouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
+                }
+                
+                reply(["action": OffradioWatchAction.favouriteStatus.rawValue, "data": ["isFavourite": !isAlreadyFavourite]])
+                
+            }
+            break
+        case .favouriteStatus:
+            let data = message["data"] as? [String: Any]
+            if let artist = data?["artist"] as? String, let title = data?["track"] as? String {
+                let isFavourite: Bool = playlistFavouritesLayer.isFavourite(for: artist,
+                                                                            songTitle: title)
+                reply(["action": OffradioWatchAction.favouriteStatus.rawValue, "data": ["isFavourite": isFavourite]])
+            } else {
+                reply(["action": OffradioWatchAction.favouriteStatus.rawValue, "data": ["isFavourite": false]])
+            }
             break
         }
     }

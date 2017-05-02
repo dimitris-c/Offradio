@@ -33,6 +33,16 @@ class OffradioWatchCommunication {
         }
     }
     
+    func sendCurrentTrack(with model: CurrentTrack) {
+        guard WCSession.default().isReachable else { return }
+        let message: [String: Any] = ["action": OffradioWatchAction.currentTrack.rawValue,
+                                      "data": model.toDictionary()]
+        WCSession.default().sendMessage(message, replyHandler: { replyInfo in
+            
+        }) { error in
+            print(error.localizedDescription)
+        }
+    }
     
     // MARK: From watch
     func getRadioStatus() {
@@ -68,6 +78,28 @@ class OffradioWatchCommunication {
     func getPlaylist(with reply: @escaping ([String: Any]) -> Void) {
         guard WCSession.default().isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.playlist.rawValue]
+        WCSession.default().sendMessage(message, replyHandler: { replyInfo in
+            reply(replyInfo)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getIsFavourite(`for` song: CurrentTrack, with reply: @escaping ([String: Any]) -> Void) {
+        guard WCSession.default().isReachable else { return }
+        let message: [String: Any] = ["action": OffradioWatchAction.favouriteStatus.rawValue,
+                                      "data": ["artist": song.artist, "track": song.track]]
+        WCSession.default().sendMessage(message, replyHandler: { replyInfo in
+            reply(replyInfo)
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func toggleFavourite(`for` song: CurrentTrack, with reply: @escaping ([String: Any]) -> Void) {
+        guard WCSession.default().isReachable else { return }
+        let message: [String: Any] = ["action": OffradioWatchAction.toggleFavourite.rawValue,
+                                      "data": song.toDictionary()]
         WCSession.default().sendMessage(message, replyHandler: { replyInfo in
             reply(replyInfo)
         }) { (error) in

@@ -35,7 +35,7 @@ final class PlaylistViewModel {
             guard let strongSelf = self else { return }
             if refresh && !strongSelf.indicatorViewAnimating.value {
                 strongSelf.page = 0
-                self?.fetchPlaylist(withPage: 0)
+                strongSelf.fetchPlaylist(withPage: 0)
             }
         }).addDisposableTo(disposeBag)
 

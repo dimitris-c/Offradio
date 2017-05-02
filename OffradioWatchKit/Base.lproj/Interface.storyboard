@@ -67,6 +67,7 @@
                     </items>
                     <connections>
                         <outlet property="albumArtwork" destination="PHk-TF-dSh" id="fs4-MX-nNz"/>
+                        <outlet property="favouriteIcon" destination="FXy-1B-mFV" id="Nsb-5X-MLR"/>
                         <outlet property="songTitle" destination="z8p-1p-lsk" id="cjQ-gp-uJC"/>
                         <segue destination="dhj-VP-TsJ" kind="relationship" relationship="nextPage" id="85i-UF-BAJ"/>
                     </connections>

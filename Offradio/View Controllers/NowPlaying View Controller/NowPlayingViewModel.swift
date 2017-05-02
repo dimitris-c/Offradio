@@ -43,8 +43,9 @@ final class NowPlayingViewModel {
             .map { $0.current }
             .startWith(CurrentTrack.default)
             .do(onNext: { [weak self] track in
+                guard let sSelf = self else { return }
                 if track != CurrentTrack.default {
-                    self?.favouriteTrack.value = self?.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) ?? false
+                    sSelf.favouriteTrack.value = sSelf.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track)
                 }
             })
             .bind(to: currentTrack)
@@ -52,15 +53,14 @@ final class NowPlayingViewModel {
         
         self.favouriteTrack.asObservable()
             .subscribe(onNext: { [weak self] (favourite) in
-                let track = self?.currentTrack.value
-                if let track = track {
-                    if favourite && !(self?.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) ?? false) {
-                        let model = track.toPlaylistSong()
-                        try? self?.favouritesLayer.createFavourite(with: model)
-                    }
-                    else if !favourite {
-                        try? self?.favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
-                    }
+                guard let sSelf = self else { return }
+                let track = sSelf.currentTrack.value
+                if favourite && !sSelf.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) {
+                    let model = track.toPlaylistSong()
+                    try? sSelf.favouritesLayer.createFavourite(with: model)
+                }
+                else if !favourite {
+                    try? sSelf.favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
                 }
                 
             }).addDisposableTo(disposeBag)

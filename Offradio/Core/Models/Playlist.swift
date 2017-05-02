@@ -46,4 +46,8 @@ class PlaylistSong: Object {
     func toSong() -> Song {
         return Song(with: time, artist: artist, songTitle: songTitle, imageUrl: imageUrl)
     }
+    
+    func toCurrentTrack() -> CurrentTrack {
+        return CurrentTrack(track: songTitle, image: imageUrl, artist: artist, lastFMImageUrl: "")
+    }
 }
