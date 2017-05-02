@@ -108,7 +108,7 @@
                             <items>
                                 <table alignment="left" id="811-bt-oQ5">
                                     <items>
-                                        <tableRow identifier="playlistRow" selectable="NO" id="S6Q-UD-OhG" customClass="PlaylistTableViewRow">
+                                        <tableRow identifier="playlistRow" selectable="NO" id="S6Q-UD-OhG" customClass="PlaylistTableViewRow" customModule="OffradioWatchKit" customModuleProvider="target">
                                             <group key="rootItem" width="1" height="0.0" alignment="left" spacing="0.0" id="ue5-ES-l43">
                                                 <items>
                                                     <group width="156" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">

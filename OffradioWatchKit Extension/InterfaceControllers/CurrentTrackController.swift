@@ -21,12 +21,12 @@ class CurrentTrackController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-
+        
+        songTitle.setText("Turn Your Radio Off")
     }
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
+
+    override func didAppear() {
+        super.didAppear()
         communication.getCurrentTrack { info in
             if let data = info["data"] as? [String: Any] {
                 let json = JSON(data)
@@ -40,12 +40,7 @@ class CurrentTrackController: WKInterfaceController {
             }
         }
     }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
-    
+
     @IBAction func toggleFavourite() {
         
     }

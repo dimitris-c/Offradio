@@ -26,6 +26,11 @@ class CurrentShowController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         
+    }
+    
+    override func didAppear() {
+        super.didAppear()
+        
         communication.getCurrentShow { (info) in
             if let data = info["data"] as? [String: Any] {
                 let json = JSON(data)

@@ -21,23 +21,31 @@ class PlaylistController: WKInterfaceController {
         
     }
     
-    override func willActivate() {
-        super.willActivate()
+    override func didAppear() {
+        super.didAppear()
+        self.playlistTable.setNumberOfRows(self.songs.count, withRowType: "playlistRow")
         
         self.communication.getPlaylist { data in
             if let songs = data["data"] as? [[String: Any]] {
-                self.playlistTable.setNumberOfRows(songs.count, withRowType: "playlistRow")
-                for (index,songData) in songs.enumerated() {
+                for songData in songs {
                     let json = JSON(songData)
                     let song = Song(with: json)
-                    if let cell = self.playlistTable.rowController(at: index) as? PlaylistTableViewRow {
-                        cell.songTitle.setText(song.title)
-                        cell.timeLabel.setText(song.time)
-                    }
+                    self.songs.append(song)
+                    self.populateRows()
                 }
             }
         }
         
+    }
+    
+    fileprivate func populateRows() {
+        self.playlistTable.setNumberOfRows(self.songs.count, withRowType: "playlistRow")
+        for (index,song) in songs.enumerated() {
+            if let cell = self.playlistTable.rowController(at: index) as? PlaylistTableViewRow {
+                cell.songTitle.setText(song.title)
+                cell.timeLabel.setText(song.time)
+            }
+        }
     }
     
     override func didDeactivate() {

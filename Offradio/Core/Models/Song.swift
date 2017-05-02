@@ -40,7 +40,7 @@ struct Song {
     func toDictionary() -> [String: Any] {
         return ["time": time,
                 "artist": artist,
-                "songTitle": songTitle,
+                "songtitle": songTitle,
                 "imageUrl": imageUrl]
     }
 }
