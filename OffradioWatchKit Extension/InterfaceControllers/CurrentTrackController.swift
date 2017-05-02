@@ -28,7 +28,6 @@ class CurrentTrackController: WKInterfaceController {
         
         songTitle.setText("Turn Your Radio Off")
         self.currentTrack.asObservable()
-            .distinctUntilChanged()
             .subscribe(onNext: { [weak self] track in
                 self?.checkFavouriteStatus(with: track)
         }).addDisposableTo(disposeBag)
