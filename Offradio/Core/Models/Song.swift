@@ -18,7 +18,7 @@ struct Song {
         guard !artist.isEmpty && !songTitle.isEmpty else {
             return "Turn your radio off"
         }
-        return artist + " - " + songTitle
+        return "\(artist) - \(songTitle)"
     }
     
     init(with json: JSON) {

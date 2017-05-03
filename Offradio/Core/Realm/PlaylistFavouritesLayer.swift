@@ -13,9 +13,8 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
     
     func isFavourite(`for` artist: String, songTitle title: String) -> Bool {
         if let realm = try? database() {
-            return !(realm.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@ AND isFavourite == true",
-                                                             artist,
-                                                             title).isEmpty)
+            let sanitizedTitle = "\(artist) - \(title)".lowercased().toBase64()
+            return !(realm.objects(PlaylistSong.self).filter("sanitizedTitle = %@ AND isFavourite == true", sanitizedTitle).isEmpty)
         }
         return false
     }
@@ -28,7 +27,8 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
     
     func deleteFavourite(`for` artist: String, songTitle title: String) throws {
         if let realm = try? database() {
-            if let item = realm.objects(PlaylistSong.self).filter("artist = %@ AND songTitle = %@", artist, title).first {
+            let sanitizedTitle = "\(artist) - \(title)".lowercased().toBase64()
+            if let item = realm.objects(PlaylistSong.self).filter("sanitizedTitle = %@ ", sanitizedTitle).first {
                 try realm.write {
                     realm.delete(item)
                 }

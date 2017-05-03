@@ -18,7 +18,7 @@ struct CurrentTrack: Equatable {
         guard !artist.isEmpty && !track.isEmpty else {
             return "Turn your radio off"
         }
-        return artist + " - " + track
+        return "\(artist) - \(track)"
     }
     
     static let empty = CurrentTrack(json: "")

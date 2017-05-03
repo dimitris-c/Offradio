@@ -18,4 +18,18 @@ extension String {
                                   documentAttributes: nil).string
     }
     
+    func fromBase64() -> String {
+        guard let data = Data.init(base64Encoded: self) else {
+            return ""
+        }
+        if let result = String(data: data, encoding: .utf8) {
+            return result
+        }
+        return ""
+    }
+    
+    func toBase64() -> String {
+        return Data(self.utf8).base64EncodedString()
+    }
+    
 }

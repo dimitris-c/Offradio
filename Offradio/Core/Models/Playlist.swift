@@ -17,7 +17,7 @@ class PlaylistSong: Object {
     dynamic var songTitle: String = ""
     dynamic var imageUrl: String = ""
     
-//    dynamic var sanitizedTitle: String = ""
+    dynamic var sanitizedTitle: String = ""
     
     dynamic var isFavourite: Bool = false
     
@@ -29,6 +29,7 @@ class PlaylistSong: Object {
         self.songTitle = json["songtitle"].stringValue.htmlUnescape()
         self.imageUrl = json["imageurl"].stringValue.htmlUnescape()
         
+        self.sanitizedTitle = "\(self.artist) - \(self.songTitle)".lowercased().toBase64()
     }
     
     convenience init(_ artist: String, songTitle: String, imageUrl: String) {
@@ -37,6 +38,8 @@ class PlaylistSong: Object {
         self.artist = artist
         self.songTitle = songTitle
         self.imageUrl = imageUrl
+        
+        self.sanitizedTitle = "\(self.artist) - \(self.songTitle)".lowercased().toBase64()
     }
 
     func deepCopy() -> PlaylistSong {

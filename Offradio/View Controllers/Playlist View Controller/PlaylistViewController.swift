@@ -99,7 +99,6 @@ final class PlaylistViewController: UIViewController {
             .bind(to: self.initialLoadActivityView.rx.isAnimating)
             .addDisposableTo(disposeBag)
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
