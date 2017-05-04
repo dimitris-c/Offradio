@@ -43,7 +43,8 @@ final class PlaylistViewModel {
             .take(1)
             .map { _ in 0 }
             .subscribe(onNext: { [weak self] page in
-                self?.fetchPlaylist(withPage: page)
+                guard let sSelf = self else { return }
+                sSelf.fetchPlaylist(withPage: page)
             })
             .addDisposableTo(disposeBag)
     

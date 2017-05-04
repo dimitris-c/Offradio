@@ -103,7 +103,7 @@ final class PlaylistViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.tableView?.reloadData()
     }
     
     fileprivate final func showFavouritesList() {

@@ -46,5 +46,5 @@ final class PlaylistCellViewModel {
         
         disposeBag?.insert(tapObservable)
     }
-
+    
 }

@@ -11,8 +11,8 @@ import RealmSwift
 final class RealmMigrationLayer {
     
     class func performMigration() {
-        let config = Realm.Configuration(schemaVersion: 2, migrationBlock: { migration, oldSchemaVersion in
-            if (oldSchemaVersion < 2) {
+        let config = Realm.Configuration(schemaVersion: 1, migrationBlock: { migration, oldSchemaVersion in
+            if (oldSchemaVersion < 1) {
             }
         })
         Realm.Configuration.defaultConfiguration = config
