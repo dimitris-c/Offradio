@@ -43,7 +43,7 @@ final class PlaylistViewController: UIViewController {
         self.tableView.backgroundColor = self.view.backgroundColor
         self.tableView.separatorColor = UIColor.clear
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 165, iPad: 195)
+        self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 165, iPad: 200)
         self.tableView.tableFooterView = self.tableViewActivityContainerView
         self.view.addSubview(self.tableView)
         

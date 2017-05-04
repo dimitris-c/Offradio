@@ -6,13 +6,22 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "favourite-button-icon@2x.png"
+      "filename" : "favourite-button-icon@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "favourite-button-icon@3x.png"
+      "filename" : "favourite-button-icon@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "favourite-button-icon@3x-1.png",
+      "scale" : "2x"
     }
   ],
   "info" : {

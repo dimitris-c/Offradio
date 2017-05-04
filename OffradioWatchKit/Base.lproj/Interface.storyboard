@@ -114,11 +114,11 @@
                                                 <items>
                                                     <group width="156" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
                                                         <items>
-                                                            <label width="129" height="20" alignment="left" text="10:00" id="TK7-Bp-ZNf">
+                                                            <label width="129" height="20" alignment="left" id="TK7-Bp-ZNf">
                                                                 <color key="textColor" red="0.9859483242" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="font" type="boldSystem" pointSize="11"/>
                                                             </label>
-                                                            <label width="136" alignment="left" text="Label" numberOfLines="0" id="If9-Sx-TBX">
+                                                            <label width="136" alignment="left" numberOfLines="0" id="If9-Sx-TBX">
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="font" type="system" pointSize="15"/>
                                                             </label>

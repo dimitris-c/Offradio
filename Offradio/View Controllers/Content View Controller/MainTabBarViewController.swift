@@ -25,13 +25,14 @@ final class MainTabBarViewController: UITabBarController {
         super.init(nibName: nil, bundle: nil)
         self.offradio = radio
         
+        self.view.backgroundColor = UIColor.white
+        self.setupTabBarAppearance()
+        
         let radioViewController = offradioViewController(with: self.offradio, andViewModel: model)
         self.viewControllers = [scheduleViewController(),
                                 radioViewController,
                                 contactViewController()]
         
-        self.view.backgroundColor = UIColor.white
-        self.setupTabBarAppearance()
         
         self.selectedIndex = TabIdentifier.listen.rawValue
         
@@ -48,6 +49,7 @@ final class MainTabBarViewController: UITabBarController {
         
         self.tabBar.tintColor = UIColor.white
         self.tabBar.isTranslucent = false
+        
     }
 
     

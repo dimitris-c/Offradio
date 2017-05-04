@@ -33,7 +33,7 @@ final class NowPlayingButton: UIControl {
         self.backgroundImageView.sizeToFit()
         self.addSubview(self.backgroundImageView)
         
-        let scrollLabelOffset: CGFloat = CGFloat.deviceValue(iPhone: 55, iPad: 70)
+        let scrollLabelOffset: CGFloat = CGFloat.deviceValue(iPhone: 70, iPad: 100)
         let scrollLabelSize = CGSize(width: self.backgroundImageView.frame.width - scrollLabelOffset,
                                      height: self.backgroundImageView.frame.height)
         
@@ -69,7 +69,7 @@ final class NowPlayingButton: UIControl {
         self.backgroundImageView.sizeToFit()
         
         self.scrollLabel.sizeToFit()
-        let paddingLeft = CGFloat.deviceValue(iPhone: 30, iPad: 42)
+        let paddingLeft = CGFloat.deviceValue(iPhone: 40, iPad: 55)
         self.scrollLabel.frame.origin = CGPoint(x: paddingLeft, y: 0)
         
     }

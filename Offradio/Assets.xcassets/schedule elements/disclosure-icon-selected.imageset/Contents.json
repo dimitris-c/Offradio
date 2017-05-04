@@ -2,18 +2,27 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "disclosure-icon-selected.png"
+      "filename" : "disclosure-icon-selected.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "disclosure-icon-selected@2x.png"
+      "filename" : "disclosure-icon-selected@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "disclosure-icon-selected@3x.png"
+      "filename" : "disclosure-icon-selected@3x.png",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "disclosure-icon-selected@3x-1.png",
+      "scale" : "2x"
     }
   ],
   "info" : {

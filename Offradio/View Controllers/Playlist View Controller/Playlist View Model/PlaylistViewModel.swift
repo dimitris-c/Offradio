@@ -40,6 +40,7 @@ final class PlaylistViewModel {
         }).addDisposableTo(disposeBag)
 
         viewWillAppear.asObservable()
+            .take(1)
             .map { _ in 0 }
             .subscribe(onNext: { [weak self] page in
                 self?.fetchPlaylist(withPage: page)
