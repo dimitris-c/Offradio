@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-final class ProducersBioViewController: UIViewController {
+final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
     
     fileprivate var producer: Producer!
     
@@ -21,6 +21,8 @@ final class ProducersBioViewController: UIViewController {
     fileprivate var producerImageViewIndicator: UIActivityIndicatorView!
     fileprivate var producerNameLabel: UILabel!
     fileprivate var producerBioLabel: UILabel!
+    
+    fileprivate var producerTopViewInitialHeight: CGFloat = 0
     
     init(with producer: Producer) {
         super.init(nibName: nil, bundle: nil)
@@ -35,6 +37,7 @@ final class ProducersBioViewController: UIViewController {
         
         self.scrollView = UIScrollView(frame: .zero)
         self.scrollView.alwaysBounceVertical = true
+        self.scrollView.delegate = self
         self.view.addSubview(self.scrollView)
         
         self.scrollViewContainer = UIView(frame: .zero)
@@ -95,6 +98,11 @@ final class ProducersBioViewController: UIViewController {
         self.producerImageView?.sd_cancelCurrentImageLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.producerTopViewInitialHeight = self.producerTopView.frame.height
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -136,6 +144,17 @@ final class ProducersBioViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let y = -scrollView.contentOffset.y
+        if y > 0 {
+            self.producerTopView.frame.origin.y = scrollView.contentOffset.y
+            self.producerTopView.frame.size.height = producerTopViewInitialHeight + y
+        }
+        
+        
     }
     
     
