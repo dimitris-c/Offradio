@@ -40,7 +40,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>101</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -83,14 +83,14 @@
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemUserInfo</key>
-			<dict/>
-			<key>UIApplicationShortcutItemType</key>
-			<string>$(PRODUCT_BUNDLE_IDENTIFIER).schedule</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeTime</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Schedule</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER).schedule</string>
+			<key>UIApplicationShortcutItemUserInfo</key>
+			<dict/>
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>

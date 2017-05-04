@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var offradio: Offradio!
     var offradioViewModel: RadioViewModel!
     var watchSession: OffradioAppWatchSession?
+    let shortcuts: Shortcuts = Shortcuts()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -92,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-        let handledShortCutItem = Shortcuts().handle(shortcut: shortcutItem, for: viewController)
+        let handledShortCutItem = self.shortcuts.handle(shortcut: shortcutItem, for: viewController)
         completionHandler(handledShortCutItem)
     }
 
