@@ -34,8 +34,6 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
         
-//        self.viewModel = RadioViewModel(with: self.offradio)
-        
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
         
@@ -107,6 +105,9 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         
         if DeviceType.IS_IPHONE_5 {
             self.playerCircleContainerTopConstraint.constant = 30
+        }
+        else if DeviceType.IS_IPHONE_4_OR_LESS {
+            self.playerCircleContainerTopConstraint.constant = 20
         }
         
         let effectiveHeight = self.scrollView.frame.height - self.playerCircleContainer.frame.maxY
