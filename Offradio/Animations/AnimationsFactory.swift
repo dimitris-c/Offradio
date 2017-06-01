@@ -36,7 +36,7 @@ final class AnimationsFactory {
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         
         animation.duration = duration
-        animation.repeatCount = nonStop ? 10000 : 0
+        animation.repeatCount = nonStop ? Float.greatestFiniteMagnitude : 0
         animation.autoreverses = false
         animation.isCumulative = true
         animation.isAdditive = true
