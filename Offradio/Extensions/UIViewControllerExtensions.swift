@@ -29,11 +29,7 @@ extension UIViewController {
         content.removeFromParentViewController()
     }
     
-    var className: String {
-        return String(describing: type(of: self))
-    }
-    
-    class var className: String {
+    class func className() -> String {
         return String(describing: self)
     }
     
@@ -42,8 +38,8 @@ extension UIViewController {
     }
     
     private class func _createFromStoryboard<T>() -> T {
-        Log.debug("Creating \(className)")
-        let storyboard = UIStoryboard(name: className, bundle: nil)
+        Log.debug("Creating \(className())")
+        let storyboard = UIStoryboard(name: className(), bundle: nil)
         return storyboard.instantiateInitialViewController() as! T
     }
 }
