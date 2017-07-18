@@ -46,20 +46,26 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
         self.offradioSwitch.toggleDelegate = self
         self.addSubview(self.offradioSwitch)
         
-        buffering.asObservable().distinctUntilChanged().subscribe(onNext: { [weak self] (buffering) in
-            if buffering {
-                self?.startBuffering()
-            } else {
-                self?.stopBuffering()
-            }
+        buffering.asObservable()
+            .observeOn(MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] (buffering) in
+                if buffering {
+                    self?.startBuffering()
+                } else {
+                    self?.stopBuffering()
+                }
         }).addDisposableTo(disposeBag)
         
-        playing.asObservable().distinctUntilChanged().subscribe(onNext: { [weak self] (playing) in
-            if playing {
-                self?.setPlaying()
-            } else {
-                self?.setStopped()
-            }
+        playing.asObservable()
+            .observeOn(MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] (playing) in
+                if playing {
+                    self?.setPlaying()
+                } else {
+                    self?.setStopped()
+                }
         }).addDisposableTo(disposeBag)
         
     }

@@ -58,9 +58,11 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.playerCircleContainer.switched.bind(to: viewModel.toggleRadio).addDisposableTo(disposeBag)
         viewModel.isBuffering.asObservable().bind(to: self.playerCircleContainer.buffering).addDisposableTo(disposeBag)
         viewModel.isPlaying.asObservable().bind(to: self.playerCircleContainer.playing).addDisposableTo(disposeBag)
-        
-        viewModel.isPlaying.asObservable().subscribe(onNext: { [weak self] isPlaying in
-            self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
+
+        viewModel.isPlaying.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] isPlaying in
+                self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
         }).addDisposableTo(disposeBag)
      
         viewModel.nowPlaying.asObservable()
