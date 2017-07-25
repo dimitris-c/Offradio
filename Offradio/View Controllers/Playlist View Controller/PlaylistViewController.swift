@@ -32,7 +32,7 @@ final class PlaylistViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
+        self.view.backgroundColor = UIColor.darkGray
 
         self.tableViewActivityContainerView = UIView(frame: .zero)
         self.tableViewActivityView = UIActivityIndicatorView(activityIndicatorStyle: .white)

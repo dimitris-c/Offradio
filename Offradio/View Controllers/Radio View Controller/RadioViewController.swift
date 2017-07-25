@@ -32,7 +32,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
+        self.view.backgroundColor = UIColor.darkGray
         
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
