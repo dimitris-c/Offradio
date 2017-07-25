@@ -31,7 +31,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGray
+        self.view.backgroundColor = UIColor.lightBlack
     
         self.title = self.producer.name
         

@@ -32,7 +32,7 @@ final class FavouritesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGray
+        self.view.backgroundColor = UIColor.lightBlack
         
         self.tableView = UITableView(frame: .zero)
         self.tableView.register(cellType: PlaylistTableViewCell.self)

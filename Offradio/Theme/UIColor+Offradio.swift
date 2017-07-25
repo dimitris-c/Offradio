@@ -10,6 +10,6 @@ import Foundation
 
 extension UIColor {
     
-    class var darkGray = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
+    static var lightBlack = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
     
 }

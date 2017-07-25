@@ -30,7 +30,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGray
+        self.view.backgroundColor = UIColor.lightBlack
         
         self.contactViewModel = ContactViewModel()
         

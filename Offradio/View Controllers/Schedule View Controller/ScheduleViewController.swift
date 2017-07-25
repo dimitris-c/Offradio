@@ -33,7 +33,7 @@ final class ScheduleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGray
+        self.view.backgroundColor = UIColor.lightBlack
         
         let date = Date()
         if let weekDay = date.dayOfWeek() {
