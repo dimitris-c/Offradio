@@ -39,7 +39,7 @@
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
-		B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C391E36BAC2005893D2 /* Constants.swift */; };
+		B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C391E36BAC2005893D2 /* AppConstants.swift */; };
 		B52A6C421E36BAC2005893D2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3C1E36BAC2005893D2 /* Log.swift */; };
 		B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C441E36BCBB005893D2 /* DateFormat.swift */; };
 		B52C2D3E1EB0E12200AF8514 /* OffradioWatchCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C2D3D1EB0E12200AF8514 /* OffradioWatchCommunication.swift */; };
@@ -155,19 +155,19 @@
 		B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B58E755B1EB39F9100D06C15 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
-		B58E755D1EB39FA400D06C15 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */; };
-		B58E755E1EB39FB700D06C15 /* HTMLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192281E70A289009A8960 /* HTMLConstants.swift */; };
-		B58E755F1EB39FBA00D06C15 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192291E70A289009A8960 /* ParseError.swift */; };
-		B58E75601EB39FBD00D06C15 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922B1E70A289009A8960 /* Utilities.swift */; };
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */; };
+		B59A88E31F27AD05003509C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DF1F27AD05003509C3 /* Constants.swift */; };
+		B59A88E41F27AD05003509C3 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E01F27AD05003509C3 /* ParseError.swift */; };
+		B59A88E51F27AD05003509C3 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */; };
+		B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E21F27AD05003509C3 /* Utilities.swift */; };
+		B59A88E71F27ADC2003509C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DF1F27AD05003509C3 /* Constants.swift */; };
+		B59A88E81F27ADC2003509C3 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E01F27AD05003509C3 /* ParseError.swift */; };
+		B59A88E91F27ADC2003509C3 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */; };
+		B59A88EA1F27ADC2003509C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E21F27AD05003509C3 /* Utilities.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
-		B5B1922C1E70A289009A8960 /* HTMLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192281E70A289009A8960 /* HTMLConstants.swift */; };
-		B5B1922D1E70A289009A8960 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B192291E70A289009A8960 /* ParseError.swift */; };
-		B5B1922E1E70A289009A8960 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */; };
-		B5B1922F1E70A289009A8960 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B1922B1E70A289009A8960 /* Utilities.swift */; };
 		B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */; };
 		B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA383B1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift */; };
 		B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA383D1E4F67CB00DB49C9 /* PlaylistViewModel.swift */; };
@@ -299,7 +299,7 @@
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
-		B52A6C391E36BAC2005893D2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Utilities/Constants.swift; sourceTree = "<group>"; };
+		B52A6C391E36BAC2005893D2 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppConstants.swift; path = ../Utilities/AppConstants.swift; sourceTree = "<group>"; };
 		B52A6C3C1E36BAC2005893D2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		B52A6C441E36BCBB005893D2 /* DateFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		B52C2D3D1EB0E12200AF8514 /* OffradioWatchCommunication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchCommunication.swift; sourceTree = "<group>"; };
@@ -424,12 +424,12 @@
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIColor+Offradio.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B59A88DF1F27AD05003509C3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B59A88E01F27AD05003509C3 /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
+		B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTMLEntities.swift"; sourceTree = "<group>"; };
+		B59A88E21F27AD05003509C3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
-		B5B192281E70A289009A8960 /* HTMLConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLConstants.swift; sourceTree = "<group>"; };
-		B5B192291E70A289009A8960 /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
-		B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTMLEntities.swift"; sourceTree = "<group>"; };
-		B5B1922B1E70A289009A8960 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlaylistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BA383B1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BA383D1E4F67CB00DB49C9 /* PlaylistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
@@ -619,7 +619,7 @@
 		B51BE4DC1E3ABF79005775F4 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				B5B192271E70A289009A8960 /* HTMLEntities */,
+				B59A88DE1F27ACFA003509C3 /* HTMLEntities */,
 				B539428A1E4A8E2C00AF5BE5 /* ToggleView */,
 				B51BE4DD1E3ABF79005775F4 /* RadioKitLib */,
 			);
@@ -687,7 +687,7 @@
 			isa = PBXGroup;
 			children = (
 				B52A6C271E36B3DB005893D2 /* API */,
-				B52A6C391E36BAC2005893D2 /* Constants.swift */,
+				B52A6C391E36BAC2005893D2 /* AppConstants.swift */,
 				B5656F2C1E6501B200E5DB0E /* LastFM API */,
 				B52A6C2C1E36B9BB005893D2 /* Models */,
 				B50395581E4BA4E800D9A71B /* Offradio API */,
@@ -1115,13 +1115,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B5B192271E70A289009A8960 /* HTMLEntities */ = {
+		B59A88DE1F27ACFA003509C3 /* HTMLEntities */ = {
 			isa = PBXGroup;
 			children = (
-				B5B192281E70A289009A8960 /* HTMLConstants.swift */,
-				B5B192291E70A289009A8960 /* ParseError.swift */,
-				B5B1922A1E70A289009A8960 /* String+HTMLEntities.swift */,
-				B5B1922B1E70A289009A8960 /* Utilities.swift */,
+				B59A88DF1F27AD05003509C3 /* Constants.swift */,
+				B59A88E01F27AD05003509C3 /* ParseError.swift */,
+				B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */,
+				B59A88E21F27AD05003509C3 /* Utilities.swift */,
 			);
 			path = HTMLEntities;
 			sourceTree = "<group>";
@@ -1652,10 +1652,8 @@
 				B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */,
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
 				B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */,
-				B5B1922E1E70A289009A8960 /* String+HTMLEntities.swift in Sources */,
 				B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */,
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
-				B5B1922F1E70A289009A8960 /* Utilities.swift in Sources */,
 				B5D923781E65E4800013A3F4 /* Show.swift in Sources */,
 				B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */,
 				B54E08861E4D554E00B54FB3 /* DateExtensions.swift in Sources */,
@@ -1664,6 +1662,7 @@
 				B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */,
 				B50395551E4BA33200D9A71B /* RequestParameters.swift in Sources */,
 				B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */,
+				B59A88E41F27AD05003509C3 /* ParseError.swift in Sources */,
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
@@ -1690,11 +1689,12 @@
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B58649FD1E61C4A800501AF7 /* ModelResult.swift in Sources */,
-				B5B1922C1E70A289009A8960 /* HTMLConstants.swift in Sources */,
 				B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */,
+				B59A88E51F27AD05003509C3 /* String+HTMLEntities.swift in Sources */,
 				B50395701E4BCA0100D9A71B /* PlaylistService.swift in Sources */,
 				B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */,
+				B59A88E31F27AD05003509C3 /* Constants.swift in Sources */,
 				B5483B961EB4F44E004AC6BF /* Song.swift in Sources */,
 				B53942A91E4A8E2C00AF5BE5 /* ToggleBase.m in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
@@ -1704,6 +1704,7 @@
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
 				B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */,
 				B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */,
+				B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */,
 				B507C0A61E56869800792414 /* DataLayer.swift in Sources */,
 				B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */,
 				B52C2D3E1EB0E12200AF8514 /* OffradioWatchCommunication.swift in Sources */,
@@ -1714,14 +1715,13 @@
 				B5F125281E5CC82400579D4B /* ViewArranger.swift in Sources */,
 				B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */,
 				B53FC4761E9C04C600DC82AD /* TrackShareViewModel.swift in Sources */,
-				B52A6C3F1E36BAC2005893D2 /* Constants.swift in Sources */,
+				B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */,
 				B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */,
 				B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */,
 				B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */,
 				B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */,
 				B503956E1E4BCA0100D9A71B /* APIURL.swift in Sources */,
 				B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */,
-				B5B1922D1E70A289009A8960 /* ParseError.swift in Sources */,
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B54E08801E4D10C400B54FB3 /* ScheduleDelegate.swift in Sources */,
 				B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */,
@@ -1770,23 +1770,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59A88E81F27ADC2003509C3 /* ParseError.swift in Sources */,
 				B5483B991EB4F813004AC6BF /* PlaylistTableViewRow.swift in Sources */,
 				B5483B921EB4EFA2004AC6BF /* InterfaceController.swift in Sources */,
 				B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */,
 				B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */,
-				B58E755E1EB39FB700D06C15 /* HTMLConstants.swift in Sources */,
-				B58E75601EB39FBD00D06C15 /* Utilities.swift in Sources */,
 				B52C2D481EB1091700AF8514 /* OffradioWatchRadioAction.swift in Sources */,
+				B59A88EA1F27ADC2003509C3 /* Utilities.swift in Sources */,
+				B59A88E71F27ADC2003509C3 /* Constants.swift in Sources */,
 				B52C2D421EB0F18700AF8514 /* Radio.swift in Sources */,
 				B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */,
-				B58E755D1EB39FA400D06C15 /* String+HTMLEntities.swift in Sources */,
 				B5483B931EB4EFA2004AC6BF /* PlaylistController.swift in Sources */,
-				B58E755F1EB39FBA00D06C15 /* ParseError.swift in Sources */,
 				B5483B861EB4BB1E004AC6BF /* OffradioWatchSession.swift in Sources */,
 				B5483B901EB4EFA2004AC6BF /* CurrentShowController.swift in Sources */,
 				B58E755B1EB39F9100D06C15 /* Show.swift in Sources */,
 				B5483B971EB4F489004AC6BF /* Song.swift in Sources */,
 				B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */,
+				B59A88E91F27ADC2003509C3 /* String+HTMLEntities.swift in Sources */,
 				B5483B911EB4EFA2004AC6BF /* CurrentTrackController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
