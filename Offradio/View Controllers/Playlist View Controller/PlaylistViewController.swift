@@ -29,7 +29,7 @@ final class PlaylistViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // swiftlint:disable function_body_length
     override func viewDidLoad() {
         super.viewDidLoad()
