@@ -113,10 +113,6 @@
 		B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */; };
 		B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088E1E4E307700B54FB3 /* ContactModels.swift */; };
 		B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */; };
-		B5656F151E64814C00E5DB0E /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F101E64814C00E5DB0E /* MockAPIService.swift */; };
-		B5656F161E64814C00E5DB0E /* DummyModel.json in Resources */ = {isa = PBXBuildFile; fileRef = B5656F121E64814C00E5DB0E /* DummyModel.json */; };
-		B5656F171E64814C00E5DB0E /* DummyPersons.json in Resources */ = {isa = PBXBuildFile; fileRef = B5656F131E64814C00E5DB0E /* DummyPersons.json */; };
-		B5656F181E64814C00E5DB0E /* mock-person.json in Resources */ = {isa = PBXBuildFile; fileRef = B5656F141E64814C00E5DB0E /* mock-person.json */; };
 		B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F191E64857D00E5DB0E /* Offradio.swift */; };
 		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
 		B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */; };
@@ -134,11 +130,6 @@
 		B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960581E492AA1003BFBC6 /* ContactViewController.swift */; };
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
 		B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */; };
-		B58649F41E61BC2F00501AF7 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F31E61BC2F00501AF7 /* APIRequestTests.swift */; };
-		B58649F61E61BC8600501AF7 /* APIResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F51E61BC8600501AF7 /* APIResponseTests.swift */; };
-		B58649F91E61BF3B00501AF7 /* DummyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649F81E61BF3B00501AF7 /* DummyModel.swift */; };
-		B58649FB1E61BF7C00501AF7 /* DummyAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649FA1E61BF7C00501AF7 /* DummyAPIResponse.swift */; };
-		B58649FF1E61C53400501AF7 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58649FE1E61C53400501AF7 /* APIServiceTests.swift */; };
 		B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */; };
 		B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AE1EAFC0E5005321CA /* Shortcuts.swift */; };
 		B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58678D91EAFCF4A005321CA /* Interface.storyboard */; };
@@ -374,10 +365,6 @@
 		B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		B54E088E1E4E307700B54FB3 /* ContactModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactModels.swift; sourceTree = "<group>"; };
 		B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
-		B5656F101E64814C00E5DB0E /* MockAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
-		B5656F121E64814C00E5DB0E /* DummyModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyModel.json; sourceTree = "<group>"; };
-		B5656F131E64814C00E5DB0E /* DummyPersons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DummyPersons.json; sourceTree = "<group>"; };
-		B5656F141E64814C00E5DB0E /* mock-person.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "mock-person.json"; sourceTree = "<group>"; };
 		B5656F191E64857D00E5DB0E /* Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offradio.swift; sourceTree = "<group>"; };
 		B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OffradioMetadata.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioCommandCenter.swift; sourceTree = "<group>"; };
@@ -395,11 +382,6 @@
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
 		B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioAppWatchSession.swift; sourceTree = "<group>"; };
-		B58649F31E61BC2F00501AF7 /* APIRequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
-		B58649F51E61BC8600501AF7 /* APIResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponseTests.swift; sourceTree = "<group>"; };
-		B58649F81E61BF3B00501AF7 /* DummyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyModel.swift; sourceTree = "<group>"; };
-		B58649FA1E61BF7C00501AF7 /* DummyAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyAPIResponse.swift; sourceTree = "<group>"; };
-		B58649FE1E61C53400501AF7 /* APIServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = APIServiceTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutsEnum.swift; sourceTree = "<group>"; };
 		B58678AE1EAFC0E5005321CA /* Shortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
 		B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OffradioWatchKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -858,7 +840,6 @@
 		B54BC8BC1E36A9DC0043F248 /* OffradioTests */ = {
 			isa = PBXGroup;
 			children = (
-				B58649F21E61BC2F00501AF7 /* API Core Tests */,
 				B54BC8BF1E36A9DC0043F248 /* Info.plist */,
 			);
 			path = OffradioTests;
@@ -916,24 +897,6 @@
 				B54E088E1E4E307700B54FB3 /* ContactModels.swift */,
 			);
 			path = "View Model";
-			sourceTree = "<group>";
-		};
-		B5656F0F1E64814C00E5DB0E /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				B5656F101E64814C00E5DB0E /* MockAPIService.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
-		B5656F111E64814C00E5DB0E /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B5656F121E64814C00E5DB0E /* DummyModel.json */,
-				B5656F131E64814C00E5DB0E /* DummyPersons.json */,
-				B5656F141E64814C00E5DB0E /* mock-person.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		B5656F2C1E6501B200E5DB0E /* LastFM API */ = {
@@ -1005,28 +968,6 @@
 				B52C2D461EB1090F00AF8514 /* OffradioWatchRadioAction.swift */,
 			);
 			path = OffradioWatch;
-			sourceTree = "<group>";
-		};
-		B58649F21E61BC2F00501AF7 /* API Core Tests */ = {
-			isa = PBXGroup;
-			children = (
-				B5656F0F1E64814C00E5DB0E /* Mocks */,
-				B5656F111E64814C00E5DB0E /* Resources */,
-				B58649F71E61BF2500501AF7 /* APIResponse Helpers */,
-				B58649F31E61BC2F00501AF7 /* APIRequestTests.swift */,
-				B58649F51E61BC8600501AF7 /* APIResponseTests.swift */,
-				B58649FE1E61C53400501AF7 /* APIServiceTests.swift */,
-			);
-			path = "API Core Tests";
-			sourceTree = "<group>";
-		};
-		B58649F71E61BF2500501AF7 /* APIResponse Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				B58649F81E61BF3B00501AF7 /* DummyModel.swift */,
-				B58649FA1E61BF7C00501AF7 /* DummyAPIResponse.swift */,
-			);
-			path = "APIResponse Helpers";
 			sourceTree = "<group>";
 		};
 		B58678AB1EAFC08F005321CA /* Shortcuts */ = {
@@ -1368,9 +1309,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5656F161E64814C00E5DB0E /* DummyModel.json in Resources */,
-				B5656F171E64814C00E5DB0E /* DummyPersons.json in Resources */,
-				B5656F181E64814C00E5DB0E /* mock-person.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1699,12 +1637,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5656F151E64814C00E5DB0E /* MockAPIService.swift in Sources */,
-				B58649FF1E61C53400501AF7 /* APIServiceTests.swift in Sources */,
-				B58649F91E61BF3B00501AF7 /* DummyModel.swift in Sources */,
-				B58649F61E61BC8600501AF7 /* APIResponseTests.swift in Sources */,
-				B58649F41E61BC2F00501AF7 /* APIRequestTests.swift in Sources */,
-				B58649FB1E61BF7C00501AF7 /* DummyAPIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
