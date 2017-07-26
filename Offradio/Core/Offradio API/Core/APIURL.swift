@@ -12,6 +12,10 @@ public struct APIURL {
     
     fileprivate let api = "/mobile-api/"
     
+    var apiPath: String {
+        return "\(baseUrl)\(api)"
+    }
+    
     func with(_ path: String) -> String {
         return self.baseUrl + api + path
     }

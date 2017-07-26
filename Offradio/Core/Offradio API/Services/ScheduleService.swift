@@ -7,15 +7,28 @@
 //
 
 import SwiftyJSON
+import Omicron
+import Alamofire
 
-final class ScheduleService: APIService<Schedule> {
+enum ScheduleService: Service {
+    case schedule
+}
 
-    init() {
-        let path: String = APIURL().with("schedule")
-        let request = APIRequest(apiPath: path, method: .get)
-        super.init(request: request, parse: ScheduleResponseParse())
+extension ScheduleService {
+    var baseURL: URL { return URL(string: APIURL().apiPath)! }
+    
+    var method: HTTPMethod {
+        return .get
     }
     
+    var path: String {
+        return "schedule"
+    }
+    
+    var params: RequestParameters {
+        return RequestParameters.default
+    }
+
 }
 
 final class ScheduleResponseParse: APIResponse<Schedule> {

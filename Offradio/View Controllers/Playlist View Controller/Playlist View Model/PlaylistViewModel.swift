@@ -11,12 +11,11 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import RxRealm
+import Omicron
 
 final class PlaylistViewModel {
     
     private let disposeBag = DisposeBag()
-    
-    private var service: PlaylistService!
     
     let initialLoad: Variable<Bool> = Variable<Bool>(true)
     
@@ -25,6 +24,9 @@ final class PlaylistViewModel {
     let indicatorViewAnimating: Variable<Bool> = Variable<Bool>(false)
     
     var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
+    
+    let playlistService = APIService<PlaylistService>()
+    let playlistParser = PlaylistResponseParse()
     
     fileprivate var page: Int = 0
     fileprivate let totalPagesToFetch: Int = 10
@@ -61,10 +63,9 @@ final class PlaylistViewModel {
     // MARK: Internal methods
     
     fileprivate func fetchPlaylist(withPage page: Int) {
-        self.service = PlaylistService(withPage: page)
-        self.service.call({ [weak self] (success, data, headers) in
+        self.playlistService.call(with: .playlist(page: page), parse: playlistParser) { [weak self] (success, result, _) in
             guard let strongSelf = self else { return }
-            if let items = data.value {
+            if let items = result.value, success {
                 if strongSelf.page == 0 {
                     strongSelf.playlistData.value = items.map { PlaylistCellViewModel(with: $0) }
                 } else {
@@ -75,7 +76,7 @@ final class PlaylistViewModel {
             strongSelf.refresh.value = false
             strongSelf.indicatorViewAnimating.value = false
             strongSelf.initialLoad.value = false
-        })
+        }
     }
     
 }

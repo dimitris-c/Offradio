@@ -9,6 +9,7 @@
 import RxSwift
 import RxCocoa
 import RxAlamofire
+import Omicron
 
 final class OffradioMetadata {
     fileprivate let disposeBag = DisposeBag()
@@ -16,9 +17,10 @@ final class OffradioMetadata {
     let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)
     
     fileprivate let crc: Variable<String> = Variable<String>("")
-    fileprivate let crcService: CRCService = CRCService()
-    fileprivate var lastFMApiService: LastFMApiService!
-    fileprivate var nowPlayingService: NowPlayingService!
+    fileprivate let crcService = RxAPIService<CRCService>()
+    fileprivate let lastFMApiService = RxAPIService<LastFMAPIService>()
+    fileprivate let nowPlayingService = RxAPIService<NowPlayingService>()
+    fileprivate let nowPlayingParser = NowPlayingParse()
     
     fileprivate var timerDisposeBag: DisposeBag?
     
@@ -54,18 +56,17 @@ final class OffradioMetadata {
     }
     
     fileprivate func fetchCRC() -> Observable<String> {
-        return self.crcService.request.toAlamofire().rx.string()
+        return self.crcService.callString(with: .crc)
     }
     
     func fetchNowPlaying() -> Observable<NowPlaying> {
-        self.nowPlayingService = NowPlayingService()
-        return self.nowPlayingService.rxCall()
+        return self.nowPlayingService.call(with: .nowPlaying, parse: nowPlayingParser)
     }
 
     // Currently Not Used
     fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
-        self.lastFMApiService = LastFMApiService(with: nowPlaying.current.artist)
-        return self.lastFMApiService.rxCall().map({ (artist) -> NowPlaying in
+        let path: LastFMAPIService = .artistInfo(artist: nowPlaying.current.artist)
+        return self.lastFMApiService.call(with: path, parse: LastFMAPIResponseParse()).map({ (artist) -> NowPlaying in
             let filtered = artist.images.filter { $0.size == "mega" || $0.size == "large" }
             if let image = filtered.first {
                 return nowPlaying.update(with: image.url)

@@ -7,15 +7,28 @@
 //
 
 import SwiftyJSON
+import Alamofire
+import Omicron
 
-final class NowPlayingService: APIService<NowPlaying> {
+enum NowPlayingService: Service {
+    case nowPlaying
+}
+
+extension NowPlayingService {
+    var baseURL: URL { return URL(string: APIURL().apiPath)! }
     
-    init() {
-        let path: String = APIURL().with("nowplaying?noCache=\(Date().timeIntervalSince1970)")
-        let request = APIRequest(apiPath: path, method: .get)
-        super.init(request: request, parse: NowPlayingParse())
+    var method: HTTPMethod {
+        return .get
     }
     
+    var params: RequestParameters {
+        let now = Date().timeIntervalSince1970
+        return RequestParameters(parameters: ["noCache": String(now)])
+    }
+    
+    var path: String {
+        return "nowplaying"
+    }
 }
 
 final class NowPlayingParse: APIResponse<NowPlaying> {
@@ -26,14 +39,25 @@ final class NowPlayingParse: APIResponse<NowPlaying> {
     
 }
 
-final class CRCService: APIService<String> {
+enum CRCService: Service {
+    case crc
+}
+
+extension CRCService {
+    var baseURL: URL { return URL(string: APIURL().baseUrl)! }
     
-    init() {
-        let path: String = APIURL().baseUrl + "/mob_player.crc?noCache=\(Date().timeIntervalSince1970)"
-        let request = APIRequest(apiPath: path, method: .get)
-        super.init(request: request, parse: CRCResponse())
+    var method: HTTPMethod {
+        return .get
     }
     
+    var params: RequestParameters {
+        let now = Date().timeIntervalSince1970
+        return RequestParameters(parameters: ["noCache": String(now)])
+    }
+    
+    var path: String {
+        return "mob_player.crc"
+    }
 }
 
 final class CRCResponse: APIResponse<String> {

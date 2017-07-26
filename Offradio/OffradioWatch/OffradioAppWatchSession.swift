@@ -9,13 +9,14 @@
 import WatchConnectivity
 import SwiftyJSON
 import RxSwift
+import Omicron
 
 class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     
     var disposeBag: DisposeBag? = DisposeBag()
     var radio: Offradio!
     var viewModel: RadioViewModel!
-    let playlistService: PlaylistService = PlaylistService(withPage: 0)
+    let playlistService = APIService<PlaylistService>()
     let playlistFavouritesLayer = PlaylistFavouritesLayer()
     
     init(with radio: Offradio, andViewModel model: RadioViewModel) {
@@ -151,7 +152,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
     
     fileprivate func fetchPlaylist(withReply reply: @escaping ([Song]) -> Void) {
-        self.playlistService.call { (success, result, headers) in
+        self.playlistService.call(with: .playlist(page: 0), parse: PlaylistResponseParse()) { (success, result, _) in
             if success, let data = result.value {
                 let songs = data.map { $0.toSong() }
                 reply(songs)

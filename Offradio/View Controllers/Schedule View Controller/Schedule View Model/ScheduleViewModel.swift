@@ -9,6 +9,7 @@
 import RxSwift
 import RxCocoa
 import RxAlamofire
+import Omicron
 
 final class ScheduleViewModel {
     let disposeBag: DisposeBag = DisposeBag()
@@ -16,16 +17,14 @@ final class ScheduleViewModel {
     var firstLoad: Variable<Bool> = Variable<Bool>(true)
     var refresh: Variable<Bool> = Variable<Bool>(false)
     
-    fileprivate var scheduleService: ScheduleService!
-    fileprivate var producersService: ProducersBioService!
+    fileprivate var scheduleService = RxAPIService<ScheduleService>()
+    fileprivate var producersService = RxAPIService<ProducersBioService>()
     
     let navigationTitle: Variable<String> = Variable<String>("Offradio")
     let schedule: Variable<[ScheduleItem]> = Variable<[ScheduleItem]>([])
     let producers: Variable<[Producer]> = Variable<[Producer]>([])
     
     init() {
-        scheduleService = ScheduleService()
-        producersService = ProducersBioService()
         
         self.fetchSchedule()
             .do(onNext: { [weak self] schedule in
@@ -63,7 +62,7 @@ final class ScheduleViewModel {
     // MARK: Internal methods
 
     fileprivate func fetchSchedule() -> Observable<Schedule> {
-        return self.scheduleService.rxCall().do(onError: { [weak self] (_) in
+        return self.scheduleService.call(with: .schedule, parse: ScheduleResponseParse()).do(onError: { [weak self] (_) in
             self?.refresh.value = false
             self?.firstLoad.value = false
         }, onCompleted: { [weak self] in
@@ -73,7 +72,7 @@ final class ScheduleViewModel {
     }
     
     fileprivate func fetchProducers() -> Observable<[Producer]> {
-        return self.producersService.rxCall()
+        return self.producersService.call(with: .producers, parse: ProducerResponseParse())
     }
     
 }

@@ -7,13 +7,26 @@
 //
 
 import SwiftyJSON
+import Alamofire
+import Omicron
 
-final class ProducersBioService: APIService<[Producer]> {
+enum ProducersBioService: Service {
+    case producers
+}
+
+extension ProducersBioService {
+    var baseURL: URL { return URL(string: APIURL().apiPath)! }
     
-    init() {
-        let path: String = APIURL().with("producers")
-        let request = APIRequest(apiPath: path, method: .get)
-        super.init(request: request, parse: ProducerResponseParse())
+    var method: HTTPMethod {
+        return .get
+    }
+    
+    var path: String {
+        return "producers"
+    }
+    
+    var params: RequestParameters {
+        return RequestParameters.default
     }
     
 }
