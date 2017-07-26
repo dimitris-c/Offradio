@@ -52,7 +52,9 @@ final class OffradioMetadata {
     }
     
     func forceRefresh() {
-        self.fetchNowPlaying().bind(to: nowPlaying).addDisposableTo(disposeBag)
+        self.fetchNowPlaying()
+            .bind(to: nowPlaying)
+            .addDisposableTo(disposeBag)
     }
     
     fileprivate func fetchCRC() -> Observable<String> {
@@ -60,7 +62,7 @@ final class OffradioMetadata {
     }
     
     func fetchNowPlaying() -> Observable<NowPlaying> {
-        return self.nowPlayingService.call(with: .nowPlaying, parse: nowPlayingParser)
+        return self.nowPlayingService.call(with: .nowPlaying, parse: nowPlayingParser).catchErrorJustReturn(NowPlaying.default)
     }
 
     // Currently Not Used

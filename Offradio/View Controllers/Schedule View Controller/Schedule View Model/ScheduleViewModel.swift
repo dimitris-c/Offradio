@@ -42,6 +42,7 @@ final class ScheduleViewModel {
                 return strongSelf.fetchSchedule()
             }
             .map { $0.items }
+            .catchErrorJustReturn([])
             .bind(to: schedule)
             .addDisposableTo(disposeBag)
         

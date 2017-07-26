@@ -13,6 +13,7 @@ struct NowPlaying {
     let current: CurrentTrack
     
     static let empty = NowPlaying(show: .empty, current: .empty)
+    static let `default` = NowPlaying(show: .default, current: .default)
     
     init(json: JSON) {
         self.show = Show(json: json["show"])
