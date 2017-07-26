@@ -15,7 +15,7 @@
 	NSUInteger bufferCountSRK;
 	NSUInteger currBuffPtr;
 	NSUInteger bufferByteOffset;  // Used when listening to a file and we've skipped ahead so we don't have the earlier part of the file in memory
-	
+
 	UIColor	*bufferColor;
 	UIColor *bufferNeedleColor;
 }

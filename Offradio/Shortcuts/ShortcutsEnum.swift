@@ -11,13 +11,13 @@ enum ShortcutIdentifier: String {
     case schedule
     case playlist
     case favourites
-    
+
     init?(fullType: String) {
-        
+
         guard let last = fullType.components(separatedBy: ".").last else { return nil }
         self.init(rawValue: last)
     }
-    
+
     var type: String {
         return Bundle.main.bundleIdentifier! + ".\(self.rawValue)"
     }

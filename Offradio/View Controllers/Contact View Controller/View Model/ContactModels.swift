@@ -18,7 +18,7 @@ enum ContactItemType {
 struct ContactItem {
     let title: String
     let type: ContactItemType
-    
+
     func accesoryImages() -> (normal: UIImage, selected: UIImage) {
         switch type {
         case .facebook:

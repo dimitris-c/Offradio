@@ -11,12 +11,12 @@ import Foundation
 struct Shortcuts {
     func handle(shortcut item: UIApplicationShortcutItem, `for` viewController: OffradioContentViewController) -> Bool {
         var handled = false
-        
+
         // Verify that the provided `shortcutItem`'s `type` is one handled by the application.
         guard ShortcutIdentifier(fullType: item.type) != nil else { return false }
         guard let shortCutType = item.type as String? else { return false }
-        
-        switch (shortCutType) {
+
+        switch shortCutType {
         case ShortcutIdentifier.radio.type:
             handled = true
             viewController.turnRadioOn()
@@ -35,7 +35,7 @@ struct Shortcuts {
         default:
             break
         }
-        
+
         return handled
     }
 }

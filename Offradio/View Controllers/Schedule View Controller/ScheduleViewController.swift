@@ -11,65 +11,65 @@ import RxSwift
 import RxCocoa
 
 final class ScheduleViewController: UIViewController {
-    
+
     let disposeBag: DisposeBag = DisposeBag()
-    
+
     var tableView: UITableView!
-    
+
     var viewModel: ScheduleViewModel!
-    var delegate: ScheduleDelegate!
-    
+    weak var delegate: ScheduleDelegate!
+
     var activityIndicator: UIActivityIndicatorView!
     var refreshControl: UIRefreshControl!
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
-        self.title = "Schedule"        
+        self.title = "Schedule"
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("not implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
-        
+        self.view.backgroundColor = UIColor.lightBlack
+
         let date = Date()
         if let weekDay = date.dayOfWeek() {
             self.navigationItem.title = "Schedule - \(weekDay)"
         }
-        
+
         self.viewModel = ScheduleViewModel()
-        
+
         self.tableView = UITableView()
         self.tableView.backgroundColor = self.view.backgroundColor?.withAlphaComponent(0)
         self.tableView.register(cellType: ScheduleTableViewCell.self)
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
+
         self.delegate = ScheduleDelegate(withViewController: self, dataSource: self.viewModel)
         self.tableView.delegate = self.delegate
-        
+
         self.view.addSubview(self.tableView)
-        
+
         self.registerForPreviewing(with: self, sourceView: self.tableView)
-        
+
         self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         self.activityIndicator.startAnimating()
         self.view.addSubview(self.activityIndicator)
-        
+
         let identifier = ScheduleTableViewCell.identifier
         let cellType = ScheduleTableViewCell.self
-        
+
         self.viewModel.navigationTitle.asObservable().bind(to: self.navigationItem.rx.title).addDisposableTo(disposeBag)
-        
+
         self.viewModel.schedule.asObservable()
-            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, item, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, item, cell in
                 cell.configure(with: item)
             }.addDisposableTo(disposeBag)
-        
+
         self.refreshControl = UIRefreshControl()
         if #available(iOS 10.0, *) {
             self.tableView.refreshControl = self.refreshControl
@@ -77,30 +77,30 @@ final class ScheduleViewController: UIViewController {
             tableView?.addSubview(refreshControl)
             tableView.sendSubview(toBack: refreshControl)
         }
-        
+
         self.refreshControl.rx.controlEvent(.valueChanged)
             .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? true) }
             .bind(to: self.viewModel.refresh)
             .addDisposableTo(disposeBag)
-        
+
         self.viewModel.refresh.asObservable().bind(to: self.refreshControl.rx.isRefreshing).addDisposableTo(disposeBag)
         self.viewModel.firstLoad.asObservable().bind(to: self.activityIndicator.rx.isAnimating).addDisposableTo(disposeBag)
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         self.tableView.frame = self.view.bounds
-        
+
         self.activityIndicator.sizeToFit()
         self.activityIndicator.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
-        
+
     }
-    
+
 }
 
 extension ScheduleViewController {
-    
+
     func defaultTabBarItem() -> UITabBarItem {
         let item = UITabBarItem(title: "",
                                 image: UIImage(named: "schedule"),
@@ -109,31 +109,31 @@ extension ScheduleViewController {
         item.tag = TabIdentifier.schedule.rawValue
         return item
     }
-    
+
 }
 
 extension ScheduleViewController: UIViewControllerPreviewingDelegate {
-    
+
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
-        
+
         let item = viewModel.getSchedule(at: indexPath)
         if item.hasBio, let bio = viewModel.getProducerBio(for: item.title) {
-            
+
             let producerBioViewController = ProducersBioViewController(with: bio)
             let cellRect = tableView.rectForRow(at: indexPath)
             let sourceRect = previewingContext.sourceView.convert(cellRect, to: tableView)
             previewingContext.sourceRect = sourceRect
-            
+
             return producerBioViewController
         }
-        
+
         return nil
     }
-    
+
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         self.hideLabelOnBackButton()
         show(viewControllerToCommit, sender: self)
     }
-    
+
 }

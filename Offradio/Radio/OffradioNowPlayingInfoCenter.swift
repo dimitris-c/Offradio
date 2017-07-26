@@ -13,18 +13,18 @@ import SDWebImage
 
 class OffradioNowPlayingInfoCenter {
     fileprivate final let disposeBag = DisposeBag()
-    
+
     fileprivate var offradio: Offradio!
-    
+
     init(with radio: Offradio) {
         self.offradio = radio
-        
+
         self.offradio.metadata.nowPlaying.asObservable()
             .skipWhile({ $0.isEmpty() })
             .subscribe(onNext: { [weak self] nowPlaying in
                 self?.updateInfo(with: nowPlaying)
         }).addDisposableTo(disposeBag)
-        
+
         self.offradio.metadata.nowPlaying.asObservable()
             .skipWhile({ $0.isEmpty() })
             .flatMapLatest { nowPlaying -> Observable<UIImage?> in
@@ -39,9 +39,9 @@ class OffradioNowPlayingInfoCenter {
                     self?.updateInfo(with: image)
                 }
         }).addDisposableTo(disposeBag)
-        
+
     }
-    
+
     fileprivate func updateInfo(with nowPlaying: NowPlaying) {
         var info: [String: Any] = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
         info[MPMediaItemPropertyTitle]      = nowPlaying.current.track
@@ -49,11 +49,11 @@ class OffradioNowPlayingInfoCenter {
         info[MPMediaItemPropertyAlbumTitle] = "Offradio - \(nowPlaying.show.name)"
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
-    
+
     fileprivate func updateInfo(with image: UIImage) {
         var info: [String: Any] = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
         info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image)
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
-    
+
 }

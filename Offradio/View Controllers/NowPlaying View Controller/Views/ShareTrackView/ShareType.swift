@@ -13,7 +13,7 @@ enum ShareType {
     case twitter
     case email
     case none
-    
+
     func buttonImage(isSelected selected: Bool = false) -> String {
         switch self {
         case .facebook:
@@ -26,5 +26,5 @@ enum ShareType {
             return ""
         }
     }
-    
+
 }

@@ -22,7 +22,7 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
 #define RIGHT_BUTTON_RECT CGRectMake(0, 0, 160, 85)
 #define TOGGLE_SLIDE_DULATION 0.1f
 
-@implementation ToggleView 
+@implementation ToggleView
 @synthesize toggleDelegate;
 @synthesize viewType;
 @synthesize on = _on;
@@ -36,32 +36,32 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
     if (self) {
         self.frame = frame;
         self.viewType = aViewType;
-        
+
         self.backgroundColor = [UIColor clearColor];
         UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:TOGGLE_VIEW_BACKGROUND]];
         [self addSubview:bgImageView];
-        
+
         //set up toggle base image.
         _toggleBase = [[ToggleBase alloc] initWithImage:[UIImage imageNamed:TOGGLE_BASE_IMAGE] baseType:aBaseType];
         _toggleBase.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
         _toggleBase.userInteractionEnabled = YES;
-        
+
         //set up toggle button image.
         _toggleButton = [[ToggleButton alloc] initWithImage:[UIImage imageNamed:TOGGLE_BUTTON_IMAGE] buttonType:aButtonType];
         _toggleButton.userInteractionEnabled = YES;
-       
+
         CGRect baseViewFrame = CGRectMake(_toggleBase.frame.origin.x + _toggleButton.frame.size.width/2,
                                           _toggleBase.frame.origin.y,
                                           _toggleBase.frame.size.width - _toggleButton.frame.size.width,
                                           _toggleBase.frame.size.height);
         _baseView = [[UIView alloc] initWithFrame:baseViewFrame];
         [self addSubview:_baseView];
-        
+
         //calculate left/right edge
         _leftEdge = _toggleBase.frame.origin.x + _toggleButton.frame.size.width/2;
         _rightEdge = _toggleBase.frame.origin.x + _toggleBase.frame.size.width - _toggleButton.frame.size.width/2;
         _toggleButton.center = CGPointMake(_leftEdge, self.frame.size.height/2);
-        
+
         if (self.viewType == ToggleViewTypeWithLabel)
         {
             //set up toggle left label image.
@@ -72,7 +72,7 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
             [_leftButton addTarget:self action:@selector(onLeftButton:) forControlEvents:UIControlEventTouchUpInside];
             _leftButton.center = CGPointMake(_leftEdge - _leftButton.frame.size.width, _toggleBase.center.y);
             [self addSubview:_leftButton];
-            
+
             //set up toggle right label image.
             _rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
             [_rightButton setFrame:RIGHT_BUTTON_RECT];
@@ -81,20 +81,20 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
             [_rightButton addTarget:self action:@selector(onRightButton:) forControlEvents:UIControlEventTouchUpInside];
             _rightButton.center = CGPointMake(_rightEdge + _rightButton.frame.size.width, _toggleBase.center.y);
             [self addSubview:_rightButton];
-            
+
             _leftButton.selected = YES;
             _rightButton.selected = NO;
         }
-        
+
         [self addSubview:_toggleBase];
         [self addSubview:_toggleButton];
-        
+
         UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
-        
+
         UITapGestureRecognizer* buttonTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleButtonTapGesture:)];
-        
+
         UITapGestureRecognizer* baseTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleBaseTapGesture:)];
-        
+
         [_toggleButton addGestureRecognizer:panGesture];
         [_toggleButton addGestureRecognizer:buttonTapGesture];
         [_toggleBase addGestureRecognizer:baseTapGesture];
@@ -104,9 +104,9 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    
-    
+
+
+
 }
 
 /**
@@ -153,7 +153,7 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
 
         }
     }
-    
+
 }
 
 - (void)onLeftButton:(id)sender
@@ -204,7 +204,7 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
         {
             _toggleButton.center = CGPointMake(_baseView.frame.origin.x + (positonValue * _baseView.frame.size.width), _toggleButton.center.y);
         }
-        
+
     }
     else //isEnded == YES;
     {
@@ -215,7 +215,7 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
             [_toggleButton selectedLeftToggleButton];
             _on = false;
             [self.toggleDelegate selectLeftButton];
-            
+
         }
         else if (positonValue == 1.f)
         {
@@ -251,7 +251,7 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
 }
 
 - (void)handleButtonTapGesture:(UITapGestureRecognizer*) sender {
-    
+
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         if (_toggleButton.center.x == _rightEdge)
@@ -280,7 +280,7 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
 }
 
 - (void)handleBaseTapGesture:(UITapGestureRecognizer*) sender {
-    
+
     if (sender.state == UIGestureRecognizerStateEnded)
     {
         if (_toggleButton.center.x == _rightEdge)
@@ -310,38 +310,38 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
 
 
 - (void)handlePanGesture:(UIPanGestureRecognizer*) sender {
-        
+
     if (sender.state == UIGestureRecognizerStateBegan)
     {
         CGPoint currentPoint = [sender locationInView:_baseView];
         float position = currentPoint.x;
         float positionValue = position / _baseView.frame.size.width;
-        
+
         if (positionValue < 1.f && positionValue > 0.f)
         {
             [self setTogglePosition:positionValue ended:NO];
         }
     }
-    
+
     if (sender.state == UIGestureRecognizerStateChanged)
     {
         CGPoint currentPoint = [sender locationInView:_baseView];
         float position = currentPoint.x;
         float positionValue = position / _baseView.frame.size.width;
-        
+
         if (positionValue < 1.f && positionValue > 0.f)
         {
             [self setTogglePosition:positionValue ended:NO];
         }
     }
-    
+
     if (sender.state == UIGestureRecognizerStateEnded)
     {
-        
+
         CGPoint currentPoint = [sender locationInView:_baseView];
         float position = currentPoint.x;
         float positionValue = position / _baseView.frame.size.width;
-        
+
         if (positionValue < 1.f && positionValue > 0.f)
         {
             [self setTogglePosition:positionValue ended:YES];

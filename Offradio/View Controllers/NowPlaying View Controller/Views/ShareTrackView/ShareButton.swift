@@ -10,17 +10,17 @@ import Foundation
 
 class ShareButton: UIButton {
     var shareType: ShareType!
-    
+
     init(with shareType: ShareType) {
         super.init(frame: .zero)
         self.shareType = shareType
-        
+
         self.setBackgroundImage(UIImage(named: shareType.buttonImage()), for: .normal)
         self.setBackgroundImage(UIImage(named: shareType.buttonImage(isSelected: true)), for: .highlighted)
         self.setBackgroundImage(UIImage(named: shareType.buttonImage(isSelected: true)), for: .selected)
-        
+
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

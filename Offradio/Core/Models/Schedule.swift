@@ -9,25 +9,25 @@
 import SwiftyJSON
 
 struct ScheduleItem {
-    
+
     let endTime: String
     let startTime: String
     let title: String
     let hasBio: Bool
-    
+
     var isOnAir: Bool = false
-    
+
     var timeTitle: String {
         return "\(startTime) - \(endTime)"
     }
-    
+
     init(with json: JSON) {
         self.startTime  = json["startTime"].stringValue
         self.endTime    = json["endTime"].stringValue
         self.title      = json["title"].stringValue
         self.hasBio     = json["bio"].boolValue
     }
-    
+
     init(withStartTime startTime: String, endTime: String, title: String, hasBio: Bool) {
         self.startTime = startTime
         self.endTime = endTime
@@ -39,11 +39,11 @@ struct ScheduleItem {
 struct Schedule {
     let day: String
     var items: [ScheduleItem] = []
-    
+
     var dayFormatted: String {
         return "Schedule - \(day)"
     }
-    
+
     init(with json: JSON) {
         self.day = json.arrayValue.first?["day"].stringValue ?? ""
         self.items = json.arrayValue.dropFirst().map { ScheduleItem(with: $0) }

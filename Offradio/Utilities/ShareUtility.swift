@@ -12,7 +12,7 @@ import TwitterKit
 import MessageUI
 
 class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
-    
+
     class func share(on type: ShareType, with nowPlaying: NowPlaying, using viewController: UIViewController) {
         switch type {
         case .facebook:
@@ -24,7 +24,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         default: break
         }
     }
-    
+
     class func shareOnFacebook(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
         guard let viewController = viewController else { return }
         print("Sharing on Facebook")
@@ -37,30 +37,30 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
 //        if let url = URL(string: currentTrack.image) {
 //            shareContent.imageURL = url
 //        }
-        
+
         FBSDKShareDialog.show(from: viewController, with: shareContent, delegate: nil)
     }
-    
+
     class func shareOnTwitter(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
         guard let viewController = viewController else { return }
         print("Sharing on Twitter")
-        
+
         let titleFactory = TwitterTitleFactory()
         let title = titleFactory.title(with: nowPlaying)
-        
+
         let composer = TWTRComposer()
         composer.setText(title)
         composer.setImage(UIImage(named: "turn-your-radio-off"))
-        
-        composer.show(from: viewController) { result in
-            
+
+        composer.show(from: viewController) { _ in
+
         }
     }
-    
+
     class func shareOnEmail(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
         guard let viewController = viewController else { return }
         print("Sharing on email")
-        
+
         if MFMailComposeViewController.canSendMail() {
             let mailController = MFMailComposeViewController()
             mailController.navigationBar.tintColor = UIColor.white
@@ -79,23 +79,18 @@ struct TwitterTitleFactory {
     private let hashtag: String = "#nowplaying"
     private let mention: String = "@offradio"
     private let playerLink: String = "http://www.offradio.gr/player"
-    
+
     private let limit: Int = 140
-    
+
     func title(with nowPlaying: NowPlaying) -> String {
         var fullTitle = "\(firstPart) Listening to \(nowPlaying.show.name) \(hashtag) \(nowPlaying.current.title) \(mention) \(playerLink)"
         if fullTitle.characters.count > 140 {
             fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
-        }
-        else if fullTitle.characters.count > 140 {
+        } else if fullTitle.characters.count > 140 {
             fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention) \(playerLink)"
-        }
-        else if fullTitle.characters.count > 140 {
+        } else if fullTitle.characters.count > 140 {
             fullTitle = "\(firstPart) Listening to \(nowPlaying.current.title) \(hashtag) \(mention) \(playerLink)"
         }
         return fullTitle
     }
 }
-
-
-

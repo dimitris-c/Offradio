@@ -8,6 +8,11 @@
 
 import SwiftyJSON
 import Alamofire
+import Omicron
+
+struct LastFMAPIKey {
+    static let apiKey: String = "afdc2c22f29208e54874cca3566b57ae"
+}
 
 struct LastFMImage {
     let url: String
@@ -25,19 +30,32 @@ struct LastFMArtist {
     }
 }
 
-final class LastFMApiService: APIService<LastFMArtist> {
-    fileprivate let apiPath = "https://ws.audioscrobbler.com/2.0/"
-    fileprivate let apiKey = "afdc2c22f29208e54874cca3566b57ae"
-    init(with artist: String) {
-        let params = ["method"  : "artist.getinfo",
-                      "api_key" : apiKey,
-                      "format"  : "json",
-                      "artist"  : artist]
-        let parameters = RequestParameters(parameters: params, encoding: URLEncoding.default)
-        let request = APIRequest(apiPath: apiPath, method: .get, parameters: parameters)
-        super.init(request: request, parse: LastFMAPIResponseParse())
+enum LastFMAPIService: Service {
+    case artistInfo(artist: String)
+}
+
+extension LastFMAPIService {
+    var baseURL: URL { return URL(string: "https://ws.audioscrobbler.com/2.0/")! }
+
+    var method: HTTPMethod {
+        return .get
     }
-    
+
+    var path: String {
+        return ""
+    }
+
+    var params: RequestParameters {
+        switch self {
+        case .artistInfo(let artist):
+            let data: Parameters = ["method": "artist.getinfo",
+                                    "api_key": LastFMAPIKey.apiKey,
+                                    "format": "json",
+                                    "artist": artist]
+            return RequestParameters(parameters: data)
+        }
+    }
+
 }
 
 final class LastFMAPIResponseParse: APIResponse<LastFMArtist> {

@@ -12,7 +12,7 @@ struct Producer {
     let name: String
     let bio: String
     let photoUrl: String
-    
+
     init(with json: JSON) {
         self.name   = json["name"].stringValue
         self.bio    = json["bio"].stringValue

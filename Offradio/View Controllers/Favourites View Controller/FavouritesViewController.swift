@@ -12,28 +12,27 @@ import RxCocoa
 
 final class FavouritesViewController: UIViewController {
     private let disposeBag = DisposeBag()
-    
+
     fileprivate var viewModel: FavouritesViewModel!
-    
+
     fileprivate var initialLoadActivityView: UIActivityIndicatorView!
     fileprivate var tableViewActivityContainerView: UIView!
     fileprivate var tableViewActivityView: UIActivityIndicatorView!
     fileprivate var tableView: UITableView!
-    
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
         self.navigationItem.title = "Favourites"
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(red:0.11, green:0.11, blue:0.11, alpha:1.00)
-        
+        self.view.backgroundColor = UIColor.lightBlack
+
         self.tableView = UITableView(frame: .zero)
         self.tableView.register(cellType: PlaylistTableViewCell.self)
         self.tableView.backgroundColor = self.view.backgroundColor
@@ -42,25 +41,25 @@ final class FavouritesViewController: UIViewController {
         self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 165, iPad: 195)
         self.tableView.tableFooterView = self.tableViewActivityContainerView
         self.view.addSubview(self.tableView)
-        
+
         self.viewModel = FavouritesViewModel(viewWillAppear: rx.viewWillAppear.asDriver())
-        
+
         let identifier = PlaylistTableViewCell.identifier
         let cellType = PlaylistTableViewCell.self
-        
+
         self.viewModel.playlistData.asObservable()
-            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { row, model, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, model, cell in
                 cell.shownInFavouritesList = true
                 cell.configure(with: model)
             }.addDisposableTo(disposeBag)
-        
+
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         self.tableView.frame = self.view.bounds
-        
+
     }
 
 }

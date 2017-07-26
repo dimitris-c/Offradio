@@ -1,0 +1,6 @@
+framework module Omicron {
+  umbrella header "Omicron-umbrella.h"
+
+  export *
+  module * { export * }
+}

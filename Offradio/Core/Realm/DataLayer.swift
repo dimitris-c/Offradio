@@ -9,11 +9,11 @@
 import RealmSwift
 
 enum DataAccessError: Error {
-    case Insert
-    case Deletion
-    case Read
-    case Write
-    case Connection
+    case insert
+    case deletion
+    case read
+    case write
+    case connection
 }
 
 protocol DataLayerProtocol {
@@ -27,10 +27,10 @@ extension DataLayerProtocol {
             let realm = try Realm()
             return realm
         } catch {
-            throw DataAccessError.Connection
+            throw DataAccessError.connection
         }
     }
-    
+
     func create<Item: Object>(item anItem: Item, update: Bool) throws {
         let realm = try database()
         do {
@@ -38,8 +38,8 @@ extension DataLayerProtocol {
                 realm.add(anItem)
             }
         } catch {
-            throw DataAccessError.Insert
+            throw DataAccessError.insert
         }
     }
-    
+
 }

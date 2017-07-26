@@ -1,5 +1,5 @@
 /*
- * Copyright IBM Corporation 2016
+ * Copyright IBM Corporation 2016, 2017
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -460,7 +460,7 @@ fileprivate func decode(entity: String, entityPrefix: String, strict: Bool) thro
             // U+003B SEMICOLON character (;), then this is a parse error."
             throw ParseError.InvalidNamedReference(entityPrefix + entity)
         }
-        
+
         return entityPrefix + entity
     default:
         // this should NEVER be hit in code execution

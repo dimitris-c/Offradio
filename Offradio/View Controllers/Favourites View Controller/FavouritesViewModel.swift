@@ -14,16 +14,16 @@ import RxRealm
 
 final class FavouritesViewModel {
     private let disposeBag = DisposeBag()
-    
+
     let favouritesDataLayer: PlaylistFavouritesLayer = PlaylistFavouritesLayer()
     var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
-    
+
     init(viewWillAppear: Driver<Void>) {
-        
+
         Observable.array(from: favouritesDataLayer.allFavourites())
             .map { $0.map { PlaylistCellViewModel(with: $0) } }
             .bind(to: playlistData)
             .addDisposableTo(disposeBag)
-        
+
     }
 }

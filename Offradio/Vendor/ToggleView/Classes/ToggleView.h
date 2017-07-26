@@ -26,10 +26,10 @@ typedef enum{
 @interface ToggleView : UIView <UIGestureRecognizerDelegate>
 {
     id<ToggleViewDelegate> _toggleDelegate;
-    
+
     float _leftEdge;
     float _rightEdge;
-    
+
     ToggleButton *_toggleButton;
     ToggleBase *_toggleBase;
     UIView *_baseView;

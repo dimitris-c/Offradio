@@ -11,14 +11,14 @@ import RxCocoa
 import AutoScrollLabel
 
 final class NowPlayingButton: UIControl {
-    
+
     final fileprivate let disposeBag = DisposeBag()
-    
+
     final fileprivate var backgroundImageView: UIImageView!
     final fileprivate var scrollLabel: CBAutoScrollLabel!
-    
+
     final let title: Variable<String> = Variable<String>("")
-    
+
     override var isHighlighted: Bool {
         didSet {
             self.backgroundImageView.isHighlighted = isHighlighted
@@ -27,16 +27,16 @@ final class NowPlayingButton: UIControl {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         self.backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "nowplaying-button"),
                                                highlightedImage: #imageLiteral(resourceName: "nowplaying-button-selected"))
         self.backgroundImageView.sizeToFit()
         self.addSubview(self.backgroundImageView)
-        
+
         let scrollLabelOffset: CGFloat = CGFloat.deviceValue(iPhone: 70, iPad: 100)
         let scrollLabelSize = CGSize(width: self.backgroundImageView.frame.width - scrollLabelOffset,
                                      height: self.backgroundImageView.frame.height)
-        
+
         self.scrollLabel = CBAutoScrollLabel(frame: CGRect(origin: .zero, size: scrollLabelSize))
         self.scrollLabel.animationOptions = .curveLinear
         self.scrollLabel.labelSpacing = 30
@@ -47,33 +47,32 @@ final class NowPlayingButton: UIControl {
         self.scrollLabel.font = UIFont.letterGothicBold(withSize: CGFloat.deviceValue(iPhone: 18, iPad: 20))
         self.scrollLabel.textColor = UIColor.white
         self.addSubview(self.scrollLabel)
-        
+
         self.title.asObservable().subscribe(onNext: { title in
             self.scrollLabel.setText(title, refreshLabels: true)
         }).addDisposableTo(disposeBag)
-        
-        
+
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func sizeThatFits(_ size: CGSize) -> CGSize {
         return self.backgroundImageView.bounds.size
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         self.backgroundImageView.sizeToFit()
-        
+
         self.scrollLabel.sizeToFit()
         let paddingLeft = CGFloat.deviceValue(iPhone: 40, iPad: 55)
         self.scrollLabel.frame.origin = CGPoint(x: paddingLeft, y: 0)
-        
+
     }
-    
+
 }
 
 extension Reactive where Base: NowPlayingButton {
