@@ -9,13 +9,13 @@
 import Foundation
 
 extension UIApplication {
-    
+
     @discardableResult
     class func open(url aUrl: URL) -> Bool {
-        if UIApplication.shared.canOpenURL(aUrl){
+        if UIApplication.shared.canOpenURL(aUrl) {
             return UIApplication.shared.openURL(aUrl)
         }
         return false
     }
-    
+
 }

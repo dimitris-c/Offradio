@@ -11,22 +11,24 @@ import RxCocoa
 import SDWebImage
 
 extension Reactive where Base: SDWebImageManager {
-    
+
     func loadImage(url: URL, options: SDWebImageOptions) -> Observable<UIImage?> {
         return Observable.create({ observer -> Disposable in
             let operation = SDWebImageManager.shared().loadImage(with: url,
                                                                  options: options,
-                                                                 progress: nil) { (image, data, error, cacheType, success, url) in
+                                                                 progress: nil) { (image, _, error, _, _, _) in
                                                                     if let error = error {
                                                                         observer.onError(error)
                                                                     } else {
                                                                         observer.onNext(image)
                                                                     }
                                                                     observer.onCompleted()
-                                                                    
+
             }
-            return Disposables.create(with: { operation?.cancel() } )
+            return Disposables.create(with: {
+                operation?.cancel()
+            })
         })
     }
-    
+
 }

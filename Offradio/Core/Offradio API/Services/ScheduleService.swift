@@ -16,15 +16,15 @@ enum ScheduleService: Service {
 
 extension ScheduleService {
     var baseURL: URL { return URL(string: APIURL().apiPath)! }
-    
+
     var method: HTTPMethod {
         return .get
     }
-    
+
     var path: String {
         return "schedule"
     }
-    
+
     var params: RequestParameters {
         return RequestParameters.default
     }
@@ -32,9 +32,9 @@ extension ScheduleService {
 }
 
 final class ScheduleResponseParse: APIResponse<Schedule> {
-    
-    override func toData(rawData data: JSON) -> Schedule {        
+
+    override func toData(rawData data: JSON) -> Schedule {
         return Schedule(with: data)
     }
-    
+
 }

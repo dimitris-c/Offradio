@@ -10,25 +10,25 @@ import Foundation
 import RxSwift
 
 final class RadioViewModel: StormysRadioKitDelegate {
-    
+
     let disposeBag: DisposeBag = DisposeBag()
-    
+
     final private(set) var radio: Offradio!
-    
+
     let toggleRadio: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
 
     let isBuffering: Variable<Bool> = Variable<Bool>(false)
     let isPlaying: Variable<Bool> = Variable<Bool>(false)
-    
+
     let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(NowPlaying.empty)
-    
+
     let watchCommunication: OffradioWatchCommunication!
-    
+
     init(with radio: Offradio, and watchCommunication: OffradioWatchCommunication) {
-        
+
         self.radio = radio
         self.watchCommunication = watchCommunication
-        
+
         self.radio.kit.delegate = self
 
         toggleRadio.asObservable()
@@ -41,46 +41,46 @@ final class RadioViewModel: StormysRadioKitDelegate {
                 }
             })
             .addDisposableTo(disposeBag)
-        
+
         radio.metadata.nowPlaying.asObservable()
             .do(onNext: { [weak self] track in
                 self?.watchCommunication.sendCurrentTrack(with: track.current)
             })
             .bind(to: nowPlaying)
             .addDisposableTo(disposeBag)
-        
+
     }
-    
+
     // RadioKit Delegate
     public func srkConnecting() {
         Log.debug("connecting")
         isBuffering.value = true
         isPlaying.value = false
     }
-    
+
     public func srkisBuffering() {
         Log.debug("buffering")
         isBuffering.value = true
         isPlaying.value = false
     }
-    
+
     func srkPlayStarted() {
         Log.debug("started")
         isBuffering.value = false
         isPlaying.value = true
         watchCommunication.sendTurnRadioOn()
     }
-    
+
     func srkPlayStopped() {
         Log.debug("stopped")
         isBuffering.value = false
         isPlaying.value = false
         watchCommunication.sendTurnRadioOff()
     }
-    
+
     func srkMetaChanged() {
         Log.debug("metadata changed")
         self.radio.metadata.forceRefresh()
     }
-    
+
 }

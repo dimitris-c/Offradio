@@ -9,15 +9,15 @@
 import Foundation
 
 extension String {
-    
+
     func convertHTMLEntities(fallback: String = "") throws -> String {
         guard let data = data(using: .utf8) else { return fallback }
-        
+
         return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
                                                         NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],
                                   documentAttributes: nil).string
     }
-    
+
     func fromBase64() -> String {
         guard let data = Data.init(base64Encoded: self) else {
             return ""
@@ -27,9 +27,9 @@ extension String {
         }
         return ""
     }
-    
+
     func toBase64() -> String {
         return Data(self.utf8).base64EncodedString()
     }
-    
+
 }

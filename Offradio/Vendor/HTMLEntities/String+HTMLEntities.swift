@@ -460,7 +460,7 @@ fileprivate func decode(entity: String, entityPrefix: String, strict: Bool) thro
             // U+003B SEMICOLON character (;), then this is a parse error."
             throw ParseError.InvalidNamedReference(entityPrefix + entity)
         }
-        
+
         return entityPrefix + entity
     default:
         // this should NEVER be hit in code execution

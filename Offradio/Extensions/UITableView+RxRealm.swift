@@ -9,7 +9,6 @@
 import RxCocoa
 import RxRealm
 
-
 // MARK: RxSwift
 extension UITableView {
     func apply(changeSet changes: RealmChangeset) {

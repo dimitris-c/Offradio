@@ -6,12 +6,12 @@
 //  Copyright © 2016 decimal. All rights reserved.
 //
 
-struct VerticalArranger : ViewArranger {
-    
+struct VerticalArranger: ViewArranger {
+
     var objects: [SizeObject]           = []
     var spacerObjects: [SizeObject]     = []
     var flexibleObjects: [SizeObject]   = []
-    
+
     //Resize resizeable views to fit constraint size
     func resizeToFit() {
         for object in objects {
@@ -22,12 +22,10 @@ struct VerticalArranger : ViewArranger {
     @discardableResult
     func arrange(to dimension: CGFloat? = nil) -> CGFloat {
         //If there are any spacer objects, find their height
-        if let height = dimension , spacerObjects.count > 0 {
+        if let height = dimension, !spacerObjects.isEmpty {
             var totalHeight = height
-            for object in objects {
-                if object.type != .spacer {
-                    totalHeight -= object.size.height
-                }
+            for object in objects where object.type != .spacer {
+                totalHeight -= object.size.height
             }
             let spacerHeight = totalHeight / CGFloat(spacerObjects.count)
             for spacer in spacerObjects {
@@ -35,7 +33,7 @@ struct VerticalArranger : ViewArranger {
             }
         }
         //Arrange views
-        var y:CGFloat = 0
+        var y: CGFloat = 0
         for object in objects {
             object.setAttached(y: y)
             if object.type == .flexible {

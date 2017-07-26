@@ -10,19 +10,19 @@ import RxSwift
 import RxCocoa
 
 final class TrackShareViewModel {
-    
+
     final fileprivate let disposeBag = DisposeBag()
-    
+
     let shareOn: Variable<ShareType> = Variable<ShareType>(.none)
-    
+
     init(with currentTrack: Driver<CurrentTrack>) {
-        
+
         shareOn.asObservable().subscribe(onNext: { shareType in
             print("\(shareType)")
         }).addDisposableTo(disposeBag)
-        
+
     }
-    
+
     final fileprivate func share(with type: ShareType) {
         switch type {
         case .facebook:
@@ -35,17 +35,16 @@ final class TrackShareViewModel {
         break
         }
     }
-    
-    
+
     final fileprivate func shareOnFacebook() {
-        
+
     }
-    
+
     final fileprivate func shareOnTwitter() {
-        
+
     }
-    
+
     final fileprivate func shareOnEmail() {
-        
+
     }
 }

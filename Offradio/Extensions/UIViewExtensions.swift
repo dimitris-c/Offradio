@@ -7,20 +7,20 @@
 //
 
 struct ShadowAttributes {
-    var color:UIColor = UIColor.black
-    var offset:CGSize = CGSize(width: 0, height: 0)
-    var radius:CGFloat = 0.0
-    var opacity:Float = 0.0
-    
+    var color: UIColor = UIColor.black
+    var offset: CGSize = CGSize(width: 0, height: 0)
+    var radius: CGFloat = 0.0
+    var opacity: Float = 0.0
+
     static let zero = ShadowAttributes(color: UIColor.clear, offset: CGSize.zero, radius: 0, opacity: 0)
 }
 
 extension UIView {
-    
+
     func applyShadow(with attributes: ShadowAttributes) {
         self.layer.applyShadow(with: attributes)
     }
-    
+
 }
 
 extension CALayer {

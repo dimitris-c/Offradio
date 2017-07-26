@@ -16,27 +16,27 @@ enum NowPlayingService: Service {
 
 extension NowPlayingService {
     var baseURL: URL { return URL(string: APIURL().apiPath)! }
-    
+
     var method: HTTPMethod {
         return .get
     }
-    
+
     var params: RequestParameters {
         let now = Date().timeIntervalSince1970
         return RequestParameters(parameters: ["noCache": String(now)])
     }
-    
+
     var path: String {
         return "nowplaying"
     }
 }
 
 final class NowPlayingParse: APIResponse<NowPlaying> {
-    
+
     override func toData(rawData data: JSON) -> NowPlaying {
         return NowPlaying(json: data)
     }
-    
+
 }
 
 enum CRCService: Service {
@@ -45,16 +45,16 @@ enum CRCService: Service {
 
 extension CRCService {
     var baseURL: URL { return URL(string: APIURL().baseUrl)! }
-    
+
     var method: HTTPMethod {
         return .get
     }
-    
+
     var params: RequestParameters {
         let now = Date().timeIntervalSince1970
         return RequestParameters(parameters: ["noCache": String(now)])
     }
-    
+
     var path: String {
         return "mob_player.crc"
     }

@@ -12,7 +12,7 @@ final class OffradioCommandCenter {
     fileprivate final let sharedCenter = MPRemoteCommandCenter.shared()
     fileprivate final var offradio: Offradio!
     fileprivate final var favouritesDataLayer: PlaylistFavouritesLayer!
-    
+
     final var isEnabled: Bool {
         didSet {
             if isEnabled {
@@ -22,15 +22,15 @@ final class OffradioCommandCenter {
             }
         }
     }
-    
+
     init(with radio: Offradio) {
         self.offradio = radio
         self.isEnabled = false
-        
+
         self.favouritesDataLayer = PlaylistFavouritesLayer()
-        
+
     }
-    
+
     func enableCommands() {
         self.enablePlayPauseCommand()
         self.enableLikeDislikeCommand()
@@ -39,7 +39,7 @@ final class OffradioCommandCenter {
         self.sharedCenter.likeCommand.isEnabled = true
         self.sharedCenter.dislikeCommand.isEnabled = true
     }
-    
+
     func disableCommands() {
         self.sharedCenter.playCommand.removeTarget(self)
         self.sharedCenter.playCommand.isEnabled = false
@@ -50,21 +50,21 @@ final class OffradioCommandCenter {
         self.sharedCenter.dislikeCommand.removeTarget(self)
         self.sharedCenter.dislikeCommand.isEnabled = false
     }
-    
+
     fileprivate func enablePlayPauseCommand() {
-        self.sharedCenter.playCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+        self.sharedCenter.playCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
             self?.offradio.start()
             return .success
         }
-        self.sharedCenter.pauseCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+        self.sharedCenter.pauseCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
             self?.offradio.stop()
             return .success
         }
     }
-    
+
     fileprivate func enableLikeDislikeCommand() {
         self.sharedCenter.likeCommand.localizedTitle = "Add Favourite"
-        self.sharedCenter.likeCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+        self.sharedCenter.likeCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
             guard let strongSelf = self else { return .noSuchContent }
             let nowPlaying = strongSelf.offradio.metadata.nowPlaying.value
             let playlistSong = nowPlaying.current.toPlaylistSong()
@@ -72,14 +72,13 @@ final class OffradioCommandCenter {
                                                            songTitle: playlistSong.songTitle) {
                 try? strongSelf.favouritesDataLayer.createFavourite(with: playlistSong)
                 return .success
-            }
-            else {
+            } else {
                 return .noSuchContent
             }
         }
-        
+
         self.sharedCenter.dislikeCommand.localizedTitle = "Remove Favourite"
-        self.sharedCenter.dislikeCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+        self.sharedCenter.dislikeCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
             guard let strongSelf = self else { return .noSuchContent }
             let nowPlaying = strongSelf.offradio.metadata.nowPlaying.value
             try? strongSelf.favouritesDataLayer.deleteFavourite(for: nowPlaying.current.artist,
@@ -87,5 +86,5 @@ final class OffradioCommandCenter {
             return .success
         }
     }
-    
+
 }

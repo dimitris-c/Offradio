@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 struct PlaylistFavouritesLayer: DataLayerProtocol {
-    
+
     func isFavourite(`for` artist: String, songTitle title: String) -> Bool {
         if let realm = try? database() {
             let sanitizedTitle = "\(artist) - \(title)".lowercased().toBase64()
@@ -18,13 +18,13 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
         }
         return false
     }
-    
+
     func createFavourite(with model: PlaylistSong) throws {
         let favourite = PlaylistSong(value: model)
         favourite.isFavourite = true
         try create(item: favourite, update: false)
     }
-    
+
     func deleteFavourite(`for` artist: String, songTitle title: String) throws {
         if let realm = try? database() {
             let sanitizedTitle = "\(artist) - \(title)".lowercased().toBase64()
@@ -34,15 +34,16 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
                 }
             }
         } else {
-            throw DataAccessError.Connection
+            throw DataAccessError.connection
         }
     }
-    
+
     func allFavourites() -> Results<PlaylistSong> {
+        // swiftlint:disable force_try
         let realm = try! database()
         return realm.objects(PlaylistSong.self)
     }
-    
+
 }
 
 extension CurrentTrack {

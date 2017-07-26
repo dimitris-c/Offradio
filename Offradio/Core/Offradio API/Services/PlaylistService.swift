@@ -17,15 +17,15 @@ enum PlaylistService: Service {
 
 extension PlaylistService {
     var baseURL: URL { return URL(string: APIURL().apiPath)! }
-    
+
     var method: HTTPMethod {
         return .get
     }
-    
+
     var path: String {
         return "playlist"
     }
-    
+
     var params: RequestParameters {
         switch self {
         case .playlist(let page):
@@ -35,16 +35,15 @@ extension PlaylistService {
             return parameters
         }
     }
-        
+
 }
 
 final class PlaylistResponseParse: APIResponse<[PlaylistSong]> {
-    
+
     override func toData(rawData data: JSON) -> [PlaylistSong] {
         var items: [PlaylistSong] = []
         items = data["playlist"].arrayValue.map { PlaylistSong(with: $0) }
         return items
     }
-    
-}
 
+}

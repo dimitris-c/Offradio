@@ -72,7 +72,7 @@ open class Snapshot: NSObject {
         guard let prefix = pathPrefix() else {
             return
         }
-
+        
         let path = prefix.appendingPathComponent("snapshot-launch_arguments.txt")
         app.launchArguments += ["-FASTLANE_SNAPSHOT", "YES", "-ui_testing"]
 

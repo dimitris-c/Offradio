@@ -19,7 +19,7 @@ NSString *const TOGGLE_BASE_IMAGE_R     = @"toggle_base_r.png";
 {
     self = [super initWithImage:image];
     if (self) {
-        
+
         self.baseType = aBaseType;
         if (self.baseType == ToggleBaseTypeChangeImage)
         {

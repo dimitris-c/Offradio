@@ -36,26 +36,26 @@ enum LastFMAPIService: Service {
 
 extension LastFMAPIService {
     var baseURL: URL { return URL(string: "https://ws.audioscrobbler.com/2.0/")! }
-    
+
     var method: HTTPMethod {
         return .get
     }
-    
+
     var path: String {
         return ""
     }
-    
+
     var params: RequestParameters {
         switch self {
         case .artistInfo(let artist):
-            let data: Parameters = ["method"  : "artist.getinfo",
-                                    "api_key" : LastFMAPIKey.apiKey,
-                                    "format"  : "json",
-                                    "artist"  : artist]
+            let data: Parameters = ["method": "artist.getinfo",
+                                    "api_key": LastFMAPIKey.apiKey,
+                                    "format": "json",
+                                    "artist": artist]
             return RequestParameters(parameters: data)
         }
     }
-    
+
 }
 
 final class LastFMAPIResponseParse: APIResponse<LastFMArtist> {
