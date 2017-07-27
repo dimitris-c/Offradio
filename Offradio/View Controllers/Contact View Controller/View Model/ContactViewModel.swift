@@ -8,16 +8,38 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
-final class ContactViewModel {
+protocol ContactViewModelInputs {
+    func viewWillAppear()
+}
+
+protocol ContactViewModelOutputs {
+    var data: Variable<[ContactItem]> { get }
+
+    func getItem(at indexPath: IndexPath) -> ContactItem
+}
+
+protocol ContactViewModelType {
+    var inputs: ContactViewModelInputs { get }
+    var outputs: ContactViewModelOutputs { get }
+}
+
+final class ContactViewModel: ContactViewModelType, ContactViewModelInputs, ContactViewModelOutputs {
     fileprivate let disposeBag: DisposeBag = DisposeBag()
 
+    let viewWillAppearSubject: PublishSubject<Void> = PublishSubject<Void>()
     let data: Variable<[ContactItem]> = Variable<[ContactItem]>([])
 
     init() {
+        viewWillAppearSubject.asObservable().subscribe(onNext: { [weak self] _ in
+            guard let sSelf = self else { return }
+            Observable.just(sSelf.createData()).bind(to: sSelf.data).disposed(by: sSelf.disposeBag)
+        }).disposed(by: disposeBag)
+    }
 
-        self.data.value = createData()
-
+    func viewWillAppear() {
+        viewWillAppearSubject.onNext()
     }
 
     func getItem(at indexPath: IndexPath) -> ContactItem {
@@ -32,4 +54,6 @@ final class ContactViewModel {
         return [facebook, twitter, email, visit]
     }
 
+    internal var inputs: ContactViewModelInputs { return self }
+    internal var outputs: ContactViewModelOutputs { return self }
 }
