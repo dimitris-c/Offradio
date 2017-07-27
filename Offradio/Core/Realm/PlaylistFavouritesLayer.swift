@@ -38,9 +38,10 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
         }
     }
 
-    func allFavourites() -> Results<PlaylistSong> {
-        // swiftlint:disable force_try
-        let realm = try! database()
+    func allFavourites() -> Results<PlaylistSong>? {
+        guard let realm = try? database() else {
+            return nil
+        }
         return realm.objects(PlaylistSong.self)
     }
 
