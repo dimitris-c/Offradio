@@ -67,11 +67,8 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
                 self?.showView(for: item.type)
             }
         }).addDisposableTo(disposeBag)
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.viewModel.inputs.viewWillAppear()
+        self.viewModel.inputs.viewDidLoad()
     }
 
     override func viewDidLayoutSubviews() {

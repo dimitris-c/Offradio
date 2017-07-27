@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol ContactViewModelInputs {
-    func viewWillAppear()
+    func viewDidLoad()
 }
 
 protocol ContactViewModelOutputs {
@@ -28,18 +28,19 @@ protocol ContactViewModelType {
 final class ContactViewModel: ContactViewModelType, ContactViewModelInputs, ContactViewModelOutputs {
     fileprivate let disposeBag: DisposeBag = DisposeBag()
 
-    let viewWillAppearSubject: PublishSubject<Void> = PublishSubject<Void>()
+    let viewDidLoadSubject: PublishSubject<Void> = PublishSubject<Void>()
     let data: Variable<[ContactItem]> = Variable<[ContactItem]>([])
 
     init() {
-        viewWillAppearSubject.asObservable().subscribe(onNext: { [weak self] _ in
-            guard let sSelf = self else { return }
-            Observable.just(sSelf.createData()).bind(to: sSelf.data).disposed(by: sSelf.disposeBag)
-        }).disposed(by: disposeBag)
+        viewDidLoadSubject.asObservable().map { [weak self] _ -> [ContactItem] in
+            guard let sSelf = self else { return [] }
+            return sSelf.createData()
+        }.bind(to: self.data)
+        .disposed(by: disposeBag)
     }
 
-    func viewWillAppear() {
-        viewWillAppearSubject.onNext()
+    func viewDidLoad() {
+        viewDidLoadSubject.onNext()
     }
 
     func getItem(at indexPath: IndexPath) -> ContactItem {
