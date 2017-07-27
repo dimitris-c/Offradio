@@ -21,8 +21,6 @@
 		B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */; };
 		B507C0A61E56869800792414 /* DataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A51E56869800792414 /* DataLayer.swift */; };
 		B51BE4E21E3ABF79005775F4 /* libRadioKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */; };
-		B51C04541EBB7A330075757D /* OffradioScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C04531EBB7A330075757D /* OffradioScreenshots.swift */; };
-		B51C04561EBB7A560075757D /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51C04551EBB7A560075757D /* SnapshotHelper.swift */; };
 		B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
 		B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB91E4B9E50009F4C37 /* Schedule.swift */; };
@@ -113,6 +111,7 @@
 		B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */; };
 		B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088E1E4E307700B54FB3 /* ContactModels.swift */; };
 		B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */; };
+		B55970511F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55970501F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift */; };
 		B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F191E64857D00E5DB0E /* Offradio.swift */; };
 		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
 		B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */; };
@@ -267,8 +266,6 @@
 		B51BE4E01E3ABF79005775F4 /* RadioKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioKit.h; sourceTree = "<group>"; };
 		B51BE4E11E3ABF79005775F4 /* reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reachability.h; sourceTree = "<group>"; };
 		B51BE4E31E3ABFC5005775F4 /* Offradio-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Offradio-Bridging-Header.h"; sourceTree = "<group>"; };
-		B51C04531EBB7A330075757D /* OffradioScreenshots.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioScreenshots.swift; sourceTree = "<group>"; };
-		B51C04551EBB7A560075757D /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
 		B51E3FB71E4B9C06009F4C37 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		B51E3FB91E4B9E50009F4C37 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -365,6 +362,7 @@
 		B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B54E088E1E4E307700B54FB3 /* ContactModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactModels.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		B55970501F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterFactoryMessageTests.swift; sourceTree = "<group>"; };
 		B5656F191E64857D00E5DB0E /* Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Offradio.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OffradioMetadata.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioCommandCenter.swift; sourceTree = "<group>"; };
@@ -841,6 +839,7 @@
 			isa = PBXGroup;
 			children = (
 				B54BC8BF1E36A9DC0043F248 /* Info.plist */,
+				B55970501F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift */,
 			);
 			path = OffradioTests;
 			sourceTree = "<group>";
@@ -849,8 +848,6 @@
 			isa = PBXGroup;
 			children = (
 				B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */,
-				B51C04531EBB7A330075757D /* OffradioScreenshots.swift */,
-				B51C04551EBB7A560075757D /* SnapshotHelper.swift */,
 				B54BC8CA1E36A9DC0043F248 /* Info.plist */,
 			);
 			path = OffradioUITests;
@@ -1206,6 +1203,7 @@
 					B54BC8B81E36A9DC0043F248 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5Y92JCRVR7;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B54BC8A21E36A9DB0043F248;
 					};
@@ -1665,6 +1663,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55970511F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1673,8 +1672,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */,
-				B51C04541EBB7A330075757D /* OffradioScreenshots.swift in Sources */,
-				B51C04561EBB7A560075757D /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1894,11 +1891,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = OffradioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.OffradioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Offradio.app/Offradio";
 			};
@@ -1910,6 +1909,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = OffradioTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
