@@ -110,8 +110,9 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
             return
         }
 
-        if !UIApplication.shared.canOpenURL(directUrl) {
-            UIApplication.shared.openURL(directUrl)
+        let directOpened = UIApplication.open(url: directUrl)
+        if !directOpened {
+            UIApplication.open(url: url)
         }
 
     }
@@ -122,8 +123,9 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
                 return
         }
 
-        if !UIApplication.shared.canOpenURL(directUrl) {
-            UIApplication.shared.openURL(directUrl)
+        let directOpened = UIApplication.open(url: directUrl)
+        if !directOpened {
+            UIApplication.open(url: url)
         }
     }
 
