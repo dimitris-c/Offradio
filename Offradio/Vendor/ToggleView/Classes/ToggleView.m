@@ -328,7 +328,7 @@ NSString *const RIGHT_BUTTON_IMAGE_SEL   = @"right_button_off.png";
         CGPoint currentPoint = [sender locationInView:_baseView];
         float position = currentPoint.x;
         float positionValue = position / _baseView.frame.size.width;
-
+        NSLog(@"%f", positionValue);
         if (positionValue < 1.f && positionValue > 0.f)
         {
             [self setTogglePosition:positionValue ended:NO];
