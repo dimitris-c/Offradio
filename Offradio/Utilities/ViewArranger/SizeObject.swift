@@ -5,6 +5,7 @@
 //  Created by Dimitris C. on 20/10/2016.
 //  Copyright © 2016 decimal. All rights reserved.
 //
+import UIKit
 
 public enum SizeObjectType: String {
     case fixed

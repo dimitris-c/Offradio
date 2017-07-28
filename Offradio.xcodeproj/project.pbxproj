@@ -94,6 +94,7 @@
 		B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960581E492AA1003BFBC6 /* ContactViewController.swift */; };
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
 		B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */; };
+		B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B575DC441F2BA28E00CE6773 /* UIKit.framework */; };
 		B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */; };
 		B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AE1EAFC0E5005321CA /* Shortcuts.swift */; };
 		B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58678D91EAFCF4A005321CA /* Interface.storyboard */; };
@@ -307,6 +308,7 @@
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
 		B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioAppWatchSession.swift; sourceTree = "<group>"; };
+		B575DC441F2BA28E00CE6773 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShortcutsEnum.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B58678AE1EAFC0E5005321CA /* Shortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Shortcuts.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OffradioWatchKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,6 +366,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */,
 				B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */,
 				B52C2D4E1EB25A3B00AF8514 /* WatchKit.framework in Frameworks */,
 				B56960461E4909E0003BFBC6 /* MediaPlayer.framework in Frameworks */,
@@ -424,6 +427,7 @@
 		7270B8A41F99A77388A95EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B575DC441F2BA28E00CE6773 /* UIKit.framework */,
 				B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */,
 				B52C2D4B1EB25A3B00AF8514 /* WatchConnectivity.framework */,
 				B52C2D4C1EB25A3B00AF8514 /* WatchKit.framework */,

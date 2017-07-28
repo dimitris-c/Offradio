@@ -6,7 +6,7 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class ContactTableViewCell: UITableViewCell, ConfigurableCell {
 

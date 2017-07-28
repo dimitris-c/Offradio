@@ -9,8 +9,9 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ToggleSwitch
 
-final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
+final class PlayerCircleContainerView: UIView {
 
     fileprivate let disposeBag = DisposeBag()
 
@@ -23,7 +24,7 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
 
     fileprivate final var greyBackgroundView: UIImageView!
     fileprivate final var redBackgroundView: UIImageView!
-    fileprivate final var offradioSwitch: ToggleView!
+    fileprivate final var offradioSwitch: ToggleSwitch!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -38,13 +39,16 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
         self.redBackgroundView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         self.addSubview(self.redBackgroundView)
 
-        let frame = CGRect(x: 0, y: 0, width: 160, height: 43)
-        self.offradioSwitch = ToggleView(frame: frame,
-                                         toggleViewType: ToggleViewTypeNoLabel,
-                                         toggleBaseType: ToggleBaseTypeChangeImage,
-                                         toggleButtonType: ToggleButtonTypeChangeImage)
-        self.offradioSwitch.toggleDelegate = self
+        let images = ToggleSwitchImages(baseOnImage: #imageLiteral(resourceName: "toggle_base_on"),
+                                        baseOffImage: #imageLiteral(resourceName: "toggle_base_off"),
+                                        thumbOnImage: #imageLiteral(resourceName: "toggle_button_on"),
+                                        thumbOffImage: #imageLiteral(resourceName: "toggle_button_off"))
+        self.offradioSwitch = ToggleSwitch(with: images)
         self.addSubview(self.offradioSwitch)
+
+        self.offradioSwitch.stateChanged = { [weak self] state in
+            self?.switched.onNext(state == .on)
+        }
 
         buffering.asObservable()
             .observeOn(MainScheduler.instance)
@@ -125,7 +129,7 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
     fileprivate final func setPlaying() {
         guard playing.value else { return }
 
-        self.offradioSwitch.setOn(true, animated: true)
+        self.offradioSwitch.setOn(on: true, animated: true)
 
         UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
             self.redBackgroundView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -137,7 +141,7 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
     fileprivate final func setStopped() {
         guard !playing.value else { return }
 
-        self.offradioSwitch.setOn(false, animated: true)
+        self.offradioSwitch.setOn(on: false, animated: true)
 
         UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
             self.redBackgroundView.alpha = 0.0
@@ -145,12 +149,4 @@ final class PlayerCircleContainerView: UIView, ToggleViewDelegate {
 
     }
 
-    // MARK: ToggleViewDelegate
-    final func selectLeftButton() {
-        switched.onNext(false)
-    }
-
-    final func selectRightButton() {
-        switched.onNext(true)
-    }
 }
