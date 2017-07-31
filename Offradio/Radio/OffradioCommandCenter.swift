@@ -38,6 +38,7 @@ final class OffradioCommandCenter {
         self.sharedCenter.pauseCommand.isEnabled = true
         self.sharedCenter.likeCommand.isEnabled = true
         self.sharedCenter.dislikeCommand.isEnabled = true
+        self.sharedCenter.togglePlayPauseCommand.isEnabled = true
     }
 
     func disableCommands() {
@@ -49,6 +50,8 @@ final class OffradioCommandCenter {
         self.sharedCenter.likeCommand.isEnabled = false
         self.sharedCenter.dislikeCommand.removeTarget(self)
         self.sharedCenter.dislikeCommand.isEnabled = false
+        self.sharedCenter.togglePlayPauseCommand.removeTarget(self)
+        self.sharedCenter.togglePlayPauseCommand.isEnabled = false
     }
 
     fileprivate func enablePlayPauseCommand() {
@@ -58,6 +61,10 @@ final class OffradioCommandCenter {
         }
         self.sharedCenter.pauseCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
             self?.offradio.stop()
+            return .success
+        }
+        self.sharedCenter.togglePlayPauseCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
+            self?.offradio.toggleRadio()
             return .success
         }
     }
