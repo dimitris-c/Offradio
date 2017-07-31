@@ -33,6 +33,7 @@ final class OffradioMetadata {
                 guard let strongSelf = self else { return Observable.empty() }
                 return strongSelf.crcService.callString(with: .crc)
             })
+            .catchErrorJustReturn("")
             .bind(to: crc)
 
         let crcDisposable = crc.asObservable()
@@ -42,6 +43,7 @@ final class OffradioMetadata {
                 guard let strongSelf = self else { return Observable.just(NowPlaying.default) }
                 return strongSelf.fetchNowPlaying()
             }
+            .catchErrorJustReturn(NowPlaying.default)
             .bind(to: nowPlaying)
 
         timerDisposeBag?.insert(crcDisposable)
