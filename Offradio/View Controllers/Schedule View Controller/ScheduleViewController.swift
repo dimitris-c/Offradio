@@ -17,7 +17,6 @@ final class ScheduleViewController: UIViewController {
     var tableView: UITableView!
 
     var viewModel: ScheduleViewModel!
-    weak var delegate: ScheduleDelegate!
 
     var activityIndicator: UIActivityIndicatorView!
     var refreshControl: UIRefreshControl!
@@ -74,12 +73,24 @@ final class ScheduleViewController: UIViewController {
             sSelf.tableView.deselectRow(at: indexPath, animated: true)
             let item = sSelf.viewModel.getSchedule(at: indexPath)
             if item.hasBio, let bio = sSelf.viewModel.getProducerBio(for: item.title) {
-                sSelf.hideLabelOnBackButton()
-                let producerBioViewController = ProducersBioViewController(with: bio)
-                sSelf.navigationController?.pushViewController(producerBioViewController, animated: true)
+                sSelf.showProducerBio(with: bio)
             }
         }).disposed(by: disposeBag)
 
+        self.configureRefreshControl()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        self.tableView.frame = self.view.bounds
+
+        self.activityIndicator.sizeToFit()
+        self.activityIndicator.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+
+    }
+
+    private func configureRefreshControl() {
         self.refreshControl = UIRefreshControl()
         if #available(iOS 10.0, *) {
             self.tableView.refreshControl = self.refreshControl
@@ -99,16 +110,13 @@ final class ScheduleViewController: UIViewController {
         self.viewModel.firstLoad.asObservable()
             .bind(to: self.activityIndicator.rx.isAnimating)
             .addDisposableTo(disposeBag)
+
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        self.tableView.frame = self.view.bounds
-
-        self.activityIndicator.sizeToFit()
-        self.activityIndicator.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
-
+    private func showProducerBio(with producer: Producer) {
+        self.hideLabelOnBackButton()
+        let producerBioViewController = ProducersBioViewController(with: producer)
+        self.navigationController?.pushViewController(producerBioViewController, animated: true)
     }
 
 }

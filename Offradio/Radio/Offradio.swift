@@ -37,7 +37,8 @@ final class Offradio: RadioProtocol {
         let offradioStream = OffradioStream()
         self.kit.setStreamUrl(offradioStream.url, isFile: false)
         self.kit.setPauseTimeout(250)
-        self.kit.setBufferWaitTime(2)
+        self.kit.setBufferWaitTime(8)
+        self.kit.setContinuousBuffering(true)
         self.kit.stopStream()
     }
 
@@ -51,7 +52,6 @@ final class Offradio: RadioProtocol {
     }
 
     final func stop() {
-        guard status.isPlaying && kit.isAudioPlaying() else { return }
 
         self.kit.stopStream()
         self.metadata.stopTimer()
