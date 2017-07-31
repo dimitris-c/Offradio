@@ -42,9 +42,9 @@ PODS:
     - RealmSwift (~> 2.5)
     - RxSwift (~> 3.2)
   - RxSwift (3.6.1)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
   - SwiftyJSON (3.1.4)
   - ToggleSwitch (1.0):
     - ToggleSwitch/Core (= 1.0)
@@ -92,7 +92,7 @@ SPEC CHECKSUMS:
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   ToggleSwitch: 20f212f8770d1dd33ba5ac981e0b96564e60f305
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
