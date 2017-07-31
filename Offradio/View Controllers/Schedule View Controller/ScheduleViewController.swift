@@ -48,10 +48,7 @@ final class ScheduleViewController: UIViewController {
         self.tableView.tableFooterView = UIView()
         self.tableView.separatorColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-
-        self.delegate = ScheduleDelegate(withViewController: self, dataSource: self.viewModel)
-        self.tableView.delegate = self.delegate
-
+        self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 60, iPad: 90)
         self.view.addSubview(self.tableView)
 
         self.registerForPreviewing(with: self, sourceView: self.tableView)
@@ -63,12 +60,25 @@ final class ScheduleViewController: UIViewController {
         let identifier = ScheduleTableViewCell.identifier
         let cellType = ScheduleTableViewCell.self
 
-        self.viewModel.navigationTitle.asObservable().bind(to: self.navigationItem.rx.title).addDisposableTo(disposeBag)
+        self.viewModel.navigationTitle.asObservable()
+            .bind(to: self.navigationItem.rx.title)
+            .addDisposableTo(disposeBag)
 
         self.viewModel.schedule.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, item, cell in
                 cell.configure(with: item)
             }.addDisposableTo(disposeBag)
+
+        self.tableView.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] indexPath in
+            guard let sSelf = self else { return }
+            sSelf.tableView.deselectRow(at: indexPath, animated: true)
+            let item = sSelf.viewModel.getSchedule(at: indexPath)
+            if item.hasBio, let bio = sSelf.viewModel.getProducerBio(for: item.title) {
+                sSelf.hideLabelOnBackButton()
+                let producerBioViewController = ProducersBioViewController(with: bio)
+                sSelf.navigationController?.pushViewController(producerBioViewController, animated: true)
+            }
+        }).disposed(by: disposeBag)
 
         self.refreshControl = UIRefreshControl()
         if #available(iOS 10.0, *) {
@@ -83,8 +93,12 @@ final class ScheduleViewController: UIViewController {
             .bind(to: self.viewModel.refresh)
             .addDisposableTo(disposeBag)
 
-        self.viewModel.refresh.asObservable().bind(to: self.refreshControl.rx.isRefreshing).addDisposableTo(disposeBag)
-        self.viewModel.firstLoad.asObservable().bind(to: self.activityIndicator.rx.isAnimating).addDisposableTo(disposeBag)
+        self.viewModel.refresh.asObservable()
+            .bind(to: self.refreshControl.rx.isRefreshing)
+            .addDisposableTo(disposeBag)
+        self.viewModel.firstLoad.asObservable()
+            .bind(to: self.activityIndicator.rx.isAnimating)
+            .addDisposableTo(disposeBag)
     }
 
     override func viewDidLayoutSubviews() {
