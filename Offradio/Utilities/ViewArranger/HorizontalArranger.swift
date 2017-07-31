@@ -6,6 +6,8 @@
 //  Copyright © 2016 decimal. All rights reserved.
 //
 
+import UIKit
+
 struct HorizontalArranger: ViewArranger {
 
     var objects: [SizeObject]           = []

@@ -6,6 +6,8 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
+import UIKit
+
 struct ShadowAttributes {
     var color: UIColor = UIColor.black
     var offset: CGSize = CGSize(width: 0, height: 0)

@@ -31,16 +31,19 @@ final class OffradioMetadata {
         let crcTimerDisposable = crcTimer.asObservable()
             .flatMapLatest({ [weak self] _ -> Observable<String> in
                 guard let strongSelf = self else { return Observable.empty() }
-                return strongSelf.fetchCRC()
+                return strongSelf.crcService.callString(with: .crc)
             })
+            .catchErrorJustReturn("")
             .bind(to: crc)
 
         let crcDisposable = crc.asObservable()
             .skipWhile { $0.isEmpty }
             .distinctUntilChanged()
-            .flatMapLatest { _ -> Observable<NowPlaying> in
-                return self.fetchNowPlaying()
+            .flatMapLatest { [weak self] _ -> Observable<NowPlaying> in
+                guard let strongSelf = self else { return Observable.just(NowPlaying.default) }
+                return strongSelf.fetchNowPlaying()
             }
+            .catchErrorJustReturn(NowPlaying.default)
             .bind(to: nowPlaying)
 
         timerDisposeBag?.insert(crcDisposable)
@@ -55,10 +58,6 @@ final class OffradioMetadata {
         self.fetchNowPlaying()
             .bind(to: nowPlaying)
             .addDisposableTo(disposeBag)
-    }
-
-    fileprivate func fetchCRC() -> Observable<String> {
-        return self.crcService.callString(with: .crc)
     }
 
     func fetchNowPlaying() -> Observable<NowPlaying> {

@@ -12,25 +12,25 @@ PODS:
   - Crashlytics (3.8.5):
     - Fabric (~> 1.6.3)
   - Fabric (1.6.12)
-  - FBSDKCoreKit (4.24.0):
+  - FBSDKCoreKit (4.25.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.24.0):
+  - FBSDKLoginKit (4.25.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.24.0):
+  - FBSDKShareKit (4.25.0):
     - FBSDKCoreKit
-  - Omicron (0.1.1):
-    - Omicron/Core (= 0.1.1)
-  - Omicron/Core (0.1.1):
+  - Omicron (0.1.2):
+    - Omicron/Core (= 0.1.2)
+  - Omicron/Core (0.1.2):
     - Alamofire (~> 4.0)
     - SwiftyJSON
-  - Omicron/RxSwift (0.1.1):
+  - Omicron/RxSwift (0.1.2):
     - Omicron/Core
     - RxSwift (~> 3.0)
-  - Realm (2.8.3):
-    - Realm/Headers (= 2.8.3)
-  - Realm/Headers (2.8.3)
-  - RealmSwift (2.8.3):
-    - Realm (= 2.8.3)
+  - Realm (2.9.0):
+    - Realm/Headers (= 2.9.0)
+  - Realm/Headers (2.9.0)
+  - RealmSwift (2.9.0):
+    - Realm (= 2.9.0)
   - RxAlamofire (3.0.3):
     - RxAlamofire/Core (= 3.0.3)
   - RxAlamofire/Core (3.0.3):
@@ -46,8 +46,11 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - SwiftyJSON (3.1.4)
+  - ToggleSwitch (1.0):
+    - ToggleSwitch/Core (= 1.0)
+  - ToggleSwitch/Core (1.0)
   - TwitterCore (3.0.0)
-  - TwitterKit (3.0.3):
+  - TwitterKit (3.0.4):
     - TwitterCore (>= 3.0.0)
 
 DEPENDENCIES:
@@ -69,6 +72,7 @@ DEPENDENCIES:
   - RxSwift (~> 3.0)
   - SDWebImage
   - SwiftyJSON
+  - ToggleSwitch (~> 1.0)
   - TwitterKit
 
 SPEC CHECKSUMS:
@@ -78,21 +82,22 @@ SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
   Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
-  FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
-  FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
-  FBSDKShareKit: a2ed9d7781a4eda9ac20d7404305e795b10251ac
-  Omicron: 37a9842115670244883596a865d1837cdfca73ef
-  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
-  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
+  FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
+  FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
+  FBSDKShareKit: aea699d3cac749af08e360f4e949b82ffa8813f5
+  Omicron: ddc026f62a0a6ae38215eaae080d7b39be8042ae
+  Realm: f14ab1673502559cb16592ddb8f383c474c13e05
+  RealmSwift: 16ad2c187042c4934f49750375582fe508627dcb
   RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  ToggleSwitch: 20f212f8770d1dd33ba5ac981e0b96564e60f305
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
-  TwitterKit: 202404be71aadd81d19f677b34579fe77d9cb67e
+  TwitterKit: 5064d99632a8d6e5f1364e6e8f7b211d196c0840
 
-PODFILE CHECKSUM: 25faba82eedfa787d24bbab33b17e4ffe541e50a
+PODFILE CHECKSUM: 36efc5e2f222708ce94828774f5c28508ddfa264
 
 COCOAPODS: 1.2.1

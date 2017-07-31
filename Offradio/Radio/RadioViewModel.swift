@@ -83,4 +83,24 @@ final class RadioViewModel: StormysRadioKitDelegate {
         self.radio.metadata.forceRefresh()
     }
 
+    func srkNoNetworkFound() {
+        Log.debug("SRK: NoNetworkFound")
+    }
+
+    func srkBadContent() {
+        Log.debug("SRK: bad content")
+    }
+
+    func srkAudioSuspended() {
+        Log.debug("SRK: audio suspended")
+    }
+
+    func srkQueueExhausted() {
+        Log.debug("SRK: queue exhausted")
+    }
+
+    func srkAudioWillBeSuspended() {
+        Log.debug("SRK: audio will be suspended")
+    }
+
 }

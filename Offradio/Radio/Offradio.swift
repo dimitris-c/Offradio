@@ -36,8 +36,10 @@ final class Offradio: RadioProtocol {
     final func setupRadio() {
         let offradioStream = OffradioStream()
         self.kit.setStreamUrl(offradioStream.url, isFile: false)
+        self.kit.setDataTimeout(10)
         self.kit.setPauseTimeout(250)
-        self.kit.setBufferWaitTime(2)
+        self.kit.setBufferWaitTime(8)
+        self.kit.setContinuousBuffering(true)
         self.kit.stopStream()
     }
 
@@ -51,7 +53,6 @@ final class Offradio: RadioProtocol {
     }
 
     final func stop() {
-        guard status.isPlaying && kit.isAudioPlaying() else { return }
 
         self.kit.stopStream()
         self.metadata.stopTimer()
@@ -112,7 +113,8 @@ extension Offradio {
 
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
         if interruptionState.uintValue == AVAudioSessionInterruptionType.began.rawValue {
-            if kit.getStreamStatus() == SRK_STATUS_PLAYING || kit.getStreamStatus() == SRK_STATUS_PAUSED {
+            let status = kit.getStreamStatus()
+            if status != SRK_STATUS_STOPPED {
                 self.status.playbackWasInterrupted = true
                 self.stop()
             }

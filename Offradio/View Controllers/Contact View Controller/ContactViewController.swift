@@ -15,7 +15,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
     fileprivate let disposeBag: DisposeBag = DisposeBag()
 
     fileprivate var tableView: UITableView!
-    fileprivate var contactViewModel: ContactViewModel!
+    fileprivate var viewModel: ContactViewModelType!
 
     fileprivate var funkytapsLogo: UIButton!
 
@@ -32,7 +32,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
 
-        self.contactViewModel = ContactViewModel()
+        self.viewModel = ContactViewModel()
 
         self.tableView = UITableView(frame: .zero)
         self.tableView.backgroundColor = self.view.backgroundColor
@@ -48,23 +48,27 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         self.funkytapsLogo.setBackgroundImage(#imageLiteral(resourceName: "created-by-funkytaps"), for: .normal)
 
         self.funkytapsLogo.rx.tap.subscribe(onNext: {
-            UIApplication.open(url: URL(string: "https://www.niceandneat.gr")!)
+            UIApplication.open(url: URL(string: "http://www.niceandneat.gr")!)
         }).addDisposableTo(disposeBag)
 
         self.view.addSubview(self.funkytapsLogo)
 
         let cellIdentifier = ContactTableViewCell.identifier
         let cellType = ContactTableViewCell.self
-        self.contactViewModel.data.asObservable().bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: cellType)) { _, model, cell in
+
+        self.viewModel.outputs.data.asObservable()
+            .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: cellType)) { _, model, cell in
             cell.configure(with: model)
         }.addDisposableTo(disposeBag)
 
         self.tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             self?.tableView.deselectRow(at: indexPath, animated: true)
-            if let item = self?.contactViewModel.getItem(at: indexPath) {
+            if let item = self?.viewModel.outputs.getItem(at: indexPath) {
                 self?.showView(for: item.type)
             }
         }).addDisposableTo(disposeBag)
+
+        self.viewModel.inputs.viewDidLoad()
     }
 
     override func viewDidLayoutSubviews() {
@@ -72,7 +76,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
 
         // Since the data source is fixed then we just need to fit the height of the table based on
         // the data source items
-        let height = CGFloat(self.contactViewModel.data.value.count) * self.tableView.rowHeight
+        let height = CGFloat(self.viewModel.outputs.data.value.count) * self.tableView.rowHeight
         self.tableView.frame.size = CGSize(width: self.view.frame.width, height: height)
 
         self.funkytapsLogo.sizeToFit()
@@ -137,10 +141,12 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
     }
 
     final fileprivate func visitOffradio() {
-        guard let url = URL(string: "http://www.offradio.gr")else {
+        guard let url = URL(string: "http://www.offradio.gr") else {
             return
         }
-        UIApplication.open(url: url)
+        if !UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.openURL(url)
+        }
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -24,6 +24,7 @@ target 'Offradio' do
   pod 'RxCocoa',    '~> 3.0'
   pod 'RxAlamofire'
   pod 'AutoScrollLabel'
+  pod 'ToggleSwitch', '~> 1.0'
   
   target 'OffradioTests' do
     inherit! :search_paths
