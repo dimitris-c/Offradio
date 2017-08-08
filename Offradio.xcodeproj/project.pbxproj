@@ -81,7 +81,7 @@
 		B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */; };
 		B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F271E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift */; };
 		B5656F301E65025B00E5DB0E /* LastFMApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F2F1E65025B00E5DB0E /* LastFMApiService.swift */; };
-		B5656F321E65DC9A00E5DB0E /* SDWebImageManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F311E65DC9A00E5DB0E /* SDWebImageManager+Rx.swift */; };
+		B5656F321E65DC9A00E5DB0E /* KingfisherManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F311E65DC9A00E5DB0E /* KingfisherManager+Rx.swift */; };
 		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
 		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
 		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
@@ -294,7 +294,7 @@
 		B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioCommandCenter.swift; sourceTree = "<group>"; };
 		B5656F271E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioNowPlayingInfoCenter.swift; sourceTree = "<group>"; };
 		B5656F2F1E65025B00E5DB0E /* LastFMApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastFMApiService.swift; sourceTree = "<group>"; };
-		B5656F311E65DC9A00E5DB0E /* SDWebImageManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "SDWebImageManager+Rx.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B5656F311E65DC9A00E5DB0E /* KingfisherManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "KingfisherManager+Rx.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B569603C1E4908D0003BFBC6 /* RadioViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RadioViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B569603E1E490907003BFBC6 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B56960411E490957003BFBC6 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
@@ -599,7 +599,7 @@
 				B5BA38401E4F702200DB49C9 /* UIScrollView+Rx.swift */,
 				B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */,
 				B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */,
-				B5656F311E65DC9A00E5DB0E /* SDWebImageManager+Rx.swift */,
+				B5656F311E65DC9A00E5DB0E /* KingfisherManager+Rx.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1431,7 +1431,7 @@
 				B54DC4D01E5CA3A600FA376D /* FavouritesViewModel.swift in Sources */,
 				B54E08811E4D10C400B54FB3 /* ScheduleViewModel.swift in Sources */,
 				B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */,
-				B5656F321E65DC9A00E5DB0E /* SDWebImageManager+Rx.swift in Sources */,
+				B5656F321E65DC9A00E5DB0E /* KingfisherManager+Rx.swift in Sources */,
 				B5BA38411E4F702200DB49C9 /* UIScrollView+Rx.swift in Sources */,
 				B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */,
 				B54E087F1E4D10C400B54FB3 /* ScheduleTableViewCell.swift in Sources */,

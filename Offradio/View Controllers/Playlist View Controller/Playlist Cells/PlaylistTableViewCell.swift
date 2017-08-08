@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SDWebImage
+import Kingfisher
 
 final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
     fileprivate var disposeBag: DisposeBag?
@@ -129,7 +129,7 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.songLabel.text = self.item.songTitle.uppercased()
 
         if let url = URL(string: self.item.imageUrl) {
-            self.albumArtwork.sd_setImage(with: url, placeholderImage: UIImage(named: "artwork-image-placeholder"))
+            self.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"))
         }
 
         self.viewModel.initialise(with: self.favouriteButton.rx.tap.asDriver().scan(false) { state, _ in !state })
@@ -151,6 +151,6 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.viewModel.disposeBag = nil
         self.favouriteButton.isSelected = false
         self.timeLabel.isHidden = false
-        self.albumArtwork.sd_cancelCurrentImageLoad()
+        self.albumArtwork.kf.cancelDownloadTask()
     }
 }

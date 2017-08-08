@@ -8,7 +8,7 @@
 
 import RxSwift
 import RxCocoa
-import SDWebImage
+import Kingfisher
 
 final class ProducerView: UIView {
     fileprivate let disposeBag = DisposeBag()
@@ -38,7 +38,7 @@ final class ProducerView: UIView {
             .map { $0.largePhoto }
             .subscribe(onNext: { [weak self] url in
                 if let url = URL(string: url) {
-                    self?.producerImageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "producer-static-image"))
+                    self?.producerImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "producer-static-image"))
                 }
             }).addDisposableTo(disposeBag)
 

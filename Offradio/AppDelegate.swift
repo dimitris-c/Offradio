@@ -12,7 +12,6 @@ import TwitterKit
 import Crashlytics
 import FBSDKCoreKit
 import RealmSwift
-import SDWebImage
 import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain

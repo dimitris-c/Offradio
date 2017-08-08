@@ -8,7 +8,7 @@
 
 import RxSwift
 import RxCocoa
-import SDWebImage
+import Kingfisher
 
 final class CurrentTrackView: UIView {
     fileprivate let disposeBag = DisposeBag()
@@ -54,7 +54,7 @@ final class CurrentTrackView: UIView {
             .map { $0.image }
             .subscribe(onNext: { [weak self] image in
                 if let url = URL(string: image) {
-                    self?.albumArtwork.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "artwork-image-placeholder"))
+                    self?.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"))
                 }
             })
             .addDisposableTo(disposeBag)

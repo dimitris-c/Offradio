@@ -38,6 +38,16 @@
 				<string>fb164503986981752</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>twitterkit</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-AfJ2HbxzaW4gvPekIwHdak4RS</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>112</string>
@@ -61,6 +71,8 @@
 	<string>public.app-category.music</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>twitterauth</string>
+		<string>twitter</string>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
