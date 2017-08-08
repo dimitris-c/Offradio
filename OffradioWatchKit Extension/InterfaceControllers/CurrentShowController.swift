@@ -7,7 +7,7 @@
 //
 
 import WatchKit
-import SDWebImage
+import Kingfisher
 import SwiftyJSON
 
 class CurrentShowController: WKInterfaceController {
@@ -52,7 +52,7 @@ class CurrentShowController: WKInterfaceController {
     }
     
     fileprivate func loadProducerArtwork(url: URL) {
-        SDWebImageManager.shared().loadImage(with: url, options: SDWebImageOptions.init(rawValue: 0), progress: nil) { (image, data, error, cacheType, finished, url) in
+        KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil) { (image, error, cacheType, url) in
             self.producerArtwork.setImage(image)
         }
     }

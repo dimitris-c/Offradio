@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7D997B8CDB10E0D4096C1C3026A5508F"
+               BlueprintIdentifier = "FE38FC90179850D348C409E5311B61AE"
                BuildableName = "SwiftyJSON.framework"
                BlueprintName = "SwiftyJSON-watchOS"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D997B8CDB10E0D4096C1C3026A5508F"
+            BlueprintIdentifier = "FE38FC90179850D348C409E5311B61AE"
             BuildableName = "SwiftyJSON.framework"
             BlueprintName = "SwiftyJSON-watchOS"
             ReferencedContainer = "container:Pods.xcodeproj">
