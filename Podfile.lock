@@ -27,11 +27,11 @@ PODS:
   - Omicron/RxSwift (0.1.2):
     - Omicron/Core
     - RxSwift (~> 3.0)
-  - Realm (2.9.0):
-    - Realm/Headers (= 2.9.0)
-  - Realm/Headers (2.9.0)
-  - RealmSwift (2.9.0):
-    - Realm (= 2.9.0)
+  - Realm (2.9.1):
+    - Realm/Headers (= 2.9.1)
+  - Realm/Headers (2.9.1)
+  - RealmSwift (2.9.1):
+    - Realm (= 2.9.1)
   - RxAlamofire (3.0.3):
     - RxAlamofire/Core (= 3.0.3)
   - RxAlamofire/Core (3.0.3):
@@ -89,8 +89,8 @@ SPEC CHECKSUMS:
   FBSDKShareKit: aea699d3cac749af08e360f4e949b82ffa8813f5
   Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   Omicron: ddc026f62a0a6ae38215eaae080d7b39be8042ae
-  Realm: f14ab1673502559cb16592ddb8f383c474c13e05
-  RealmSwift: 16ad2c187042c4934f49750375582fe508627dcb
+  Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
+  RealmSwift: 207f12a4a36b696c5183c60a1c06d70234a23e56
   RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
