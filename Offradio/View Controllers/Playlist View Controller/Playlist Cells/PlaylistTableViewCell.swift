@@ -66,7 +66,7 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon"), for: .normal)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon"), for: .highlighted)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "favourite-button-icon-added"), for: .selected)
-        let shadow = ShadowAttributes(color: UIColor.black, offset: CGSize.zero, radius: 5, opacity: 0.3)
+        let shadow = Shadow(color: UIColor.black, offset: CGSize.zero, radius: 5, opacity: 0.3)
         self.favouriteButton.applyShadow(with: shadow)
         self.contentView.addSubview(self.favouriteButton)
 

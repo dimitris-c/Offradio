@@ -48,7 +48,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         composer.setImage(UIImage(named: "turn-your-radio-off"))
         composer.setURL(URL(string: "http://www.offradio.gr"))
 
-        composer.show(from: viewController) { (result) in
+        composer.show(from: viewController) { _ in
         }
 
     }

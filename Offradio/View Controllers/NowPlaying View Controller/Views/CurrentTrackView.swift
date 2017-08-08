@@ -118,7 +118,7 @@ final class CurrentTrackView: UIView {
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button"), for: .normal)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .highlighted)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .selected)
-        let shadow = ShadowAttributes(color: .black, offset: .zero, radius: 3, opacity: 0.5)
+        let shadow = Shadow(color: .black, offset: .zero, radius: 3, opacity: 0.5)
         self.favouriteButton.applyShadow(with: shadow)
         self.addSubview(self.favouriteButton)
 
