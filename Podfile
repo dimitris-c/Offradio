@@ -14,7 +14,7 @@ target 'Offradio' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
-  pod 'SDWebImage'
+  pod 'Kingfisher'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'TwitterKit'
