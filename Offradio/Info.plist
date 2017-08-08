@@ -39,11 +39,7 @@
 			</array>
 		</dict>
 		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
-			<string>twitterkit</string>
-			<key>CFBundleURLSchemes</key>
+            <key>CFBundleURLSchemes</key>
 			<array>
 				<string>twitterkit-AfJ2HbxzaW4gvPekIwHdak4RS</string>
 			</array>

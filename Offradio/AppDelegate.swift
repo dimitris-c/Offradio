@@ -87,6 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return handled
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return Twitter.sharedInstance().application(app, open: url, options: options)
+    }
+
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         guard let viewController = window?.rootViewController as? OffradioContentViewController else {
             completionHandler(false)

@@ -10,6 +10,7 @@ import FBSDKCoreKit
 import FBSDKShareKit
 import TwitterKit
 import MessageUI
+import Kingfisher
 
 class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
 
@@ -29,7 +30,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         guard let viewController = viewController else { return }
         print("Sharing on Facebook")
         let shareContent = FBSDKShareLinkContent()
-        shareContent.contentURL = URL(string: "http://www.offradio.gr/player")
+        shareContent.contentURL = URL(string: "http://www.offradio.gr")
         shareContent.ref = "offradio_ios_app"
 
         FBSDKShareDialog.show(from: viewController, with: shareContent, delegate: nil)
@@ -45,10 +46,11 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         let composer = TWTRComposer()
         composer.setText(title)
         composer.setImage(UIImage(named: "turn-your-radio-off"))
+        composer.setURL(URL(string: "http://www.offradio.gr"))
 
-        composer.show(from: viewController) { _ in
-
+        composer.show(from: viewController) { (result) in
         }
+
     }
 
     class func shareOnEmail(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
@@ -72,17 +74,16 @@ struct TwitterTitleFactory {
     private let firstPart: String = "I've turned my Radio OFF!"
     private let hashtag: String = "#nowplaying"
     private let mention: String = "@offradio"
-    private let playerLink: String = "http://www.offradio.gr/player"
 
     private let limit: Int = 140
 
     func title(with nowPlaying: NowPlaying) -> String {
-        var fullTitle = "\(firstPart) Listening to \(nowPlaying.show.name) \(hashtag) \(nowPlaying.current.title) \(mention) \(playerLink)"
+        var fullTitle = "\(firstPart) Listening to \(nowPlaying.show.name) \(hashtag) \(nowPlaying.current.title) \(mention)"
         if fullTitle.characters.count > limit {
-            fullTitle = "\(firstPart) Listening to \(nowPlaying.current.title) \(hashtag) \(mention) \(playerLink)"
+            fullTitle = "\(firstPart) Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
         }
         if fullTitle.characters.count > limit {
-            fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention) \(playerLink)"
+            fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
         }
         if fullTitle.characters.count > limit {
             fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
