@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias ToggleSwitchBlock = ((ToggleSwitchState) -> Void)
+public typealias ToggleSwitchBlock = ((Bool) -> Void)
 
 public enum ToggleSwitchState {
     case on
@@ -47,12 +47,19 @@ open class ToggleSwitch: UIControl {
     private var leftEdge: CGFloat = 0
     private var rightEdge: CGFloat = 0
 
-    private(set) var switchState: ToggleSwitchState = .off
-
-    public var configurationImages: ToggleSwitchImages?
-
+    public var configurationImages: ToggleSwitchImages? {
+        didSet {
+            self.removeGestures()
+            self.base?.removeFromSuperview()
+            self.thumb?.removeFromSuperview()
+            self.panBase?.removeFromSuperview()
+            self.setupCommon()
+        }
+    }
+    private var _isOn: Bool = false
     public var isOn: Bool = false {
         didSet {
+            _isOn = isOn
             self.setState(on: isOn, animated: false)
         }
     }
@@ -64,7 +71,12 @@ open class ToggleSwitch: UIControl {
         self.configurationImages = images
         self.setupCommon()
     }
-    
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setupCommon()
+    }
+
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.setupCommon()
@@ -88,17 +100,11 @@ open class ToggleSwitch: UIControl {
         self.base.sizeToFit()
         self.thumb.sizeToFit()
 
-        self.leftEdge = self.thumb.frame.width * 0.5
-        self.rightEdge = self.base.frame.maxX - self.thumb.frame.width * 0.5
+        self.configureLeftAndRightEdge()
 
         self.thumb.center = CGPoint(x: self.leftEdge, y: self.base.frame.height * 0.5)
 
-        let panBaseRect = CGRect(x: self.base.frame.minX + self.thumb.frame.size.width * 0.5,
-                                 y: self.base.frame.minY,
-                                 width: self.base.frame.width - self.thumb.frame.size.width,
-                                 height: self.base.frame.height)
-        self.panBase = UIView(frame: panBaseRect)
-        self.addSubview(self.panBase)
+        self.attachPanBase()
 
         self.addSubview(self.base)
         self.addSubview(self.thumb)
@@ -131,15 +137,16 @@ open class ToggleSwitch: UIControl {
         switch state {
         case .on:
             self.baseOnImage = image
+            if self.isOn {
+                self.base.image = image
+            }
             break
         case .off:
             self.baseOffImage = image
+            if !self.isOn {
+                self.base.image = image
+            }
             break
-        }
-        if switchState == .on {
-            self.base.image = image
-        } else if switchState == .off {
-            self.base.image = image
         }
         self.base.sizeToFit()
         self.sizeToFit()
@@ -164,9 +171,15 @@ open class ToggleSwitch: UIControl {
         switch state {
         case .on:
             self.thumbOnImage = image
+            if self.isOn {
+                self.thumb.image = image
+            }
             break
         case .off:
             self.thumbOffImage = image
+            if !self.isOn {
+                self.thumb.image = image
+            }
             break
         }
         self.thumb.sizeToFit()
@@ -189,28 +202,51 @@ open class ToggleSwitch: UIControl {
 
      */
     public func setOn(on: Bool, animated: Bool) {
-        isOn = on
+        _isOn = on
         setState(on: on, animated: animated)
     }
 
     // MARK: Private
 
+    private func configureLeftAndRightEdge() {
+        self.leftEdge = self.thumb.frame.width * 0.5
+        self.rightEdge = self.base.frame.maxX - self.thumb.frame.width * 0.5
+    }
+
+    private func attachPanBase() {
+        let panBaseRect = CGRect(x: self.base.frame.minX + self.thumb.frame.size.width * 0.5,
+                                 y: self.base.frame.minY,
+                                 width: self.base.frame.width - self.thumb.frame.size.width,
+                                 height: self.base.frame.height)
+        self.panBase = UIView(frame: panBaseRect)
+        self.addSubview(self.panBase)
+    }
+
     private func setState(on: Bool, animated: Bool) {
         if on {
-            switchState = .on
             self.onState(animated: animated, isTriggeredByUserInteraction: false)
         } else {
-            switchState = .off
             self.offState(animated: animated, isTriggeredByUserInteraction: false)
         }
+    }
+
+    private func removeGestures() {
+        self.thumb?.gestureRecognizers = []
+        self.base?.gestureRecognizers = []
     }
 
     private func addGestures() {
         let panRecongnizer = UIPanGestureRecognizer(target: self, action: #selector(panHandle))
         let baseTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapHandle))
+        let thumbTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapThumbHandle))
 
         self.thumb.addGestureRecognizer(panRecongnizer)
+        self.thumb.addGestureRecognizer(thumbTapRecognizer)
         self.base.addGestureRecognizer(baseTapRecognizer)
+    }
+
+    @objc private func tapThumbHandle(gesture: UIPanGestureRecognizer) {
+        self.setOn(on: !_isOn, animated: true)
     }
 
     @objc private func panHandle(gesture: UIPanGestureRecognizer) {
@@ -238,11 +274,9 @@ open class ToggleSwitch: UIControl {
     @objc private func tapHandle(gesture: UITapGestureRecognizer) {
         if gesture.state == .ended {
             if self.thumb.center.x == self.rightEdge {
-                self.switchState = .off
                 offState(animated: true, isTriggeredByUserInteraction: true)
             }
             else if self.thumb.center.x == self.leftEdge {
-                self.switchState = .on
                 onState(animated: true, isTriggeredByUserInteraction: true)
             }
         }
@@ -260,19 +294,15 @@ open class ToggleSwitch: UIControl {
             }
         } else {
             if position == 0.0 {
-                self.switchState = .off
                 offState(animated: false, isTriggeredByUserInteraction: true)
             }
             else if position == 1.0 {
-                self.switchState = .on
                 onState(animated: false, isTriggeredByUserInteraction: true)
             }
             else if position > 0.0 && position < 0.5 {
-                self.switchState = .off
                 offState(animated: true, isTriggeredByUserInteraction: true)
             }
             else if position >= 0.5 && position < 1.0 {
-                self.switchState = .on
                 onState(animated: true, isTriggeredByUserInteraction: true)
             }
         }
@@ -284,9 +314,10 @@ open class ToggleSwitch: UIControl {
         }, completion: { completed in
             self.base.image = self.baseOnImage
             self.thumb.image = self.thumbOnImage
+            self._isOn = true
             if isTriggeredByUserInteraction {
                 self.sendActions(for: .valueChanged)
-                self.stateChanged?(self.switchState)
+                self.stateChanged?(true)
             }
         })
     }
@@ -297,9 +328,10 @@ open class ToggleSwitch: UIControl {
         }, completion: { completed in
             self.base.image = self.baseOffImage
             self.thumb.image = self.thumbOffImage
+            self._isOn = false
             if isTriggeredByUserInteraction {
                 self.sendActions(for: .valueChanged)
-                self.stateChanged?(self.switchState)
+                self.stateChanged?(false)
             }
         })
     }
