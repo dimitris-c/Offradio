@@ -44,9 +44,9 @@ PODS:
     - RxSwift (~> 3.2)
   - RxSwift (3.6.1)
   - SwiftyJSON (3.1.4)
-  - ToggleSwitch (1.1.1):
-    - ToggleSwitch/Core (= 1.1.1)
-  - ToggleSwitch/Core (1.1.1)
+  - ToggleSwitch (1.2):
+    - ToggleSwitch/Core (= 1.2)
+  - ToggleSwitch/Core (1.2)
   - TwitterCore (3.0.0)
   - TwitterKit (3.0.4):
     - TwitterCore (>= 3.0.0)
@@ -92,7 +92,7 @@ SPEC CHECKSUMS:
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  ToggleSwitch: 28311b431b6960d66fbec6652ad90cf58d25434b
+  ToggleSwitch: b75f60ab828fe0e737350f2b4a7b0afdd5452408
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
   TwitterKit: 5064d99632a8d6e5f1364e6e8f7b211d196c0840
 

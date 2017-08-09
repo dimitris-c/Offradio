@@ -46,8 +46,8 @@ final class PlayerCircleContainerView: UIView {
         self.offradioSwitch = ToggleSwitch(with: images)
         self.addSubview(self.offradioSwitch)
 
-        self.offradioSwitch.stateChanged = { [weak self] state in
-            self?.switched.onNext(state == .on)
+        self.offradioSwitch.stateChanged = { [weak self] isOn in
+            self?.switched.onNext(isOn)
         }
 
         buffering.asObservable()
@@ -130,6 +130,7 @@ final class PlayerCircleContainerView: UIView {
         guard playing.value else { return }
 
         self.offradioSwitch.setOn(on: true, animated: true)
+        self.switched.onNext(true)
 
         UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
             self.redBackgroundView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
@@ -142,6 +143,7 @@ final class PlayerCircleContainerView: UIView {
         guard !playing.value else { return }
 
         self.offradioSwitch.setOn(on: false, animated: true)
+        self.switched.onNext(false)
 
         UIView.animate(withDuration: 0.35, delay: 0.0, options: .curveEaseOut, animations: {
             self.redBackgroundView.alpha = 0.0
