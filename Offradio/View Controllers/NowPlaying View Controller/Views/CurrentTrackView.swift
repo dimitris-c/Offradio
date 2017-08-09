@@ -182,7 +182,9 @@ final class CurrentTrackView: UIView {
 
     fileprivate func showLabelsAnimated() {
         let animations: () -> Void = { [weak self] in
-            self?.layoutSubviews()
+            guard let sSelf = self else { return }
+            sSelf.setNeedsLayout()
+            sSelf.layoutIfNeeded()
         }
 
         UIView.animate(withDuration: 0.55,
