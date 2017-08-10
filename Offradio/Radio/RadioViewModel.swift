@@ -32,7 +32,6 @@ final class RadioViewModel: StormysRadioKitDelegate {
         self.radio.kit.delegate = self
 
         toggleRadio.asObservable()
-            .distinctUntilChanged()
             .subscribe(onNext: { [weak self] shouldTurnRadioOn in
                 if shouldTurnRadioOn {
                     self?.radio.start()
