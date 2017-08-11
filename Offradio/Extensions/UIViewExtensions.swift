@@ -8,25 +8,25 @@
 
 import UIKit
 
-struct ShadowAttributes {
+struct Shadow {
     var color: UIColor = UIColor.black
     var offset: CGSize = CGSize(width: 0, height: 0)
     var radius: CGFloat = 0.0
     var opacity: Float = 0.0
 
-    static let zero = ShadowAttributes(color: UIColor.clear, offset: CGSize.zero, radius: 0, opacity: 0)
+    static let zero = Shadow(color: UIColor.clear, offset: CGSize.zero, radius: 0, opacity: 0)
 }
 
 extension UIView {
 
-    func applyShadow(with attributes: ShadowAttributes) {
+    func applyShadow(with attributes: Shadow) {
         self.layer.applyShadow(with: attributes)
     }
 
 }
 
 extension CALayer {
-    final func applyShadow(with attributes: ShadowAttributes, path: CGPath? = nil) {
+    final func applyShadow(with attributes: Shadow, path: CGPath? = nil) {
         self.shadowColor = attributes.color.cgColor
         self.shadowOffset = attributes.offset
         self.shadowRadius = attributes.radius

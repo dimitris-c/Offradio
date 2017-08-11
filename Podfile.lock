@@ -18,6 +18,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.25.0):
     - FBSDKCoreKit
+  - Kingfisher (3.10.4)
   - Omicron (0.1.2):
     - Omicron/Core (= 0.1.2)
   - Omicron/Core (0.1.2):
@@ -26,11 +27,11 @@ PODS:
   - Omicron/RxSwift (0.1.2):
     - Omicron/Core
     - RxSwift (~> 3.0)
-  - Realm (2.9.0):
-    - Realm/Headers (= 2.9.0)
-  - Realm/Headers (2.9.0)
-  - RealmSwift (2.9.0):
-    - Realm (= 2.9.0)
+  - Realm (2.9.1):
+    - Realm/Headers (= 2.9.1)
+  - Realm/Headers (2.9.1)
+  - RealmSwift (2.9.1):
+    - Realm (= 2.9.1)
   - RxAlamofire (3.0.3):
     - RxAlamofire/Core (= 3.0.3)
   - RxAlamofire/Core (3.0.3):
@@ -42,15 +43,12 @@ PODS:
     - RealmSwift (~> 2.5)
     - RxSwift (~> 3.2)
   - RxSwift (3.6.1)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
   - SwiftyJSON (3.1.4)
-  - ToggleSwitch (1.0):
-    - ToggleSwitch/Core (= 1.0)
-  - ToggleSwitch/Core (1.0)
+  - ToggleSwitch (1.2.1):
+    - ToggleSwitch/Core (= 1.2.1)
+  - ToggleSwitch/Core (1.2.1)
   - TwitterCore (3.0.0)
-  - TwitterKit (3.0.4):
+  - TwitterKit (3.1.0):
     - TwitterCore (>= 3.0.0)
 
 DEPENDENCIES:
@@ -63,6 +61,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - Kingfisher
   - Omicron
   - Omicron/RxSwift
   - RealmSwift
@@ -70,7 +69,6 @@ DEPENDENCIES:
   - RxCocoa (~> 3.0)
   - RxRealm
   - RxSwift (~> 3.0)
-  - SDWebImage
   - SwiftyJSON
   - ToggleSwitch (~> 1.0)
   - TwitterKit
@@ -85,19 +83,19 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
   FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
   FBSDKShareKit: aea699d3cac749af08e360f4e949b82ffa8813f5
+  Kingfisher: dc3a4983e86d2dfa89513664983a82340c11a289
   Omicron: ddc026f62a0a6ae38215eaae080d7b39be8042ae
-  Realm: f14ab1673502559cb16592ddb8f383c474c13e05
-  RealmSwift: 16ad2c187042c4934f49750375582fe508627dcb
+  Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
+  RealmSwift: 207f12a4a36b696c5183c60a1c06d70234a23e56
   RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  ToggleSwitch: 20f212f8770d1dd33ba5ac981e0b96564e60f305
+  ToggleSwitch: 528853e108d090fb78e68692bd7d8742a07c11dd
   TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
-  TwitterKit: 5064d99632a8d6e5f1364e6e8f7b211d196c0840
+  TwitterKit: 21d0b22d67cb9a568cd8053972d0da7df2e0e9a0
 
-PODFILE CHECKSUM: 36efc5e2f222708ce94828774f5c28508ddfa264
+PODFILE CHECKSUM: ed578765c7ada44a817844c671521b4a1b7b4435
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

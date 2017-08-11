@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SDWebImage
+import Kingfisher
 
 final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
@@ -85,7 +85,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.producerImageView?.sd_cancelCurrentImageLoad()
+        self.producerImageView?.kf.cancelDownloadTask()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -147,8 +147,8 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
     }
 
     private func loadProducerImage(with imageUrl: URL) {
-        self.producerImageView.sd_setImage(with: imageUrl, completed: { [weak self] (_, _, cacheType, _) in
-            if cacheType == SDImageCacheType.none {
+        self.producerImageView.kf.setImage(with: imageUrl) { [weak self] (_, _, cacheType, _) in
+            if cacheType == .none {
                 self?.producerImageView.alpha = 0.0
                 UIView.animate(withDuration: 0.35, animations: {
                     self?.producerImageView.alpha = 1.0
@@ -157,7 +157,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
                 self?.producerImageView.alpha = 1.0
             }
             self?.producerImageViewIndicator?.stopAnimating()
-        })
+        }
     }
 
 }

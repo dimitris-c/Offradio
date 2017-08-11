@@ -14,7 +14,7 @@ target 'Offradio' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
-  pod 'SDWebImage'
+  pod 'Kingfisher'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'TwitterKit'
@@ -40,8 +40,7 @@ target 'Offradio' do
       platform :watchos, '2.0'
       pod 'RxSwift',    '~> 3.0'
       pod 'SwiftyJSON'
-      pod 'SDWebImage'
-      
+      pod 'Kingfisher'
   end
   
 end
