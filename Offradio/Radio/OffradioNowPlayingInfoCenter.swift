@@ -9,7 +9,7 @@
 import MediaPlayer
 import RxSwift
 import RxCocoa
-import SDWebImage
+import Kingfisher
 
 class OffradioNowPlayingInfoCenter {
     fileprivate final let disposeBag = DisposeBag()
@@ -29,7 +29,7 @@ class OffradioNowPlayingInfoCenter {
             .skipWhile({ $0.isEmpty() })
             .flatMapLatest { nowPlaying -> Observable<UIImage?> in
                 if let url = URL(string: nowPlaying.current.image) {
-                    return SDWebImageManager.shared().rx.loadImage(url: url, options: .refreshCached)
+                    return KingfisherManager.shared.rx.loadImage(url: url, options: [.forceRefresh])
                 }
                 return Observable.empty()
             }

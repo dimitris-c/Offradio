@@ -40,7 +40,7 @@ class TwitterFactoryMessageTests: XCTestCase {
 
         let title = factory.title(with: nowplaying)
 
-        XCTAssertEqual(title, "I've turned my Radio OFF! Listening to Dimitris #nowplaying An Artist - Hello @offradio http://www.offradio.gr/player")
+        XCTAssertEqual(title, "I've turned my Radio OFF! Listening to Dimitris #nowplaying An Artist - Hello @offradio")
         XCTAssert(title.characters.count < 140)
 
         let longShow = Show("Dimitris Chatzieleftheriou", photo: "", largePhoto: "", body: "")
@@ -49,7 +49,7 @@ class TwitterFactoryMessageTests: XCTestCase {
 
         let title2 = factory.title(with: longNowplaying)
 
-        XCTAssertEqual(title2, "I've turned my Radio OFF! Listening to An Artist With Long Name - Hello Sky World #nowplaying @offradio http://www.offradio.gr/player")
+        XCTAssertEqual(title2, "I\'ve turned my Radio OFF! Listening to Dimitris Chatzieleftheriou #nowplaying An Artist With Long Name - Hello Sky World @offradio")
         XCTAssert(title2.characters.count < 140)
 
         let veryLongShow = Show("Dimitris Chatzieleftheriou", photo: "", largePhoto: "", body: "")
@@ -58,7 +58,7 @@ class TwitterFactoryMessageTests: XCTestCase {
 
         let title3 = factory.title(with: veryLongNowplaying)
 
-        XCTAssertEqual(title3, "Listening to An Artist With Long Name - This is way too long Hello Sky World #nowplaying @offradio http://www.offradio.gr/player")
+        XCTAssertEqual(title3, "I\'ve turned my Radio OFF! Listening to An Artist With Long Name - This is way too long Hello Sky World #nowplaying @offradio")
         XCTAssert(title3.characters.count < 140)
 
 

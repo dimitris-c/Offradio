@@ -46,8 +46,8 @@ final class PlayerCircleContainerView: UIView {
         self.offradioSwitch = ToggleSwitch(with: images)
         self.addSubview(self.offradioSwitch)
 
-        self.offradioSwitch.stateChanged = { [weak self] state in
-            self?.switched.onNext(state == .on)
+        self.offradioSwitch.stateChanged = { [weak self] isOn in
+            self?.switched.onNext(isOn)
         }
 
         buffering.asObservable()

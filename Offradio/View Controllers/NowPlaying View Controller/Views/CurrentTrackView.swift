@@ -8,7 +8,7 @@
 
 import RxSwift
 import RxCocoa
-import SDWebImage
+import Kingfisher
 
 final class CurrentTrackView: UIView {
     fileprivate let disposeBag = DisposeBag()
@@ -54,7 +54,7 @@ final class CurrentTrackView: UIView {
             .map { $0.image }
             .subscribe(onNext: { [weak self] image in
                 if let url = URL(string: image) {
-                    self?.albumArtwork.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "artwork-image-placeholder"))
+                    self?.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"))
                 }
             })
             .addDisposableTo(disposeBag)
@@ -118,7 +118,7 @@ final class CurrentTrackView: UIView {
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button"), for: .normal)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .highlighted)
         self.favouriteButton.setBackgroundImage(#imageLiteral(resourceName: "player-favourite-button-tapped"), for: .selected)
-        let shadow = ShadowAttributes(color: .black, offset: .zero, radius: 3, opacity: 0.5)
+        let shadow = Shadow(color: .black, offset: .zero, radius: 3, opacity: 0.5)
         self.favouriteButton.applyShadow(with: shadow)
         self.addSubview(self.favouriteButton)
 
@@ -182,7 +182,9 @@ final class CurrentTrackView: UIView {
 
     fileprivate func showLabelsAnimated() {
         let animations: () -> Void = { [weak self] in
-            self?.layoutSubviews()
+            guard let sSelf = self else { return }
+            sSelf.setNeedsLayout()
+            sSelf.layoutIfNeeded()
         }
 
         UIView.animate(withDuration: 0.55,

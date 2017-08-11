@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9282BA4FFA49ED1F76737B3603B7AAC7"
+               BlueprintIdentifier = "689B90E19FCDFEC1FE8BB7209FAA633B"
                BuildableName = "Pods_OffradioWatchKit_Extension.framework"
                BlueprintName = "Pods-OffradioWatchKit Extension"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9282BA4FFA49ED1F76737B3603B7AAC7"
+            BlueprintIdentifier = "689B90E19FCDFEC1FE8BB7209FAA633B"
             BuildableName = "Pods_OffradioWatchKit_Extension.framework"
             BlueprintName = "Pods-OffradioWatchKit Extension"
             ReferencedContainer = "container:Pods.xcodeproj">
