@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 import Alamofire
-import Omicron
+import Moya
 
 struct LastFMAPIKey {
     static let apiKey: String = "afdc2c22f29208e54874cca3566b57ae"
@@ -30,7 +30,7 @@ struct LastFMArtist {
     }
 }
 
-enum LastFMAPIService: Service {
+enum LastFMAPIService: TargetType {
     case artistInfo(artist: String)
 }
 
@@ -45,21 +45,29 @@ extension LastFMAPIService {
         return ""
     }
 
-    var params: RequestParameters {
+    var task: Task {
         switch self {
         case .artistInfo(let artist):
             let data: Parameters = ["method": "artist.getinfo",
                                     "api_key": LastFMAPIKey.apiKey,
                                     "format": "json",
                                     "artist": artist]
-            return RequestParameters(parameters: data)
+            return .requestParameters(parameters: data, encoding: URLEncoding.default)
         }
+    }
+
+    var sampleData: Data {
+        return Data()
+    }
+
+    var headers: [String : String]? {
+        return nil
     }
 
 }
 
-final class LastFMAPIResponseParse: APIResponse<LastFMArtist> {
-    override func toData(rawData data: JSON) -> LastFMArtist? {
+final class LastFMAPIResponseParse {
+    func toData(rawData data: JSON) -> LastFMArtist? {
         let artist = data["artist"]
         return LastFMArtist(with: artist)
     }

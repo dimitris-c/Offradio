@@ -7,10 +7,10 @@
 //
 
 import SwiftyJSON
-import Omicron
+import Moya
 import Alamofire
 
-enum ScheduleService: Service {
+enum ScheduleService: TargetType {
     case schedule
 }
 
@@ -25,15 +25,22 @@ extension ScheduleService {
         return "schedule"
     }
 
-    var params: RequestParameters {
-        return RequestParameters.default
+    var task: Task {
+        return .requestPlain
     }
 
+    var sampleData: Data {
+        return Data()
+    }
+
+    var headers: [String : String]? {
+        return nil
+    }
 }
 
-final class ScheduleResponseParse: APIResponse<Schedule> {
+final class ScheduleResponseParse {
 
-    override func toData(rawData data: JSON) -> Schedule {
+    func toData(rawData data: JSON) -> Schedule {
         return Schedule(with: data)
     }
 

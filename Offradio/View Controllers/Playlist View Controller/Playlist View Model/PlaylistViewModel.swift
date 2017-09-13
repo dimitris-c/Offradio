@@ -11,7 +11,8 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import RxRealm
-import Omicron
+import Moya
+import SwiftyJSON
 
 final class PlaylistViewModel {
 
@@ -25,7 +26,7 @@ final class PlaylistViewModel {
 
     var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
 
-    let playlistService = APIService<PlaylistService>()
+    let playlistService = MoyaProvider<PlaylistService>()
     let playlistParser = PlaylistResponseParse()
 
     fileprivate var page: Int = 0
@@ -63,20 +64,43 @@ final class PlaylistViewModel {
     // MARK: Internal methods
 
     fileprivate func fetchPlaylist(withPage page: Int) {
-        self.playlistService.call(with: .playlist(page: page), parse: playlistParser) { [weak self] (success, result, _) in
+        self.playlistService.request(.playlist(page: page)) { [weak self] result in
             guard let strongSelf = self else { return }
-            if let items = result.value, success {
-                if strongSelf.page == 0 {
-                    strongSelf.playlistData.value = items.map { PlaylistCellViewModel(with: $0) }
-                } else {
-                    strongSelf.playlistData.value.append(contentsOf: items.map { PlaylistCellViewModel(with: $0) })
-                }
-                strongSelf.page += 1
+            switch result {
+            case .success(let response):
+                do {
+                    let data = try response.mapJSON()
+                    let json = JSON(data)
+                    if strongSelf.page == 0 {
+                        strongSelf.playlistData.value = json["playlist"].arrayValue.map { PlaylistSong(with: $0) }.map { PlaylistCellViewModel(with: $0) }
+                    } else {
+                        strongSelf.playlistData.value.append(contentsOf: json["playlist"].arrayValue.map { PlaylistSong(with: $0) }.map { PlaylistCellViewModel(with: $0) })
+                    }
+                    strongSelf.page += 1
+                    strongSelf.refresh.value = false
+                    strongSelf.indicatorViewAnimating.value = false
+                    strongSelf.initialLoad.value = false
+                } catch { }
+                break
+            case .failure(let error):
+                Log.debug(error.localizedDescription)
+                break
             }
-            strongSelf.refresh.value = false
-            strongSelf.indicatorViewAnimating.value = false
-            strongSelf.initialLoad.value = false
         }
+//        self.playlistService.call(with: .playlist(page: page), parse: playlistParser) { [weak self] (success, result, _) in
+//            guard let strongSelf = self else { return }
+//            if let items = result.value, success {
+//                if strongSelf.page == 0 {
+//                    strongSelf.playlistData.value = items.map { PlaylistCellViewModel(with: $0) }
+//                } else {
+//                    strongSelf.playlistData.value.append(contentsOf: items.map { PlaylistCellViewModel(with: $0) })
+//                }
+//                strongSelf.page += 1
+//            }
+//            strongSelf.refresh.value = false
+//            strongSelf.indicatorViewAnimating.value = false
+//            strongSelf.initialLoad.value = false
+//        }
     }
 
 }

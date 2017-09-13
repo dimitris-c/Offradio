@@ -9,7 +9,8 @@
 import RxSwift
 import RxCocoa
 import RxAlamofire
-import Omicron
+import Moya
+import SwiftyJSON
 
 final class ScheduleViewModel {
     let disposeBag: DisposeBag = DisposeBag()
@@ -17,8 +18,8 @@ final class ScheduleViewModel {
     var firstLoad: Variable<Bool> = Variable<Bool>(true)
     var refresh: Variable<Bool> = Variable<Bool>(false)
 
-    fileprivate var scheduleService = RxAPIService<ScheduleService>()
-    fileprivate var producersService = RxAPIService<ProducersBioService>()
+    fileprivate var scheduleService = RxMoyaProvider<ScheduleService>()
+    fileprivate var producersService = RxMoyaProvider<ProducersBioService>()
 
     let navigationTitle: Variable<String> = Variable<String>("Offradio")
     let schedule: Variable<[ScheduleItem]> = Variable<[ScheduleItem]>([])
@@ -63,17 +64,26 @@ final class ScheduleViewModel {
     // MARK: Internal methods
 
     fileprivate func fetchSchedule() -> Observable<Schedule> {
-        return self.scheduleService.call(with: .schedule, parse: ScheduleResponseParse()).do(onError: { [weak self] (_) in
-            self?.refresh.value = false
-            self?.firstLoad.value = false
-        }, onCompleted: { [weak self] in
-            self?.refresh.value = false
-            self?.firstLoad.value = false
-        })
+        return self.scheduleService.request(.schedule)
+            .mapJSON()
+            .map { JSON($0) }
+            .asObservable()
+            .map { Schedule(with: $0) }
+            .do(onError: { [weak self] (_) in
+                self?.refresh.value = false
+                self?.firstLoad.value = false
+            }, onCompleted: { [weak self] in
+                self?.refresh.value = false
+                self?.firstLoad.value = false
+            })
     }
 
     fileprivate func fetchProducers() -> Observable<[Producer]> {
-        return self.producersService.call(with: .producers, parse: ProducerResponseParse())
+        return self.producersService.request(.producers)
+            .mapJSON()
+            .map { JSON($0) }
+            .asObservable()
+            .map { $0.map { Producer(with: $0.1) } }
     }
 
 }

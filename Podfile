@@ -7,8 +7,7 @@ target 'Offradio' do
   # Pods for Offradio
   pod 'Alamofire'
   pod 'AlamofireNetworkActivityIndicator'
-  pod 'Omicron'
-  pod 'Omicron/RxSwift'
+  pod 'Moya/RxSwift'
   pod 'SwiftyJSON'
   pod 'Bolts'
   pod 'FBSDKCoreKit'

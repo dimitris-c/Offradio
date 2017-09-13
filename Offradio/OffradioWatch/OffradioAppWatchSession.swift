@@ -9,14 +9,14 @@
 import WatchConnectivity
 import SwiftyJSON
 import RxSwift
-import Omicron
+import Moya
 
 class OffradioAppWatchSession: NSObject, WCSessionDelegate {
 
     var disposeBag: DisposeBag? = DisposeBag()
     var radio: Offradio!
     var viewModel: RadioViewModel!
-    let playlistService = APIService<PlaylistService>()
+    let playlistService = MoyaProvider<PlaylistService>()
     let playlistFavouritesLayer = PlaylistFavouritesLayer()
 
     init(with radio: Offradio, andViewModel model: RadioViewModel) {
@@ -157,14 +157,17 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     fileprivate func fetchPlaylist(withReply reply: @escaping ([Song]) -> Void) {
-        self.playlistService.call(with: .playlist(page: 0), parse: PlaylistResponseParse()) { (success, result, _) in
-            if success, let data = result.value {
-                let songs = data.map { $0.toSong() }
-                reply(songs)
-                return
-            }
+        self.playlistService.request(.playlist(page: 0)) { _ in
             reply([])
         }
+//        self.playlistService.call(with: .playlist(page: 0), parse: PlaylistResponseParse()) { (success, result, _) in
+//            if success, let data = result.value {
+//                let songs = data.map { $0.toSong() }
+//                reply(songs)
+//                return
+//            }
+//            reply([])
+//        }
     }
 
     fileprivate func fetchCurrentTrack(withReply reply: @escaping (CurrentTrack) -> Void) {

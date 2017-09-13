@@ -9,16 +9,16 @@
 import Alamofire
 import SwiftyJSON
 import RealmSwift
-import Omicron
+import Moya
 
-enum PlaylistService: Service {
+enum PlaylistService: TargetType {
     case playlist(page: Int)
 }
 
 extension PlaylistService {
     var baseURL: URL { return URL(string: APIURL().apiPath)! }
 
-    var method: HTTPMethod {
+    var method: Moya.Method {
         return .get
     }
 
@@ -26,21 +26,27 @@ extension PlaylistService {
         return "playlist"
     }
 
-    var params: RequestParameters {
+    var task: Task {
         switch self {
         case .playlist(let page):
             let now = Date().unixTimestamp
-            let data: Parameters = ["page": String(page), "noCache": String(now)]
-            let parameters = RequestParameters(parameters: data, encoding: URLEncoding.default)
-            return parameters
+            return .requestParameters(parameters: ["page": String(page), "noCache": String(now)], encoding: URLEncoding.default)
         }
+    }
+
+    var sampleData: Data {
+        return Data()
+    }
+
+    var headers: [String : String]? {
+        return nil
     }
 
 }
 
-final class PlaylistResponseParse: APIResponse<[PlaylistSong]> {
+final class PlaylistResponseParse {
 
-    override func toData(rawData data: JSON) -> [PlaylistSong] {
+ func toData(rawData data: JSON) -> [PlaylistSong] {
         var items: [PlaylistSong] = []
         items = data["playlist"].arrayValue.map { PlaylistSong(with: $0) }
         return items
