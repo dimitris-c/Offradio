@@ -17,6 +17,6 @@ struct Theme {
         UINavigationBar.appearance().tintColor = UIColor.white
 
         UINavigationBar.appearance().barTintColor = UIColor.black
-        
+
     }
 }
