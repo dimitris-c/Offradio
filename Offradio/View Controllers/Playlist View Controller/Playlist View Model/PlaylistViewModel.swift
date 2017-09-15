@@ -13,6 +13,12 @@ import RealmSwift
 import RxRealm
 import Moya
 import SwiftyJSON
+import StoreKit
+
+public enum PlaylistCellSearchProvider: String {
+    case itunes
+    case spotify
+}
 
 final class PlaylistViewModel {
 
@@ -61,7 +67,28 @@ final class PlaylistViewModel {
 
     }
 
+    func search(on provider: PlaylistCellSearchProvider, at indexPath: IndexPath) {
+        if let item = playlistData.value[indexPath.row].item {
+            switch provider {
+            case .itunes:
+                searchOniTunes(for: item)
+                break
+            case .spotify:
+                searchOnSpotifty(for: item)
+                break
+            }
+        }
+    }
+
     // MARK: Internal methods
+
+    fileprivate func searchOniTunes(`for` item: PlaylistSong) {
+
+    }
+
+    fileprivate func searchOnSpotifty(`for` item: PlaylistSong) {
+
+    }
 
     fileprivate func fetchPlaylist(withPage page: Int) {
         self.playlistService.request(.playlist(page: page)) { [weak self] result in

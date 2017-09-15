@@ -10,8 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Kingfisher
+import SwipeCellKit
 
-final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
+final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
     fileprivate var disposeBag: DisposeBag?
 
     private(set) var viewModel: PlaylistCellViewModel!
