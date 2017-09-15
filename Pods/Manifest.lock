@@ -18,18 +18,18 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.26.0):
     - FBSDKCoreKit
-  - Kingfisher (3.12.2)
+  - Kingfisher (3.13.1)
   - Moya/Core (9.0.0):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
   - Moya/RxSwift (9.0.0):
     - Moya/Core
     - RxSwift (~> 3.3)
-  - Realm (2.10.0):
-    - Realm/Headers (= 2.10.0)
-  - Realm/Headers (2.10.0)
-  - RealmSwift (2.10.0):
-    - Realm (= 2.10.0)
+  - Realm (2.10.1):
+    - Realm/Headers (= 2.10.1)
+  - Realm/Headers (2.10.1)
+  - RealmSwift (2.10.1):
+    - Realm (= 2.10.1)
   - Result (3.2.3)
   - RxAlamofire (3.0.3):
     - RxAlamofire/Core (= 3.0.3)
@@ -43,6 +43,7 @@ PODS:
     - RxSwift (~> 3.2)
   - RxSwift (3.6.1)
   - SwiftyJSON (3.1.4)
+  - SwipeCellKit (1.9.1)
   - ToggleSwitch (1.2.1):
     - ToggleSwitch/Core (= 1.2.1)
   - ToggleSwitch/Core (1.2.1)
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - Kingfisher
+  - Kingfisher (~> 3.0)
   - Moya/RxSwift
   - RealmSwift
   - RxAlamofire
@@ -68,6 +70,7 @@ DEPENDENCIES:
   - RxRealm
   - RxSwift (~> 3.0)
   - SwiftyJSON
+  - SwipeCellKit
   - ToggleSwitch (~> 1.0)
   - TwitterKit
 
@@ -81,20 +84,21 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
   FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
   FBSDKShareKit: 320712d8293fde6392872c91eb80ef0da5d73cc3
-  Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
+  Kingfisher: ed9707a409cc47fddafbcd12a43a9757e3600af5
   Moya: cf5e6ee93af526532f92614004b8ad2ea60fd845
-  Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
-  RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
+  Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
+  RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwipeCellKit: e9ff953c820394a4e641cfb0118b6c959506aec2
   ToggleSwitch: 528853e108d090fb78e68692bd7d8742a07c11dd
   TwitterCore: 6856288a1c25e5281363250681f33b42fce1da42
   TwitterKit: 313bf02baee8427f7649b3640169178e5a8b5a99
 
-PODFILE CHECKSUM: 27bdf7b308a21f32af26bbcfaba490eccfbdcf78
+PODFILE CHECKSUM: 68cad7f98b053fc53f65cccb067829d01ed30ed1
 
 COCOAPODS: 1.3.1

@@ -119,6 +119,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ToggleSwitch/ToggleSwitch.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -139,6 +140,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ToggleSwitch/ToggleSwitch.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
