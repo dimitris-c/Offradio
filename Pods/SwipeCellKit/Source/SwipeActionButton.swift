@@ -34,7 +34,7 @@ class SwipeActionButton: UIButton {
         
         tintColor = action.textColor ?? .white
         highlightedBackgroundColor = action.highlightedBackgroundColor ?? UIColor.black.withAlphaComponent(0.1)
-
+        
         titleLabel?.font = action.font ?? UIFont.systemFont(ofSize: 15, weight: UIFontWeightMedium)
         titleLabel?.textAlignment = .center
         titleLabel?.lineBreakMode = .byWordWrapping

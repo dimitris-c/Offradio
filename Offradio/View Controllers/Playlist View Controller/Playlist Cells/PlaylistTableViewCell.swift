@@ -33,7 +33,7 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.00)
+        self.backgroundColor = UIColor.lightenBlack
         self.selectionStyle = .none
 
         self.contentView.backgroundColor = UIColor.clear

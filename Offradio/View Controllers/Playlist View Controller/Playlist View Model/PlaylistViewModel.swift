@@ -13,12 +13,17 @@ import RealmSwift
 import RxRealm
 import Moya
 import SwiftyJSON
-import StoreKit
+import Result
 
 public enum PlaylistCellSearchProvider: String {
     case itunes
     case spotify
 }
+
+public enum SearchResultError: Error {
+    case noResult
+}
+public typealias SearchBlock = (Result<String, SearchResultError>) -> Void
 
 final class PlaylistViewModel {
 
@@ -33,6 +38,7 @@ final class PlaylistViewModel {
     var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
 
     let playlistService = MoyaProvider<PlaylistService>()
+    let itunesService = MoyaProvider<iTunesSearchAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
     let playlistParser = PlaylistResponseParse()
 
     fileprivate var page: Int = 0
@@ -67,14 +73,14 @@ final class PlaylistViewModel {
 
     }
 
-    func search(on provider: PlaylistCellSearchProvider, at indexPath: IndexPath) {
+    func search(on provider: PlaylistCellSearchProvider, at indexPath: IndexPath, completion: @escaping SearchBlock) {
         if let item = playlistData.value[indexPath.row].item {
             switch provider {
             case .itunes:
-                searchOniTunes(for: item)
+                searchOniTunes(for: item, completion: completion)
                 break
             case .spotify:
-                searchOnSpotifty(for: item)
+                searchOnSpotifty(for: item, completion: completion)
                 break
             }
         }
@@ -82,11 +88,22 @@ final class PlaylistViewModel {
 
     // MARK: Internal methods
 
-    fileprivate func searchOniTunes(`for` item: PlaylistSong) {
-
+    fileprivate func searchOniTunes(`for` item: PlaylistSong, completion: @escaping SearchBlock) {
+        itunesService.request(.search(with: item)) { result in
+            do {
+                let data = try result.dematerialize().data
+                let json = JSON(data: data)
+                if let urlString = json["results"].arrayValue.first?["trackViewUrl"].stringValue {
+                    completion(.success(urlString))
+                } else {
+                    completion(.failure(.noResult))
+                }
+            } catch { }
+        }
     }
 
-    fileprivate func searchOnSpotifty(`for` item: PlaylistSong) {
+    // Not yet implemented!
+    fileprivate func searchOnSpotifty(`for` item: PlaylistSong, completion: SearchBlock) {
 
     }
 
@@ -99,9 +116,12 @@ final class PlaylistViewModel {
                     let data = try response.mapJSON()
                     let json = JSON(data)
                     if strongSelf.page == 0 {
-                        strongSelf.playlistData.value = json["playlist"].arrayValue.map { PlaylistSong(with: $0) }.map { PlaylistCellViewModel(with: $0) }
+                        strongSelf.playlistData.value = json["playlist"].arrayValue
+                            .map { PlaylistSong(with: $0) }
+                            .map { PlaylistCellViewModel(with: $0) }
                     } else {
-                        strongSelf.playlistData.value.append(contentsOf: json["playlist"].arrayValue.map { PlaylistSong(with: $0) }.map { PlaylistCellViewModel(with: $0) })
+                        strongSelf.playlistData.value.append(contentsOf: json["playlist"].arrayValue
+                            .map { PlaylistSong(with: $0) }.map { PlaylistCellViewModel(with: $0) })
                     }
                     strongSelf.page += 1
                     strongSelf.refresh.value = false
@@ -114,20 +134,6 @@ final class PlaylistViewModel {
                 break
             }
         }
-//        self.playlistService.call(with: .playlist(page: page), parse: playlistParser) { [weak self] (success, result, _) in
-//            guard let strongSelf = self else { return }
-//            if let items = result.value, success {
-//                if strongSelf.page == 0 {
-//                    strongSelf.playlistData.value = items.map { PlaylistCellViewModel(with: $0) }
-//                } else {
-//                    strongSelf.playlistData.value.append(contentsOf: items.map { PlaylistCellViewModel(with: $0) })
-//                }
-//                strongSelf.page += 1
-//            }
-//            strongSelf.refresh.value = false
-//            strongSelf.indicatorViewAnimating.value = false
-//            strongSelf.initialLoad.value = false
-//        }
     }
 
 }

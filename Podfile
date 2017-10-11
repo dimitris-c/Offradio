@@ -9,7 +9,6 @@ target 'Offradio' do
   pod 'AlamofireNetworkActivityIndicator'
   pod 'Moya/RxSwift'
   pod 'SwiftyJSON'
-  pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
@@ -24,7 +23,7 @@ target 'Offradio' do
   pod 'RxAlamofire'
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
-  pod 'SwipeCellKit'
+  pod 'SwipeCellKit', '1.9.1'
   
   target 'OffradioTests' do
     inherit! :search_paths

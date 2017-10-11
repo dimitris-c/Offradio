@@ -37,7 +37,7 @@ enum LastFMAPIService: TargetType {
 extension LastFMAPIService {
     var baseURL: URL { return URL(string: "https://ws.audioscrobbler.com/2.0/")! }
 
-    var method: HTTPMethod {
+    var method: Moya.Method {
         return .get
     }
 
