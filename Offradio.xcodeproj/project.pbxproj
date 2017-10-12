@@ -125,6 +125,8 @@
 		B5BA38411E4F702200DB49C9 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38401E4F702200DB49C9 /* UIScrollView+Rx.swift */; };
 		B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */; };
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
+		B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */; };
+		B5CBD0571F74409800250FC9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CBD0561F74409800250FC9 /* AVFoundation.framework */; };
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */; };
@@ -336,6 +338,8 @@
 		B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnimationsFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BB24901E4B82F6006FC751 /* Offradio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Offradio.entitlements; sourceTree = "<group>"; };
+		B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPI.swift; sourceTree = "<group>"; };
+		B5CBD0561F74409800250FC9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrack.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923771E65E4800013A3F4 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Show.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigrationLayer.swift; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5CBD0571F74409800250FC9 /* AVFoundation.framework in Frameworks */,
 				B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */,
 				B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */,
 				B52C2D4E1EB25A3B00AF8514 /* WatchKit.framework in Frameworks */,
@@ -425,6 +430,7 @@
 		7270B8A41F99A77388A95EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5CBD0561F74409800250FC9 /* AVFoundation.framework */,
 				B575DC441F2BA28E00CE6773 /* UIKit.framework */,
 				B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */,
 				B52C2D4B1EB25A3B00AF8514 /* WatchConnectivity.framework */,
@@ -562,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				B52A6C391E36BAC2005893D2 /* AppConstants.swift */,
+				B5BC8DEE1F700F74007F5519 /* iTunesSearch API */,
 				B5656F2C1E6501B200E5DB0E /* LastFM API */,
 				B52A6C2C1E36B9BB005893D2 /* Models */,
 				B50395581E4BA4E800D9A71B /* Offradio API */,
@@ -921,6 +928,14 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		B5BC8DEE1F700F74007F5519 /* iTunesSearch API */ = {
+			isa = PBXGroup;
+			children = (
+				B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */,
+			);
+			path = "iTunesSearch API";
+			sourceTree = "<group>";
+		};
 		B5F125201E5CC82400579D4B /* ViewArranger */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,7 +963,7 @@
 				B52A6C1E1E36B242005893D2 /* Fabric */,
 				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
 				B58678D41EAFCF1C005321CA /* Embed Watch Content */,
-				B5872B241F28CAC9007CFBCE /* ShellScript */,
+				B5872B241F28CAC9007CFBCE /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1048,7 +1063,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = decimal;
 				TargetAttributes = {
 					B54BC8A21E36A9DB0043F248 = {
@@ -1207,7 +1222,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		32F24A44CAC88BA4256ED9B6 /* [CP] Copy Pods Resources */ = {
@@ -1270,7 +1285,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		67802758F0E08A4AEC03C5A1 /* [CP] Check Pods Manifest.lock */ = {
@@ -1288,7 +1303,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A5F2C0595FD15E4B434800BE /* [CP] Embed Pods Frameworks */ = {
@@ -1340,13 +1355,14 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
-		B5872B241F28CAC9007CFBCE /* ShellScript */ = {
+		B5872B241F28CAC9007CFBCE /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1383,14 +1399,16 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher-iOS/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Omicron/Omicron.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift-iOS/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ToggleSwitch/ToggleSwitch.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1403,14 +1421,16 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Omicron.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ToggleSwitch.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1433,7 +1453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FE5C08E6C9165E17FAEB8166 /* [CP] Copy Pods Resources */ = {
@@ -1514,6 +1534,7 @@
 				B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */,
 				B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */,
 				B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */,
+				B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */,
 				B507C0A61E56869800792414 /* DataLayer.swift in Sources */,
 				B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */,
 				B52C2D3E1EB0E12200AF8514 /* OffradioWatchCommunication.swift in Sources */,
@@ -1634,7 +1655,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1642,7 +1665,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1684,7 +1711,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1692,7 +1721,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1731,6 +1764,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Offradio/Vendor/Spotify",
+				);
 				INFOPLIST_FILE = Offradio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1743,6 +1780,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1759,6 +1797,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Offradio/Vendor/Spotify",
+				);
 				INFOPLIST_FILE = Offradio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1771,6 +1813,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

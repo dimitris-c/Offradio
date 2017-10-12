@@ -9,7 +9,8 @@
 import RxSwift
 import RxCocoa
 import RxAlamofire
-import Omicron
+import Moya
+import SwiftyJSON
 
 final class OffradioMetadata {
     fileprivate let disposeBag = DisposeBag()
@@ -17,9 +18,9 @@ final class OffradioMetadata {
     let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)
 
     fileprivate let crc: Variable<String> = Variable<String>("")
-    fileprivate let crcService = RxAPIService<CRCService>()
-    fileprivate let lastFMApiService = RxAPIService<LastFMAPIService>()
-    fileprivate let nowPlayingService = RxAPIService<NowPlayingService>()
+    fileprivate let crcService = RxMoyaProvider<CRCService>()
+    fileprivate let lastFMApiService = RxMoyaProvider<LastFMAPIService>()
+    fileprivate let nowPlayingService = RxMoyaProvider<NowPlayingService>()
     fileprivate let nowPlayingParser = NowPlayingParse()
 
     fileprivate var timerDisposeBag: DisposeBag?
@@ -31,7 +32,7 @@ final class OffradioMetadata {
         let crcTimerDisposable = crcTimer.asObservable()
             .flatMapLatest({ [weak self] _ -> Observable<String> in
                 guard let strongSelf = self else { return Observable.empty() }
-                return strongSelf.crcService.callString(with: .crc)
+                return strongSelf.crcService.request(.crc).mapString().asObservable()
             })
             .catchErrorJustReturn("")
             .bind(to: crc)
@@ -61,19 +62,24 @@ final class OffradioMetadata {
     }
 
     func fetchNowPlaying() -> Observable<NowPlaying> {
-        return self.nowPlayingService.call(with: .nowPlaying, parse: nowPlayingParser).catchErrorJustReturn(NowPlaying.default)
+        return self.nowPlayingService.request(.nowPlaying)
+            .mapJSON()
+            .map { NowPlaying(json: JSON($0)) }
+            .asObservable()
+            .catchErrorJustReturn(NowPlaying.default)
+//        return self.nowPlayingService.call(with: .nowPlaying, parse: nowPlayingParser).catchErrorJustReturn(NowPlaying.default)
     }
 
     // Currently Not Used
-    fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
-        let path: LastFMAPIService = .artistInfo(artist: nowPlaying.current.artist)
-        return self.lastFMApiService.call(with: path, parse: LastFMAPIResponseParse()).map({ (artist) -> NowPlaying in
-            let filtered = artist.images.filter { $0.size == "mega" || $0.size == "large" }
-            if let image = filtered.first {
-                return nowPlaying.update(with: image.url)
-            }
-            return nowPlaying
-        })
-    }
+//    fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
+//        let path: LastFMAPIService = .artistInfo(artist: nowPlaying.current.artist)
+//        return self.lastFMApiService.call(with: path, parse: LastFMAPIResponseParse()).map({ (artist) -> NowPlaying in
+//            let filtered = artist.images.filter { $0.size == "mega" || $0.size == "large" }
+//            if let image = filtered.first {
+//                return nowPlaying.update(with: image.url)
+//            }
+//            return nowPlaying
+//        })
+//    }
 
 }

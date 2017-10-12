@@ -38,7 +38,7 @@ extension ViewArranger {
         }
     }
 
-    final mutating func clear() {
+    mutating func clear() {
         objects.removeAll()
         spacerObjects.removeAll()
         flexibleObjects.removeAll()

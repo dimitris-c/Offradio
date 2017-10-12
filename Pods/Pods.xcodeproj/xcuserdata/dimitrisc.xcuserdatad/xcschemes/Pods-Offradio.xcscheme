@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4001A054EFA2D0AC84CDD1F935853178"
+               BlueprintIdentifier = "36439C2FC8E472B14C243E2928E1138D"
                BuildableName = "Pods_Offradio.framework"
                BlueprintName = "Pods-Offradio"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4001A054EFA2D0AC84CDD1F935853178"
+            BlueprintIdentifier = "36439C2FC8E472B14C243E2928E1138D"
             BuildableName = "Pods_Offradio.framework"
             BlueprintName = "Pods-Offradio"
             ReferencedContainer = "container:Pods.xcodeproj">

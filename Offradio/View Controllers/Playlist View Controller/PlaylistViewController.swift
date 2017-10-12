@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import SwipeCellKit
 
 final class PlaylistViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -70,6 +71,8 @@ final class PlaylistViewController: UIViewController {
         self.viewModel.playlistData.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, model, cell in
                 cell.configure(with: model)
+                cell.delegate = self
+                cell.showSwipe(orientation: .right)
             }.addDisposableTo(disposeBag)
 
         self.refreshControl = UIRefreshControl()
@@ -125,6 +128,58 @@ final class PlaylistViewController: UIViewController {
         self.initialLoadActivityView.center = CGPoint(x: self.view.bounds.midX,
                                                       y: self.view.bounds.midY)
 
+    }
+
+}
+
+extension PlaylistViewController: SwipeTableViewCellDelegate {
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let handleAction: ((SwipeAction, IndexPath) -> Void) = { [weak self] action, indexPath in
+            guard let sSelf = self else { return }
+            if let actionId = action.identifier,
+                let provider = PlaylistCellSearchProvider(rawValue: actionId) {
+                sSelf.viewModel.search(on: provider, at: indexPath) { result in
+                    switch result {
+                    case .success(let value):
+                        if let url = URL(string: value) {
+                            UIApplication.open(url: url)
+                        }
+                        break
+                    case .failure(let error):
+                        if error == .noResult {
+                            sSelf.showAlert(title: "Error", message: "Could not find song on iTunes.")
+                        }
+                    }
+                }
+            }
+        }
+
+        let itunesSeach = SwipeAction(style: .default, title: "Search on iTunes", handler: handleAction)
+        let spotifySearch = SwipeAction(style: .default, title: "Spotify", handler: handleAction)
+
+        itunesSeach.identifier = PlaylistCellSearchProvider.itunes.rawValue
+        itunesSeach.font = UIFont.letterGothicBold(withSize: 15)
+        itunesSeach.backgroundColor = UIColor.black
+        itunesSeach.highlightedBackgroundColor = UIColor.offRed
+
+        spotifySearch.font = UIFont.leagueGothicRegular(withSize: 15)
+        spotifySearch.identifier = PlaylistCellSearchProvider.spotify.rawValue
+        spotifySearch.backgroundColor = UIColor.black
+
+        itunesSeach.transitionDelegate = ScaleTransition.default
+        spotifySearch.transitionDelegate = ScaleTransition.default
+
+        return [itunesSeach]
+    }
+
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.backgroundColor = .black
+        options.transitionStyle = .reveal
+        return options
     }
 
 }

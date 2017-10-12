@@ -1,6 +1,5 @@
 //
 //  APIBaseURL.swift
-//  Carlito
 //
 //  Created by Dimitris C. on 17/09/2016.
 //  Copyright © 2016 decimal. All rights reserved.

@@ -45,7 +45,7 @@ final class ScheduleViewController: UIViewController {
         self.tableView.backgroundColor = self.view.backgroundColor?.withAlphaComponent(0)
         self.tableView.register(cellType: ScheduleTableViewCell.self)
         self.tableView.tableFooterView = UIView()
-        self.tableView.separatorColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
+        self.tableView.separatorColor = UIColor.seperatorColor
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 60, iPad: 90)
         self.view.addSubview(self.tableView)

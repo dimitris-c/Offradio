@@ -15,9 +15,10 @@ final class ScheduleTableViewCell: UITableViewCell, ConfigurableCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
-        self.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.00)
+        self.backgroundColor = UIColor.lightenBlack
+
         let selectedView = UIView()
-        selectedView.backgroundColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
+        selectedView.backgroundColor = UIColor.seperatorColor
         self.selectedBackgroundView = selectedView
 
         let fontSize: CGFloat = CGFloat.deviceValue(iPhone: 15, iPad: 22)

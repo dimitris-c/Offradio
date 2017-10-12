@@ -8,9 +8,9 @@
 
 import SwiftyJSON
 import Alamofire
-import Omicron
+import Moya
 
-enum ProducersBioService: Service {
+enum ProducersBioService: TargetType {
     case producers
 }
 
@@ -25,15 +25,22 @@ extension ProducersBioService {
         return "producers"
     }
 
-    var params: RequestParameters {
-        return RequestParameters.default
+    var task: Task {
+        return .requestPlain
     }
 
+    var sampleData: Data {
+        return Data()
+    }
+
+    var headers: [String : String]? {
+        return nil
+    }
 }
 
-final class ProducerResponseParse: APIResponse<[Producer]> {
+struct ProducerResponseParse {
 
-    override func toData(rawData data: JSON) -> [Producer] {
+    func toData(rawData data: JSON) -> [Producer] {
         var items: [Producer] = []
         items = data.map { Producer(with: $0.1) }
         return items

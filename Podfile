@@ -7,14 +7,12 @@ target 'Offradio' do
   # Pods for Offradio
   pod 'Alamofire'
   pod 'AlamofireNetworkActivityIndicator'
-  pod 'Omicron'
-  pod 'Omicron/RxSwift'
+  pod 'Moya/RxSwift'
   pod 'SwiftyJSON'
-  pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
-  pod 'Kingfisher'
+  pod 'Kingfisher', '~> 3.0'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'TwitterKit'
@@ -25,6 +23,7 @@ target 'Offradio' do
   pod 'RxAlamofire'
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
+  pod 'SwipeCellKit', '1.9.1'
   
   target 'OffradioTests' do
     inherit! :search_paths

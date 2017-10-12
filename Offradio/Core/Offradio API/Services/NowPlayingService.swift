@@ -8,60 +8,77 @@
 
 import SwiftyJSON
 import Alamofire
-import Omicron
+import Moya
 
-enum NowPlayingService: Service {
+enum NowPlayingService: TargetType {
     case nowPlaying
 }
 
 extension NowPlayingService {
     var baseURL: URL { return URL(string: APIURL().apiPath)! }
 
-    var method: HTTPMethod {
+    var method: Moya.Method {
         return .get
     }
 
-    var params: RequestParameters {
+    var task: Task {
         let now = Date().timeIntervalSince1970
-        return RequestParameters(parameters: ["noCache": String(now)])
+        return .requestParameters(parameters: ["noCache": String(now)], encoding: URLEncoding.queryString)
     }
 
     var path: String {
         return "nowplaying"
     }
+
+    var sampleData: Data {
+        return Data()
+    }
+
+    var headers: [String : String]? {
+        return nil
+    }
+
 }
 
-final class NowPlayingParse: APIResponse<NowPlaying> {
+final class NowPlayingParse {
 
-    override func toData(rawData data: JSON) -> NowPlaying {
+    func toData(rawData data: JSON) -> NowPlaying {
         return NowPlaying(json: data)
     }
 
 }
 
-enum CRCService: Service {
+enum CRCService: TargetType {
     case crc
 }
 
 extension CRCService {
     var baseURL: URL { return URL(string: APIURL().baseUrl)! }
 
-    var method: HTTPMethod {
+    var method: Moya.Method {
         return .get
     }
 
-    var params: RequestParameters {
+    var task: Task {
         let now = Date().timeIntervalSince1970
-        return RequestParameters(parameters: ["noCache": String(now)])
+        return .requestParameters(parameters:  ["noCache": String(now)], encoding: URLEncoding.queryString)
     }
 
     var path: String {
         return "mob_player.crc"
     }
+
+    var sampleData: Data {
+        return Data()
+    }
+
+    var headers: [String : String]? {
+        return nil
+    }
 }
 
-final class CRCResponse: APIResponse<String> {
-    override func toData(rawData data: JSON) -> String? {
+final class CRCResponse {
+    func toData(rawData data: JSON) -> String? {
         return data.stringValue
     }
 }
