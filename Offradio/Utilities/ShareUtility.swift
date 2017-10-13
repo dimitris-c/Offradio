@@ -11,6 +11,7 @@ import FBSDKShareKit
 import TwitterKit
 import MessageUI
 import Kingfisher
+import Crashlytics
 
 class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
 
@@ -24,6 +25,13 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
             self.shareOnEmail(with: nowPlaying, using: viewController)
         default: break
         }
+        let attributes: [String: Any] = ["song": nowPlaying.current.title,
+                                         "producer": nowPlaying.show.name]
+        Answers.logShare(withMethod: type.rawValue,
+                         contentName: "Sharing Song",
+                         contentType: type.analyticsContentType,
+                         contentId: nil,
+                         customAttributes: attributes)
     }
 
     class func shareOnFacebook(with nowPlaying: NowPlaying, using viewController: UIViewController?) {

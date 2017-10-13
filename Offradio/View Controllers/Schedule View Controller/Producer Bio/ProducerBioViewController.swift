@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import Crashlytics
 
 final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
@@ -160,4 +161,11 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
+}
+
+extension ProducersBioViewController: AnalyticsTrackable {
+    func trackAnalytics() {
+        let name: String = self.producer.name
+        Answers.logContentView(withName: "Produce Bio screen", contentType: "screen", contentId: "", customAttributes: ["name": name])
+    }
 }

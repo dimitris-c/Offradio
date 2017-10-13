@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import MessageUI
+import Crashlytics
 
 final class NowPlayingViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
@@ -33,6 +34,8 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = true
         self.view.backgroundColor = UIColor.lightBlack
+
+        self.trackAnalytics()
 
         self.scrollView = UIScrollView(frame: .zero)
         self.scrollView.alwaysBounceVertical = true
@@ -110,6 +113,13 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         self.becomeFirstResponder()
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension NowPlayingViewController: AnalyticsTrackable {
+    func trackAnalytics() {
+        let attributes: [String: Any] = ["song": self.viewModel.currentTrack.value.title, "producer": self.viewModel.show.value.name]
+        Answers.logContentView(withName: "NowPlaying screen", contentType: "screen", contentId: "", customAttributes: attributes)
     }
 }
 

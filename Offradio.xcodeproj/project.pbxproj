@@ -52,6 +52,7 @@
 		B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4771E9C04DF00DC82AD /* ShareButton.swift */; };
 		B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4791E9C04F400DC82AD /* ShareType.swift */; };
 		B53FC47C1E9C0C8A00DC82AD /* ShareUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */; };
+		B543EF771F90178000E4B2AB /* AnalyticsTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543EF761F90178000E4B2AB /* AnalyticsTrackable.swift */; };
 		B5483B861EB4BB1E004AC6BF /* OffradioWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */; };
 		B5483B901EB4EFA2004AC6BF /* CurrentShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B8C1EB4EFA2004AC6BF /* CurrentShowController.swift */; };
 		B5483B911EB4EFA2004AC6BF /* CurrentTrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B8D1EB4EFA2004AC6BF /* CurrentTrackController.swift */; };
@@ -262,6 +263,7 @@
 		B53FC4771E9C04DF00DC82AD /* ShareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B53FC4791E9C04F400DC82AD /* ShareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareUtility.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B543EF761F90178000E4B2AB /* AnalyticsTrackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTrackable.swift; sourceTree = "<group>"; };
 		B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchSession.swift; sourceTree = "<group>"; };
 		B5483B8C1EB4EFA2004AC6BF /* CurrentShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentShowController.swift; sourceTree = "<group>"; };
 		B5483B8D1EB4EFA2004AC6BF /* CurrentTrackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTrackController.swift; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 				B50395731E4BCA3C00D9A71B /* Reusable.swift */,
 				B50395791E4BEB5E00D9A71B /* Configurable.swift */,
 				B5B571331F27AFF200AC25DE /* DeviceValue.swift */,
+				B543EF761F90178000E4B2AB /* AnalyticsTrackable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1554,6 +1557,7 @@
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */,
 				B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */,
+				B543EF771F90178000E4B2AB /* AnalyticsTrackable.swift in Sources */,
 				B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */,
 				B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,

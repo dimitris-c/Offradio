@@ -18,4 +18,5 @@ struct Producer {
         self.bio    = json["bio"].stringValue
         self.photoUrl = json["photo"].stringValue
     }
+
 }

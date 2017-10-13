@@ -9,6 +9,7 @@
 import RxSwift
 import RxCocoa
 import RealmSwift
+import Crashlytics
 
 final class PlaylistCellViewModel {
 
@@ -37,14 +38,26 @@ final class PlaylistCellViewModel {
             let itemExists: Bool = strongSelf.playlistFavouritesLayer.isFavourite(for: artist, songTitle: songTitle)
             if shouldFavourite && !itemExists {
                 try? strongSelf.playlistFavouritesLayer.createFavourite(with: strongSelf.item)
+                self?.trackAddedSong(with: strongSelf.item.toSong())
                 strongSelf.favourited.value = true
             } else {
+                self?.trackRemovedSong(with: strongSelf.item.toSong())
                 try? strongSelf.playlistFavouritesLayer.deleteFavourite(for: artist, songTitle: songTitle)
                 strongSelf.favourited.value = false
             }
         })
 
         disposeBag?.insert(tapObservable)
+    }
+
+    private func trackAddedSong(with song: Song) {
+        let attributes: [String: Any] = ["song": song.title]
+        Answers.logContentView(withName: "Added favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
+    }
+
+    private func trackRemovedSong(with song: Song) {
+        let attributes: [String: Any] = ["song": song.title]
+        Answers.logContentView(withName: "Removed favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
     }
 
 }

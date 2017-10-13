@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Crashlytics
 
 final class FavouritesViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -62,4 +63,10 @@ final class FavouritesViewController: UIViewController {
 
     }
 
+}
+
+extension FavouritesViewController: AnalyticsTrackable {
+    func trackAnalytics() {
+        Answers.logContentView(withName: "Favourites screen", contentType: "screen", contentId: "", customAttributes: nil)
+    }
 }

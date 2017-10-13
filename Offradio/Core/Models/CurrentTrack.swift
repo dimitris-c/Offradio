@@ -56,6 +56,10 @@ struct CurrentTrack: Equatable {
                 "artist": artist,
                 "lastFMImageUrl": lastFMImageUrl]
     }
+
+    func toSong() -> Song {
+        return Song(with: "", artist: artist, songTitle: track, imageUrl: image)
+    }
 }
 
 extension CurrentTrack {
