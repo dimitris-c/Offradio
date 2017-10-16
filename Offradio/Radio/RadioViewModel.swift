@@ -84,7 +84,7 @@ final class RadioViewModel: StormysRadioKitDelegate {
     }
 
     func srkNoNetworkFound() {
-        Log.debug("SRK: NoNetworkFound")
+        Log.debug("SRK: NoNetworkFound2")
     }
 
     func srkBadContent() {
