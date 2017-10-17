@@ -98,17 +98,20 @@ extension Offradio {
     @objc final fileprivate func movedToBackground() {
         isInForeground = false
         self.metadata.stopTimer()
+        Log.debug("app moved to background")
     }
 
     @objc final fileprivate func movedToForeground() {
         if status.isPlaying && !isInForeground {
             self.metadata.startTimer()
         }
+        Log.debug("app moved to foreground")
         isInForeground = true
     }
 
     @objc final fileprivate func handleInterruption(_ notification: Notification) {
         let info = notification.userInfo
+        Log.debug("audio interruption\n\(String(describing: info))")
         print("\(String(describing: info))")
 
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
@@ -122,7 +125,9 @@ extension Offradio {
             if let info = info, let reasonInt = info[AVAudioSessionInterruptionOptionKey] as? UInt {
                 let interruptionOption = AVAudioSessionInterruptionOptions(rawValue: reasonInt)
                 if interruptionOption == AVAudioSessionInterruptionOptions.shouldResume {
+                    Log.debug("audio shouldResume after interruption")
                     if self.status.playbackWasInterrupted {
+                        Log.debug("offradio should resumt playback interruption")
                         self.status.playbackWasInterrupted = false
                         self.start()
                     }
@@ -132,7 +137,7 @@ extension Offradio {
     }
 
     @objc final fileprivate func handleRouteChange(_ notification: Notification) {
-        print("\(String(describing: notification.userInfo))")
+        Log.debug("audio route change\n\(String(describing: notification.userInfo))")
         if let reason: NSNumber = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? NSNumber {
             if reason.uintValue == AVAudioSessionRouteChangeReason.categoryChange.rawValue {
                 if kit.getStreamStatus() == SRK_STATUS_PAUSED && status.isPlaying {

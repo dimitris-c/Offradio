@@ -53,26 +53,26 @@ final class RadioViewModel: StormysRadioKitDelegate {
 
     // RadioKit Delegate
     public func srkConnecting() {
-        Log.debug("connecting")
+        Log.debug("radio connecting")
         isBuffering.value = true
         isPlaying.value = false
     }
 
     public func srkisBuffering() {
-        Log.debug("buffering")
+        Log.debug("radio buffering")
         isBuffering.value = true
         isPlaying.value = false
     }
 
     func srkPlayStarted() {
-        Log.debug("started")
+        Log.debug("radio started")
         isBuffering.value = false
         isPlaying.value = true
         watchCommunication.sendTurnRadioOn()
     }
 
     func srkPlayStopped() {
-        Log.debug("stopped")
+        Log.debug("radio stopped")
         isBuffering.value = false
         isPlaying.value = false
         watchCommunication.sendTurnRadioOff()
@@ -95,12 +95,20 @@ final class RadioViewModel: StormysRadioKitDelegate {
         Log.debug("SRK: audio suspended")
     }
 
+    func srkAudioResumed() {
+        Log.debug("SRK: audio resumed")
+    }
+
     func srkQueueExhausted() {
         Log.debug("SRK: queue exhausted")
     }
 
     func srkAudioWillBeSuspended() {
         Log.debug("SRK: audio will be suspended")
+    }
+
+    func srkTimeoutExceeded() {
+        Log.debug("SRK: timeout exceeded")
     }
 
 }

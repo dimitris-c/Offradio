@@ -13,6 +13,7 @@ import Crashlytics
 import FBSDKCoreKit
 import RealmSwift
 import AlamofireNetworkActivityIndicator
+import SwiftyBeaver
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,7 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         NetworkActivityIndicatorManager.shared.isEnabled = true
 
-        window = UIWindow(frame: UIScreen.main.bounds)
+//        window = UIWindow(frame: UIScreen.main.bounds)
+        window = ShakeableWindow(frame: UIScreen.main.bounds)
 
         self.offradio = Offradio()
         let watchCommunication = OffradioWatchCommunication()
@@ -52,6 +54,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         watchSession = OffradioAppWatchSession(with: self.offradio, andViewModel: self.offradioViewModel)
         watchSession?.activate()
+
+        let file = FileDestination()
+        _ = file.deleteLogFile()
+        Log.addDestination(file)
 
         return true
     }
@@ -101,4 +107,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(handledShortCutItem)
     }
 
+}
+
+private class ShakeableWindow: UIWindow {
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if event?.subtype == UIEventSubtype.motionShake {
+            let vc = DebugViewController()
+            let nav = UINavigationController(rootViewController: vc)
+            self.rootViewController?.present(nav, animated: true, completion: nil)
+        }
+    }
 }

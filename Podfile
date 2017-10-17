@@ -24,6 +24,7 @@ target 'Offradio' do
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit', '1.9.1'
+  pod 'SwiftyBeaver'
   
   target 'OffradioTests' do
     inherit! :search_paths
