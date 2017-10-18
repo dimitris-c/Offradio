@@ -58,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let file = FileDestination()
         _ = file.deleteLogFile()
         Log.addDestination(file)
+        Log.addDestination(ConsoleDestination())
 
         return true
     }

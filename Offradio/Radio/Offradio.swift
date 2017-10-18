@@ -21,6 +21,8 @@ final class Offradio: RadioProtocol {
     init() {
         let keys = RadioKitAuthenticationKeys()
 
+        self.configureAudioSession()
+
         self.kit.authenticateLibrary(withKey1: keys.key1, andKey2: keys.key2)
         self.setupRadio()
 
@@ -46,6 +48,7 @@ final class Offradio: RadioProtocol {
     final func start() {
         guard !status.isPlaying else { return }
 
+        self.activateAudioSession()
         self.kit.startStream()
         self.metadata.startTimer()
 
@@ -69,6 +72,32 @@ final class Offradio: RadioProtocol {
         }
     }
 
+    final func configureAudioSession() {
+        do {
+            Log.debug("AudioSession category is AVAudioSessionCategoryPlayback")
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch let error as NSError {
+            Log.debug("Couldn't setup audio session category to Playback \(error.localizedDescription)")
+        }
+    }
+
+    final func activateAudioSession() {
+        do {
+            Log.debug("AudioSession is active")
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            Log.debug("Couldn't set audio session to active: \(error.localizedDescription)")
+        }
+    }
+
+    final func deactivateAudioSession() {
+        do {
+            Log.debug("AudioSession is deactivated")
+            try AVAudioSession.sharedInstance().setActive(false)
+        } catch let error as NSError {
+            Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
+        }
+    }
 }
 
 extension Offradio {
@@ -98,6 +127,9 @@ extension Offradio {
     @objc final fileprivate func movedToBackground() {
         isInForeground = false
         self.metadata.stopTimer()
+        if !self.status.isPlaying {
+            self.deactivateAudioSession()
+        }
         Log.debug("app moved to background")
     }
 
