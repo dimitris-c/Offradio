@@ -53,33 +53,33 @@ final class RadioViewModel: StormysRadioKitDelegate {
 
     // RadioKit Delegate
     public func srkConnecting() {
-        Log.debug("radio connecting")
+        Log.debug("SRK: radio connecting")
         isBuffering.value = true
         isPlaying.value = false
     }
 
     public func srkisBuffering() {
-        Log.debug("radio buffering")
+        Log.debug("SRK: radio buffering")
         isBuffering.value = true
         isPlaying.value = false
     }
 
     func srkPlayStarted() {
-        Log.debug("radio started")
+        Log.debug("SRK: radio started")
         isBuffering.value = false
         isPlaying.value = true
         watchCommunication.sendTurnRadioOn()
     }
 
     func srkPlayStopped() {
-        Log.debug("radio stopped")
+        Log.debug("SRK: radio stopped")
         isBuffering.value = false
         isPlaying.value = false
         watchCommunication.sendTurnRadioOff()
     }
 
     func srkMetaChanged() {
-        Log.debug("metadata changed")
+        Log.debug("SRK: metadata changed")
         self.radio.metadata.forceRefresh()
     }
 

@@ -38,7 +38,7 @@ final class Offradio: RadioProtocol {
     final func setupRadio() {
         let offradioStream = OffradioStream()
         self.kit.setStreamUrl(offradioStream.url, isFile: false)
-        self.kit.setDataTimeout(10)
+        self.kit.setDataTimeout(8)
         self.kit.setPauseTimeout(250)
         self.kit.setBufferWaitTime(8)
         self.kit.setContinuousBuffering(true)
@@ -125,12 +125,12 @@ extension Offradio {
     }
 
     @objc final fileprivate func movedToBackground() {
+        Log.debug("app moved to background")
         isInForeground = false
         self.metadata.stopTimer()
         if !self.status.isPlaying {
             self.deactivateAudioSession()
         }
-        Log.debug("app moved to background")
     }
 
     @objc final fileprivate func movedToForeground() {
@@ -147,9 +147,17 @@ extension Offradio {
         print("\(String(describing: info))")
 
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
+
+        let status = kit.getStreamStatus()
         if interruptionState.uintValue == AVAudioSessionInterruptionType.began.rawValue {
-            let status = kit.getStreamStatus()
-            if status != SRK_STATUS_STOPPED {
+            var wasSuspended: Bool = false
+            if #available(iOS 10.3, *) {
+                wasSuspended = info?[AVAudioSessionInterruptionWasSuspendedKey] as? Bool ?? false
+                Log.warning(wasSuspended)
+            }
+            Log.debug("audio interruption began")
+            if status != SRK_STATUS_STOPPED && !wasSuspended {
+                Log.debug("audio should stop")
                 self.status.playbackWasInterrupted = true
                 self.stop()
             }
@@ -158,8 +166,8 @@ extension Offradio {
                 let interruptionOption = AVAudioSessionInterruptionOptions(rawValue: reasonInt)
                 if interruptionOption == AVAudioSessionInterruptionOptions.shouldResume {
                     Log.debug("audio shouldResume after interruption")
-                    if self.status.playbackWasInterrupted {
-                        Log.debug("offradio should resumt playback interruption")
+                    if status == SRK_STATUS_STOPPED && self.status.playbackWasInterrupted {
+                        Log.debug("offradio should resume playback interruption")
                         self.status.playbackWasInterrupted = false
                         self.start()
                     }

@@ -38,8 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         NetworkActivityIndicatorManager.shared.isEnabled = true
 
-//        window = UIWindow(frame: UIScreen.main.bounds)
-        window = ShakeableWindow(frame: UIScreen.main.bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
 
         self.offradio = Offradio()
         let watchCommunication = OffradioWatchCommunication()
@@ -109,14 +108,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(handledShortCutItem)
     }
 
-}
-
-private class ShakeableWindow: UIWindow {
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if event?.subtype == UIEventSubtype.motionShake {
-            let vc = DebugViewController()
-            let nav = UINavigationController(rootViewController: vc)
-            self.rootViewController?.present(nav, animated: true, completion: nil)
-        }
-    }
 }
