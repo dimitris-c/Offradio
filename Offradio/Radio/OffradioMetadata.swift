@@ -12,7 +12,7 @@ import RxAlamofire
 import Moya
 import SwiftyJSON
 
-final class OffradioMetadata {
+final class OffradioMetadata: RadioMetadata {
     fileprivate let disposeBag = DisposeBag()
 
     let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)

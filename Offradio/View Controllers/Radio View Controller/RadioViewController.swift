@@ -104,7 +104,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
 
-    fileprivate func showNowPlayingViewController(with offradioMetadata: OffradioMetadata) {
+    fileprivate func showNowPlayingViewController(with offradioMetadata: RadioMetadata) {
         self.hideLabelOnBackButton()
         let nowPlayingViewController = NowPlayingViewController(with: offradioMetadata)
         self.navigationController?.pushViewController(nowPlayingViewController, animated: true)

@@ -6,9 +6,27 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
+import RxSwift
+
 protocol RadioProtocol {
+    var status: RadioState { get }
+    var metadata: RadioMetadata { get }
+
+    func setupRadio()
+
     func start()
     func stop()
+    func toggleRadio()
+}
+
+protocol RadioMetadata {
+    var nowPlaying: Variable<NowPlaying> { get }
+
+    func startTimer()
+    func stopTimer()
+    func forceRefresh()
+
+    func fetchNowPlaying() -> Observable<NowPlaying>
 }
 
 struct RadioKitAuthenticationKeys {
@@ -25,4 +43,5 @@ enum RadioState: Int {
     case stopped
     case buffering
     case playing
+    case interrupted
 }

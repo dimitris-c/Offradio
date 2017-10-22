@@ -15,7 +15,7 @@ import Crashlytics
 final class NowPlayingViewModel {
     fileprivate let disposeBag = DisposeBag()
 
-    fileprivate var radioMetadata: OffradioMetadata!
+    fileprivate var radioMetadata: RadioMetadata!
     fileprivate var favouritesLayer: PlaylistFavouritesLayer!
 
     var nowPlaying: Variable<NowPlaying>? {
@@ -29,7 +29,7 @@ final class NowPlayingViewModel {
     let currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(CurrentTrack.empty)
     let show: Variable<Show>                 = Variable<Show>(Show.default)
 
-    init(with radioMetadata: OffradioMetadata) {
+    init(with radioMetadata: RadioMetadata) {
         self.radioMetadata = radioMetadata
 
         self.favouritesLayer = PlaylistFavouritesLayer()
