@@ -144,7 +144,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         guard let url = URL(string: "http://www.offradio.gr") else {
             return
         }
-        if !UIApplication.shared.canOpenURL(url) {
+        if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.openURL(url)
         }
     }
