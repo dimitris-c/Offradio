@@ -7,68 +7,135 @@
 //
 
 import MediaPlayer
+import StreamingKit
+import RxSwift
+import Moya
 
 struct OffradioStream {
-    let url: String = "http://www.offradio.gr/offradio.acc.m3u"
+    let url: String = "http://www.offradio.gr/"
+    let path: String = "offradio.acc.m3u"
 }
 
 final class Offradio: RadioProtocol {
-    let kit: RadioKit = RadioKit()
-    var status = RadioStatus()
+
+    private var disposeBag = DisposeBag()
+//    let kit: RadioKit = RadioKit()
+    var kit2: STKAudioPlayer = STKAudioPlayer()
+
+    var status: RadioState = .stopped
     var isInForeground: Bool = true
-    var metadata: OffradioMetadata!
+    var metadata: RadioMetadata = OffradioMetadata()
+
+    private let m3uService: RxMoyaProvider<M3UService> = RxMoyaProvider<M3UService>()
+    private var streamUrl: String = ""
 
     init() {
-        let keys = RadioKitAuthenticationKeys()
+//        let keys = RadioKitAuthenticationKeys()
 
-        self.kit.authenticateLibrary(withKey1: keys.key1, andKey2: keys.key2)
+        self.configureAudioSession()
+
+//        self.kit.authenticateLibrary(withKey1: keys.key1, andKey2: keys.key2)
         self.setupRadio()
 
         self.metadata = OffradioMetadata()
 
-        if let version = self.kit.version() {
-            Log.debug("RadioKit version: \(version)")
-        }
+//        if let version = self.kit.version() {
+//            Log.debug("RadioKit version: \(version)")
+//        }
 
         addNotifications()
     }
 
     final func setupRadio() {
-        let offradioStream = OffradioStream()
-        self.kit.setStreamUrl(offradioStream.url, isFile: false)
-        self.kit.setDataTimeout(10)
-        self.kit.setPauseTimeout(250)
-        self.kit.setBufferWaitTime(8)
-        self.kit.setContinuousBuffering(true)
-        self.kit.stopStream()
+        var options = STKAudioPlayerOptions()
+        options.flushQueueOnSeek = true
+        options.enableVolumeMixer = true
+        self.kit2 = STKAudioPlayer(options: options)
+        self.kit2.volume = 1
+        self.kit2.meteringEnabled = true
+//        let offradioStream = OffradioStream()
+//        self.kit.setStreamUrl(offradioStream.url, isFile: false)
+//        self.kit.setDataTimeout(8)
+//        self.kit.setPauseTimeout(250)
+//        self.kit.setBufferWaitTime(8)
+//        self.kit.setContinuousBuffering(true)
+//        self.kit.stopStream()
     }
 
     final func start() {
-        guard !status.isPlaying else { return }
+        guard self.status != .playing else { return }
 
-        self.kit.startStream()
-        self.metadata.startTimer()
-
-        status.isPlaying = true
+        if streamUrl.isEmpty {
+            getStreamUrl(shouldStartRadio: true)
+        } else {
+            self.startRadio()
+        }
     }
 
     final func stop() {
 
-        self.kit.stopStream()
+//        self.kit.stopStream()
+        self.kit2.stop()
         self.metadata.stopTimer()
 
-        status.isPlaying = false
+        self.status = .stopped
 
     }
 
     final func toggleRadio() {
-        if status.isPlaying {
+        if self.status == .playing {
             self.stop()
         } else {
             self.start()
         }
     }
 
+    final fileprivate func startRadio() {
+        self.activateAudioSession()
+        self.kit2.play(self.streamUrl)
+        self.metadata.startTimer()
+        self.status = .playing
+    }
+
+    /// get the stream url from the acc.m3u url
+    final fileprivate func getStreamUrl(shouldStartRadio: Bool = false) {
+        m3uService.request(.streamUrl).mapString().subscribe(onSuccess: { [weak self] url in
+            guard let sSelf = self else { return }
+            sSelf.streamUrl = url.replacingOccurrences(of: "\\n*", with: "", options: .regularExpression)
+            if shouldStartRadio {
+                sSelf.start()
+            }
+        }, onError: { error in
+            Log.error("couldn't load stream url \(error)")
+        }).addDisposableTo(disposeBag)
+    }
+
+    final fileprivate func configureAudioSession() {
+        do {
+            Log.debug("AudioSession category is AVAudioSessionCategoryPlayback")
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch let error as NSError {
+            Log.debug("Couldn't setup audio session category to Playback \(error.localizedDescription)")
+        }
+    }
+
+    final fileprivate func activateAudioSession() {
+        do {
+            Log.debug("AudioSession is active")
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            Log.debug("Couldn't set audio session to active: \(error.localizedDescription)")
+        }
+    }
+
+    final fileprivate func deactivateAudioSession() {
+        do {
+            Log.debug("AudioSession is deactivated")
+            try AVAudioSession.sharedInstance().setActive(false)
+        } catch let error as NSError {
+            Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
+        }
+    }
 }
 
 extension Offradio {
@@ -96,34 +163,50 @@ extension Offradio {
     }
 
     @objc final fileprivate func movedToBackground() {
+        Log.debug("app moved to background")
         isInForeground = false
         self.metadata.stopTimer()
+        if self.status != .playing {
+            self.deactivateAudioSession()
+        }
     }
 
     @objc final fileprivate func movedToForeground() {
-        if status.isPlaying && !isInForeground {
+        if status == .playing && !isInForeground {
             self.metadata.startTimer()
         }
+        Log.debug("app moved to foreground")
         isInForeground = true
     }
 
     @objc final fileprivate func handleInterruption(_ notification: Notification) {
         let info = notification.userInfo
+        Log.debug("audio interruption\n\(String(describing: info))")
         print("\(String(describing: info))")
 
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
+
+        let audioPlayerState = kit2.state
         if interruptionState.uintValue == AVAudioSessionInterruptionType.began.rawValue {
-            let status = kit.getStreamStatus()
-            if status != SRK_STATUS_STOPPED {
-                self.status.playbackWasInterrupted = true
+            var wasSuspended: Bool = false
+            if #available(iOS 10.3, *) {
+                wasSuspended = info?[AVAudioSessionInterruptionWasSuspendedKey] as? Bool ?? false
+                Log.warning(wasSuspended)
+            }
+            Log.debug("audio interruption began")
+            if audioPlayerState != STKAudioPlayerState.stopped && !wasSuspended {
+                Log.debug("audio should stop")
                 self.stop()
+                // set the status to interrupted after stopping the audio
+                self.status = .interrupted
             }
         } else if interruptionState.uintValue == AVAudioSessionInterruptionType.ended.rawValue {
             if let info = info, let reasonInt = info[AVAudioSessionInterruptionOptionKey] as? UInt {
                 let interruptionOption = AVAudioSessionInterruptionOptions(rawValue: reasonInt)
                 if interruptionOption == AVAudioSessionInterruptionOptions.shouldResume {
-                    if self.status.playbackWasInterrupted {
-                        self.status.playbackWasInterrupted = false
+                    Log.debug("audio shouldResume after interruption")
+                    if audioPlayerState == STKAudioPlayerState.stopped && self.status == .interrupted {
+                        Log.debug("offradio should resume playback interruption")
                         self.start()
                     }
                 }
@@ -132,10 +215,10 @@ extension Offradio {
     }
 
     @objc final fileprivate func handleRouteChange(_ notification: Notification) {
-        print("\(String(describing: notification.userInfo))")
+        Log.debug("audio route change\n\(String(describing: notification.userInfo))")
         if let reason: NSNumber = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? NSNumber {
             if reason.uintValue == AVAudioSessionRouteChangeReason.categoryChange.rawValue {
-                if kit.getStreamStatus() == SRK_STATUS_PAUSED && status.isPlaying {
+                if kit2.state != STKAudioPlayerState.stopped && self.status == .playing {
                     self.start()
                 }
             }

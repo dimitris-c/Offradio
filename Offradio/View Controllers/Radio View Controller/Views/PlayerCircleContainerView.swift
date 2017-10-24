@@ -47,6 +47,7 @@ final class PlayerCircleContainerView: UIView {
         self.addSubview(self.offradioSwitch)
 
         self.offradioSwitch.stateChanged = { [weak self] isOn in
+            Log.debug("user action: radio should turn on: \(isOn)")
             self?.switched.onNext(isOn)
         }
 

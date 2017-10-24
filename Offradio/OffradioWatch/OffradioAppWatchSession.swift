@@ -152,8 +152,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     fileprivate func radioStatus(withReply reply: (RadioState) -> Void) {
-        let status = self.radio.status.isPlaying ? RadioState.playing : RadioState.stopped
-        reply(status)
+        reply(self.radio.status)
     }
 
     fileprivate func fetchPlaylist(withReply reply: @escaping ([Song]) -> Void) {

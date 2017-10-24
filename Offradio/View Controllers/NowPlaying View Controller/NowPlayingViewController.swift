@@ -24,7 +24,7 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
     fileprivate var currentTrackView: CurrentTrackView!
     fileprivate var producerView: ProducerView!
 
-    init(with radioMetadata: OffradioMetadata) {
+    init(with radioMetadata: RadioMetadata) {
         super.init(nibName: nil, bundle: nil)
 
         self.viewModel = NowPlayingViewModel(with: radioMetadata)

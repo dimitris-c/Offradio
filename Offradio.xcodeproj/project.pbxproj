@@ -61,6 +61,7 @@
 		B5483B961EB4F44E004AC6BF /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B951EB4F44E004AC6BF /* Song.swift */; };
 		B5483B971EB4F489004AC6BF /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B951EB4F44E004AC6BF /* Song.swift */; };
 		B5483B991EB4F813004AC6BF /* PlaylistTableViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B981EB4F813004AC6BF /* PlaylistTableViewRow.swift */; };
+		B54AAF2D1F96ABB70005C952 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54AAF2C1F96ABB70005C952 /* BundleExtensions.swift */; };
 		B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */; };
 		B54BC8C91E36A9DC0043F248 /* OffradioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54BC8C81E36A9DC0043F248 /* OffradioUITests.swift */; };
 		B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */; };
@@ -119,6 +120,7 @@
 		B59A88EA1F27ADC2003509C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E21F27AD05003509C3 /* Utilities.swift */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
+		B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF72991F96A2140060D5F8 /* DebugViewController.swift */; };
 		B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B571331F27AFF200AC25DE /* DeviceValue.swift */; };
 		B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */; };
 		B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA383B1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift */; };
@@ -127,6 +129,7 @@
 		B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */; };
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
 		B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */; };
+		B5C44A311F9D19BA00D09CA6 /* M3UService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C44A301F9D19BA00D09CA6 /* M3UService.swift */; };
 		B5CBD0571F74409800250FC9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CBD0561F74409800250FC9 /* AVFoundation.framework */; };
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
@@ -271,6 +274,7 @@
 		B5483B8F1EB4EFA2004AC6BF /* PlaylistController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistController.swift; sourceTree = "<group>"; };
 		B5483B951EB4F44E004AC6BF /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		B5483B981EB4F813004AC6BF /* PlaylistTableViewRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewRow.swift; sourceTree = "<group>"; };
+		B54AAF2C1F96ABB70005C952 /* BundleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
 		B54BC8A31E36A9DC0043F248 /* Offradio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Offradio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B54BC8B41E36A9DC0043F248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 		B59A88E21F27AD05003509C3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
+		B5AF72991F96A2140060D5F8 /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		B5B571331F27AFF200AC25DE /* DeviceValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceValue.swift; sourceTree = "<group>"; };
 		B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlaylistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BA383B1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -341,6 +346,7 @@
 		B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnimationsFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BB24901E4B82F6006FC751 /* Offradio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Offradio.entitlements; sourceTree = "<group>"; };
 		B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPI.swift; sourceTree = "<group>"; };
+		B5C44A301F9D19BA00D09CA6 /* M3UService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UService.swift; sourceTree = "<group>"; };
 		B5CBD0561F74409800250FC9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrack.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923771E65E4800013A3F4 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Show.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -476,6 +482,7 @@
 				B503956C1E4BCA0100D9A71B /* PlaylistService.swift */,
 				B503956D1E4BCA0100D9A71B /* ScheduleService.swift */,
 				B524E5FC1E672622003A75EE /* ProducersService.swift */,
+				B5C44A301F9D19BA00D09CA6 /* M3UService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -610,6 +617,7 @@
 				B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */,
 				B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */,
 				B5656F311E65DC9A00E5DB0E /* KingfisherManager+Rx.swift */,
+				B54AAF2C1F96ABB70005C952 /* BundleExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -674,6 +682,7 @@
 				B54BC8A41E36A9DC0043F248 /* Products */,
 				35C7325E9D0BD0544DE9EE3B /* Pods */,
 				7270B8A41F99A77388A95EEF /* Frameworks */,
+				B5AF72971F96A20B0060D5F8 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -696,6 +705,7 @@
 				B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */,
 				B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */,
 				B5BB248D1E4B6B8A006FC751 /* Animations */,
+				B5AF72981F96A2140060D5F8 /* Debug */,
 				B56960401E490943003BFBC6 /* Radio */,
 				B58678AB1EAFC08F005321CA /* Shortcuts */,
 				B52A6C261E36B3CE005893D2 /* Core */,
@@ -894,6 +904,21 @@
 				B59A88E21F27AD05003509C3 /* Utilities.swift */,
 			);
 			path = HTMLEntities;
+			sourceTree = "<group>";
+		};
+		B5AF72971F96A20B0060D5F8 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		B5AF72981F96A2140060D5F8 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				B5AF72991F96A2140060D5F8 /* DebugViewController.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		B5BA38331E4F609A00DB49C9 /* Playlist View Controller */ = {
@@ -1534,6 +1559,7 @@
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
+				B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */,
 				B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */,
 				B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */,
 				B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */,
@@ -1550,8 +1576,10 @@
 				B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */,
 				B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */,
 				B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */,
+				B5C44A311F9D19BA00D09CA6 /* M3UService.swift in Sources */,
 				B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */,
 				B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */,
+				B54AAF2D1F96ABB70005C952 /* BundleExtensions.swift in Sources */,
 				B503956E1E4BCA0100D9A71B /* APIURL.swift in Sources */,
 				B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */,
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
@@ -1764,7 +1792,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 148;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
@@ -1798,7 +1826,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 148;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1895,6 +1923,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1916,6 +1945,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1936,6 +1966,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				IBSC_MODULE = OffradioWatchKit_Extension;
 				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
@@ -1956,6 +1987,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
+				CURRENT_PROJECT_VERSION = 145;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				IBSC_MODULE = OffradioWatchKit_Extension;
 				INFOPLIST_FILE = OffradioWatchKit/Info.plist;

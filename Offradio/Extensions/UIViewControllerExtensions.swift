@@ -38,7 +38,6 @@ extension UIViewController {
     }
 
     private class func _createFromStoryboard<T>() -> T {
-        Log.debug("Creating \(className())")
         let storyboard = UIStoryboard(name: className(), bundle: nil)
         // swiftlint:disable force_cast
         return storyboard.instantiateInitialViewController() as! T

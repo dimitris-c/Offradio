@@ -34,6 +34,8 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
 
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Debug", style: .done, target: self, action: #selector(showDebugMenu))
+
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
 
@@ -83,6 +85,12 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
 
     }
 
+    @objc fileprivate func showDebugMenu() {
+        let vc = DebugViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        self.navigationController?.present(nav, animated: true, completion: nil)
+    }
+
     fileprivate func fadeNowPlayingButton(shouldFadeIn: Bool) {
         let targetAlpha: CGFloat = shouldFadeIn ? 1.0 : 0.0
         UIView.animate(withDuration: 0.3) {
@@ -96,7 +104,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.navigationController?.pushViewController(playlistViewController, animated: true)
     }
 
-    fileprivate func showNowPlayingViewController(with offradioMetadata: OffradioMetadata) {
+    fileprivate func showNowPlayingViewController(with offradioMetadata: RadioMetadata) {
         self.hideLabelOnBackButton()
         let nowPlayingViewController = NowPlayingViewController(with: offradioMetadata)
         self.navigationController?.pushViewController(nowPlayingViewController, animated: true)

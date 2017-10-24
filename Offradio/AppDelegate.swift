@@ -13,6 +13,7 @@ import Crashlytics
 import FBSDKCoreKit
 import RealmSwift
 import AlamofireNetworkActivityIndicator
+import SwiftyBeaver
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -53,6 +54,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         watchSession = OffradioAppWatchSession(with: self.offradio, andViewModel: self.offradioViewModel)
         watchSession?.activate()
 
+        let file = FileDestination()
+        _ = file.deleteLogFile()
+        Log.addDestination(file)
+        Log.addDestination(ConsoleDestination())
+
         return true
     }
 
@@ -77,6 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        Log.debug("application will terminate")
     }
 
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
