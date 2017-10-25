@@ -11,7 +11,7 @@ import RxSwift
 import Crashlytics
 import StreamingKit
 
-final class RadioViewModel: NSObject, StormysRadioKitDelegate, STKAudioPlayerDelegate {
+final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
 
     let disposeBag: DisposeBag = DisposeBag()
 
@@ -31,9 +31,7 @@ final class RadioViewModel: NSObject, StormysRadioKitDelegate, STKAudioPlayerDel
         self.watchCommunication = watchCommunication
         super.init()
 
-//        self.radio.kit.delegate = self
-
-        self.radio.kit2.delegate = self
+        self.radio.kit.delegate = self
 
         toggleRadio.asObservable()
             .subscribe(onNext: { [weak self] shouldTurnRadioOn in
@@ -55,63 +53,9 @@ final class RadioViewModel: NSObject, StormysRadioKitDelegate, STKAudioPlayerDel
     }
 
     // RadioKit Delegate
-//    public func srkConnecting() {
-//        Log.debug("SRK: radio connecting")
-//        isBuffering.value = true
-//        isPlaying.value = false
-//    }
-//
-//    public func srkisBuffering() {
-//        Log.debug("SRK: radio buffering")
-//        isBuffering.value = true
-//        isPlaying.value = false
-//    }
-//
-//    func srkPlayStarted() {
-//        Log.debug("SRK: radio started")
-//        isBuffering.value = false
-//        isPlaying.value = true
-//        watchCommunication.sendTurnRadioOn()
-//    }
-//
-//    func srkPlayStopped() {
-//        Log.debug("SRK: radio stopped")
-//        isBuffering.value = false
-//        isPlaying.value = false
-//        watchCommunication.sendTurnRadioOff()
-//    }
-//
 //    func srkMetaChanged() {
 //        Log.debug("SRK: metadata changed")
 //        self.radio.metadata.forceRefresh()
-//    }
-//
-//    func srkNoNetworkFound() {
-//        Log.debug("SRK: NoNetworkFound")
-//    }
-//
-//    func srkBadContent() {
-//        Log.debug("SRK: bad content")
-//    }
-//
-//    func srkAudioSuspended() {
-//        Log.debug("SRK: audio suspended")
-//    }
-//
-//    func srkAudioResumed() {
-//        Log.debug("SRK: audio resumed")
-//    }
-//
-//    func srkQueueExhausted() {
-//        Log.debug("SRK: queue exhausted")
-//    }
-//
-//    func srkAudioWillBeSuspended() {
-//        Log.debug("SRK: audio will be suspended")
-//    }
-//
-//    func srkTimeoutExceeded() {
-//        Log.debug("SRK: timeout exceeded")
 //    }
 
     func audioPlayer(_ audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
@@ -121,9 +65,11 @@ final class RadioViewModel: NSObject, StormysRadioKitDelegate, STKAudioPlayerDel
         } else if state == STKAudioPlayerState.playing {
             isBuffering.value = false
             isPlaying.value = true
+            watchCommunication.sendTurnRadioOn()
         } else if state == STKAudioPlayerState.stopped {
             isBuffering.value = false
             isPlaying.value = false
+            watchCommunication.sendTurnRadioOff()
         }
         Log.debug("audio player state changed: \(state)")
     }
