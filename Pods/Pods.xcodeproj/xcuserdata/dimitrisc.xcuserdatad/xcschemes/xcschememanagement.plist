@@ -114,11 +114,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>StreamingKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SwiftyBeaver.xcscheme</key>
 		<dict>
 			<key>isShown</key>

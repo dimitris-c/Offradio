@@ -7,7 +7,6 @@
 //
 
 import MediaPlayer
-import StreamingKit
 import RxSwift
 import Moya
 
