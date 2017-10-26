@@ -29,6 +29,9 @@ protocol RadioMetadata {
     func fetchNowPlaying() -> Observable<NowPlaying>
 }
 
+/**
+ Deprecated RadioKit lib licence keys, only valid for 'gr.funkytaps.offradio' bundle
+ */
 struct RadioKitAuthenticationKeys {
     let key1: UInt32 = 0x943e3935
     let key2: UInt32 = 0xe19b0728

@@ -20,7 +20,6 @@
 		B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A01E54CE3000792414 /* PlaylistCellViewModel.swift */; };
 		B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */; };
 		B507C0A61E56869800792414 /* DataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A51E56869800792414 /* DataLayer.swift */; };
-		B51BE4E21E3ABF79005775F4 /* libRadioKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */; };
 		B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
 		B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB91E4B9E50009F4C37 /* Schedule.swift */; };
@@ -118,6 +117,18 @@
 		B59A88E81F27ADC2003509C3 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E01F27AD05003509C3 /* ParseError.swift */; };
 		B59A88E91F27ADC2003509C3 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */; };
 		B59A88EA1F27ADC2003509C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E21F27AD05003509C3 /* Utilities.swift */; };
+		B5A430891FA1405B006F0BC9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CBD0561F74409800250FC9 /* AVFoundation.framework */; };
+		B5A4308D1FA14093006F0BC9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */; };
+		B5A4308F1FA1409C006F0BC9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */; };
+		B5A430A51FA14296006F0BC9 /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A430921FA14296006F0BC9 /* STKQueueEntry.m */; };
+		B5A430A61FA14296006F0BC9 /* STKHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A430961FA14296006F0BC9 /* STKHTTPDataSource.m */; };
+		B5A430A71FA14296006F0BC9 /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A430981FA14296006F0BC9 /* STKLocalFileDataSource.m */; };
+		B5A430A81FA14296006F0BC9 /* STKCoreFoundationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A4309A1FA14296006F0BC9 /* STKCoreFoundationDataSource.m */; };
+		B5A430A91FA14296006F0BC9 /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A4309B1FA14296006F0BC9 /* STKAutoRecoveringHTTPDataSource.m */; };
+		B5A430AA1FA14296006F0BC9 /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A4309E1FA14296006F0BC9 /* STKAudioPlayer.m */; };
+		B5A430AB1FA14296006F0BC9 /* STKDataSourceWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A4309F1FA14296006F0BC9 /* STKDataSourceWrapper.m */; };
+		B5A430AC1FA14296006F0BC9 /* STKDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A430A11FA14296006F0BC9 /* STKDataSource.m */; };
+		B5A430AD1FA14296006F0BC9 /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A430A31FA14296006F0BC9 /* NSMutableArray+STKAudioPlayer.m */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
 		B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF72991F96A2140060D5F8 /* DebugViewController.swift */; };
@@ -130,7 +141,6 @@
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
 		B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */; };
 		B5C44A311F9D19BA00D09CA6 /* M3UService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C44A301F9D19BA00D09CA6 /* M3UService.swift */; };
-		B5CBD0571F74409800250FC9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CBD0561F74409800250FC9 /* AVFoundation.framework */; };
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */; };
@@ -232,11 +242,6 @@
 		B507C0A01E54CE3000792414 /* PlaylistCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistCellViewModel.swift; sourceTree = "<group>"; };
 		B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistFavouritesLayer.swift; sourceTree = "<group>"; };
 		B507C0A51E56869800792414 /* DataLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayer.swift; sourceTree = "<group>"; };
-		B51BE4DE1E3ABF79005775F4 /* BufferView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = BufferView.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRadioKit.a; sourceTree = "<group>"; };
-		B51BE4E01E3ABF79005775F4 /* RadioKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioKit.h; sourceTree = "<group>"; };
-		B51BE4E11E3ABF79005775F4 /* reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reachability.h; sourceTree = "<group>"; };
-		B51BE4E31E3ABFC5005775F4 /* Offradio-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Offradio-Bridging-Header.h"; sourceTree = "<group>"; };
 		B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
 		B51E3FB71E4B9C06009F4C37 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		B51E3FB91E4B9E50009F4C37 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -327,6 +332,7 @@
 		B58678EE1EAFCF4A005321CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OffradioWatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		B58678FA1EAFD035005321CA /* OffradioWatchKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OffradioWatchKit.entitlements; sourceTree = "<group>"; };
+		B5894BB11FA13C9400512D0B /* Offradio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Offradio-Bridging-Header.h"; sourceTree = "<group>"; };
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIColor+Offradio.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -334,6 +340,27 @@
 		B59A88E01F27AD05003509C3 /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTMLEntities.swift"; sourceTree = "<group>"; };
 		B59A88E21F27AD05003509C3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B5A430921FA14296006F0BC9 /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
+		B5A430931FA14296006F0BC9 /* STKAutoRecoveringHTTPDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAutoRecoveringHTTPDataSource.h; sourceTree = "<group>"; };
+		B5A430941FA14296006F0BC9 /* STKDataSourceWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKDataSourceWrapper.h; sourceTree = "<group>"; };
+		B5A430951FA14296006F0BC9 /* STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAudioPlayer.h; sourceTree = "<group>"; };
+		B5A430961FA14296006F0BC9 /* STKHTTPDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKHTTPDataSource.m; sourceTree = "<group>"; };
+		B5A430971FA14296006F0BC9 /* STKDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKDataSource.h; sourceTree = "<group>"; };
+		B5A430981FA14296006F0BC9 /* STKLocalFileDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKLocalFileDataSource.m; sourceTree = "<group>"; };
+		B5A430991FA14296006F0BC9 /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+STKAudioPlayer.h"; sourceTree = "<group>"; };
+		B5A4309A1FA14296006F0BC9 /* STKCoreFoundationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKCoreFoundationDataSource.m; sourceTree = "<group>"; };
+		B5A4309B1FA14296006F0BC9 /* STKAutoRecoveringHTTPDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKAutoRecoveringHTTPDataSource.m; sourceTree = "<group>"; };
+		B5A4309C1FA14296006F0BC9 /* STKQueueEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKQueueEntry.h; sourceTree = "<group>"; };
+		B5A4309D1FA14296006F0BC9 /* STKHTTPDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKHTTPDataSource.h; sourceTree = "<group>"; };
+		B5A4309E1FA14296006F0BC9 /* STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKAudioPlayer.m; sourceTree = "<group>"; };
+		B5A4309F1FA14296006F0BC9 /* STKDataSourceWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKDataSourceWrapper.m; sourceTree = "<group>"; };
+		B5A430A01FA14296006F0BC9 /* STKLocalFileDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKLocalFileDataSource.h; sourceTree = "<group>"; };
+		B5A430A11FA14296006F0BC9 /* STKDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKDataSource.m; sourceTree = "<group>"; };
+		B5A430A21FA14296006F0BC9 /* STKCoreFoundationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKCoreFoundationDataSource.h; sourceTree = "<group>"; };
+		B5A430A31FA14296006F0BC9 /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
+		B5A430A41FA14296006F0BC9 /* StreamingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-Prefix.pch"; sourceTree = "<group>"; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
 		B5AF72991F96A2140060D5F8 /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
@@ -376,13 +403,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5CBD0571F74409800250FC9 /* AVFoundation.framework in Frameworks */,
+				B5A4308F1FA1409C006F0BC9 /* AudioToolbox.framework in Frameworks */,
+				B5A4308D1FA14093006F0BC9 /* SystemConfiguration.framework in Frameworks */,
+				B5A430891FA1405B006F0BC9 /* AVFoundation.framework in Frameworks */,
 				B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */,
 				B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */,
 				B52C2D4E1EB25A3B00AF8514 /* WatchKit.framework in Frameworks */,
 				B56960461E4909E0003BFBC6 /* MediaPlayer.framework in Frameworks */,
 				B56960441E4909D0003BFBC6 /* MobileCoreServices.framework in Frameworks */,
-				B51BE4E21E3ABF79005775F4 /* libRadioKit.a in Frameworks */,
 				8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +466,8 @@
 		7270B8A41F99A77388A95EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */,
+				B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */,
 				B5CBD0561F74409800250FC9 /* AVFoundation.framework */,
 				B575DC441F2BA28E00CE6773 /* UIKit.framework */,
 				B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */,
@@ -511,21 +541,10 @@
 		B51BE4DC1E3ABF79005775F4 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				B5A430911FA14296006F0BC9 /* StreamingKit */,
 				B59A88DE1F27ACFA003509C3 /* HTMLEntities */,
-				B51BE4DD1E3ABF79005775F4 /* RadioKitLib */,
 			);
 			path = Vendor;
-			sourceTree = "<group>";
-		};
-		B51BE4DD1E3ABF79005775F4 /* RadioKitLib */ = {
-			isa = PBXGroup;
-			children = (
-				B51BE4DE1E3ABF79005775F4 /* BufferView.h */,
-				B51BE4DF1E3ABF79005775F4 /* libRadioKit.a */,
-				B51BE4E01E3ABF79005775F4 /* RadioKit.h */,
-				B51BE4E11E3ABF79005775F4 /* reachability.h */,
-			);
-			path = RadioKitLib;
 			sourceTree = "<group>";
 		};
 		B524E5FE1E673BC6003A75EE /* NowPlaying View Controller */ = {
@@ -703,6 +722,7 @@
 			children = (
 				B5BB24901E4B82F6006FC751 /* Offradio.entitlements */,
 				B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */,
+				B5894BB11FA13C9400512D0B /* Offradio-Bridging-Header.h */,
 				B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */,
 				B5BB248D1E4B6B8A006FC751 /* Animations */,
 				B5AF72981F96A2140060D5F8 /* Debug */,
@@ -715,7 +735,6 @@
 				B52A6C371E36BAC2005893D2 /* Utilities */,
 				B5745E531EB0D5AD00A60283 /* OffradioWatch */,
 				B52A6C1F1E36B3BE005893D2 /* Resources */,
-				B51BE4E31E3ABFC5005775F4 /* Offradio-Bridging-Header.h */,
 				B51BE4DC1E3ABF79005775F4 /* Vendor */,
 				B54BC8B41E36A9DC0043F248 /* Info.plist */,
 			);
@@ -904,6 +923,32 @@
 				B59A88E21F27AD05003509C3 /* Utilities.swift */,
 			);
 			path = HTMLEntities;
+			sourceTree = "<group>";
+		};
+		B5A430911FA14296006F0BC9 /* StreamingKit */ = {
+			isa = PBXGroup;
+			children = (
+				B5A430991FA14296006F0BC9 /* NSMutableArray+STKAudioPlayer.h */,
+				B5A430A31FA14296006F0BC9 /* NSMutableArray+STKAudioPlayer.m */,
+				B5A430951FA14296006F0BC9 /* STKAudioPlayer.h */,
+				B5A4309E1FA14296006F0BC9 /* STKAudioPlayer.m */,
+				B5A430931FA14296006F0BC9 /* STKAutoRecoveringHTTPDataSource.h */,
+				B5A4309B1FA14296006F0BC9 /* STKAutoRecoveringHTTPDataSource.m */,
+				B5A430A21FA14296006F0BC9 /* STKCoreFoundationDataSource.h */,
+				B5A4309A1FA14296006F0BC9 /* STKCoreFoundationDataSource.m */,
+				B5A430971FA14296006F0BC9 /* STKDataSource.h */,
+				B5A430A11FA14296006F0BC9 /* STKDataSource.m */,
+				B5A430941FA14296006F0BC9 /* STKDataSourceWrapper.h */,
+				B5A4309F1FA14296006F0BC9 /* STKDataSourceWrapper.m */,
+				B5A4309D1FA14296006F0BC9 /* STKHTTPDataSource.h */,
+				B5A430961FA14296006F0BC9 /* STKHTTPDataSource.m */,
+				B5A430A01FA14296006F0BC9 /* STKLocalFileDataSource.h */,
+				B5A430981FA14296006F0BC9 /* STKLocalFileDataSource.m */,
+				B5A4309C1FA14296006F0BC9 /* STKQueueEntry.h */,
+				B5A430921FA14296006F0BC9 /* STKQueueEntry.m */,
+				B5A430A41FA14296006F0BC9 /* StreamingKit-Prefix.pch */,
+			);
+			path = StreamingKit;
 			sourceTree = "<group>";
 		};
 		B5AF72971F96A20B0060D5F8 /* Recovered References */ = {
@@ -1518,11 +1563,13 @@
 				B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */,
 				B54E08861E4D554E00B54FB3 /* DateExtensions.swift in Sources */,
 				B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */,
+				B5A430A81FA14296006F0BC9 /* STKCoreFoundationDataSource.m in Sources */,
 				B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */,
 				B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */,
 				B59A88E41F27AD05003509C3 /* ParseError.swift in Sources */,
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
+				B5A430A91FA14296006F0BC9 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
 				B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */,
 				B52C2D471EB1090F00AF8514 /* OffradioWatchRadioAction.swift in Sources */,
@@ -1530,8 +1577,10 @@
 				B503956F1E4BCA0100D9A71B /* NowPlayingService.swift in Sources */,
 				B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */,
 				B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */,
+				B5A430A61FA14296006F0BC9 /* STKHTTPDataSource.m in Sources */,
 				B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */,
 				B52C2D441EB0F5E000AF8514 /* RadioViewModel.swift in Sources */,
+				B5A430AB1FA14296006F0BC9 /* STKDataSourceWrapper.m in Sources */,
 				B52A6C421E36BAC2005893D2 /* Log.swift in Sources */,
 				B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */,
 				B54DC4D01E5CA3A600FA376D /* FavouritesViewModel.swift in Sources */,
@@ -1542,9 +1591,11 @@
 				B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */,
 				B54E087F1E4D10C400B54FB3 /* ScheduleTableViewCell.swift in Sources */,
 				B56960421E490957003BFBC6 /* Radio.swift in Sources */,
+				B5A430AA1FA14296006F0BC9 /* STKAudioPlayer.m in Sources */,
 				B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */,
 				B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */,
 				B5FA39EE1E5DF1BE001B4760 /* UITableView+RxRealm.swift in Sources */,
+				B5A430AD1FA14296006F0BC9 /* NSMutableArray+STKAudioPlayer.m in Sources */,
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */,
@@ -1556,11 +1607,13 @@
 				B5483B961EB4F44E004AC6BF /* Song.swift in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
 				B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */,
+				B5A430A71FA14296006F0BC9 /* STKLocalFileDataSource.m in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
 				B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
 				B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */,
 				B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */,
+				B5A430A51FA14296006F0BC9 /* STKQueueEntry.m in Sources */,
 				B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */,
 				B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */,
 				B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */,
@@ -1569,6 +1622,7 @@
 				B52C2D3E1EB0E12200AF8514 /* OffradioWatchCommunication.swift in Sources */,
 				B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */,
 				B54E087E1E4D10C400B54FB3 /* ProducerBioViewController.swift in Sources */,
+				B5A430AC1FA14296006F0BC9 /* STKDataSource.m in Sources */,
 				B54DC4CE1E5CA39400FA376D /* FavouritesViewController.swift in Sources */,
 				B5F125281E5CC82400579D4B /* ViewArranger.swift in Sources */,
 				B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */,
@@ -1787,7 +1841,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
@@ -1796,17 +1849,11 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Offradio/Vendor/Spotify",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Offradio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1821,7 +1868,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819B564ECCD7BD5F563B5D8C /* Pods-Offradio.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
@@ -1829,17 +1875,11 @@
 				CURRENT_PROJECT_VERSION = 148;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Offradio/Vendor/Spotify",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Offradio/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Offradio/Vendor/RadioKitLib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";

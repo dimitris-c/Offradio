@@ -25,8 +25,6 @@ target 'Offradio' do
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit', '1.9.1'
   pod 'SwiftyBeaver'
-
-  pod 'StreamingKit', '~> 0.1'
   
   target 'OffradioTests' do
     inherit! :search_paths

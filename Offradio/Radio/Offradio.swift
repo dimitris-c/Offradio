@@ -7,7 +7,6 @@
 //
 
 import MediaPlayer
-import StreamingKit
 import RxSwift
 import Moya
 
@@ -19,8 +18,7 @@ struct OffradioStream {
 final class Offradio: RadioProtocol {
 
     private var disposeBag = DisposeBag()
-//    let kit: RadioKit = RadioKit()
-    var kit2: STKAudioPlayer = STKAudioPlayer()
+    var kit: STKAudioPlayer = STKAudioPlayer()
 
     var status: RadioState = .stopped
     var isInForeground: Bool = true
@@ -30,18 +28,12 @@ final class Offradio: RadioProtocol {
     private var streamUrl: String = ""
 
     init() {
-//        let keys = RadioKitAuthenticationKeys()
 
         self.configureAudioSession()
 
-//        self.kit.authenticateLibrary(withKey1: keys.key1, andKey2: keys.key2)
         self.setupRadio()
 
         self.metadata = OffradioMetadata()
-
-//        if let version = self.kit.version() {
-//            Log.debug("RadioKit version: \(version)")
-//        }
 
         addNotifications()
     }
@@ -50,16 +42,8 @@ final class Offradio: RadioProtocol {
         var options = STKAudioPlayerOptions()
         options.flushQueueOnSeek = true
         options.enableVolumeMixer = true
-        self.kit2 = STKAudioPlayer(options: options)
-        self.kit2.volume = 1
-        self.kit2.meteringEnabled = true
-//        let offradioStream = OffradioStream()
-//        self.kit.setStreamUrl(offradioStream.url, isFile: false)
-//        self.kit.setDataTimeout(8)
-//        self.kit.setPauseTimeout(250)
-//        self.kit.setBufferWaitTime(8)
-//        self.kit.setContinuousBuffering(true)
-//        self.kit.stopStream()
+        self.kit = STKAudioPlayer(options: options)
+        self.kit.volume = 1
     }
 
     final func start() {
@@ -74,8 +58,7 @@ final class Offradio: RadioProtocol {
 
     final func stop() {
 
-//        self.kit.stopStream()
-        self.kit2.stop()
+        self.kit.stop()
         self.metadata.stopTimer()
 
         self.status = .stopped
@@ -92,7 +75,7 @@ final class Offradio: RadioProtocol {
 
     final fileprivate func startRadio() {
         self.activateAudioSession()
-        self.kit2.play(self.streamUrl)
+        self.kit.play(self.streamUrl)
         self.metadata.startTimer()
         self.status = .playing
     }
@@ -186,7 +169,7 @@ extension Offradio {
 
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
 
-        let audioPlayerState = kit2.state
+        let audioPlayerState = kit.state
         if interruptionState.uintValue == AVAudioSessionInterruptionType.began.rawValue {
             var wasSuspended: Bool = false
             if #available(iOS 10.3, *) {
@@ -218,7 +201,7 @@ extension Offradio {
         Log.debug("audio route change\n\(String(describing: notification.userInfo))")
         if let reason: NSNumber = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? NSNumber {
             if reason.uintValue == AVAudioSessionRouteChangeReason.categoryChange.rawValue {
-                if kit2.state != STKAudioPlayerState.stopped && self.status == .playing {
+                if kit.state != STKAudioPlayerState.stopped && self.status == .playing {
                     self.start()
                 }
             }
