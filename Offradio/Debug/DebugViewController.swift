@@ -26,8 +26,6 @@ class DebugViewController: UIViewController {
 
         let text: String = "\(deviceModel)\n\(systemNameVersion)\n\(appVersionBuild)\n\n"
 
-        // TODO: Append logs
-
         self.textView.isEditable = false
         self.textView.text = text
         self.view.addSubview(textView)
