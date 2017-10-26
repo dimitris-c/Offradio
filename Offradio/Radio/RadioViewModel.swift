@@ -51,12 +51,6 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
 
     }
 
-    // RadioKit Delegate
-//    func srkMetaChanged() {
-//        Log.debug("SRK: metadata changed")
-//        self.radio.metadata.forceRefresh()
-//    }
-
     func audioPlayer(_ audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
         if state == STKAudioPlayerState.buffering {
             isBuffering.value = true
@@ -71,6 +65,11 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
             watchCommunication.sendTurnRadioOff()
         }
         Log.debug("audio player state changed: \(state)")
+    }
+
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didReadStreamMetadata dictionary: [AnyHashable : Any]) {
+        Log.debug("audio player received metadata: \(dictionary)")
+        self.radio.metadata.forceRefresh()
     }
 
     func audioPlayer(_ audioPlayer: STKAudioPlayer, didStartPlayingQueueItemId queueItemId: NSObject) {

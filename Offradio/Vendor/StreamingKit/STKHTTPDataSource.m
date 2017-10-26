@@ -79,6 +79,7 @@
 {
     self = [self initWithURLProvider:^NSURL* { return urlIn; }];
     self->requestHeaders = httpRequestHeaders;
+
     return self;
 }
 
@@ -542,7 +543,7 @@
                     if(_metadataBytesRead == _metadataLength)
                     {
                         if([self.delegate respondsToSelector:@selector(dataSource:didReadStreamMetadata:)])
-                        [self.delegate dataSource:self didReadStreamMetadata:[self _processIcyMetadata:_metadataData]];
+                            [self.delegate dataSource:self didReadStreamMetadata:[self _processIcyMetadata:_metadataData]];
 
                         // reset
                         _metadataData       = nil;
@@ -614,7 +615,7 @@
         }
         
         CFHTTPMessageSetHeaderFieldValue(message, CFSTR("Accept"), CFSTR("*/*"));
-        CFHTTPMessageSetHeaderFieldValue(message, CFSTR("Ice-MetaData"), CFSTR("0"));
+        CFHTTPMessageSetHeaderFieldValue(message, CFSTR("Icy-MetaData"), CFSTR("1"));
 
         stream = CFReadStreamCreateForHTTPRequest(NULL, message);
 
