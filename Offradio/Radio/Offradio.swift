@@ -174,7 +174,6 @@ extension Offradio {
             var wasSuspended: Bool = false
             if #available(iOS 10.3, *) {
                 wasSuspended = info?[AVAudioSessionInterruptionWasSuspendedKey] as? Bool ?? false
-                Log.warning(wasSuspended)
             }
             Log.debug("audio interruption began")
             if audioPlayerState != STKAudioPlayerState.stopped && !wasSuspended {

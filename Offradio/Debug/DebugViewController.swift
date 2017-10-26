@@ -8,7 +8,6 @@
 
 import UIKit
 import MessageUI
-import SwiftyBeaver
 
 class DebugViewController: UIViewController {
 
@@ -25,17 +24,9 @@ class DebugViewController: UIViewController {
         let systemNameVersion = "\(UIDevice.current.systemName): \(UIDevice.current.systemVersion)"
         let appVersionBuild = "Offradio v\(Bundle.main.versionNumber ?? "")(\(Bundle.main.buildNumber ?? ""))"
 
-        var text: String = "\(deviceModel)\n\(systemNameVersion)\n\(appVersionBuild)\n\n"
+        let text: String = "\(deviceModel)\n\(systemNameVersion)\n\(appVersionBuild)\n\n"
 
-        if let fileDestination = Log.destinations.filter({ $0 is FileDestination }).first as? FileDestination {
-            if let fileUrl = fileDestination.logFileURL {
-                self.file = fileUrl
-                do {
-                    let logs = try String(contentsOf: fileUrl)
-                    text.append(logs)
-                } catch { }
-            }
-        }
+        // TODO: Append logs
 
         self.textView.isEditable = false
         self.textView.text = text

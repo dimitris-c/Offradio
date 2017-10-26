@@ -34,7 +34,9 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Debug", style: .done, target: self, action: #selector(showDebugMenu))
+        #if Debug
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Debug", style: .done, target: self, action: #selector(showDebugMenu))
+        #endif
 
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()

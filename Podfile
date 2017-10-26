@@ -24,7 +24,6 @@ target 'Offradio' do
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit', '1.9.1'
-  pod 'SwiftyBeaver'
   
   target 'OffradioTests' do
     inherit! :search_paths
@@ -40,7 +39,7 @@ target 'Offradio' do
       platform :watchos, '2.0'
       pod 'RxSwift',    '~> 3.0'
       pod 'SwiftyJSON'
-      pod 'Kingfisher'
+      pod 'Kingfisher', '~> 3.0'
   end
   
 end
