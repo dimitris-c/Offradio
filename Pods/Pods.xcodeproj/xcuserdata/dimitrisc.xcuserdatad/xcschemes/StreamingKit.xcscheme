@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '194D9E9594889699D1834648AFB63B5E'
-               BlueprintName = 'SwiftyBeaver'
+               BlueprintIdentifier = '9CFD6CEADEF0DB6B22D21F0F1988DF60'
+               BlueprintName = 'StreamingKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyBeaver.framework'>
+               BuildableName = 'StreamingKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

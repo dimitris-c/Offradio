@@ -42,7 +42,7 @@ PODS:
     - RealmSwift (~> 2)
     - RxSwift (~> 3)
   - RxSwift (3.6.1)
-  - SwiftyBeaver (1.4.2)
+  - StreamingKit (0.1.30)
   - SwiftyJSON (3.1.4)
   - SwipeCellKit (1.9.1)
   - ToggleSwitch (1.2.1):
@@ -61,7 +61,6 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
-  - Kingfisher
   - Kingfisher (~> 3.0)
   - Moya/RxSwift
   - RealmSwift
@@ -69,11 +68,21 @@ DEPENDENCIES:
   - RxCocoa (~> 3.0)
   - RxRealm
   - RxSwift (~> 3.0)
-  - SwiftyBeaver
+  - StreamingKit (from `https://github.com/dimitris-c/StreamingKit.git`, branch `metadata`)
   - SwiftyJSON
   - SwipeCellKit (= 1.9.1)
   - ToggleSwitch (~> 1.0)
   - TwitterKit
+
+EXTERNAL SOURCES:
+  StreamingKit:
+    :branch: metadata
+    :git: https://github.com/dimitris-c/StreamingKit.git
+
+CHECKOUT OPTIONS:
+  StreamingKit:
+    :commit: 3d2d328705ed59d7c4f6d9c7584077740c1bc6fc
+    :git: https://github.com/dimitris-c/StreamingKit.git
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -94,13 +103,13 @@ SPEC CHECKSUMS:
   RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
   RxRealm: 9cf5c15c5312fc770aaa542a360cffec4916e63a
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
-  SwiftyBeaver: 91057725648ee4980308f1650af077d04b3654a0
+  StreamingKit: 6a368408094751cd5d7f9696b914b0fd61f7e979
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwipeCellKit: e9ff953c820394a4e641cfb0118b6c959506aec2
   ToggleSwitch: 528853e108d090fb78e68692bd7d8742a07c11dd
   TwitterCore: 6856288a1c25e5281363250681f33b42fce1da42
   TwitterKit: 313bf02baee8427f7649b3640169178e5a8b5a99
 
-PODFILE CHECKSUM: 8fdf9ea4e0bf1f2f142f1d5fea52c6757ba5cabe
+PODFILE CHECKSUM: 55052666cf837c44051ef1c506f240342dfb8a27
 
 COCOAPODS: 1.2.1

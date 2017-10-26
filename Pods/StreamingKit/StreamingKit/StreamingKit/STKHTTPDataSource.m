@@ -79,7 +79,6 @@
 {
     self = [self initWithURLProvider:^NSURL* { return urlIn; }];
     self->requestHeaders = httpRequestHeaders;
-
     return self;
 }
 
@@ -543,7 +542,7 @@
                     if(_metadataBytesRead == _metadataLength)
                     {
                         if([self.delegate respondsToSelector:@selector(dataSource:didReadStreamMetadata:)])
-                            [self.delegate dataSource:self didReadStreamMetadata:[self _processIcyMetadata:_metadataData]];
+                        [self.delegate dataSource:self didReadStreamMetadata:[self _processIcyMetadata:_metadataData]];
 
                         // reset
                         _metadataData       = nil;
