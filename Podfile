@@ -24,7 +24,8 @@ target 'Offradio' do
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit', '1.9.1'
-  
+  pod 'StreamingKit', :git => 'https://github.com/dimitris-c/StreamingKit.git', :branch => 'metadata'
+
   target 'OffradioTests' do
     inherit! :search_paths
     # Pods for testing

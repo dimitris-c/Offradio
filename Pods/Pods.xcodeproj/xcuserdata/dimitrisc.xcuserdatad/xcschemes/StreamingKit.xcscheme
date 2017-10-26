@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D9CA1119560340B25881372F1B74A835'
-               BlueprintName = 'RxCocoa'
+               BlueprintIdentifier = '9CFD6CEADEF0DB6B22D21F0F1988DF60'
+               BlueprintName = 'StreamingKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RxCocoa.framework'>
+               BuildableName = 'StreamingKit.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

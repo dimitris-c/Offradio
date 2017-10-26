@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import Crashlytics
+import StreamingKit
 
 final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
 
