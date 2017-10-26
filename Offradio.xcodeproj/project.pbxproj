@@ -323,7 +323,6 @@
 		B58678EE1EAFCF4A005321CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OffradioWatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		B58678FA1EAFD035005321CA /* OffradioWatchKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OffradioWatchKit.entitlements; sourceTree = "<group>"; };
-		B5894BB11FA13C9400512D0B /* Offradio-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Offradio-Bridging-Header.h"; sourceTree = "<group>"; };
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIColor+Offradio.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -693,7 +692,6 @@
 			children = (
 				B5BB24901E4B82F6006FC751 /* Offradio.entitlements */,
 				B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */,
-				B5894BB11FA13C9400512D0B /* Offradio-Bridging-Header.h */,
 				B54BC8A61E36A9DC0043F248 /* AppDelegate.swift */,
 				B5BB248D1E4B6B8A006FC751 /* Animations */,
 				B5AF72981F96A2140060D5F8 /* Debug */,
@@ -1794,7 +1792,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1820,7 +1818,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Offradio/Offradio-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
