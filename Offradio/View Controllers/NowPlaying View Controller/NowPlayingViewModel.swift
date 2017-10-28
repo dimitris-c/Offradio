@@ -10,11 +10,12 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import RxRealm
+import Crashlytics
 
 final class NowPlayingViewModel {
     fileprivate let disposeBag = DisposeBag()
 
-    fileprivate var radioMetadata: OffradioMetadata!
+    fileprivate var radioMetadata: RadioMetadata!
     fileprivate var favouritesLayer: PlaylistFavouritesLayer!
 
     var nowPlaying: Variable<NowPlaying>? {
@@ -28,7 +29,7 @@ final class NowPlayingViewModel {
     let currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(CurrentTrack.empty)
     let show: Variable<Show>                 = Variable<Show>(Show.default)
 
-    init(with radioMetadata: OffradioMetadata) {
+    init(with radioMetadata: RadioMetadata) {
         self.radioMetadata = radioMetadata
 
         self.favouritesLayer = PlaylistFavouritesLayer()
@@ -58,8 +59,10 @@ final class NowPlayingViewModel {
                 if favourite && !sSelf.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) {
                     let model = track.toPlaylistSong()
                     try? sSelf.favouritesLayer.createFavourite(with: model)
+                    sSelf.trackAddedSong(with: track.toSong())
                 } else if !favourite {
                     try? sSelf.favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
+                    sSelf.trackRemovedSong(with: track.toSong())
                 }
 
             }).addDisposableTo(disposeBag)
@@ -71,6 +74,16 @@ final class NowPlayingViewModel {
         if track != CurrentTrack.default {
             self.favouriteTrack.value = self.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track)
         }
+    }
+
+    private func trackAddedSong(with song: Song) {
+        let attributes: [String: Any] = ["song": song.title]
+        Answers.logContentView(withName: "Added favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
+    }
+
+    private func trackRemovedSong(with song: Song) {
+        let attributes: [String: Any] = ["song": song.title]
+        Answers.logContentView(withName: "Removed favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
     }
 
 }

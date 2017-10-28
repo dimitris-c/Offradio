@@ -8,8 +8,10 @@
 
 import Foundation
 import RxSwift
+import Crashlytics
+import StreamingKit
 
-final class RadioViewModel: StormysRadioKitDelegate {
+final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
 
     let disposeBag: DisposeBag = DisposeBag()
 
@@ -25,9 +27,9 @@ final class RadioViewModel: StormysRadioKitDelegate {
     let watchCommunication: OffradioWatchCommunication!
 
     init(with radio: Offradio, and watchCommunication: OffradioWatchCommunication) {
-
         self.radio = radio
         self.watchCommunication = watchCommunication
+        super.init()
 
         self.radio.kit.delegate = self
 
@@ -50,56 +52,41 @@ final class RadioViewModel: StormysRadioKitDelegate {
 
     }
 
-    // RadioKit Delegate
-    public func srkConnecting() {
-        Log.debug("connecting")
-        isBuffering.value = true
-        isPlaying.value = false
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
+        if state == STKAudioPlayerState.buffering {
+            isBuffering.value = true
+            isPlaying.value = false
+        } else if state == STKAudioPlayerState.playing {
+            isBuffering.value = false
+            isPlaying.value = true
+            watchCommunication.sendTurnRadioOn()
+        } else if state == STKAudioPlayerState.stopped {
+            isBuffering.value = false
+            isPlaying.value = false
+            watchCommunication.sendTurnRadioOff()
+        }
+        Log.debug("audio player state changed: \(state)")
     }
 
-    public func srkisBuffering() {
-        Log.debug("buffering")
-        isBuffering.value = true
-        isPlaying.value = false
-    }
-
-    func srkPlayStarted() {
-        Log.debug("started")
-        isBuffering.value = false
-        isPlaying.value = true
-        watchCommunication.sendTurnRadioOn()
-    }
-
-    func srkPlayStopped() {
-        Log.debug("stopped")
-        isBuffering.value = false
-        isPlaying.value = false
-        watchCommunication.sendTurnRadioOff()
-    }
-
-    func srkMetaChanged() {
-        Log.debug("metadata changed")
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didReadStreamMetadata dictionary: [AnyHashable : Any]) {
+        Log.debug("audio player received metadata: \(dictionary)")
         self.radio.metadata.forceRefresh()
     }
 
-    func srkNoNetworkFound() {
-        Log.debug("SRK: NoNetworkFound")
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didStartPlayingQueueItemId queueItemId: NSObject) {
+        Log.debug("audio player did start playing")
     }
 
-    func srkBadContent() {
-        Log.debug("SRK: bad content")
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishBufferingSourceWithQueueItemId queueItemId: NSObject) {
+        Log.debug("audio player did finish buffering")
     }
 
-    func srkAudioSuspended() {
-        Log.debug("SRK: audio suspended")
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishPlayingQueueItemId queueItemId: NSObject, with stopReason: STKAudioPlayerStopReason, andProgress progress: Double, andDuration duration: Double) {
+        Log.debug("audio player did finish playing reason: \(stopReason)")
     }
 
-    func srkQueueExhausted() {
-        Log.debug("SRK: queue exhausted")
-    }
-
-    func srkAudioWillBeSuspended() {
-        Log.debug("SRK: audio will be suspended")
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
+        Log.debug("audio player error: \(errorCode)")
     }
 
 }

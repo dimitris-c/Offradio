@@ -34,6 +34,10 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
 
+        #if Debug
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Debug", style: .done, target: self, action: #selector(showDebugMenu))
+        #endif
+
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
 
@@ -50,6 +54,16 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
 
         self.registerForPreviewing(with: self, sourceView: self.nowPlayingButton)
 
+        self.bindViewModel()
+    }
+
+    func showPlaylistViewController() {
+        self.hideLabelOnBackButton()
+        let playlistViewController = PlaylistViewController()
+        self.navigationController?.pushViewController(playlistViewController, animated: true)
+    }
+
+    final private func bindViewModel() {
         self.nowPlayingButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.showNowPlayingViewController(with: strongSelf.offradio.metadata)
@@ -63,7 +77,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] isPlaying in
                 self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
-        }).addDisposableTo(disposeBag)
+            }).addDisposableTo(disposeBag)
 
         viewModel.nowPlaying.asObservable()
             .map { $0.current.title }
@@ -80,26 +94,6 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         playlistButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.showPlaylistViewController()
         }).addDisposableTo(disposeBag)
-
-    }
-
-    fileprivate func fadeNowPlayingButton(shouldFadeIn: Bool) {
-        let targetAlpha: CGFloat = shouldFadeIn ? 1.0 : 0.0
-        UIView.animate(withDuration: 0.3) {
-            self.nowPlayingButton.alpha = targetAlpha
-        }
-    }
-
-    func showPlaylistViewController() {
-        self.hideLabelOnBackButton()
-        let playlistViewController = PlaylistViewController()
-        self.navigationController?.pushViewController(playlistViewController, animated: true)
-    }
-
-    fileprivate func showNowPlayingViewController(with offradioMetadata: OffradioMetadata) {
-        self.hideLabelOnBackButton()
-        let nowPlayingViewController = NowPlayingViewController(with: offradioMetadata)
-        self.navigationController?.pushViewController(nowPlayingViewController, animated: true)
     }
 
     override func viewDidLayoutSubviews() {
@@ -122,6 +116,25 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.nowPlayingButton.sizeToFit()
         self.nowPlayingButton.frame.origin.y = self.playerCircleContainer.frame.maxY + ((effectiveHeight - self.nowPlayingButton.frame.height) * 0.5)
         self.nowPlayingButton.center.x = self.scrollView.center.x
+    }
+
+    @objc fileprivate func showDebugMenu() {
+        let vc = DebugViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        self.navigationController?.present(nav, animated: true, completion: nil)
+    }
+
+    fileprivate func fadeNowPlayingButton(shouldFadeIn: Bool) {
+        let targetAlpha: CGFloat = shouldFadeIn ? 1.0 : 0.0
+        UIView.animate(withDuration: 0.3) {
+            self.nowPlayingButton.alpha = targetAlpha
+        }
+    }
+
+    fileprivate func showNowPlayingViewController(with offradioMetadata: RadioMetadata) {
+        self.hideLabelOnBackButton()
+        let nowPlayingViewController = NowPlayingViewController(with: offradioMetadata)
+        self.navigationController?.pushViewController(nowPlayingViewController, animated: true)
     }
 
 }

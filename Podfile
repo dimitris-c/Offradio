@@ -7,14 +7,12 @@ target 'Offradio' do
   # Pods for Offradio
   pod 'Alamofire'
   pod 'AlamofireNetworkActivityIndicator'
-  pod 'Omicron'
-  pod 'Omicron/RxSwift'
+  pod 'Moya/RxSwift'
   pod 'SwiftyJSON'
-  pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
-  pod 'Kingfisher'
+  pod 'Kingfisher', '~> 3.0'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'TwitterKit'
@@ -25,7 +23,9 @@ target 'Offradio' do
   pod 'RxAlamofire'
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
-  
+  pod 'SwipeCellKit', '1.9.1'
+  pod 'StreamingKit', :git => 'https://github.com/dimitris-c/StreamingKit.git', :branch => 'metadata'
+
   target 'OffradioTests' do
     inherit! :search_paths
     # Pods for testing
@@ -40,7 +40,7 @@ target 'Offradio' do
       platform :watchos, '2.0'
       pod 'RxSwift',    '~> 3.0'
       pod 'SwiftyJSON'
-      pod 'Kingfisher'
+      pod 'Kingfisher', '~> 3.0'
   end
   
 end

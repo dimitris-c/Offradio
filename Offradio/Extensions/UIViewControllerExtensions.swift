@@ -38,11 +38,30 @@ extension UIViewController {
     }
 
     private class func _createFromStoryboard<T>() -> T {
-        Log.debug("Creating \(className())")
         let storyboard = UIStoryboard(name: className(), bundle: nil)
         // swiftlint:disable force_cast
         return storyboard.instantiateInitialViewController() as! T
     }
+}
+
+extension UIViewController {
+
+    public typealias ActionHandler = ((UIAlertAction) -> Swift.Void)
+
+    final func showAlert(title: String?, message: String? = nil, okHandler: ActionHandler? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            okHandler?(action)
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    final func showActionSheet(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        self.present(alert, animated: true, completion: nil)
+    }
+
 }
 
 extension Reactive where Base: UIViewController {

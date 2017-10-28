@@ -6,11 +6,32 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
+import RxSwift
+
 protocol RadioProtocol {
+    var status: RadioState { get }
+    var metadata: RadioMetadata { get }
+
+    func setupRadio()
+
     func start()
     func stop()
+    func toggleRadio()
 }
 
+protocol RadioMetadata {
+    var nowPlaying: Variable<NowPlaying> { get }
+
+    func startTimer()
+    func stopTimer()
+    func forceRefresh()
+
+    func fetchNowPlaying() -> Observable<NowPlaying>
+}
+
+/**
+ Deprecated RadioKit lib licence keys, only valid for 'gr.funkytaps.offradio' bundle
+ */
 struct RadioKitAuthenticationKeys {
     let key1: UInt32 = 0x943e3935
     let key2: UInt32 = 0xe19b0728
@@ -25,4 +46,5 @@ enum RadioState: Int {
     case stopped
     case buffering
     case playing
+    case interrupted
 }

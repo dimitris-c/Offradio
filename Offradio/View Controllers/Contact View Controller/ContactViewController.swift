@@ -38,7 +38,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         self.tableView.backgroundColor = self.view.backgroundColor
         self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 80, iPad: 120)
         self.tableView.tableFooterView = UIView()
-        self.tableView.separatorColor = UIColor(red:0.20, green:0.20, blue:0.20, alpha:1.00)
+        self.tableView.separatorColor = UIColor.seperatorColor
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         self.tableView.register(cellType: ContactTableViewCell.self)
 
@@ -144,7 +144,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         guard let url = URL(string: "http://www.offradio.gr") else {
             return
         }
-        if !UIApplication.shared.canOpenURL(url) {
+        if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.openURL(url)
         }
     }

@@ -10,8 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import Kingfisher
+import SwipeCellKit
 
-final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
+final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
     fileprivate var disposeBag: DisposeBag?
 
     private(set) var viewModel: PlaylistCellViewModel!
@@ -32,7 +33,7 @@ final class PlaylistTableViewCell: UITableViewCell, ConfigurableCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.00)
+        self.backgroundColor = UIColor.lightenBlack
         self.selectionStyle = .none
 
         self.contentView.backgroundColor = UIColor.clear

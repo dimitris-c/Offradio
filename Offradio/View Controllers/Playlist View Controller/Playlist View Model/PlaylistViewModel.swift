@@ -11,7 +11,19 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import RxRealm
-import Omicron
+import Moya
+import SwiftyJSON
+import Result
+
+public enum PlaylistCellSearchProvider: String {
+    case itunes
+    case spotify
+}
+
+public enum SearchResultError: Error {
+    case noResult
+}
+public typealias SearchBlock = (Result<String, SearchResultError>) -> Void
 
 final class PlaylistViewModel {
 
@@ -25,7 +37,8 @@ final class PlaylistViewModel {
 
     var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
 
-    let playlistService = APIService<PlaylistService>()
+    let playlistService = MoyaProvider<PlaylistService>()
+    let itunesService = MoyaProvider<iTunesSearchAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
     let playlistParser = PlaylistResponseParse()
 
     fileprivate var page: Int = 0
@@ -60,22 +73,66 @@ final class PlaylistViewModel {
 
     }
 
+    func search(on provider: PlaylistCellSearchProvider, at indexPath: IndexPath, completion: @escaping SearchBlock) {
+        if let item = playlistData.value[indexPath.row].item {
+            switch provider {
+            case .itunes:
+                searchOniTunes(for: item, completion: completion)
+                break
+            case .spotify:
+                searchOnSpotifty(for: item, completion: completion)
+                break
+            }
+        }
+    }
+
     // MARK: Internal methods
 
-    fileprivate func fetchPlaylist(withPage page: Int) {
-        self.playlistService.call(with: .playlist(page: page), parse: playlistParser) { [weak self] (success, result, _) in
-            guard let strongSelf = self else { return }
-            if let items = result.value, success {
-                if strongSelf.page == 0 {
-                    strongSelf.playlistData.value = items.map { PlaylistCellViewModel(with: $0) }
+    fileprivate func searchOniTunes(`for` item: PlaylistSong, completion: @escaping SearchBlock) {
+        itunesService.request(.search(with: item)) { result in
+            do {
+                let data = try result.dematerialize().data
+                let json = JSON(data: data)
+                if let urlString = json["results"].arrayValue.first?["trackViewUrl"].stringValue {
+                    completion(.success(urlString))
                 } else {
-                    strongSelf.playlistData.value.append(contentsOf: items.map { PlaylistCellViewModel(with: $0) })
+                    completion(.failure(.noResult))
                 }
-                strongSelf.page += 1
+            } catch { }
+        }
+    }
+
+    // Not yet implemented!
+    fileprivate func searchOnSpotifty(`for` item: PlaylistSong, completion: SearchBlock) {
+
+    }
+
+    fileprivate func fetchPlaylist(withPage page: Int) {
+        self.playlistService.request(.playlist(page: page)) { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let response):
+                do {
+                    let data = try response.mapJSON()
+                    let json = JSON(data)
+                    if strongSelf.page == 0 {
+                        strongSelf.playlistData.value = json["playlist"].arrayValue
+                            .map { PlaylistSong(with: $0) }
+                            .map { PlaylistCellViewModel(with: $0) }
+                    } else {
+                        strongSelf.playlistData.value.append(contentsOf: json["playlist"].arrayValue
+                            .map { PlaylistSong(with: $0) }.map { PlaylistCellViewModel(with: $0) })
+                    }
+                    strongSelf.page += 1
+                    strongSelf.refresh.value = false
+                    strongSelf.indicatorViewAnimating.value = false
+                    strongSelf.initialLoad.value = false
+                } catch { }
+                break
+            case .failure(let error):
+                Log.debug(error.localizedDescription)
+                break
             }
-            strongSelf.refresh.value = false
-            strongSelf.indicatorViewAnimating.value = false
-            strongSelf.initialLoad.value = false
         }
     }
 

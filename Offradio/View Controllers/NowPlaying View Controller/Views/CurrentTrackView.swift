@@ -212,9 +212,9 @@ final class CurrentTrackView: UIView {
         UIView.animate(withDuration: 0.2, animations: {
             self.shareButton.alpha = 1
             self.shareView.alpha = 0
-        }) { _ in
+        }, completion: { _ in
             self.shareView.hideButtons()
-        }
+        })
 
     }
 

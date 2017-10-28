@@ -5,6 +5,7 @@
 //  Created by Dimitris C. on 25/04/2017.
 //  Copyright © 2017 decimal. All rights reserved.
 //
+import Foundation
 
 enum ShortcutIdentifier: String {
     case radio
