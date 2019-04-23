@@ -12,11 +12,6 @@ import Moya
 import StreamingKit
 import AVFoundation
 
-struct OffradioStream {
-    let url: String = "http://www.offradio.gr/"
-    let path: String = "offradio.acc.m3u"
-}
-
 final class Offradio: RadioProtocol {
 
     private var disposeBag = DisposeBag()
@@ -25,9 +20,6 @@ final class Offradio: RadioProtocol {
     var status: RadioState = .stopped
     var isInForeground: Bool = true
     var metadata: RadioMetadata = OffradioMetadata()
-
-    private let m3uService: RxMoyaProvider<M3UService> = RxMoyaProvider<M3UService>()
-    private var streamUrl: String = ""
 
     init() {
 
@@ -51,11 +43,7 @@ final class Offradio: RadioProtocol {
     final func start() {
         guard self.status != .playing else { return }
 
-        if streamUrl.isEmpty {
-            getStreamUrl(shouldStartRadio: true)
-        } else {
-            self.startRadio()
-        }
+        self.startRadio()
     }
 
     final func stop() {
@@ -77,22 +65,10 @@ final class Offradio: RadioProtocol {
 
     final fileprivate func startRadio() {
         self.activateAudioSession()
-        self.kit.play(self.streamUrl)
+        // http://46.28.53.118:7033/stream
+        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
         self.metadata.startTimer()
         self.status = .playing
-    }
-
-    /// get the stream url from the acc.m3u url
-    final fileprivate func getStreamUrl(shouldStartRadio: Bool = false) {
-        m3uService.request(.streamUrl).mapString().subscribe(onSuccess: { [weak self] url in
-            guard let sSelf = self else { return }
-            sSelf.streamUrl = url.replacingOccurrences(of: "\\n*", with: "", options: .regularExpression)
-            if shouldStartRadio {
-                sSelf.start()
-            }
-        }, onError: { error in
-            Log.error("couldn't load stream url \(error)")
-        }).addDisposableTo(disposeBag)
     }
 
     final fileprivate func configureAudioSession() {

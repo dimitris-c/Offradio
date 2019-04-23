@@ -131,7 +131,6 @@
 		B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */; };
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
 		B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */; };
-		B5C44A311F9D19BA00D09CA6 /* M3UService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C44A301F9D19BA00D09CA6 /* M3UService.swift */; };
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */; };
@@ -344,7 +343,6 @@
 		B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnimationsFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BB24901E4B82F6006FC751 /* Offradio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Offradio.entitlements; sourceTree = "<group>"; };
 		B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPI.swift; sourceTree = "<group>"; };
-		B5C44A301F9D19BA00D09CA6 /* M3UService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UService.swift; sourceTree = "<group>"; };
 		B5CBD0561F74409800250FC9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrack.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923771E65E4800013A3F4 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Show.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -483,7 +481,6 @@
 				B503956C1E4BCA0100D9A71B /* PlaylistService.swift */,
 				B503956D1E4BCA0100D9A71B /* ScheduleService.swift */,
 				B524E5FC1E672622003A75EE /* ProducersService.swift */,
-				B5C44A301F9D19BA00D09CA6 /* M3UService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1487,7 +1484,6 @@
 				B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */,
 				B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */,
 				B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */,
-				B5C44A311F9D19BA00D09CA6 /* M3UService.swift in Sources */,
 				B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */,
 				B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */,
 				B54AAF2D1F96ABB70005C952 /* BundleExtensions.swift in Sources */,
