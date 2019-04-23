@@ -90,7 +90,7 @@ final class OffradioContentViewController: UIViewController {
         return mainTabBarController
     }
 
-    override open var childForStatusBarHidden: UIViewController? {
+    override public var childForStatusBarHidden: UIViewController? {
         return mainTabBarController
     }
 
