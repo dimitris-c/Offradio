@@ -7,6 +7,7 @@
 //
 
 import SwiftyJSON
+import HTMLEntities
 
 struct Show {
     let name: String

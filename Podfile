@@ -24,6 +24,7 @@ target 'Offradio' do
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit'
+  pod 'HTMLEntities', :git => 'https://github.com/IBM-Swift/swift-html-entities.git'
   pod 'StreamingKit', :git => 'https://github.com/dimitris-c/StreamingKit.git', :branch => 'metadata'
 
   target 'OffradioTests' do
@@ -41,6 +42,7 @@ target 'Offradio' do
       pod 'RxSwift'
       pod 'SwiftyJSON'
       pod 'Kingfisher'
+      pod 'HTMLEntities', :git => 'https://github.com/IBM-Swift/swift-html-entities.git'
   end
   
 end

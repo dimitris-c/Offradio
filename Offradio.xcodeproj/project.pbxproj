@@ -109,14 +109,6 @@
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */; };
-		B59A88E31F27AD05003509C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DF1F27AD05003509C3 /* Constants.swift */; };
-		B59A88E41F27AD05003509C3 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E01F27AD05003509C3 /* ParseError.swift */; };
-		B59A88E51F27AD05003509C3 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */; };
-		B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E21F27AD05003509C3 /* Utilities.swift */; };
-		B59A88E71F27ADC2003509C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DF1F27AD05003509C3 /* Constants.swift */; };
-		B59A88E81F27ADC2003509C3 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E01F27AD05003509C3 /* ParseError.swift */; };
-		B59A88E91F27ADC2003509C3 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */; };
-		B59A88EA1F27ADC2003509C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E21F27AD05003509C3 /* Utilities.swift */; };
 		B5A430891FA1405B006F0BC9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CBD0561F74409800250FC9 /* AVFoundation.framework */; };
 		B5A4308D1FA14093006F0BC9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */; };
 		B5A4308F1FA1409C006F0BC9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */; };
@@ -325,10 +317,6 @@
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIColor+Offradio.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B59A88DF1F27AD05003509C3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B59A88E01F27AD05003509C3 /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
-		B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTMLEntities.swift"; sourceTree = "<group>"; };
-		B59A88E21F27AD05003509C3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -504,14 +492,6 @@
 				B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */,
 			);
 			path = Realm;
-			sourceTree = "<group>";
-		};
-		B51BE4DC1E3ABF79005775F4 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				B59A88DE1F27ACFA003509C3 /* HTMLEntities */,
-			);
-			path = Vendor;
 			sourceTree = "<group>";
 		};
 		B524E5FE1E673BC6003A75EE /* NowPlaying View Controller */ = {
@@ -701,7 +681,6 @@
 				B52A6C371E36BAC2005893D2 /* Utilities */,
 				B5745E531EB0D5AD00A60283 /* OffradioWatch */,
 				B52A6C1F1E36B3BE005893D2 /* Resources */,
-				B51BE4DC1E3ABF79005775F4 /* Vendor */,
 				B54BC8B41E36A9DC0043F248 /* Info.plist */,
 			);
 			path = Offradio;
@@ -878,17 +857,6 @@
 				B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B59A88DE1F27ACFA003509C3 /* HTMLEntities */ = {
-			isa = PBXGroup;
-			children = (
-				B59A88DF1F27AD05003509C3 /* Constants.swift */,
-				B59A88E01F27AD05003509C3 /* ParseError.swift */,
-				B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */,
-				B59A88E21F27AD05003509C3 /* Utilities.swift */,
-			);
-			path = HTMLEntities;
 			sourceTree = "<group>";
 		};
 		B5AF72971F96A20B0060D5F8 /* Recovered References */ = {
@@ -1279,12 +1247,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HTMLEntities-watchOS/HTMLEntities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher-watchOS/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift-watchOS/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-watchOS/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HTMLEntities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1349,6 +1319,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/HTMLEntities-iOS/HTMLEntities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher-iOS/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -1374,6 +1345,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HTMLEntities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -1434,7 +1406,6 @@
 				B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */,
 				B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */,
 				B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */,
-				B59A88E41F27AD05003509C3 /* ParseError.swift in Sources */,
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
@@ -1462,11 +1433,9 @@
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */,
-				B59A88E51F27AD05003509C3 /* String+HTMLEntities.swift in Sources */,
 				B50395701E4BCA0100D9A71B /* PlaylistService.swift in Sources */,
 				B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */,
-				B59A88E31F27AD05003509C3 /* Constants.swift in Sources */,
 				B5483B961EB4F44E004AC6BF /* Song.swift in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
 				B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */,
@@ -1476,7 +1445,6 @@
 				B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */,
 				B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */,
 				B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */,
-				B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */,
 				B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */,
 				B507C0A61E56869800792414 /* DataLayer.swift in Sources */,
 				B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */,
@@ -1533,14 +1501,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B59A88E81F27ADC2003509C3 /* ParseError.swift in Sources */,
 				B5483B991EB4F813004AC6BF /* PlaylistTableViewRow.swift in Sources */,
 				B5483B921EB4EFA2004AC6BF /* InterfaceController.swift in Sources */,
 				B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */,
 				B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */,
 				B52C2D481EB1091700AF8514 /* OffradioWatchRadioAction.swift in Sources */,
-				B59A88EA1F27ADC2003509C3 /* Utilities.swift in Sources */,
-				B59A88E71F27ADC2003509C3 /* Constants.swift in Sources */,
 				B52C2D421EB0F18700AF8514 /* Radio.swift in Sources */,
 				B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */,
 				B5483B931EB4EFA2004AC6BF /* PlaylistController.swift in Sources */,
@@ -1549,7 +1514,6 @@
 				B58E755B1EB39F9100D06C15 /* Show.swift in Sources */,
 				B5483B971EB4F489004AC6BF /* Song.swift in Sources */,
 				B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */,
-				B59A88E91F27ADC2003509C3 /* String+HTMLEntities.swift in Sources */,
 				B5483B911EB4EFA2004AC6BF /* CurrentTrackController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

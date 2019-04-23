@@ -18,6 +18,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.44.1):
     - FBSDKCoreKit
+  - HTMLEntities (3.0.12)
   - Kingfisher (4.10.0)
   - Moya/Core (13.0.0):
     - Alamofire (~> 4.1)
@@ -61,6 +62,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - HTMLEntities (from `https://github.com/IBM-Swift/swift-html-entities.git`)
   - Kingfisher
   - Moya/RxSwift
   - RealmSwift
@@ -101,11 +103,16 @@ SPEC REPOS:
     - TwitterKit
 
 EXTERNAL SOURCES:
+  HTMLEntities:
+    :git: https://github.com/IBM-Swift/swift-html-entities.git
   StreamingKit:
     :branch: metadata
     :git: https://github.com/dimitris-c/StreamingKit.git
 
 CHECKOUT OPTIONS:
+  HTMLEntities:
+    :commit: 544e7e0e404edeb239d4bb86e5cbe5929c0809bf
+    :git: https://github.com/IBM-Swift/swift-html-entities.git
   StreamingKit:
     :commit: 3d2d328705ed59d7c4f6d9c7584077740c1bc6fc
     :git: https://github.com/dimitris-c/StreamingKit.git
@@ -120,6 +127,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: a823ae35bdb60ebb8d7a7e51abe7c5d87d2bfced
   FBSDKLoginKit: 54ae59987f2a8703021557c90a9aebb9e5c2bef6
   FBSDKShareKit: 526d4cfb713d24855fa23d0dd74e191accd3a720
+  HTMLEntities: b195103df85a07c6174ed52435d30ae90085fa44
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   Moya: 161263550064ff8a4948e8ff63137fd72a876292
   Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
@@ -136,6 +144,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 6f18579bb05ace224900b29f7b0cb035dc44593c
+PODFILE CHECKSUM: 154b5323471ff30b7596c4da34cb62a71f113c79
 
 COCOAPODS: 1.5.3
