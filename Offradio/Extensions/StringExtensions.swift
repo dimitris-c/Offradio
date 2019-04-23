@@ -13,8 +13,10 @@ extension String {
     func convertHTMLEntities(fallback: String = "") throws -> String {
         guard let data = data(using: .utf8) else { return fallback }
 
-        return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                                                        NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue],
+        return try NSAttributedString(data: data, options: [NSAttributedString.DocumentReadingOptionKey.documentType:
+            NSAttributedString.DocumentType.html,
+                                                        NSAttributedString.DocumentReadingOptionKey.characterEncoding
+                                                            : String.Encoding.utf8.rawValue],
                                   documentAttributes: nil).string
     }
 

@@ -166,7 +166,7 @@ extension MFMailComposeViewController {
         return .lightContent
     }
 
-    open override var childViewControllerForStatusBarStyle: UIViewController? {
+    open override var childForStatusBarStyle: UIViewController? {
         return nil
     }
 }

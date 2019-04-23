@@ -40,7 +40,7 @@ final class ContactViewModel: ContactViewModelType, ContactViewModelInputs, Cont
     }
 
     func viewDidLoad() {
-        viewDidLoadSubject.onNext()
+        viewDidLoadSubject.onNext(())
     }
 
     func getItem(at indexPath: IndexPath) -> ContactItem {

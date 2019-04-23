@@ -12,14 +12,14 @@ import SwiftyJSON
 
 class PlaylistSong: Object {
 
-    dynamic var time: String = ""
-    dynamic var artist: String = ""
-    dynamic var songTitle: String = ""
-    dynamic var imageUrl: String = ""
+    @objc dynamic var time: String = ""
+    @objc dynamic var artist: String = ""
+    @objc dynamic var songTitle: String = ""
+    @objc dynamic var imageUrl: String = ""
 
-    dynamic var sanitizedTitle: String = ""
+    @objc dynamic var sanitizedTitle: String = ""
 
-    dynamic var isFavourite: Bool = false
+    @objc dynamic var isFavourite: Bool = false
 
     convenience init(with json: JSON) {
         self.init()

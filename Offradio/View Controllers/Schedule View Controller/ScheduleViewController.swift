@@ -54,7 +54,7 @@ final class ScheduleViewController: UIViewController {
 
         self.registerForPreviewing(with: self, sourceView: self.tableView)
 
-        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         self.activityIndicator.startAnimating()
         self.view.addSubview(self.activityIndicator)
 
@@ -98,7 +98,7 @@ final class ScheduleViewController: UIViewController {
             self.tableView.refreshControl = self.refreshControl
         } else {
             tableView?.addSubview(refreshControl)
-            tableView.sendSubview(toBack: refreshControl)
+            tableView.sendSubviewToBack(refreshControl)
         }
 
         self.refreshControl.rx.controlEvent(.valueChanged)

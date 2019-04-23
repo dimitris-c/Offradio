@@ -16,7 +16,7 @@ final class AnimationsFactory {
 
         animation.duration = duration
         animation.fromValue = 0.0
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
 
         return animation
     }
@@ -27,7 +27,7 @@ final class AnimationsFactory {
 
         animation.duration = duration
         animation.fromValue = 1.0
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
 
         return animation
     }
@@ -40,7 +40,7 @@ final class AnimationsFactory {
         animation.autoreverses = false
         animation.isCumulative = true
         animation.isAdditive = true
-        animation.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.fromValue = NSNumber(value: 0)
         animation.toValue = NSNumber(value: Double.pi * 2.0)
 

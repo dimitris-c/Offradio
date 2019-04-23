@@ -12,7 +12,7 @@ final class ScheduleTableViewCell: UITableViewCell, ConfigurableCell {
 
     final private(set) var item: ScheduleItem!
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
         self.backgroundColor = UIColor.lightenBlack
@@ -23,7 +23,7 @@ final class ScheduleTableViewCell: UITableViewCell, ConfigurableCell {
 
         let fontSize: CGFloat = CGFloat.deviceValue(iPhone: 15, iPad: 22)
         self.textLabel?.font = UIFont.letterGothicBold(withSize: fontSize)
-        self.textLabel?.textColor = UIColor(red:0.40, green:0.40, blue:0.40, alpha:1.00)
+        self.textLabel?.textColor = UIColor(red: 0.40, green: 0.40, blue: 0.40, alpha: 1.00)
 
         self.detailTextLabel?.font = UIFont.letterGothicBold(withSize: fontSize)
         self.detailTextLabel?.textColor = UIColor.white

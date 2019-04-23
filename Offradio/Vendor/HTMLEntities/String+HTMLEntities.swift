@@ -432,13 +432,13 @@ fileprivate func decode(entity: String, entityPrefix: String, strict: Bool) thro
         }
 
         for length in legacyNamedCharactersLengthRange {
-            guard length <= entity.characters.count else {
+            guard length <= entity.count else {
                 break
             }
 
             let upperIndex = entity.index(entity.startIndex, offsetBy: length)
-            let reference = entity[entity.startIndex..<upperIndex]
-
+            let reference = String(entity[entity.startIndex..<upperIndex]) ?? ""
+            
             if let c = legacyNamedCharactersDecodeMap[reference] {
                 if strict {
                     // https://www.w3.org/TR/html5/syntax.html#tokenizing-character-references

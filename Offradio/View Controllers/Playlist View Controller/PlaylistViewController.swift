@@ -39,7 +39,7 @@ final class PlaylistViewController: UIViewController {
         self.trackAnalytics()
 
         self.tableViewActivityContainerView = UIView(frame: .zero)
-        self.tableViewActivityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        self.tableViewActivityView = UIActivityIndicatorView(style: .white)
         self.tableViewActivityContainerView.addSubview(self.tableViewActivityView)
 
         self.tableView = UITableView(frame: .zero)
@@ -51,7 +51,7 @@ final class PlaylistViewController: UIViewController {
         self.tableView.tableFooterView = self.tableViewActivityContainerView
         self.view.addSubview(self.tableView)
 
-        self.initialLoadActivityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        self.initialLoadActivityView = UIActivityIndicatorView(style: .whiteLarge)
         self.initialLoadActivityView.startAnimating()
         self.view.addSubview(self.initialLoadActivityView)
 
@@ -82,7 +82,7 @@ final class PlaylistViewController: UIViewController {
             self.tableView.refreshControl = self.refreshControl
         } else {
             tableView?.addSubview(refreshControl)
-            tableView.sendSubview(toBack: refreshControl)
+            tableView.sendSubviewToBack(refreshControl)
         }
 
         self.refreshControl.rx.controlEvent(.valueChanged)
@@ -155,7 +155,6 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
                         if let url = URL(string: value) {
                             UIApplication.open(url: url)
                         }
-                        break
                     case .failure(let error):
                         if error == .noResult {
                             sSelf.showAlert(title: "Error", message: "Could not find song on iTunes.")

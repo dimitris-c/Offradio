@@ -12,10 +12,10 @@ class OffradioWatchCommunication {
 
     // MARK: Both App and watch
     func sendTurnRadioOn() {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.toggleRadio.rawValue,
                                       "data": true]
-        WCSession.default().sendMessage(message, replyHandler: { _ in
+        WCSession.default.sendMessage(message, replyHandler: { _ in
 
         }, errorHandler: { error in
             print(error.localizedDescription)
@@ -23,10 +23,10 @@ class OffradioWatchCommunication {
     }
 
     func sendTurnRadioOff() {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.toggleRadio.rawValue,
                                       "data": false]
-        WCSession.default().sendMessage(message, replyHandler: { _ in
+        WCSession.default.sendMessage(message, replyHandler: { _ in
 
         }, errorHandler: { error in
             print(error.localizedDescription)
@@ -34,10 +34,10 @@ class OffradioWatchCommunication {
     }
 
     func sendCurrentTrack(with model: CurrentTrack) {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.currentTrack.rawValue,
                                       "data": model.toDictionary()]
-        WCSession.default().sendMessage(message, replyHandler: { _ in
+        WCSession.default.sendMessage(message, replyHandler: { _ in
 
         }, errorHandler: { error in
             print(error.localizedDescription)
@@ -46,9 +46,9 @@ class OffradioWatchCommunication {
 
     // MARK: From watch
     func getRadioStatus() {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.radioStatus.rawValue]
-        WCSession.default().sendMessage(message, replyHandler: { _ in
+        WCSession.default.sendMessage(message, replyHandler: { _ in
 
         }, errorHandler: { error in
             print(error.localizedDescription)
@@ -56,9 +56,9 @@ class OffradioWatchCommunication {
     }
 
     func getCurrentTrack(with reply: @escaping ([String: Any]) -> Void) {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.currentTrack.rawValue]
-        WCSession.default().sendMessage(message, replyHandler: { replyInfo in
+        WCSession.default.sendMessage(message, replyHandler: { replyInfo in
             reply(replyInfo)
         }, errorHandler: { error in
             print(error.localizedDescription)
@@ -66,9 +66,9 @@ class OffradioWatchCommunication {
     }
 
     func getCurrentShow(with reply: @escaping ([String: Any]) -> Void) {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.currentShow.rawValue]
-        WCSession.default().sendMessage(message, replyHandler: { replyInfo in
+        WCSession.default.sendMessage(message, replyHandler: { replyInfo in
             reply(replyInfo)
         }, errorHandler: { error in
             print(error.localizedDescription)
@@ -76,9 +76,9 @@ class OffradioWatchCommunication {
     }
 
     func getPlaylist(with reply: @escaping ([String: Any]) -> Void) {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.playlist.rawValue]
-        WCSession.default().sendMessage(message, replyHandler: { replyInfo in
+        WCSession.default.sendMessage(message, replyHandler: { replyInfo in
             reply(replyInfo)
         }, errorHandler: { error in
             print(error.localizedDescription)
@@ -86,10 +86,10 @@ class OffradioWatchCommunication {
     }
 
     func getIsFavourite(`for` song: CurrentTrack, with reply: @escaping ([String: Any]) -> Void) {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.favouriteStatus.rawValue,
                                       "data": ["artist": song.artist, "track": song.track]]
-        WCSession.default().sendMessage(message, replyHandler: { replyInfo in
+        WCSession.default.sendMessage(message, replyHandler: { replyInfo in
             reply(replyInfo)
         }, errorHandler: { error in
             print(error.localizedDescription)
@@ -97,10 +97,10 @@ class OffradioWatchCommunication {
     }
 
     func toggleFavourite(`for` song: CurrentTrack, with reply: @escaping ([String: Any]) -> Void) {
-        guard WCSession.default().isReachable else { return }
+        guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.toggleFavourite.rawValue,
                                       "data": song.toDictionary()]
-        WCSession.default().sendMessage(message, replyHandler: { replyInfo in
+        WCSession.default.sendMessage(message, replyHandler: { replyInfo in
             reply(replyInfo)
         }, errorHandler: { error in
             print(error.localizedDescription)

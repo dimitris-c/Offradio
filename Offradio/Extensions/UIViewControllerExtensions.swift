@@ -13,20 +13,20 @@ import RxCocoa
 extension UIViewController {
 
     public final func hideLabelOnBackButton() {
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     final func addContainerViewController(_ content: UIViewController) {
-        self.addChildViewController(content)
+        self.addChild(content)
         content.view.frame = self.view.bounds
         self.view.addSubview(content.view)
-        content.didMove(toParentViewController: self)
+        content.didMove(toParent: self)
     }
 
     final func removeContainerViewController(_ content: UIViewController) {
-        content.willMove(toParentViewController: nil)
+        content.willMove(toParent: nil)
         content.view.removeFromSuperview()
-        content.removeFromParentViewController()
+        content.removeFromParent()
     }
 
     class func className() -> String {

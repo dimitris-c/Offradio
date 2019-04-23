@@ -51,7 +51,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerImageView = UIImageView(frame: .zero)
         self.producerTopView.addSubview(self.producerImageView)
 
-        self.producerImageViewIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        self.producerImageViewIndicator = UIActivityIndicatorView(style: .white)
         self.producerImageViewIndicator.startAnimating()
         self.producerImageView.addSubview(self.producerImageViewIndicator)
 

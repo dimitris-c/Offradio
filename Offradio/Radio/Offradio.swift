@@ -10,6 +10,7 @@ import MediaPlayer
 import RxSwift
 import Moya
 import StreamingKit
+import AVFoundation
 
 struct OffradioStream {
     let url: String = "http://www.offradio.gr/"
@@ -97,7 +98,7 @@ final class Offradio: RadioProtocol {
     final fileprivate func configureAudioSession() {
         do {
             Log.debug("AudioSession category is AVAudioSessionCategoryPlayback")
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
         } catch let error as NSError {
             Log.debug("Couldn't setup audio session category to Playback \(error.localizedDescription)")
         }
@@ -127,22 +128,22 @@ extension Offradio {
     final fileprivate func addNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleInterruption),
-                                               name: NSNotification.Name.AVAudioSessionInterruption,
+                                               name: AVAudioSession.interruptionNotification,
                                                object: nil)
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleRouteChange),
-                                               name: NSNotification.Name.AVAudioSessionRouteChange,
+                                               name: AVAudioSession.routeChangeNotification,
                                                object: nil)
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(movedToBackground),
-                                               name: NSNotification.Name.UIApplicationDidEnterBackground,
+                                               name: UIApplication.didEnterBackgroundNotification,
                                                object: nil)
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(movedToForeground),
-                                               name: NSNotification.Name.UIApplicationWillEnterForeground,
+                                               name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
     }
 
@@ -171,7 +172,7 @@ extension Offradio {
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
 
         let audioPlayerState = kit.state
-        if interruptionState.uintValue == AVAudioSessionInterruptionType.began.rawValue {
+        if interruptionState.uintValue == AVAudioSession.InterruptionType.began.rawValue {
             var wasSuspended: Bool = false
             if #available(iOS 10.3, *) {
                 wasSuspended = info?[AVAudioSessionInterruptionWasSuspendedKey] as? Bool ?? false
@@ -183,10 +184,10 @@ extension Offradio {
                 // set the status to interrupted after stopping the audio
                 self.status = .interrupted
             }
-        } else if interruptionState.uintValue == AVAudioSessionInterruptionType.ended.rawValue {
+        } else if interruptionState.uintValue == AVAudioSession.InterruptionType.ended.rawValue {
             if let info = info, let reasonInt = info[AVAudioSessionInterruptionOptionKey] as? UInt {
-                let interruptionOption = AVAudioSessionInterruptionOptions(rawValue: reasonInt)
-                if interruptionOption == AVAudioSessionInterruptionOptions.shouldResume {
+                let interruptionOption = AVAudioSession.InterruptionOptions(rawValue: reasonInt)
+                if interruptionOption == AVAudioSession.InterruptionOptions.shouldResume {
                     Log.debug("audio shouldResume after interruption")
                     if audioPlayerState == STKAudioPlayerState.stopped && self.status == .interrupted {
                         Log.debug("offradio should resume playback interruption")
@@ -200,7 +201,7 @@ extension Offradio {
     @objc final fileprivate func handleRouteChange(_ notification: Notification) {
         Log.debug("audio route change\n\(String(describing: notification.userInfo))")
         if let reason: NSNumber = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? NSNumber {
-            if reason.uintValue == AVAudioSessionRouteChangeReason.categoryChange.rawValue {
+            if reason.uintValue == AVAudioSession.RouteChangeReason.categoryChange.rawValue {
                 if kit.state != STKAudioPlayerState.stopped && self.status == .playing {
                     self.start()
                 }

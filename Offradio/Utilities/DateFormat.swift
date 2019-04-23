@@ -44,13 +44,13 @@ final class DateFormat: NSObject {
 
         switch type {
         case .api:
-            self.date = type(of: self).api.date(from: string)
+            self.date = DateFormat.api.date(from: string)
             break
         case .apiAlternate:
-            self.date = type(of: self).apiAlternate.date(from: string)
+            self.date = DateFormat.apiAlternate.date(from: string)
             break
         case .token:
-            self.date = type(of: self).token.date(from: string)
+            self.date = DateFormat.token.date(from: string)
             break
         }
     }

@@ -80,7 +80,7 @@ final class PlayerCircleContainerView: UIView {
     }
 
     final func rearrangeViews() {
-        self.bringSubview(toFront: offradioLogo)
+        self.bringSubviewToFront(offradioLogo)
     }
 
     override func layoutSubviews() {

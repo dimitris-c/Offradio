@@ -74,6 +74,32 @@ DEPENDENCIES:
   - ToggleSwitch (~> 1.0)
   - TwitterKit
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireNetworkActivityIndicator
+    - AutoScrollLabel
+    - Bolts
+    - Crashlytics
+    - Fabric
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
+    - Kingfisher
+    - Moya
+    - Realm
+    - RealmSwift
+    - Result
+    - RxAlamofire
+    - RxCocoa
+    - RxRealm
+    - RxSwift
+    - SwiftyJSON
+    - SwipeCellKit
+    - ToggleSwitch
+    - TwitterCore
+    - TwitterKit
+
 EXTERNAL SOURCES:
   StreamingKit:
     :branch: metadata
@@ -110,6 +136,6 @@ SPEC CHECKSUMS:
   TwitterCore: 6856288a1c25e5281363250681f33b42fce1da42
   TwitterKit: 313bf02baee8427f7649b3640169178e5a8b5a99
 
-PODFILE CHECKSUM: 55052666cf837c44051ef1c506f240342dfb8a27
+PODFILE CHECKSUM: f69f4c5f02aa614f7da3dc06d77ee0dbebd03cf3
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3

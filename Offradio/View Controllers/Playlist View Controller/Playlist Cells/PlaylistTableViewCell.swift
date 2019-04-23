@@ -31,7 +31,7 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
     // The boolean below changes the layout for each case.
     var shownInFavouritesList: Bool = false
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = UIColor.lightenBlack
         self.selectionStyle = .none
@@ -43,7 +43,7 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
         self.contentView.addSubview(self.albumArtwork)
 
         self.timeLabel = UILabel(frame: .zero)
-        self.timeLabel.textColor = UIColor(red:0.60, green:0.60, blue:0.60, alpha:1.00)
+        self.timeLabel.textColor = UIColor(red: 0.60, green: 0.60, blue: 0.60, alpha: 1.00)
         self.timeLabel.font = UIFont.letterGothicBold(withSize: 14)
         self.contentView.addSubview(self.timeLabel)
 
