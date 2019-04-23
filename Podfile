@@ -12,18 +12,18 @@ target 'Offradio' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
-  pod 'Kingfisher', '~> 3.0'
+  pod 'Kingfisher'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'TwitterKit'
   pod 'RealmSwift'
   pod 'RxRealm'
-  pod 'RxSwift',    '~> 3.0'
-  pod 'RxCocoa',    '~> 3.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'RxAlamofire'
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
-  pod 'SwipeCellKit', '1.9.1'
+  pod 'SwipeCellKit'
   pod 'StreamingKit', :git => 'https://github.com/dimitris-c/StreamingKit.git', :branch => 'metadata'
 
   target 'OffradioTests' do
@@ -38,21 +38,21 @@ target 'Offradio' do
 
   target 'OffradioWatchKit Extension' do
       platform :watchos, '2.0'
-      pod 'RxSwift',    '~> 3.0'
+      pod 'RxSwift'
       pod 'SwiftyJSON'
-      pod 'Kingfisher', '~> 3.0'
+      pod 'Kingfisher'
   end
   
 end
 
-post_install do |installer|
-    require 'fileutils'
-    installer.pods_project.targets.each do |target|
-        target.build_configurations.each do |config|
-            config.build_settings['SWIFT_VERSION'] = '3.0'
-        end
-    end
-    
-    #FileUtils.cp_r('Pods/Target Support Files/Pods-Carlito/Pods-Carlito-acknowledgements.plist', 'Carlito/Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
-end
+#post_install do |installer|
+#    require 'fileutils'
+#    installer.pods_project.targets.each do |target|
+#        target.build_configurations.each do |config|
+#            config.build_settings['SWIFT_VERSION'] = '3.0'
+#        end
+#    end
+#
+#    #FileUtils.cp_r('Pods/Target Support Files/Pods-Carlito/Pods-Carlito-acknowledgements.plist', 'Carlito/Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
+#end
 

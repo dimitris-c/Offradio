@@ -67,22 +67,22 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.nowPlayingButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.showNowPlayingViewController(with: strongSelf.offradio.metadata)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
-        self.playerCircleContainer.switched.bind(to: viewModel.toggleRadio).addDisposableTo(disposeBag)
-        viewModel.isBuffering.asObservable().bind(to: self.playerCircleContainer.buffering).addDisposableTo(disposeBag)
-        viewModel.isPlaying.asObservable().bind(to: self.playerCircleContainer.playing).addDisposableTo(disposeBag)
+        self.playerCircleContainer.switched.bind(to: viewModel.toggleRadio).disposed(by: disposeBag)
+        viewModel.isBuffering.asObservable().bind(to: self.playerCircleContainer.buffering).disposed(by: disposeBag)
+        viewModel.isPlaying.asObservable().bind(to: self.playerCircleContainer.playing).disposed(by: disposeBag)
 
         viewModel.isPlaying.asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] isPlaying in
                 self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
 
         viewModel.nowPlaying.asObservable()
             .map { $0.current.title }
             .bind(to: self.nowPlayingButton.title)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         let playlistButton = UIButton(type: .custom)
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon"), for: .normal)
@@ -93,7 +93,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
 
         playlistButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.showPlaylistViewController()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 
     override func viewDidLayoutSubviews() {

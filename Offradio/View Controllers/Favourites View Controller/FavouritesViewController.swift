@@ -52,7 +52,7 @@ final class FavouritesViewController: UIViewController {
             .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, model, cell in
                 cell.shownInFavouritesList = true
                 cell.configure(with: model)
-            }.addDisposableTo(disposeBag)
+            }.disposed(by: disposeBag)
 
     }
 

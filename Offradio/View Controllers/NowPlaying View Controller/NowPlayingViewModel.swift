@@ -38,7 +38,7 @@ final class NowPlayingViewModel {
             .map { $0.show }
             .startWith(Show.default)
             .bind(to: show)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.radioMetadata.nowPlaying.asObservable()
             .map { $0.current }
@@ -50,7 +50,7 @@ final class NowPlayingViewModel {
                 }
             })
             .bind(to: currentTrack)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.favouriteTrack.asObservable()
             .subscribe(onNext: { [weak self] (favourite) in
@@ -65,7 +65,7 @@ final class NowPlayingViewModel {
                     sSelf.trackRemovedSong(with: track.toSong())
                 }
 
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
 
     }
 

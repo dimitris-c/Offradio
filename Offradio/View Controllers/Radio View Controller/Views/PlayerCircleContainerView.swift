@@ -60,7 +60,7 @@ final class PlayerCircleContainerView: UIView {
                 } else {
                     self?.stopBuffering()
                 }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         playing.asObservable()
             .observeOn(MainScheduler.instance)
@@ -71,7 +71,7 @@ final class PlayerCircleContainerView: UIView {
                 } else {
                     self?.setStopped()
                 }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 

@@ -49,7 +49,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
 
         self.funkytapsLogo.rx.tap.subscribe(onNext: {
             UIApplication.open(url: URL(string: "http://www.niceandneat.gr")!)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         self.view.addSubview(self.funkytapsLogo)
 
@@ -59,14 +59,14 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         self.viewModel.outputs.data.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: cellType)) { _, model, cell in
             cell.configure(with: model)
-        }.addDisposableTo(disposeBag)
+        }.disposed(by: disposeBag)
 
         self.tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             self?.tableView.deselectRow(at: indexPath, animated: true)
             if let item = self?.viewModel.outputs.getItem(at: indexPath) {
                 self?.showView(for: item.type)
             }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         self.viewModel.inputs.viewDidLoad()
     }

@@ -38,7 +38,7 @@ class InterfaceController: WKInterfaceController {
         OffradioWatchSession.shared.radioState.asObservable().subscribe(onNext: { [weak self] state in
             let isPlaying = state == RadioState.playing
             self?.adjustIcon(with: isPlaying)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
     
     override func didDeactivate() {

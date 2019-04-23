@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         URLCache.shared = cache
 
         Fabric.with([Crashlytics.self, Answers.self])
-        Twitter.sharedInstance().start(withConsumerKey: "AfJ2HbxzaW4gvPekIwHdak4RS",
+        TWTRTwitter.sharedInstance().start(withConsumerKey: "AfJ2HbxzaW4gvPekIwHdak4RS",
                                        consumerSecret: "KRgr4T0Yk4AeVlwDIWvUra00tjRkjhCCWUpGV3dPeoTpDKqymt")
 
         RealmMigrationLayer.performMigration()
@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return Twitter.sharedInstance().application(app, open: url, options: options)
+        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     }
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {

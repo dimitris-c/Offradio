@@ -30,7 +30,7 @@ class CurrentTrackController: WKInterfaceController {
         self.currentTrack.asObservable()
             .subscribe(onNext: { [weak self] track in
                 self?.checkFavouriteStatus(with: track)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         
         OffradioWatchSession.shared.currentTrack.asObservable()
             .distinctUntilChanged()
@@ -42,7 +42,7 @@ class CurrentTrackController: WKInterfaceController {
                         self?.loadAlbumArtwork(url: url)
                     }
                 }
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
         
     }
 

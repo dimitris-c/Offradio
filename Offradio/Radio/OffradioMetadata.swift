@@ -18,9 +18,9 @@ final class OffradioMetadata: RadioMetadata {
     let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)
 
     fileprivate let crc: Variable<String> = Variable<String>("")
-    fileprivate let crcService = RxMoyaProvider<CRCService>()
-    fileprivate let lastFMApiService = RxMoyaProvider<LastFMAPIService>()
-    fileprivate let nowPlayingService = RxMoyaProvider<NowPlayingService>()
+    fileprivate let crcService = MoyaProvider<CRCService>()
+    fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
+    fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
     fileprivate let nowPlayingParser = NowPlayingParse()
 
     fileprivate var timerDisposeBag: DisposeBag?
@@ -32,7 +32,7 @@ final class OffradioMetadata: RadioMetadata {
         let crcTimerDisposable = crcTimer.asObservable()
             .flatMapLatest({ [weak self] _ -> Observable<String> in
                 guard let strongSelf = self else { return Observable.empty() }
-                return strongSelf.crcService.request(.crc).mapString().asObservable()
+                return strongSelf.crcService.rx.request(.crc).mapString().asObservable()
             })
             .catchErrorJustReturn("")
             .bind(to: crc)
@@ -58,11 +58,11 @@ final class OffradioMetadata: RadioMetadata {
     func forceRefresh() {
         self.fetchNowPlaying()
             .bind(to: nowPlaying)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     func fetchNowPlaying() -> Observable<NowPlaying> {
-        return self.nowPlayingService.request(.nowPlaying)
+        return self.nowPlayingService.rx.request(.nowPlaying)
             .mapJSON()
             .map { NowPlaying(json: JSON($0)) }
             .asObservable()

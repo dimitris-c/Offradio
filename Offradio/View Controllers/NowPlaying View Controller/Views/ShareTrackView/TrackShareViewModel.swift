@@ -19,7 +19,7 @@ final class TrackShareViewModel {
 
         shareOn.asObservable().subscribe(onNext: { shareType in
             print("\(shareType)")
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 

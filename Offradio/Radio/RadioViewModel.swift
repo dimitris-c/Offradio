@@ -41,14 +41,14 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
                     self?.radio.stop()
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         radio.metadata.nowPlaying.asObservable()
             .do(onNext: { [weak self] track in
                 self?.watchCommunication.sendCurrentTrack(with: track.current)
             })
             .bind(to: nowPlaying)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 

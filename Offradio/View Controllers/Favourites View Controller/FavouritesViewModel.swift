@@ -24,7 +24,7 @@ final class FavouritesViewModel {
             Observable.array(from: favourites)
                 .map { $0.map { PlaylistCellViewModel(with: $0) } }
                 .bind(to: playlistData)
-                .addDisposableTo(disposeBag)
+                .disposed(by: disposeBag)
         }
 
     }

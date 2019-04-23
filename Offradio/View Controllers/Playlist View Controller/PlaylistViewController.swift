@@ -61,7 +61,7 @@ final class PlaylistViewController: UIViewController {
         favouritesListButton.sizeToFit()
         favouritesListButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
                 self?.showFavouritesList()
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favouritesListButton)
 
         self.viewModel = PlaylistViewModel(viewWillAppear: rx.viewWillAppear.asDriver(),
@@ -75,7 +75,7 @@ final class PlaylistViewController: UIViewController {
                 cell.configure(with: model)
                 cell.delegate = self
                 cell.showSwipe(orientation: .right)
-            }.addDisposableTo(disposeBag)
+            }.disposed(by: disposeBag)
 
         self.refreshControl = UIRefreshControl()
         if #available(iOS 10.0, *) {
@@ -88,19 +88,19 @@ final class PlaylistViewController: UIViewController {
         self.refreshControl.rx.controlEvent(.valueChanged)
             .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? false) }
             .bind(to: self.viewModel.refresh)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.viewModel.refresh.asObservable()
             .bind(to: self.refreshControl.rx.isRefreshing)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.viewModel.indicatorViewAnimating.asObservable()
             .bind(to: self.tableViewActivityView.rx.isAnimating)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.viewModel.initialLoad.asObservable()
             .bind(to: self.initialLoadActivityView.rx.isAnimating)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 

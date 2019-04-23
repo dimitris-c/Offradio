@@ -9,10 +9,7 @@
 #if os(iOS) || os(tvOS)
 
 import UIKit
-#if !RX_NO_MODULE
 import RxSwift
-#endif
-
 
 // This should be only used from `MainScheduler`
 final class GestureTarget<Recognizer: UIGestureRecognizer>: RxTarget {
@@ -37,7 +34,7 @@ final class GestureTarget<Recognizer: UIGestureRecognizer>: RxTarget {
         }
     }
     
-    func eventHandler(_ sender: UIGestureRecognizer!) {
+    @objc func eventHandler(_ sender: UIGestureRecognizer) {
         if let callback = self.callback, let gestureRecognizer = self.gestureRecognizer {
             callback(gestureRecognizer)
         }
@@ -63,8 +60,7 @@ extension Reactive where Base: UIGestureRecognizer {
                 return Disposables.create()
             }
             
-            let observer = GestureTarget(control) {
-                control in
+            let observer = GestureTarget(control) { control in
                 observer.on(.next(control))
             }
             

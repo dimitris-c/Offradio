@@ -50,7 +50,7 @@ final class NowPlayingButton: UIControl {
 
         self.title.asObservable().subscribe(onNext: { title in
             self.scrollLabel.setText(title, refreshLabels: true)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 

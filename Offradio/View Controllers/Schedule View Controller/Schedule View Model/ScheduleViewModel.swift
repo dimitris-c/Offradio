@@ -18,8 +18,8 @@ final class ScheduleViewModel {
     var firstLoad: Variable<Bool> = Variable<Bool>(true)
     var refresh: Variable<Bool> = Variable<Bool>(false)
 
-    fileprivate var scheduleService = RxMoyaProvider<ScheduleService>()
-    fileprivate var producersService = RxMoyaProvider<ProducersBioService>()
+    fileprivate var scheduleService = MoyaProvider<ScheduleService>()
+    fileprivate var producersService = MoyaProvider<ProducersBioService>()
 
     let navigationTitle: Variable<String> = Variable<String>("Offradio")
     let schedule: Variable<[ScheduleItem]> = Variable<[ScheduleItem]>([])
@@ -34,7 +34,7 @@ final class ScheduleViewModel {
             .map { $0.items }
             .catchErrorJustReturn([])
             .bind(to: schedule)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.refresh.asObservable()
             .filter { $0 }
@@ -45,9 +45,9 @@ final class ScheduleViewModel {
             .map { $0.items }
             .catchErrorJustReturn([])
             .bind(to: schedule)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
-        self.fetchProducers().catchErrorJustReturn([]).bind(to: producers).addDisposableTo(disposeBag)
+        self.fetchProducers().catchErrorJustReturn([]).bind(to: producers).disposed(by: disposeBag)
 
     }
 
@@ -64,7 +64,7 @@ final class ScheduleViewModel {
     // MARK: Internal methods
 
     fileprivate func fetchSchedule() -> Observable<Schedule> {
-        return self.scheduleService.request(.schedule)
+        return self.scheduleService.rx.request(.schedule)
             .mapJSON()
             .map { JSON($0) }
             .asObservable()
@@ -79,7 +79,7 @@ final class ScheduleViewModel {
     }
 
     fileprivate func fetchProducers() -> Observable<[Producer]> {
-        return self.producersService.request(.producers)
+        return self.producersService.rx.request(.producers)
             .mapJSON()
             .map { JSON($0) }
             .asObservable()

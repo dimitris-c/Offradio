@@ -38,7 +38,7 @@ final class CurrentTrackView: UIView {
 
         self.shareButton.rx.tap.subscribe(onNext: { [weak self] _ in
             self?.showShareTrackView()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         self.shareView = CurrentTrackShareView(frame: .zero)
         self.shareView.alpha = 0
@@ -46,9 +46,9 @@ final class CurrentTrackView: UIView {
 
         self.shareView.closeButtonTap.subscribe(onNext: { [weak self] _ in
             self?.hideShareTrackView()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
-        self.shareView.shareOn.asObservable().bind(to: shareOn).addDisposableTo(disposeBag)
+        self.shareView.shareOn.asObservable().bind(to: shareOn).disposed(by: disposeBag)
 
         currentTrack.asObservable()
             .map { $0.image }
@@ -57,13 +57,13 @@ final class CurrentTrackView: UIView {
                     self?.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"))
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         currentTrack.asObservable()
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] track in
                 self?.updateSong(with: track)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 

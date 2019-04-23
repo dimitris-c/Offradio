@@ -23,7 +23,7 @@ class OffradioNowPlayingInfoCenter {
             .skipWhile({ $0.isEmpty() })
             .subscribe(onNext: { [weak self] nowPlaying in
                 self?.updateInfo(with: nowPlaying)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         self.offradio.metadata.nowPlaying.asObservable()
             .skipWhile({ $0.isEmpty() })
@@ -38,7 +38,7 @@ class OffradioNowPlayingInfoCenter {
                 if let image = image {
                     self?.updateInfo(with: image)
                 }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 

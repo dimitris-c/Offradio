@@ -48,11 +48,11 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
         self.currentTrackView.shareOn.asObservable().subscribe(onNext: { [weak self] type in
             guard let sSelf = self, let nowPlaying = sSelf.viewModel.nowPlaying?.value else { return }
             ShareUtility.share(on: type, with: nowPlaying, using: sSelf)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         self.viewModel.favouriteTrack.asObservable()
             .bind(to: self.currentTrackView.favouriteButton.rx.isSelected)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.currentTrackView.favouriteButton.rx.tap.asObservable()
             .scan(false) { state, _ in !state }
@@ -60,7 +60,7 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
                 self?.currentTrackView.favouriteButton.isSelected = state
             })
             .bind(to: self.viewModel.favouriteTrack)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.producerView = ProducerView(with: self.viewModel.show.asDriver())
         self.scrollView.addSubview(self.producerView)
@@ -74,7 +74,7 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
 
         playlistButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.showPlaylistViewController()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 

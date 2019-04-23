@@ -2,19 +2,19 @@
 
 [![Build Status](https://travis-ci.org/jerkoch/SwipeCellKit.svg)](https://travis-ci.org/jerkoch/SwipeCellKit) 
 [![Version Status](https://img.shields.io/cocoapods/v/SwipeCellKit.svg)][podLink] 
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 5.0](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![license MIT](https://img.shields.io/cocoapods/l/SwipeCellKit.svg)][mitLink] 
 [![Platform](https://img.shields.io/cocoapods/p/SwipeCellKit.svg)][docsLink] 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Twitter](https://img.shields.io/badge/twitter-@jerkoch-blue.svg?style=flat)](https://twitter.com/mkurabi)
+[![Twitter](https://img.shields.io/badge/twitter-@mkurabi-blue.svg?style=flat)](https://twitter.com/mkurabi)
 
-*Swipeable UITableViewCell based on the stock Mail.app, implemented in Swift.*
+*Swipeable UITableViewCell/UICollectionViewCell based on the stock Mail.app, implemented in Swift.*
 
 <p align="center"><img src="https://raw.githubusercontent.com/jerkoch/SwipeCellKit/develop/Screenshots/Hero.gif" /></p>
 
 ## About
 
-A swipeable UITableViewCell with support for:
+A swipeable `UITableViewCell` or `UICollectionViewCell` with support for:
 
 * Left and right swipe actions
 * Action buttons with: *text only, text + image, image only*
@@ -23,6 +23,7 @@ A swipeable UITableViewCell with support for:
 * Customizable action button behavior during swipe
 * Animated expansion when dragging past threshold
 * Customizable expansion animations
+* Support for both `UITableView` and `UICollectionView`
 * Accessibility
 
 ## Background
@@ -73,8 +74,8 @@ The expansion style describes the behavior when the cell is swiped past a define
 
 ## Requirements
 
-* Swift 3.0
-* Xcode 8
+* Swift 5.0
+* Xcode 10.2+
 * iOS 9.0+
 
 ## Installation
@@ -87,11 +88,14 @@ use_frameworks!
 # Latest release in CocoaPods
 pod 'SwipeCellKit'
 
-# Latest Swift 4 release in CocoaPods
-pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'swift4'
-
 # Get the latest on develop
 pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'develop'
+
+# If you have NOT upgraded to Swift 5.0, use the last Swift 4.2/Xcode 10.2 compatible release
+pod 'SwipeCellKit', '2.5.4'
+
+# If you have NOT upgraded to Swift 4.2, use the last non-swift 4.2 compatible release
+pod 'SwipeCellKit', '2.4.3'
 ````
 
 #### [Carthage](https://github.com/Carthage/Carthage)
@@ -104,7 +108,7 @@ github "SwipeCellKit/SwipeCellKit"
 
 Read the [docs][docsLink]. Generated with [jazzy](https://github.com/realm/jazzy). Hosted by [GitHub Pages](https://pages.github.com).
 
-## Usage
+## Usage for UITableView
 
 Set the `delegate` property on `SwipeTableViewCell`:
 
@@ -136,8 +140,47 @@ func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPat
 Optionally, you can implement the `editActionsOptionsForRowAt` method to customize the behavior of the swipe actions:
 
 ````swift    
-func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
-    var options = SwipeTableOptions()
+func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+    var options = SwipeOptions()
+    options.expansionStyle = .destructive
+    options.transitionStyle = .border
+    return options
+}
+````
+## Usage for UICollectionView
+
+Set the `delegate` property on `SwipeCollectionViewCell`:
+
+````swift
+override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SwipeCollectionViewCell
+    cell.delegate = self
+    return cell
+}
+````
+
+Adopt the `SwipeCollectionViewCellDelegate` protocol:
+
+````swift
+func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+    guard orientation == .right else { return nil }
+
+    let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+        // handle action by updating model with deletion
+    }
+
+    // customize the action appearance
+    deleteAction.image = UIImage(named: "delete")
+
+    return [deleteAction]
+}
+````
+
+Optionally, you can implement the `editActionsOptionsForItemAt` method to customize the behavior of the swipe actions:
+
+````swift    
+func collectionView(_ collectionView: UICollectionView, editActionsOptionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+    var options = SwipeOptions()
     options.expansionStyle = .destructive
     options.transitionStyle = .border
     return options
@@ -152,6 +195,10 @@ Three built-in transition styles are provided by `SwipeTransitionStyle`:
 * .reveal: The visible action area sits behind the cell, pinned to the edge of the table view, and is revealed as the cell is dragged aside.
 
 See [Customizing Transitions](https://github.com/SwipeCellKit/SwipeCellKit/blob/develop/Guides/Advanced.md) for more details on customizing button appearance as the swipe is performed.
+
+#### Transition Delegate
+
+Transition for a `SwipeAction` can be observered by setting a `SwipeActionTransitioning` on the `transitionDelegate` property. This allows you to observe what percentage is visible and access to the underlying `UIButton` for that `SwipeAction`. 
 
 ### Expansion
 
@@ -179,12 +226,7 @@ options.expansionStyle = .destructive(automaticallyDelete: false)
 let delete = SwipeAction(style: .destructive, title: nil) { action, indexPath in
     // Update model
     self.emails.remove(at: indexPath.row)
-
-    // Coordinate table view update animations
-    self.tableView.beginUpdates()
-    self.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
     action.fulfill(with: .delete)
-    self.tableView.endUpdates()
 }
 ````
 
@@ -207,5 +249,5 @@ We're interested in knowing [who's using *SwipeCellKit*](https://github.com/Swip
 *Please provide attribution, it is greatly appreciated.*
 
 [podLink]:https://cocoapods.org/pods/SwipeCellKit
-[docsLink]:http://www.jerkoch.com/SwipeCellKit
+[docsLink]:https://swipecellkit.github.io/SwipeCellKit/
 [mitLink]:http://opensource.org/licenses/MIT

@@ -52,7 +52,7 @@ final class PlaylistViewModel {
                 strongSelf.page = 0
                 strongSelf.fetchPlaylist(withPage: 0)
             }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         viewWillAppear.asObservable()
             .take(1)
@@ -61,7 +61,7 @@ final class PlaylistViewModel {
                 guard let sSelf = self else { return }
                 sSelf.fetchPlaylist(withPage: page)
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         scrollViewDidReachBottom.asObservable().subscribe(onNext: { [weak self] _ in
             guard let strongSelf = self, !strongSelf.indicatorViewAnimating.value else { return }
@@ -69,7 +69,7 @@ final class PlaylistViewModel {
                 strongSelf.fetchPlaylist(withPage: strongSelf.page)
                 strongSelf.indicatorViewAnimating.value = true
             }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 
@@ -92,7 +92,7 @@ final class PlaylistViewModel {
         itunesService.request(.search(with: item)) { result in
             do {
                 let data = try result.dematerialize().data
-                let json = JSON(data: data)
+                let json = try JSON(data: data)
                 if let urlString = json["results"].arrayValue.first?["trackViewUrl"].stringValue {
                     completion(.success(urlString))
                 } else {
