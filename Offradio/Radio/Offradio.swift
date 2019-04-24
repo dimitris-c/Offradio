@@ -71,8 +71,7 @@ final class Offradio: RadioProtocol {
         // http://46.28.53.118:7033/stream
         // http://s3.yesstreaming.net:7033/stream
         // http://94.23.214.108/proxy/offradio2?mp=/stream
-//        self.kit.play("http://s3.yesstreaming.net:7033/stream")
-        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
+        self.kit.play("http://s3.yesstreaming.net:7033/stream")
         self.metadata.startTimer()
         self.status = .playing
     }

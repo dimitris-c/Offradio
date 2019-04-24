@@ -145,14 +145,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/HTMLEntities-watchOS/HTMLEntities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher-watchOS/Kingfisher.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-watchOS/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-watchOS/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON-watchOS/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/HTMLEntities-watchOS/HTMLEntities.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher-watchOS/Kingfisher.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-watchOS/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-watchOS/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON-watchOS/SwiftyJSON.framework"
 fi
