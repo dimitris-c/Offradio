@@ -71,15 +71,21 @@ final class OffradioMetadata: RadioMetadata {
     }
 
     // Currently Not Used
-//    fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
-//        let path: LastFMAPIService = .artistInfo(artist: nowPlaying.current.artist)
-//        return self.lastFMApiService.call(with: path, parse: LastFMAPIResponseParse()).map({ (artist) -> NowPlaying in
-//            let filtered = artist.images.filter { $0.size == "mega" || $0.size == "large" }
-//            if let image = filtered.first {
-//                return nowPlaying.update(with: image.url)
-//            }
-//            return nowPlaying
-//        })
-//    }
+    fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
+        let path: LastFMAPIService = .artistInfo(artist: nowPlaying.current.artist)
+        return self.lastFMApiService.rx.request(path)
+            .mapJSON()
+            .map { JSON($0) }
+            .map { LastFMArtist(with: $0["artist"]) }
+            .map { artist -> NowPlaying in
+                let filtered = artist.images.filter { $0.size == "mega" || $0.size == "large" }
+                if let image = filtered.first {
+                    return nowPlaying.update(with: image.url)
+                }
+                return nowPlaying
+            }
+            .asObservable()
+            .catchErrorJustReturn(.empty)
+    }
 
 }

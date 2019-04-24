@@ -70,10 +70,6 @@ final class OffradioContentViewController: UIViewController {
         return radioNavVC?.visibleViewController as? RadioViewController
     }
 
-    override var shouldAutorotate: Bool {
-        return mainTabBarController?.shouldAutorotate ?? false
-    }
-
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return .portrait
     }
