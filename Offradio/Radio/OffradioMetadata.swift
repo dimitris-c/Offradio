@@ -15,50 +15,51 @@ import SwiftyJSON
 final class OffradioMetadata: RadioMetadata {
     fileprivate let disposeBag = DisposeBag()
 
-    let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)
+    let forceRefreshObservable = PublishRelay<Void>()
+    let nowPlaying: Driver<NowPlaying>
 
-    fileprivate let crc: Variable<String> = Variable<String>("")
+    fileprivate let crc: Driver<String>
     fileprivate let crcService = MoyaProvider<CRCService>()
     fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
     fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
     fileprivate let nowPlayingParser = NowPlayingParse()
 
     fileprivate var timerDisposeBag: DisposeBag?
-
-    func startTimer() {
-        timerDisposeBag = DisposeBag()
-
+    
+    init() {
         let crcTimer = Observable<Int>.timer(0, period: 14, scheduler: MainScheduler.instance)
-        let crcTimerDisposable = crcTimer.asObservable()
+        crc = crcTimer.asObservable()
             .flatMapLatest({ [weak self] _ -> Observable<String> in
                 guard let strongSelf = self else { return Observable.empty() }
                 return strongSelf.crcService.rx.request(.crc).mapString().asObservable()
             })
-            .catchErrorJustReturn("")
-            .bind(to: crc)
-
-        let crcDisposable = crc.asObservable()
+            .asDriver(onErrorJustReturn: "")
+        
+        nowPlaying = Observable.merge(crc.asObservable(), forceRefreshObservable.asObservable().map { _ in "" })
             .skipWhile { $0.isEmpty }
             .distinctUntilChanged()
             .flatMapLatest { [weak self] _ -> Observable<NowPlaying> in
-                guard let strongSelf = self else { return Observable.just(NowPlaying.default) }
-                return strongSelf.fetchNowPlaying()
+                guard let self = self else { return Observable.just(NowPlaying.default) }
+                return self.fetchNowPlaying()
             }
-            .catchErrorJustReturn(NowPlaying.default)
-            .bind(to: nowPlaying)
+            .asDriver(onErrorJustReturn: NowPlaying.default)
+    }
 
-        timerDisposeBag?.insert(crcDisposable)
-        timerDisposeBag?.insert(crcTimerDisposable)
+    func startTimer() {
+//        timerDisposeBag = DisposeBag()
+
+        
+
+//        timerDisposeBag?.insert(crcDisposable)
+//        timerDisposeBag?.insert(crcTimerDisposable)
     }
 
     func stopTimer() {
-        timerDisposeBag = nil
+//        timerDisposeBag = nil
     }
 
     func forceRefresh() {
-        self.fetchNowPlaying()
-            .bind(to: nowPlaying)
-            .disposed(by: disposeBag)
+        forceRefreshObservable.accept(())
     }
 
     func fetchNowPlaying() -> Observable<NowPlaying> {
@@ -67,7 +68,9 @@ final class OffradioMetadata: RadioMetadata {
             .map { NowPlaying(json: JSON($0)) }
             .asObservable()
             .catchErrorJustReturn(NowPlaying.default)
-//        return self.nowPlayingService.call(with: .nowPlaying, parse: nowPlayingParser).catchErrorJustReturn(NowPlaying.default)
+            .flatMapLatest({ (nowPlaying) -> Observable<NowPlaying> in
+                return self.fetchLastFMInfo(with: nowPlaying)
+            })
     }
 
     // Currently Not Used
