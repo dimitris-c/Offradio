@@ -203,6 +203,7 @@ static AudioComponentDescription mixerDescription;
 static AudioComponentDescription nbandUnitDescription;
 static AudioComponentDescription outputUnitDescription;
 static AudioComponentDescription convertUnitDescription;
+static AudioComponentDescription playbackRateUnitDescription;
 static AudioStreamBasicDescription canonicalAudioStreamBasicDescription;
 static AudioStreamBasicDescription recordAudioStreamBasicDescription;
 
@@ -234,9 +235,11 @@ static AudioStreamBasicDescription recordAudioStreamBasicDescription;
 	AUNode eqOutputNode;
 	AUNode mixerInputNode;
 	AUNode mixerOutputNode;
+	AUNode playbackRateNode;
 	
     AudioComponentInstance eqUnit;
 	AudioComponentInstance mixerUnit;
+	AudioComponentInstance playbackRateUnit;
 	AudioComponentInstance outputUnit;
 		
     UInt32 eqBandCount;
@@ -342,7 +345,16 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
 #else
     const int bytesPerSample = sizeof(AudioSampleType);
 #endif
-    
+
+    playbackRateUnitDescription = (AudioComponentDescription)
+    {
+        .componentManufacturer	= kAudioUnitManufacturer_Apple,
+        .componentType			= kAudioUnitType_FormatConverter,
+        .componentSubType		= kAudioUnitSubType_AUiPodTimeOther,
+        .componentFlags			= 0,
+        .componentFlagsMask		= 0,
+    };
+
     canonicalAudioStreamBasicDescription = (AudioStreamBasicDescription)
     {
         .mSampleRate = 44100.00,
@@ -678,6 +690,11 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
     }
     
     return retval;
+}
+
++ (AudioStreamBasicDescription)canonicalAudioStreamBasicDescription
+{
+  return canonicalAudioStreamBasicDescription;
 }
 
 -(void) clearQueue
@@ -1028,6 +1045,30 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
     OSSpinLockUnlock(&entry->spinLock);
 	
     return retval;
+}
+
+-(float) rate
+{
+	AudioUnitParameterValue rateValue;
+	AudioUnitGetParameter(playbackRateUnit, kNewTimePitchParam_Rate, kAudioUnitScope_Global, 0, &rateValue);
+	return rateValue;
+}
+
+-(void) setRate:(float)rate
+{
+	AudioUnitSetParameter(playbackRateUnit, kNewTimePitchParam_Rate, kAudioUnitScope_Global, 0, rate, 0);
+}
+
+-(float) overlap
+{
+	AudioUnitParameterValue overlapValue;
+	AudioUnitGetParameter(playbackRateUnit, kNewTimePitchParam_Overlap, kAudioUnitScope_Global, 0, &overlapValue);
+	return overlapValue;
+}
+
+-(void) setOverlap:(float)overlap
+{
+	AudioUnitSetParameter(playbackRateUnit, kNewTimePitchParam_Overlap, kAudioUnitScope_Global, 0, overlap, 0);
 }
 
 -(BOOL) invokeOnPlaybackThread:(void(^)())block
@@ -1497,9 +1538,15 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
         
         error = AudioFileStreamSeek(audioFileStream, seekPacket, &packetAlignedByteOffset, &ioFlags);
         
-        if (!error && (ioFlags & kAudioFileStreamSeekFlag_OffsetIsEstimated))
-        {
+        if (!error) {
             seekByteOffset = packetAlignedByteOffset + currentEntry->audioDataOffset;
+            if (!(ioFlags & kAudioFileStreamSeekFlag_OffsetIsEstimated)) {
+                double delta = ((seekByteOffset - (SInt64)currentEntry->audioDataOffset) - packetAlignedByteOffset) / calculatedBitRate * 8;
+
+                OSSpinLockLock(&currentEntry->spinLock);
+                currentEntry->seekTime -= delta;
+                OSSpinLockUnlock(&currentEntry->spinLock);
+            }
         }
     }
     
@@ -1669,10 +1716,9 @@ static void AudioFileStreamPacketsProc(void* clientData, UInt32 numberBytes, UIn
 
 -(void)dataSource:(STKDataSource *)dataSource didReadStreamMetadata:(NSDictionary *)metadata
 {
-    if ([self.delegate respondsToSelector:@selector(audioPlayer:didReadStreamMetadata:)])
+    if([self.delegate respondsToSelector:@selector(audioPlayer:didReadStreamMetadata:)])
         [self.delegate audioPlayer:self didReadStreamMetadata:metadata];
 }
-
 
 -(void) pause
 {
@@ -2047,7 +2093,7 @@ static BOOL GetHardwareCodecClassDesc(UInt32 formatId, AudioClassDescription* cl
             return;
         }
         
-        status = AudioConverterSetProperty(audioConverterRef, kAudioConverterDecompressionMagicCookie, cookieSize, &cookieData);
+        status = AudioConverterSetProperty(audioConverterRef, kAudioConverterDecompressionMagicCookie, cookieSize, cookieData);
         
         if (status)
         {
@@ -2132,6 +2178,22 @@ static BOOL GetHardwareCodecClassDesc(UInt32 formatId, AudioClassDescription* cl
             [self closeRecordAudioFile];
         }
     }
+}
+
+-(void) createPlaybackRateUnit
+{
+    OSStatus status;
+    
+    CHECK_STATUS_AND_RETURN(AUGraphAddNode(audioGraph, &playbackRateUnitDescription, &playbackRateNode));
+    CHECK_STATUS_AND_RETURN(AUGraphNodeInfo(audioGraph, playbackRateNode, &playbackRateUnitDescription, &playbackRateUnit));
+    
+    //maxframes changed here
+    CHECK_STATUS_AND_RETURN(AudioUnitSetProperty(playbackRateUnit, kAudioUnitProperty_MaximumFramesPerSlice, kAudioUnitScope_Global, 0, &maxFramesPerSlice, sizeof(maxFramesPerSlice)));
+#if TARGET_OS_IPHONE
+    CHECK_STATUS_AND_RETURN(AudioUnitSetParameter(playbackRateUnit, kNewTimePitchParam_Rate, kAudioUnitScope_Global, 0, 1, 0));
+#endif
+    
+  CHECK_STATUS_AND_RETURN(AudioUnitSetProperty(playbackRateUnit, kAudioUnitProperty_StreamFormat, kAudioUnitScope_Input, kOutputBus, &canonicalAudioStreamBasicDescription, sizeof(canonicalAudioStreamBasicDescription)));
 }
 
 -(void) createOutputUnit
@@ -2312,6 +2374,7 @@ static BOOL GetHardwareCodecClassDesc(UInt32 formatId, AudioClassDescription* cl
 	
 	[self createEqUnit];
 	[self createMixerUnit];
+	[self createPlaybackRateUnit];
 	[self createOutputUnit];
     
     [self connectGraph];
@@ -2360,7 +2423,13 @@ static BOOL GetHardwareCodecClassDesc(UInt32 formatId, AudioClassDescription* cl
         [nodes addObject:@(mixerNode)];
         [units addObject:[NSValue valueWithPointer:mixerUnit]];
     }
-	
+
+    if (playbackRateNode)
+    {
+        [nodes addObject:@(playbackRateNode)];
+        [units addObject:[NSValue valueWithPointer:playbackRateUnit]];
+    }
+
     if (outputNode)
     {
         [nodes addObject:@(outputNode)];
@@ -3191,6 +3260,16 @@ static OSStatus OutputRenderCallback(void* inRefCon, AudioUnitRenderActionFlags*
 	return peakPowerDb[channelNumber];
 }
 
+-(void) setPeakPowerInDecibelsForChannel:(NSUInteger)channelNumber andPower: (Float32)power
+{
+    if (channelNumber >= canonicalAudioStreamBasicDescription.mChannelsPerFrame)
+    {
+        return;
+    }
+    
+    peakPowerDb[channelNumber] = power;
+}
+
 -(float) averagePowerInDecibelsForChannel:(NSUInteger)channelNumber
 {
 	if (channelNumber >= canonicalAudioStreamBasicDescription.mChannelsPerFrame)
@@ -3199,6 +3278,16 @@ static OSStatus OutputRenderCallback(void* inRefCon, AudioUnitRenderActionFlags*
 	}
 	
 	return averagePowerDb[channelNumber];
+}
+
+-(void) setAveragePowerInDecibelsForChannel:(NSUInteger)channelNumber andPower: (Float32)power
+{
+    if (channelNumber >= canonicalAudioStreamBasicDescription.mChannelsPerFrame)
+    {
+        return;
+    }
+    
+    averagePowerDb[channelNumber] = power;
 }
 
 -(BOOL) meteringEnabled
@@ -3238,6 +3327,8 @@ static OSStatus OutputRenderCallback(void* inRefCon, AudioUnitRenderActionFlags*
 	}
 	else
 	{
+		__weak STKAudioPlayer* weakSelf = self;
+        
 		[self appendFrameFilterWithName:@"STKMeteringFilter" block:^(UInt32 channelsPerFrame, UInt32 bytesPerFrame, UInt32 frameCount, void* frames)
 		{
 			SInt16* samples16 = (SInt16*)frames;
@@ -3280,17 +3371,17 @@ static OSStatus OutputRenderCallback(void* inRefCon, AudioUnitRenderActionFlags*
 				return;
 			}
 			
-			peakPowerDb[0] = MIN(MAX(decibelsLeft, -60), 0);
-			peakPowerDb[1] = MIN(MAX(decibelsRight, -60), 0);
+			[weakSelf setPeakPowerInDecibelsForChannel:0 andPower:MIN(MAX(decibelsLeft, -60), 0)];
+			[weakSelf setPeakPowerInDecibelsForChannel:1 andPower:MIN(MAX(decibelsRight, -60), 0)];
 			
 			if (countLeft > 0)
 			{
-				averagePowerDb[0] = MIN(MAX(totalValueLeft / frameCount, -60), 0);
+				[weakSelf setAveragePowerInDecibelsForChannel:0 andPower:MIN(MAX(totalValueLeft / frameCount, -60), 0)];
 			}
 			
 			if (countRight != 0)
 			{
-				averagePowerDb[1] = MIN(MAX(totalValueRight / frameCount, -60), 0);
+				[weakSelf setAveragePowerInDecibelsForChannel:1 andPower:MIN(MAX(totalValueRight / frameCount, -60), 0)];
 			}
 		}];
 	}

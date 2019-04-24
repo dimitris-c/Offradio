@@ -43,7 +43,7 @@ PODS:
     - RealmSwift (~> 3.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
-  - StreamingKit (0.1.30)
+  - StreamingKit (0.1.31)
   - SwiftyJSON (4.1.0)
   - SwipeCellKit (2.6.0)
   - ToggleSwitch (1.2.1):
@@ -70,7 +70,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxRealm
   - RxSwift
-  - StreamingKit (from `https://github.com/dimitris-c/StreamingKit.git`, branch `metadata`)
+  - StreamingKit (from `https://github.com/tumtumtum/StreamingKit.git`, branch `master`)
   - SwiftyJSON
   - SwipeCellKit
   - ToggleSwitch (~> 1.0)
@@ -106,16 +106,16 @@ EXTERNAL SOURCES:
   HTMLEntities:
     :git: https://github.com/IBM-Swift/swift-html-entities.git
   StreamingKit:
-    :branch: metadata
-    :git: https://github.com/dimitris-c/StreamingKit.git
+    :branch: master
+    :git: https://github.com/tumtumtum/StreamingKit.git
 
 CHECKOUT OPTIONS:
   HTMLEntities:
     :commit: 544e7e0e404edeb239d4bb86e5cbe5929c0809bf
     :git: https://github.com/IBM-Swift/swift-html-entities.git
   StreamingKit:
-    :commit: 3d2d328705ed59d7c4f6d9c7584077740c1bc6fc
-    :git: https://github.com/dimitris-c/StreamingKit.git
+    :commit: 07451cb2e6c640763191c6152fae56d8a98b7abf
+    :git: https://github.com/tumtumtum/StreamingKit.git
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -137,13 +137,13 @@ SPEC CHECKSUMS:
   RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
-  StreamingKit: 6a368408094751cd5d7f9696b914b0fd61f7e979
+  StreamingKit: 017093dadc370099b78457e860a0433aa8be5552
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
   ToggleSwitch: 528853e108d090fb78e68692bd7d8742a07c11dd
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 154b5323471ff30b7596c4da34cb62a71f113c79
+PODFILE CHECKSUM: 783960c1b50bd7ae79ba1bd4630da14c3028368e
 
 COCOAPODS: 1.5.3

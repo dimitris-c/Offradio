@@ -25,7 +25,7 @@ target 'Offradio' do
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit'
   pod 'HTMLEntities', :git => 'https://github.com/IBM-Swift/swift-html-entities.git'
-  pod 'StreamingKit', :git => 'https://github.com/dimitris-c/StreamingKit.git', :branch => 'metadata'
+  pod 'StreamingKit', :git => 'https://github.com/tumtumtum/StreamingKit.git', :branch => 'master'
 
   target 'OffradioTests' do
     inherit! :search_paths
