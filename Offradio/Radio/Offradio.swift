@@ -111,6 +111,11 @@ extension Offradio {
                                                selector: #selector(handleRouteChange),
                                                name: AVAudioSession.routeChangeNotification,
                                                object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleMediaReset),
+                                               name: AVAudioSession.mediaServicesWereResetNotification,
+                                               object: nil)
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(movedToBackground),
@@ -121,6 +126,11 @@ extension Offradio {
                                                selector: #selector(movedToForeground),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
+    }
+    
+    @objc final fileprivate func handleMediaReset() {
+        Log.debug("handle system media reset")
+        self.configureAudioSession()
     }
 
     @objc final fileprivate func movedToBackground() {

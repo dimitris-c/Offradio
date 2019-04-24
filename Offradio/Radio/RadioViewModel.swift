@@ -68,7 +68,7 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
         Log.debug("audio player state changed: \(state)")
     }
 
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didReadStreamMetadata dictionary: [AnyHashable : Any]) {
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didReadStreamMetadata dictionary: [AnyHashable: Any]) {
         Log.debug("audio player received metadata: \(dictionary)")
         self.radio.metadata.forceRefresh()
     }
