@@ -78,10 +78,8 @@ final class PlaylistViewModel {
             switch provider {
             case .itunes:
                 searchOniTunes(for: item, completion: completion)
-                break
             case .spotify:
                 searchOnSpotifty(for: item, completion: completion)
-                break
             }
         }
     }
@@ -91,7 +89,7 @@ final class PlaylistViewModel {
     fileprivate func searchOniTunes(`for` item: PlaylistSong, completion: @escaping SearchBlock) {
         itunesService.request(.search(with: item)) { result in
             do {
-                let data = try result.dematerialize().data
+                let data = try result.get().data
                 let json = try JSON(data: data)
                 if let urlString = json["results"].arrayValue.first?["trackViewUrl"].stringValue {
                     completion(.success(urlString))
@@ -128,10 +126,8 @@ final class PlaylistViewModel {
                     strongSelf.indicatorViewAnimating.value = false
                     strongSelf.initialLoad.value = false
                 } catch { }
-                break
             case .failure(let error):
                 Log.debug(error.localizedDescription)
-                break
             }
         }
     }
