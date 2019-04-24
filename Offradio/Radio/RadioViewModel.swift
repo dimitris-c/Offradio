@@ -17,7 +17,7 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
 
     final private(set) var radio: Offradio!
 
-    let toggleRadio: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+    let toggleRadio: PublishSubject<Bool> = PublishSubject<Bool>()
 
     let isBuffering: Variable<Bool> = Variable<Bool>(false)
     let isPlaying: Variable<Bool> = Variable<Bool>(false)

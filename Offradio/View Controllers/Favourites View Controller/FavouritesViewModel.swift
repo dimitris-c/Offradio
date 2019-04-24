@@ -16,7 +16,7 @@ final class FavouritesViewModel {
     private let disposeBag = DisposeBag()
 
     let favouritesDataLayer: PlaylistFavouritesLayer = PlaylistFavouritesLayer()
-    var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
+    let playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
 
     init(viewWillAppear: Driver<Void>) {
 

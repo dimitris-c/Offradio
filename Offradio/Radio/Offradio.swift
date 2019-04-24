@@ -23,8 +23,6 @@ final class Offradio: RadioProtocol {
 
     init() {
 
-        self.configureAudioSession()
-
         self.setupRadio()
 
         self.metadata = OffradioMetadata()
@@ -34,7 +32,11 @@ final class Offradio: RadioProtocol {
 
     final func setupRadio() {
         var options = STKAudioPlayerOptions()
-        options.flushQueueOnSeek = true
+        options.bufferSizeInSeconds = 0
+        options.readBufferSize = 0
+        options.secondsRequiredToStartPlaying = 1
+        options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
+        options.gracePeriodAfterSeekInSeconds = 0
         options.enableVolumeMixer = true
         self.kit = STKAudioPlayer(options: options)
         self.kit.volume = 1
@@ -64,8 +66,11 @@ final class Offradio: RadioProtocol {
     }
 
     final fileprivate func startRadio() {
+        self.configureAudioSession()
         self.activateAudioSession()
         // http://46.28.53.118:7033/stream
+        // http://s3.yesstreaming.net:7033/stream
+        // http://94.23.214.108/proxy/offradio2?mp=/stream
         self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
         self.metadata.startTimer()
         self.status = .playing
@@ -74,7 +79,7 @@ final class Offradio: RadioProtocol {
     final fileprivate func configureAudioSession() {
         do {
             Log.debug("AudioSession category is AVAudioSessionCategoryPlayback")
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
         } catch let error as NSError {
             Log.debug("Couldn't setup audio session category to Playback \(error.localizedDescription)")
         }
@@ -111,7 +116,7 @@ extension Offradio {
                                                selector: #selector(handleRouteChange),
                                                name: AVAudioSession.routeChangeNotification,
                                                object: nil)
-        
+
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleMediaReset),
                                                name: AVAudioSession.mediaServicesWereResetNotification,
@@ -127,9 +132,11 @@ extension Offradio {
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
     }
-    
+
     @objc final fileprivate func handleMediaReset() {
         Log.debug("handle system media reset")
+        self.kit.stop()
+        self.deactivateAudioSession()
         self.configureAudioSession()
     }
 

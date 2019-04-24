@@ -52,7 +52,10 @@ class OffradioNowPlayingInfoCenter {
 
     fileprivate func updateInfo(with image: UIImage) {
         var info: [String: Any] = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
-        info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image)
+        
+        info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size -> UIImage in
+            return image
+        }
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
 
