@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import Crashlytics
 import StreamingKit
 
@@ -15,20 +16,26 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
 
     let disposeBag: DisposeBag = DisposeBag()
 
-    final private(set) var radio: Offradio!
+    final private(set) var radio: Offradio
 
     let toggleRadio: PublishSubject<Bool> = PublishSubject<Bool>()
 
     let isBuffering: Variable<Bool> = Variable<Bool>(false)
     let isPlaying: Variable<Bool> = Variable<Bool>(false)
 
-    let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(NowPlaying.empty)
+    let nowPlaying: Driver<NowPlaying>
 
-    let watchCommunication: OffradioWatchCommunication!
+    let watchCommunication: OffradioWatchCommunication
 
     init(with radio: Offradio, and watchCommunication: OffradioWatchCommunication) {
         self.radio = radio
         self.watchCommunication = watchCommunication
+
+        nowPlaying = radio.metadata.nowPlaying.asDriver()
+            .do(onNext: { [watchCommunication] track in
+                watchCommunication.sendCurrentTrack(with: track.current)
+            })
+
         super.init()
 
         self.radio.kit.delegate = self
@@ -42,14 +49,7 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
                 }
             })
             .disposed(by: disposeBag)
-
-        radio.metadata.nowPlaying.asObservable()
-            .do(onNext: { [weak self] track in
-                self?.watchCommunication.sendCurrentTrack(with: track.current)
-            })
-            .bind(to: nowPlaying)
-            .disposed(by: disposeBag)
-
+        
     }
 
     func audioPlayer(_ audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
