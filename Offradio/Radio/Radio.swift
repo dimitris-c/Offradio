@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import RxCocoa
 
 protocol RadioProtocol {
     var status: RadioState { get }
@@ -21,7 +20,7 @@ protocol RadioProtocol {
 }
 
 protocol RadioMetadata {
-    var nowPlaying: Driver<NowPlaying> { get }
+    var nowPlaying: Variable<NowPlaying> { get }
 
     func startTimer()
     func stopTimer()
