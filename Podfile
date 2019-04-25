@@ -38,8 +38,9 @@ target 'Offradio' do
   end
 
   target 'OffradioWatchKit Extension' do
-      platform :watchos, '2.0'
+      platform :watchos, '3.0'
       pod 'RxSwift'
+      pod 'RxCocoa'
       pod 'SwiftyJSON'
       pod 'Kingfisher'
       pod 'HTMLEntities', :git => 'https://github.com/IBM-Swift/swift-html-entities.git'

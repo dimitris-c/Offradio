@@ -15,14 +15,11 @@ import Crashlytics
 final class NowPlayingViewModel {
     fileprivate let disposeBag = DisposeBag()
 
-    fileprivate var radioMetadata: RadioMetadata!
+    fileprivate var radioMetadata: RadioMetadata
     fileprivate var favouritesLayer: PlaylistFavouritesLayer!
 
-    var nowPlaying: Variable<NowPlaying>? {
-        if let metadata = self.radioMetadata {
-            return metadata.nowPlaying
-        }
-        return nil
+    var nowPlaying: BehaviorRelay<NowPlaying> {
+        return self.radioMetadata.nowPlaying
     }
 
     let favouriteTrack: Variable<Bool>       = Variable<Bool>(false)

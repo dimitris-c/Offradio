@@ -46,7 +46,8 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
         self.scrollView.addSubview(self.currentTrackView)
 
         self.currentTrackView.shareOn.asObservable().subscribe(onNext: { [weak self] type in
-            guard let sSelf = self, let nowPlaying = sSelf.viewModel.nowPlaying?.value else { return }
+            guard let sSelf = self else { return }
+            let nowPlaying = sSelf.viewModel.nowPlaying.value
             ShareUtility.share(on: type, with: nowPlaying, using: sSelf)
         }).disposed(by: disposeBag)
 

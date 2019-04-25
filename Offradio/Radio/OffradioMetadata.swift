@@ -14,7 +14,7 @@ import SwiftyJSON
 final class OffradioMetadata: RadioMetadata {
     fileprivate let disposeBag = DisposeBag()
     
-    let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(.empty)
+    let nowPlaying = BehaviorRelay<NowPlaying>(value: .empty)
     
     fileprivate let crc: Variable<String> = Variable<String>("")
     fileprivate let crcService = MoyaProvider<CRCService>()
