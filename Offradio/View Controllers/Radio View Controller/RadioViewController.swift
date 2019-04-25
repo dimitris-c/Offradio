@@ -104,6 +104,15 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         } else if DeviceType.iPhone4OrLess {
             self.playerCircleContainerTopConstraint.constant = 20
         }
+        
+        if DeviceType.iPad {
+            let orientation = UIDevice.current.orientation
+            if orientation == .landscapeLeft || orientation == .landscapeRight {
+                self.playerCircleContainerTopConstraint.constant = 60
+            } else {
+                self.playerCircleContainerTopConstraint.constant = 155
+            }
+        }
 
         let effectiveHeight = self.scrollView.frame.height - self.playerCircleContainer.frame.maxY
 
