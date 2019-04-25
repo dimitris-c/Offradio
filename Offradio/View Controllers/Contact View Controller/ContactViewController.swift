@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import MessageUI
 
-final class ContactViewController: UIViewController, TabBarItemProtocol {
+final class ContactViewController: UIViewController, TabBarItemProtocol, UITableViewDelegate {
     fileprivate let disposeBag: DisposeBag = DisposeBag()
 
     fileprivate var tableView: UITableView!
@@ -35,6 +35,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
         self.viewModel = ContactViewModel()
 
         self.tableView = UITableView(frame: .zero)
+        self.tableView.delegate = self
         self.tableView.backgroundColor = self.view.backgroundColor
         self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 80, iPad: 120)
         self.tableView.tableFooterView = UIView()
@@ -55,18 +56,16 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
 
         let cellIdentifier = ContactTableViewCell.identifier
         let cellType = ContactTableViewCell.self
-
+        
         self.viewModel.outputs.data.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: cellType)) { _, model, cell in
             cell.configure(with: model)
         }.disposed(by: disposeBag)
-
-        self.tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
-            self?.tableView.deselectRow(at: indexPath, animated: true)
-            if let item = self?.viewModel.outputs.getItem(at: indexPath) {
+        
+        self.tableView.rx.modelSelected(ContactItem.self)
+            .subscribe(onNext: { [weak self] item in
                 self?.showView(for: item.type)
-            }
-        }).disposed(by: disposeBag)
+            }).disposed(by: disposeBag)
 
         self.viewModel.inputs.viewDidLoad()
     }
@@ -76,28 +75,28 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
 
         // Since the data source is fixed then we just need to fit the height of the table based on
         // the data source items
-        let height = CGFloat(self.viewModel.outputs.data.value.count) * self.tableView.rowHeight
+        let height = CGFloat(ContactItemType.allCases.count) * self.tableView.rowHeight
         self.tableView.frame.size = CGSize(width: self.view.frame.width, height: height)
 
         self.funkytapsLogo.sizeToFit()
         self.funkytapsLogo.center.x = self.view.center.x
         self.funkytapsLogo.frame.origin.y = self.tableView.frame.maxY + ((self.view.frame.height - self.tableView.frame.maxY) - self.funkytapsLogo.frame.height) * 0.5
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     final fileprivate func showView(`for` type: ContactItemType) {
         switch type {
         case .facebook:
             self.showFacebookPage()
-            break
         case .twitter:
             self.showTwitterPage()
-            break
         case .email:
             self.showEmail()
-            break
         case .visit:
             self.visitOffradio()
-            break
         }
     }
 
@@ -145,7 +144,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol {
             return
         }
         if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.openURL(url)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 
