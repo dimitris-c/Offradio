@@ -22,8 +22,6 @@ final class CurrentTrackShareView: UIView {
     final fileprivate var twitterButton: ShareButton!
     final fileprivate var emailButton: ShareButton!
 
-    final let shareOn: Variable<ShareType> = Variable<ShareType>(.none)
-
     var closeButtonTap: ControlEvent<Void> {
         return self.closeButton.rx.tap
     }
@@ -57,10 +55,7 @@ final class CurrentTrackShareView: UIView {
         self.addSubview(self.emailButton)
 
         self.shareButtons = [self.facebookButton, self.twitterButton, self.emailButton]
-
-        self.shareButtons.forEach { button in
-            button.rx.tap.map { button.shareType }.bind(to: self.shareOn).disposed(by: disposeBag)
-        }
+        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -110,4 +105,13 @@ final class CurrentTrackShareView: UIView {
         self.shareButtons.forEach { $0.alpha = 0 }
     }
 
+}
+
+extension Reactive where Base: CurrentTrackShareView {
+    var shareOn: Signal<ShareType> {
+        return Observable.merge(base.facebookButton.rx.tap.map { ShareType.facebook },
+                                base.twitterButton.rx.tap.map { ShareType.twitter },
+                                base.emailButton.rx.tap.map { ShareType.email })
+            .asSignal(onErrorJustReturn: .none)
+    }
 }
