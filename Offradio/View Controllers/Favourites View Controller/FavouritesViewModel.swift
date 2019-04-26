@@ -13,18 +13,18 @@ import RealmSwift
 import RxRealm
 
 final class FavouritesViewModel {
-    private let disposeBag = DisposeBag()
-
+    
     let favouritesDataLayer: PlaylistFavouritesLayer = PlaylistFavouritesLayer()
-    let playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
+    let playlistData: Driver<[PlaylistCellViewModel]>
 
     init(viewWillAppear: Driver<Void>) {
-
+        
         if let favourites = favouritesDataLayer.allFavourites() {
-            Observable.array(from: favourites)
+            playlistData = Observable.array(from: favourites)
                 .map { $0.map { PlaylistCellViewModel(with: $0) } }
-                .bind(to: playlistData)
-                .disposed(by: disposeBag)
+                .asDriver(onErrorJustReturn: [])
+        } else {
+            playlistData = .empty()
         }
 
     }
