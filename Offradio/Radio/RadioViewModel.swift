@@ -12,7 +12,7 @@ import RxCocoa
 import Crashlytics
 import StreamingKit
 
-final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
+final class RadioViewModel {
 
     let disposeBag: DisposeBag = DisposeBag()
 
@@ -36,10 +36,6 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
                 watchCommunication.sendCurrentTrack(with: track.current)
             })
 
-        super.init()
-
-        self.radio.kit.delegate = self
-
         toggleRadio.asObservable()
             .subscribe(onNext: { [weak self] shouldTurnRadioOn in
                 if shouldTurnRadioOn {
@@ -50,43 +46,23 @@ final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
             })
             .disposed(by: disposeBag)
         
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
-        if state == STKAudioPlayerState.buffering {
-            isBuffering.value = true
-            isPlaying.value = false
-        } else if state == STKAudioPlayerState.playing {
-            isBuffering.value = false
-            isPlaying.value = true
-            watchCommunication.sendTurnRadioOn()
-        } else if state == STKAudioPlayerState.stopped {
-            isBuffering.value = false
-            isPlaying.value = false
-            watchCommunication.sendTurnRadioOff()
-        }
-        Log.debug("audio player state changed: \(state)")
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didReadStreamMetadata dictionary: [AnyHashable: Any]) {
-        Log.debug("audio player received metadata: \(dictionary)")
-        self.radio.metadata.forceRefresh()
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didStartPlayingQueueItemId queueItemId: NSObject) {
-        Log.debug("audio player did start playing")
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishBufferingSourceWithQueueItemId queueItemId: NSObject) {
-        Log.debug("audio player did finish buffering")
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishPlayingQueueItemId queueItemId: NSObject, with stopReason: STKAudioPlayerStopReason, andProgress progress: Double, andDuration duration: Double) {
-        Log.debug("audio player did finish playing reason: \(stopReason)")
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
-        Log.debug("audio player error: \(errorCode)")
+        self.radio.stateChanged
+            .subscribe(onNext: { [weak self, watchCommunication] state in
+                guard let self = self else { return }
+                if state == STKAudioPlayerState.buffering {
+                    self.isBuffering.value = true
+                    self.isPlaying.value = false
+                } else if state == STKAudioPlayerState.playing {
+                    self.isBuffering.value = false
+                    self.isPlaying.value = true
+                    watchCommunication.sendTurnRadioOn()
+                } else if state == STKAudioPlayerState.stopped {
+                    self.isBuffering.value = false
+                    self.isPlaying.value = false
+                    watchCommunication.sendTurnRadioOff()
+                }
+        }).disposed(by: disposeBag)
+        
     }
 
 }

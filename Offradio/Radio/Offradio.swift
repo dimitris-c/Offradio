@@ -12,7 +12,7 @@ import Moya
 import StreamingKit
 import AVFoundation
 
-final class Offradio: RadioProtocol {
+final class Offradio: NSObject, RadioProtocol {
 
     private var disposeBag = DisposeBag()
     var kit: STKAudioPlayer = STKAudioPlayer()
@@ -20,9 +20,14 @@ final class Offradio: RadioProtocol {
     var status: RadioState = .stopped
     var isInForeground: Bool = true
     var metadata: RadioMetadata = OffradioMetadata()
+    
+    private var stateChangedSubject = PublishSubject<STKAudioPlayerState>()
+    var stateChanged: Observable<STKAudioPlayerState> {
+        return self.stateChangedSubject.asObservable()
+    }
 
-    init() {
-
+    override init() {
+        super.init()
         self.setupRadio()
 
         self.metadata = OffradioMetadata()
@@ -40,6 +45,7 @@ final class Offradio: RadioProtocol {
         options.enableVolumeMixer = true
         self.kit = STKAudioPlayer(options: options)
         self.kit.volume = 1
+        self.kit.delegate = self
     }
 
     final func start() {
@@ -71,8 +77,8 @@ final class Offradio: RadioProtocol {
         // http://46.28.53.118:7033/stream
         // http://s3.yesstreaming.net:7033/stream
         // http://94.23.214.108/proxy/offradio2?mp=/stream
-        self.kit.play("http://s3.yesstreaming.net:7033/stream")
-//        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
+//        self.kit.play("http://s3.yesstreaming.net:7033/stream")
+        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
         self.metadata.startTimer()
         self.status = .playing
     }
@@ -102,6 +108,34 @@ final class Offradio: RadioProtocol {
         } catch let error as NSError {
             Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
         }
+    }
+}
+
+extension Offradio: STKAudioPlayerDelegate {
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
+        stateChangedSubject.onNext(state)
+        Log.debug("audio player state changed: \(state)")
+    }
+    
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didReadStreamMetadata dictionary: [AnyHashable: Any]) {
+        Log.debug("audio player received metadata: \(dictionary)")
+        self.metadata.forceRefresh()
+    }
+    
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didStartPlayingQueueItemId queueItemId: NSObject) {
+        Log.debug("audio player did start playing")
+    }
+    
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishBufferingSourceWithQueueItemId queueItemId: NSObject) {
+        Log.debug("audio player did finish buffering")
+    }
+    
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishPlayingQueueItemId queueItemId: NSObject, with stopReason: STKAudioPlayerStopReason, andProgress progress: Double, andDuration duration: Double) {
+        Log.debug("audio player did finish playing reason: \(stopReason)")
+    }
+    
+    func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
+        Log.debug("audio player error: \(errorCode)")
     }
 }
 
@@ -136,7 +170,9 @@ extension Offradio {
 
     @objc final fileprivate func handleMediaReset() {
         Log.debug("handle system media reset")
-        self.kit.stop()
+        self.status = .stopped
+        self.metadata.stopTimer()
+        self.setupRadio()
         self.deactivateAudioSession()
         self.configureAudioSession()
     }
