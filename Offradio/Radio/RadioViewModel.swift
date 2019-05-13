@@ -14,8 +14,6 @@ import StreamingKit
 
 final class RadioViewModel {
 
-    let disposeBag: DisposeBag = DisposeBag()
-
     final private(set) var radio: Offradio
 
     let toggleRadioTriggered: PublishSubject<Bool> = PublishSubject<Bool>()
@@ -73,23 +71,6 @@ final class RadioViewModel {
                 watchCommunication.sendTurnRadioOff()
             })
             .startWith(false)
-        
-//        self.radio.stateChanged
-//            .subscribe(onNext: { [weak self, watchCommunication] state in
-//                guard let self = self else { return }
-//                if state == STKAudioPlayerState.buffering {
-//                    self.isBuffering.value = true
-//                    self.isPlaying.value = false
-//                } else if state == STKAudioPlayerState.playing {
-//                    self.isBuffering.value = false
-//                    self.isPlaying.value = true
-//                    watchCommunication.sendTurnRadioOn()
-//                } else if state == STKAudioPlayerState.stopped {
-//                    self.isBuffering.value = false
-//                    self.isPlaying.value = false
-//                    watchCommunication.sendTurnRadioOff()
-//                }
-//        }).disposed(by: disposeBag)
         
     }
 
