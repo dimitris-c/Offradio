@@ -83,14 +83,24 @@ static inline void FBSDKShareDialogValidateShareExtensionSchemeRegisteredForCanO
   }
 }
 
-+ (instancetype)showFromViewController:(UIViewController *)viewController
-                           withContent:(id<FBSDKSharingContent>)content
-                              delegate:(id<FBSDKSharingDelegate>)delegate
++ (instancetype)dialogWithViewController:(nullable UIViewController *)viewController
+                             withContent:(id<FBSDKSharingContent>)content
+                                delegate:(nullable id<FBSDKSharingDelegate>)delegate
 {
   FBSDKShareDialog *dialog = [[self alloc] init];
   dialog.fromViewController = viewController;
   dialog.shareContent = content;
   dialog.delegate = delegate;
+  return dialog;
+}
+
++ (instancetype)showFromViewController:(UIViewController *)viewController
+                           withContent:(id<FBSDKSharingContent>)content
+                              delegate:(id<FBSDKSharingDelegate>)delegate
+{
+  FBSDKShareDialog *dialog = [self dialogWithViewController:viewController
+                                                withContent:content
+                                                   delegate:delegate];
   [dialog show];
   return dialog;
 }
@@ -503,9 +513,9 @@ static inline void FBSDKShareDialogValidateShareExtensionSchemeRegisteredForCanO
       // not all web dialogs report cancellation, so assume that the share has completed with no additional information
       NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
       // the web response comes back with a different payload, so we need to translate it
-      [FBSDKInternalUtility dictionary:results
-                             setObject:webResponseParameters[FBSDK_SHARE_WEB_PARAM_POST_ID_KEY]
-                                forKey:FBSDK_SHARE_RESULT_POST_ID_KEY];
+      [FBSDKBasicUtility dictionary:results
+                          setObject:webResponseParameters[FBSDK_SHARE_WEB_PARAM_POST_ID_KEY]
+                             forKey:FBSDK_SHARE_RESULT_POST_ID_KEY];
       [self _invokeDelegateDidCompleteWithResults:results];
     }
   }
@@ -666,9 +676,9 @@ static inline void FBSDKShareDialogValidateShareExtensionSchemeRegisteredForCanO
       [self _invokeDelegateDidFailWithError:response.error];
     } else {
       NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
-      [FBSDKInternalUtility dictionary:results
-                             setObject:responseParameters[FBSDK_SHARE_RESULT_POST_ID_KEY]
-                                forKey:FBSDK_SHARE_RESULT_POST_ID_KEY];
+      [FBSDKBasicUtility dictionary:results
+                          setObject:responseParameters[FBSDK_SHARE_RESULT_POST_ID_KEY]
+                             forKey:FBSDK_SHARE_RESULT_POST_ID_KEY];
       [self _invokeDelegateDidCompleteWithResults:results];
     }
     [FBSDKInternalUtility unregisterTransientObject:self];
@@ -1099,9 +1109,9 @@ static inline void FBSDKShareDialogValidateShareExtensionSchemeRegisteredForCanO
                                FBSDKAppEventParameterDialogOutcome : FBSDKAppEventsDialogOutcomeValue_Cancelled,
                                };
 
-  [FBSDKAppEvents logImplicitEvent:FBSDLAppEventNameFBSDKEventShareDialogResult
-                        valueToSum:nil
+  [FBSDKAppEvents logInternalEvent:FBSDKAppEventNameFBSDKEventShareDialogResult
                         parameters:parameters
+                isImplicitlyLogged:YES
                        accessToken:[FBSDKAccessToken currentAccessToken]];
 
   [_delegate sharerDidCancel:self];
@@ -1113,9 +1123,9 @@ static inline void FBSDKShareDialogValidateShareExtensionSchemeRegisteredForCanO
                                FBSDKAppEventParameterDialogOutcome : FBSDKAppEventsDialogOutcomeValue_Completed
                                };
 
-  [FBSDKAppEvents logImplicitEvent:FBSDLAppEventNameFBSDKEventShareDialogResult
-                        valueToSum:nil
+  [FBSDKAppEvents logInternalEvent:FBSDKAppEventNameFBSDKEventShareDialogResult
                         parameters:parameters
+                isImplicitlyLogged:YES
                        accessToken:[FBSDKAccessToken currentAccessToken]];
 
   [_delegate sharer:self didCompleteWithResults:[results copy]];
@@ -1128,9 +1138,9 @@ static inline void FBSDKShareDialogValidateShareExtensionSchemeRegisteredForCanO
                                FBSDKAppEventParameterDialogErrorMessage : [NSString stringWithFormat:@"%@", error]
                                };
 
-  [FBSDKAppEvents logImplicitEvent:FBSDLAppEventNameFBSDKEventShareDialogResult
-                        valueToSum:nil
+  [FBSDKAppEvents logInternalEvent:FBSDKAppEventNameFBSDKEventShareDialogResult
                         parameters:parameters
+                isImplicitlyLogged:YES
                        accessToken:[FBSDKAccessToken currentAccessToken]];
 
   [_delegate sharer:self didFailWithError:error];
@@ -1161,9 +1171,9 @@ static inline void FBSDKShareDialogValidateShareExtensionSchemeRegisteredForCanO
 
                                };
 
-  [FBSDKAppEvents logImplicitEvent:FBSDKAppEventNameFBSDKEventShareDialogShow
-                        valueToSum:nil
+  [FBSDKAppEvents logInternalEvent:FBSDKAppEventNameFBSDKEventShareDialogShow
                         parameters:parameters
+                isImplicitlyLogged:YES
                        accessToken:[FBSDKAccessToken currentAccessToken]];
 }
 
@@ -1194,7 +1204,7 @@ static inline void FBSDKShareDialogValidateShareExtensionSchemeRegisteredForCanO
     }
 
     NSError *error = nil;
-    NSString *const jsonString = [FBSDKInternalUtility JSONStringForObject:parameters error:&error invalidObjectHandler:NULL];
+    NSString *const jsonString = [FBSDKBasicUtility JSONStringForObject:parameters error:&error invalidObjectHandler:NULL];
     if (error != nil) {
       return nil;
     }
