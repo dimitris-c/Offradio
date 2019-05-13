@@ -49,7 +49,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.scrollView.addSubview(self.turnYourRadioOffLabel)
 
         self.nowPlayingButton = NowPlayingButton(frame: .zero)
-        self.nowPlayingButton.alpha = 1.0
+        self.nowPlayingButton.alpha = 0.0
         self.scrollView.addSubview(self.nowPlayingButton)
 
         self.registerForPreviewing(with: self, sourceView: self.nowPlayingButton)
@@ -69,7 +69,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
             strongSelf.showNowPlayingViewController(with: strongSelf.offradio.metadata)
         }).disposed(by: disposeBag)
 
-        self.playerCircleContainer.switched.bind(to: viewModel.toggleRadio).disposed(by: disposeBag)
+        self.playerCircleContainer.switched.bind(to: viewModel.toggleRadioTriggered).disposed(by: disposeBag)
         viewModel.isBuffering.asObservable().bind(to: self.playerCircleContainer.buffering).disposed(by: disposeBag)
         viewModel.isPlaying.asObservable().bind(to: self.playerCircleContainer.playing).disposed(by: disposeBag)
 
@@ -79,9 +79,9 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
                 self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
             }).disposed(by: disposeBag)
 
-        viewModel.nowPlaying.asObservable()
+        viewModel.nowPlaying
             .map { $0.current.title }
-            .bind(to: self.nowPlayingButton.title)
+            .drive(self.nowPlayingButton.rx.title)
             .disposed(by: disposeBag)
 
         let playlistButton = UIButton(type: .custom)

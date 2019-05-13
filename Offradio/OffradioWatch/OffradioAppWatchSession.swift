@@ -137,9 +137,9 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
 
     fileprivate func toggleRadio(with status: Bool) {
         if status {
-            self.viewModel.toggleRadio.onNext(true)
+            self.viewModel.toggleRadioTriggered.onNext(true)
         } else {
-            self.viewModel.toggleRadio.onNext(false)
+            self.viewModel.toggleRadioTriggered.onNext(false)
         }
     }
 
