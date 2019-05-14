@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                        consumerSecret: "KRgr4T0Yk4AeVlwDIWvUra00tjRkjhCCWUpGV3dPeoTpDKqymt")
 
         RealmMigrationLayer.performMigration()
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         NetworkActivityIndicatorManager.shared.isEnabled = true
 
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -72,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        FBSDKAppEvents.activateApp()
+        AppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -87,15 +87,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return .portrait
     }
-
+    
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(application,
-                                                                            open: url,
-                                                                            sourceApplication: sourceApplication,
-                                                                            annotation: annotation)
+        let handled = ApplicationDelegate.shared.application(application,
+                                                             open: url,
+                                                             sourceApplication: sourceApplication,
+                                                             annotation: annotation)
         return handled
     }
-
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     }

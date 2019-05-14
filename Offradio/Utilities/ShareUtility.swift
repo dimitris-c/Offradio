@@ -37,11 +37,11 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
     class func shareOnFacebook(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
         guard let viewController = viewController else { return }
         print("Sharing on Facebook")
-        let shareContent = FBSDKShareLinkContent()
-        shareContent.contentURL = URL(string: "http://www.offradio.gr")
+        let shareContent = ShareLinkContent()
+        shareContent.contentURL = URL(string: "http://www.offradio.gr")!
         shareContent.ref = "offradio_ios_app"
 
-        FBSDKShareDialog.show(from: viewController, with: shareContent, delegate: nil)
+        ShareDialog(fromViewController: viewController, content: shareContent, delegate: nil).show()
     }
 
     class func shareOnTwitter(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
