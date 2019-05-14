@@ -39,7 +39,6 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         print("Sharing on Facebook")
         let shareContent = ShareLinkContent()
         shareContent.contentURL = URL(string: "http://www.offradio.gr")!
-        shareContent.ref = "offradio_ios_app"
 
         ShareDialog(fromViewController: viewController, content: shareContent, delegate: nil).show()
     }

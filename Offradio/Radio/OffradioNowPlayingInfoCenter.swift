@@ -25,18 +25,24 @@ class OffradioNowPlayingInfoCenter {
                 self?.updateInfo(with: nowPlaying)
             }).disposed(by: disposeBag)
         
+        let placeholder = UIImage(named: "artwork-image-placeholder")!
         self.offradio.metadata.nowPlaying.asObservable()
             .skipWhile({ $0.isEmpty() })
-            .flatMapLatest { nowPlaying -> Observable<UIImage> in
+            .distinctUntilChanged()
+            .flatMapLatest { nowPlaying -> Observable<UIImage?> in
                 if let url = URL(string: nowPlaying.current.image) {
-                    return KingfisherManager.shared.rx.loadImage(with: url, options: [.forceRefresh])
-                        .asObservable()
+                    return URLSession.shared.rx.data(request: URLRequest(url: url))
+                        .map({ data -> UIImage? in
+                            return UIImage(data: data) ?? placeholder
+                        })
                 }
-                return Observable.empty()
+                return .just(placeholder)
             }
-            .catchErrorJustReturn(UIImage(named: "artwork-image-placeholder")!)
+            .catchErrorJustReturn(placeholder)
             .subscribe(onNext: { [weak self] image in
-                self?.updateInfo(with: image)
+                if let image = image {
+                    self?.updateInfo(with: image)
+                }
             }).disposed(by: disposeBag)
         
     }

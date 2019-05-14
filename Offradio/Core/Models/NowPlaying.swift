@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-struct NowPlaying {
+struct NowPlaying: Equatable {
     let show: Show
     let current: CurrentTrack
     static let empty = NowPlaying(show: .empty, current: .empty)

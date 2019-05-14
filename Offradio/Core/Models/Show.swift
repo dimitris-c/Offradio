@@ -9,7 +9,7 @@
 import SwiftyJSON
 import HTMLEntities
 
-struct Show {
+struct Show: Equatable {
     let name: String
     let photo: String
     let largePhoto: String
