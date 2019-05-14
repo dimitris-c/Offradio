@@ -139,7 +139,9 @@ extension Offradio: STKAudioPlayerDelegate {
     func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
         Log.debug("audio player error: \(errorCode)")
         switch errorCode {
-        case STKAudioPlayerErrorCode.audioSystemError:
+        case STKAudioPlayerErrorCode.audioSystemError,
+             STKAudioPlayerErrorCode.codecError,
+             STKAudioPlayerErrorCode.dataNotFound:
             self.setupRadio()
             self.start()
         default:
