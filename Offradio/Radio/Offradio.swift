@@ -11,6 +11,7 @@ import RxSwift
 import Moya
 import StreamingKit
 import AVFoundation
+import RxCocoa
 
 final class Offradio: NSObject, RadioProtocol {
 
@@ -39,7 +40,7 @@ final class Offradio: NSObject, RadioProtocol {
         var options = STKAudioPlayerOptions()
         options.bufferSizeInSeconds = 0
         options.readBufferSize = 0
-        options.secondsRequiredToStartPlaying = 1
+        options.secondsRequiredToStartPlaying = 0.5
         options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
         options.gracePeriodAfterSeekInSeconds = 0
         options.enableVolumeMixer = true
@@ -74,15 +75,15 @@ final class Offradio: NSObject, RadioProtocol {
     final fileprivate func startRadio() {
         self.configureAudioSession()
         self.activateAudioSession()
-        // http://46.28.53.118:7033/stream
         // http://s3.yesstreaming.net:7033/stream
         // http://94.23.214.108/proxy/offradio2?mp=/stream
+        
         self.kit.play("http://s3.yesstreaming.net:7033/stream")
 //        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
         self.metadata.startTimer()
         self.status = .playing
     }
-
+    
     final fileprivate func configureAudioSession() {
         do {
             Log.debug("AudioSession category is AVAudioSessionCategoryPlayback")
@@ -109,6 +110,7 @@ final class Offradio: NSObject, RadioProtocol {
             Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
         }
     }
+
 }
 
 extension Offradio: STKAudioPlayerDelegate {
@@ -136,6 +138,13 @@ extension Offradio: STKAudioPlayerDelegate {
     
     func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
         Log.debug("audio player error: \(errorCode)")
+        switch errorCode {
+        case STKAudioPlayerErrorCode.audioSystemError:
+            self.setupRadio()
+            self.start()
+        default:
+            break
+        }
     }
 }
 
