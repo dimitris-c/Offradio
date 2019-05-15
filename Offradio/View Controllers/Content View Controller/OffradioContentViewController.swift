@@ -46,6 +46,7 @@ final class OffradioContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barStyle = .black
+        self.setNeedsStatusBarAppearanceUpdate()
     }
 
     func showPlaylist() {
@@ -79,15 +80,7 @@ final class OffradioContentViewController: UIViewController {
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
-    }
-
-    override var childForStatusBarStyle: UIViewController? {
-        return mainTabBarController
-    }
-
-    override public var childForStatusBarHidden: UIViewController? {
-        return mainTabBarController
+        return .lightContent
     }
 
 }
