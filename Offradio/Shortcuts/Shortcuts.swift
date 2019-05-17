@@ -20,18 +20,14 @@ struct Shortcuts {
         case ShortcutIdentifier.radio.type:
             handled = true
             viewController.turnRadioOn()
-            break
         case ShortcutIdentifier.favourites.type:
             handled = true
-            break
         case ShortcutIdentifier.playlist.type:
             viewController.showPlaylist()
             handled = true
-            break
         case ShortcutIdentifier.schedule.type:
             viewController.showSchedule()
             handled = true
-            break
         default:
             break
         }

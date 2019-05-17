@@ -23,14 +23,17 @@ final class CurrentTrackView: UIView {
     fileprivate var bottomGradientView: UIView!
     fileprivate var bottomGradient: CAGradientLayer!
 
-    fileprivate var shareView: CurrentTrackShareView!
+    fileprivate lazy var shareView: CurrentTrackShareView = {
+        return CurrentTrackShareView(frame: .zero)
+    }()
 
-    final let shareOn: Variable<ShareType> = Variable<ShareType>(.none)
+    final var shareOn: Signal<ShareType> {
+        return self.shareView.rx.shareOn
+    }
     fileprivate var shareButton: UIButton!
     var favouriteButton: UIButton!
-    fileprivate var currentTrack: Variable<CurrentTrack>!
 
-    init(with currentTrack: Variable<CurrentTrack>) {
+    init(with currentTrack: Driver<CurrentTrack>) {
         super.init(frame: .zero)
         self.clipsToBounds = true
 
@@ -38,17 +41,14 @@ final class CurrentTrackView: UIView {
 
         self.shareButton.rx.tap.subscribe(onNext: { [weak self] _ in
             self?.showShareTrackView()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
-        self.shareView = CurrentTrackShareView(frame: .zero)
         self.shareView.alpha = 0
         self.addSubview(self.shareView)
 
         self.shareView.closeButtonTap.subscribe(onNext: { [weak self] _ in
             self?.hideShareTrackView()
-        }).addDisposableTo(disposeBag)
-
-        self.shareView.shareOn.asObservable().bind(to: shareOn).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         currentTrack.asObservable()
             .map { $0.image }
@@ -57,13 +57,13 @@ final class CurrentTrackView: UIView {
                     self?.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"))
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         currentTrack.asObservable()
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] track in
                 self?.updateSong(with: track)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 

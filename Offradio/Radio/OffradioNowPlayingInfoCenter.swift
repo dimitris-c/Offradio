@@ -13,35 +13,40 @@ import Kingfisher
 
 class OffradioNowPlayingInfoCenter {
     fileprivate final let disposeBag = DisposeBag()
-
+    
     fileprivate var offradio: Offradio!
-
+    
     init(with radio: Offradio) {
         self.offradio = radio
-
+        
         self.offradio.metadata.nowPlaying.asObservable()
             .skipWhile({ $0.isEmpty() })
             .subscribe(onNext: { [weak self] nowPlaying in
                 self?.updateInfo(with: nowPlaying)
-        }).addDisposableTo(disposeBag)
-
+            }).disposed(by: disposeBag)
+        
+        let placeholder = UIImage(named: "artwork-image-placeholder")!
         self.offradio.metadata.nowPlaying.asObservable()
             .skipWhile({ $0.isEmpty() })
+            .distinctUntilChanged()
             .flatMapLatest { nowPlaying -> Observable<UIImage?> in
                 if let url = URL(string: nowPlaying.current.image) {
-                    return KingfisherManager.shared.rx.loadImage(url: url, options: [.forceRefresh])
+                    return URLSession.shared.rx.data(request: URLRequest(url: url))
+                        .map({ data -> UIImage? in
+                            return UIImage(data: data) ?? placeholder
+                        })
                 }
-                return Observable.empty()
+                return .just(placeholder)
             }
-            .catchErrorJustReturn(UIImage(named: "artwork-image-placeholder"))
+            .catchErrorJustReturn(placeholder)
             .subscribe(onNext: { [weak self] image in
                 if let image = image {
                     self?.updateInfo(with: image)
                 }
-        }).addDisposableTo(disposeBag)
-
+            }).disposed(by: disposeBag)
+        
     }
-
+    
     fileprivate func updateInfo(with nowPlaying: NowPlaying) {
         var info: [String: Any] = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
         info[MPMediaItemPropertyTitle]      = nowPlaying.current.track
@@ -49,11 +54,14 @@ class OffradioNowPlayingInfoCenter {
         info[MPMediaItemPropertyAlbumTitle] = "Offradio - \(nowPlaying.show.name)"
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
-
+    
     fileprivate func updateInfo(with image: UIImage) {
         var info: [String: Any] = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
-        info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image)
+        
+        info[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size -> UIImage in
+            return image
+        }
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
-
+    
 }

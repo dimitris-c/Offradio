@@ -1,6 +1,0 @@
-framework module Pods_OffradioTests {
-  umbrella header "Pods-OffradioTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -17,8 +17,6 @@ final class NowPlayingButton: UIControl {
     final fileprivate var backgroundImageView: UIImageView!
     final fileprivate var scrollLabel: CBAutoScrollLabel!
 
-    final let title: Variable<String> = Variable<String>("")
-
     override var isHighlighted: Bool {
         didSet {
             self.backgroundImageView.isHighlighted = isHighlighted
@@ -48,10 +46,6 @@ final class NowPlayingButton: UIControl {
         self.scrollLabel.textColor = UIColor.white
         self.addSubview(self.scrollLabel)
 
-        self.title.asObservable().subscribe(onNext: { title in
-            self.scrollLabel.setText(title, refreshLabels: true)
-        }).addDisposableTo(disposeBag)
-
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -78,5 +72,17 @@ final class NowPlayingButton: UIControl {
 extension Reactive where Base: NowPlayingButton {
     var tap: ControlEvent<Void> {
         return controlEvent(.touchUpInside)
+    }
+    
+    var title: Binder<String?> {
+        return base.scrollLabel.rx.title
+    }
+}
+
+extension Reactive where Base: CBAutoScrollLabel {
+    var title: Binder<String?> {
+        return Binder(base) { view, title in
+            view.setText(title, refreshLabels: true)
+        }
     }
 }

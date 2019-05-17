@@ -40,19 +40,19 @@ final class ProducerView: UIView {
                 if let url = URL(string: url) {
                     self?.producerImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "producer-static-image"))
                 }
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
 
         currentTrack.asObservable()
             .map { $0.name }
             .ifEmpty(default: Show.default.name)
             .bind(to: self.producerNameLabel.rx.text)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         currentTrack.asObservable()
             .map { $0.body }
             .ifEmpty(default: Show.default.body)
             .bind(to: self.producerBodyLabel.rx.text)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 

@@ -16,7 +16,7 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
 
     fileprivate let disposeBag = DisposeBag()
 
-    fileprivate var viewModel: NowPlayingViewModel!
+    fileprivate var viewModel: NowPlayingViewModel
 
     fileprivate var scrollView: UIScrollView!
 
@@ -25,9 +25,9 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
     fileprivate var producerView: ProducerView!
 
     init(with radioMetadata: RadioMetadata) {
+        self.viewModel = NowPlayingViewModel(with: radioMetadata)
         super.init(nibName: nil, bundle: nil)
 
-        self.viewModel = NowPlayingViewModel(with: radioMetadata)
     }
 
     override func viewDidLoad() {
@@ -37,56 +37,66 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
 
         self.trackAnalytics()
 
+        self.setupUI()
+        self.setupBingings()
+    }
+    
+    func setupUI() {
         self.scrollView = UIScrollView(frame: .zero)
         self.scrollView.alwaysBounceVertical = true
         self.scrollView.delegate = self
         self.view.addSubview(self.scrollView)
-
+        
         self.currentTrackView = CurrentTrackView(with: self.viewModel.currentTrack)
         self.scrollView.addSubview(self.currentTrackView)
-
-        self.currentTrackView.shareOn.asObservable().subscribe(onNext: { [weak self] type in
-            guard let sSelf = self, let nowPlaying = sSelf.viewModel.nowPlaying?.value else { return }
-            ShareUtility.share(on: type, with: nowPlaying, using: sSelf)
-        }).addDisposableTo(disposeBag)
-
-        self.viewModel.favouriteTrack.asObservable()
-            .bind(to: self.currentTrackView.favouriteButton.rx.isSelected)
-            .addDisposableTo(disposeBag)
-
-        self.currentTrackView.favouriteButton.rx.tap.asObservable()
-            .scan(false) { state, _ in !state }
-            .do(onNext: { [weak self] state in
-                self?.currentTrackView.favouriteButton.isSelected = state
-            })
-            .bind(to: self.viewModel.favouriteTrack)
-            .addDisposableTo(disposeBag)
-
+        
         self.producerView = ProducerView(with: self.viewModel.show.asDriver())
         self.scrollView.addSubview(self.producerView)
-
+        
         let playlistButton = UIButton(type: .custom)
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon"), for: .normal)
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon-tapped"), for: .highlighted)
         playlistButton.sizeToFit()
         let barButton = UIBarButtonItem(customView: playlistButton)
         self.navigationItem.rightBarButtonItem = barButton
-
-        playlistButton.rx.tap.subscribe(onNext: { [weak self] in
-            self?.showPlaylistViewController()
-        }).addDisposableTo(disposeBag)
-
+        
+        playlistButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.showPlaylistViewController()
+            }).disposed(by: disposeBag)
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        self.viewModel.checkForUpdatesInFavourite()
+    
+    func setupBingings() {
+        
+        self.currentTrackView.shareOn
+            .asObservable()
+            .withLatestFrom(viewModel.nowPlaying) { ($0, $1) }
+            .subscribe(onNext: { [weak self] (type, value) in
+                guard let sSelf = self else { return }
+                ShareUtility.share(on: type, with: value, using: sSelf)
+            }).disposed(by: disposeBag)
+        
+        self.rx.viewWillAppear
+            .bind(to: self.viewModel.viewWillAppear)
+            .disposed(by: disposeBag)
+        
+        self.viewModel.favouriteTrack.asObservable()
+            .bind(to: self.currentTrackView.favouriteButton.rx.isSelected)
+            .disposed(by: disposeBag)
+        
+        self.currentTrackView.favouriteButton.rx.tap.asObservable()
+            .withLatestFrom(self.viewModel.favouriteTrack)
+            .map { !$0 }
+            .do(onNext: { [weak self] state in
+                self?.currentTrackView.favouriteButton.isSelected = state
+            })
+            .bind(to: self.viewModel.markTrackAsFavourite)
+            .disposed(by: disposeBag)
 
     }
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("not implemented")
     }
 
     fileprivate func showPlaylistViewController() {
@@ -118,8 +128,7 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
 
 extension NowPlayingViewController: AnalyticsTrackable {
     func trackAnalytics() {
-        let attributes: [String: Any] = ["song": self.viewModel.currentTrack.value.title, "producer": self.viewModel.show.value.name]
-        Answers.logContentView(withName: "NowPlaying screen", contentType: "screen", contentId: "", customAttributes: attributes)
+        Answers.logContentView(withName: "NowPlaying screen", contentType: "screen", contentId: "", customAttributes: [:])
     }
 }
 

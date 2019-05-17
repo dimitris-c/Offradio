@@ -24,17 +24,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var watchSession: OffradioAppWatchSession?
     let shortcuts: Shortcuts = Shortcuts()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         let cache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
         URLCache.shared = cache
 
         Fabric.with([Crashlytics.self, Answers.self])
-        Twitter.sharedInstance().start(withConsumerKey: "AfJ2HbxzaW4gvPekIwHdak4RS",
+        TWTRTwitter.sharedInstance().start(withConsumerKey: "AfJ2HbxzaW4gvPekIwHdak4RS",
                                        consumerSecret: "KRgr4T0Yk4AeVlwDIWvUra00tjRkjhCCWUpGV3dPeoTpDKqymt")
 
         RealmMigrationLayer.performMigration()
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         NetworkActivityIndicatorManager.shared.isEnabled = true
 
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -72,24 +72,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        FBSDKAppEvents.activateApp()
+        AppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         Log.debug("application will terminate")
     }
-
+    
+    func application(_ application: UIApplication,
+                     supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            return .allButUpsideDown
+        }
+        return .portrait
+    }
+    
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(application,
-                                                                            open: url,
-                                                                            sourceApplication: sourceApplication,
-                                                                            annotation: annotation)
+        let handled = ApplicationDelegate.shared.application(application,
+                                                             open: url,
+                                                             sourceApplication: sourceApplication,
+                                                             annotation: annotation)
         return handled
     }
-
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return Twitter.sharedInstance().application(app, open: url, options: options)
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     }
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {

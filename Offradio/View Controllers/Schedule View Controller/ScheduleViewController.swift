@@ -54,7 +54,7 @@ final class ScheduleViewController: UIViewController {
 
         self.registerForPreviewing(with: self, sourceView: self.tableView)
 
-        self.activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         self.activityIndicator.startAnimating()
         self.view.addSubview(self.activityIndicator)
 
@@ -63,12 +63,12 @@ final class ScheduleViewController: UIViewController {
 
         self.viewModel.navigationTitle.asObservable()
             .bind(to: self.navigationItem.rx.title)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.viewModel.schedule.asObservable()
             .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, item, cell in
                 cell.configure(with: item)
-            }.addDisposableTo(disposeBag)
+            }.disposed(by: disposeBag)
 
         self.tableView.rx.itemSelected.asObservable().subscribe(onNext: { [weak self] indexPath in
             guard let sSelf = self else { return }
@@ -98,20 +98,20 @@ final class ScheduleViewController: UIViewController {
             self.tableView.refreshControl = self.refreshControl
         } else {
             tableView?.addSubview(refreshControl)
-            tableView.sendSubview(toBack: refreshControl)
+            tableView.sendSubviewToBack(refreshControl)
         }
 
         self.refreshControl.rx.controlEvent(.valueChanged)
             .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? true) }
             .bind(to: self.viewModel.refresh)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.viewModel.refresh.asObservable()
             .bind(to: self.refreshControl.rx.isRefreshing)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         self.viewModel.firstLoad.asObservable()
             .bind(to: self.activityIndicator.rx.isAnimating)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 

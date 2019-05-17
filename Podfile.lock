@@ -1,56 +1,55 @@
 PODS:
-  - Alamofire (4.5.1)
-  - AlamofireNetworkActivityIndicator (2.2.0):
-    - Alamofire (~> 4.5)
+  - Alamofire (4.8.2)
+  - AlamofireNetworkActivityIndicator (2.4.0):
+    - Alamofire (~> 4.8)
   - AutoScrollLabel (0.4.3)
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
-  - Crashlytics (3.9.0):
-    - Fabric (~> 1.7.0)
-  - Fabric (1.7.0)
-  - FBSDKCoreKit (4.27.1):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.27.1):
-    - FBSDKCoreKit
-  - FBSDKShareKit (4.27.1):
-    - FBSDKCoreKit
-  - Kingfisher (3.13.1)
-  - Moya/Core (9.0.0):
+  - Crashlytics (3.13.0):
+    - Fabric (~> 1.10.0)
+  - Fabric (1.10.0)
+  - FBSDKCoreKit (5.0.0):
+    - FBSDKCoreKit/Basics (= 5.0.0)
+    - FBSDKCoreKit/Core (= 5.0.0)
+  - FBSDKCoreKit/Basics (5.0.0)
+  - FBSDKCoreKit/Core (5.0.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.0.0):
+    - FBSDKCoreKit (= 5.0.0)
+  - FBSDKShareKit (5.0.0):
+    - FBSDKCoreKit (= 5.0.0)
+  - HTMLEntities (3.0.13)
+  - Kingfisher (5.4.0)
+  - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 3.0)
-  - Moya/RxSwift (9.0.0):
+    - Result (~> 4.1)
+  - Moya/RxSwift (13.0.1):
     - Moya/Core
-    - RxSwift (~> 3.3)
-  - Realm (2.10.2):
-    - Realm/Headers (= 2.10.2)
-  - Realm/Headers (2.10.2)
-  - RealmSwift (2.10.2):
-    - Realm (= 2.10.2)
-  - Result (3.2.4)
-  - RxAlamofire (3.0.3):
-    - RxAlamofire/Core (= 3.0.3)
-  - RxAlamofire/Core (3.0.3):
-    - Alamofire (~> 4.0)
-    - RxSwift (~> 3.0)
-  - RxCocoa (3.6.1):
-    - RxSwift (~> 3.6)
-  - RxRealm (0.7.2):
-    - RealmSwift (~> 2)
-    - RxSwift (~> 3)
-  - RxSwift (3.6.1)
-  - StreamingKit (0.1.30)
-  - SwiftyJSON (3.1.4)
-  - SwipeCellKit (1.9.1)
+    - RxSwift (~> 4.0)
+  - Realm (3.15.0):
+    - Realm/Headers (= 3.15.0)
+  - Realm/Headers (3.15.0)
+  - RealmSwift (3.15.0):
+    - Realm (= 3.15.0)
+  - Result (4.1.0)
+  - RxAlamofire (4.4.1):
+    - RxAlamofire/Core (= 4.4.1)
+  - RxAlamofire/Core (4.4.1):
+    - Alamofire (~> 4.8)
+    - RxSwift (~> 4.5)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxRealm (0.7.6):
+    - RealmSwift (~> 3.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.5.0)
+  - StreamingKit (0.1.31)
+  - SwiftyJSON (5.0.0)
+  - SwipeCellKit (2.6.0)
   - ToggleSwitch (1.2.1):
     - ToggleSwitch/Core (= 1.2.1)
   - ToggleSwitch/Core (1.2.1)
-  - TwitterCore (3.0.1)
-  - TwitterKit (3.1.1):
-    - TwitterCore (>= 3.0.1)
+  - TwitterCore (3.2.0)
+  - TwitterKit (3.4.2):
+    - TwitterCore (>= 3.2.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -61,55 +60,86 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
-  - Kingfisher (~> 3.0)
+  - HTMLEntities (from `https://github.com/IBM-Swift/swift-html-entities.git`)
+  - Kingfisher
   - Moya/RxSwift
   - RealmSwift
   - RxAlamofire
-  - RxCocoa (~> 3.0)
+  - RxCocoa
   - RxRealm
-  - RxSwift (~> 3.0)
-  - StreamingKit (from `https://github.com/dimitris-c/StreamingKit.git`, branch `metadata`)
+  - RxSwift
+  - StreamingKit (from `https://github.com/tumtumtum/StreamingKit.git`, branch `master`)
   - SwiftyJSON
-  - SwipeCellKit (= 1.9.1)
+  - SwipeCellKit
   - ToggleSwitch (~> 1.0)
   - TwitterKit
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireNetworkActivityIndicator
+    - AutoScrollLabel
+    - Crashlytics
+    - Fabric
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
+    - Kingfisher
+    - Moya
+    - Realm
+    - RealmSwift
+    - Result
+    - RxAlamofire
+    - RxCocoa
+    - RxRealm
+    - RxSwift
+    - SwiftyJSON
+    - SwipeCellKit
+    - ToggleSwitch
+    - TwitterCore
+    - TwitterKit
+
 EXTERNAL SOURCES:
+  HTMLEntities:
+    :git: https://github.com/IBM-Swift/swift-html-entities.git
   StreamingKit:
-    :branch: metadata
-    :git: https://github.com/dimitris-c/StreamingKit.git
+    :branch: master
+    :git: https://github.com/tumtumtum/StreamingKit.git
 
 CHECKOUT OPTIONS:
+  HTMLEntities:
+    :commit: eef4eeb38feff7253e1a9553b53fe87bb17d301e
+    :git: https://github.com/IBM-Swift/swift-html-entities.git
   StreamingKit:
-    :commit: 3d2d328705ed59d7c4f6d9c7584077740c1bc6fc
-    :git: https://github.com/dimitris-c/StreamingKit.git
+    :commit: 07451cb2e6c640763191c6152fae56d8a98b7abf
+    :git: https://github.com/tumtumtum/StreamingKit.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireNetworkActivityIndicator: 9acc3de3ca6645bf0efed462396b0df13dd3e7b8
   AutoScrollLabel: bee53a1d4532569b49cbecaf9b80ca003bed3767
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Crashlytics: 64aad5dd97249dd3ff94b979fea140144590cdd3
-  Fabric: e6be012366472553807dada21243c5ab8d904151
-  FBSDKCoreKit: 03365dad5d790249196ffad8be4f6d8a2d98f932
-  FBSDKLoginKit: 66ff53b73cffd967ab773e32fac39e90a60e6d46
-  FBSDKShareKit: 6a6a0ef9e850c741e4e1d7a7d21335205e997ec1
-  Kingfisher: ed9707a409cc47fddafbcd12a43a9757e3600af5
-  Moya: cf5e6ee93af526532f92614004b8ad2ea60fd845
-  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
-  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
-  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
-  RxRealm: 9cf5c15c5312fc770aaa542a360cffec4916e63a
-  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
-  StreamingKit: 6a368408094751cd5d7f9696b914b0fd61f7e979
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  SwipeCellKit: e9ff953c820394a4e641cfb0118b6c959506aec2
+  Crashlytics: 1f5f752c7feac0add0cc1774756f96444fa3b1a7
+  Fabric: 09de1e053eb7dc415593166ad3e53d4c88123405
+  FBSDKCoreKit: ba361d4a9d4dc29ff218822b849b22d4f869c7bb
+  FBSDKLoginKit: c6d0dc187bd076e370dffa10f7fc8a3562a6892c
+  FBSDKShareKit: edf3450bf82ce0c626b31943f370d3729082746d
+  HTMLEntities: 83738511518b3f29cf9644d0877505b8d3d1a849
+  Kingfisher: 9c8f2cc6710334e06f32ba2b45e77707d5e2f0c9
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Realm: 9b834e1be6062f544805252c812348872dc5d4ed
+  RealmSwift: 8a41886f8ab6efef9eb8df97de2f2bb911561a79
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxAlamofire: ed65f451f5a9a59419b0b9e705043dc01410edd9
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  StreamingKit: 017093dadc370099b78457e860a0433aa8be5552
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
   ToggleSwitch: 528853e108d090fb78e68692bd7d8742a07c11dd
-  TwitterCore: 6856288a1c25e5281363250681f33b42fce1da42
-  TwitterKit: 313bf02baee8427f7649b3640169178e5a8b5a99
+  TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
+  TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 55052666cf837c44051ef1c506f240342dfb8a27
+PODFILE CHECKSUM: ed7a1c9e4ee0018495636c4b39916af7657449ad
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.6.1

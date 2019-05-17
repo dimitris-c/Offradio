@@ -49,7 +49,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.scrollView.addSubview(self.turnYourRadioOffLabel)
 
         self.nowPlayingButton = NowPlayingButton(frame: .zero)
-        self.nowPlayingButton.alpha = 1.0
+        self.nowPlayingButton.alpha = 0.0
         self.scrollView.addSubview(self.nowPlayingButton)
 
         self.registerForPreviewing(with: self, sourceView: self.nowPlayingButton)
@@ -67,22 +67,22 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.nowPlayingButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.showNowPlayingViewController(with: strongSelf.offradio.metadata)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
-        self.playerCircleContainer.switched.bind(to: viewModel.toggleRadio).addDisposableTo(disposeBag)
-        viewModel.isBuffering.asObservable().bind(to: self.playerCircleContainer.buffering).addDisposableTo(disposeBag)
-        viewModel.isPlaying.asObservable().bind(to: self.playerCircleContainer.playing).addDisposableTo(disposeBag)
+        self.playerCircleContainer.switched.bind(to: viewModel.toggleRadioTriggered).disposed(by: disposeBag)
+        viewModel.isBuffering.asObservable().bind(to: self.playerCircleContainer.buffering).disposed(by: disposeBag)
+        viewModel.isPlaying.asObservable().bind(to: self.playerCircleContainer.playing).disposed(by: disposeBag)
 
         viewModel.isPlaying.asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] isPlaying in
                 self?.fadeNowPlayingButton(shouldFadeIn: isPlaying)
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
 
-        viewModel.nowPlaying.asObservable()
+        viewModel.nowPlaying
             .map { $0.current.title }
-            .bind(to: self.nowPlayingButton.title)
-            .addDisposableTo(disposeBag)
+            .drive(self.nowPlayingButton.rx.title)
+            .disposed(by: disposeBag)
 
         let playlistButton = UIButton(type: .custom)
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon"), for: .normal)
@@ -93,7 +93,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
 
         playlistButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.showPlaylistViewController()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 
     override func viewDidLayoutSubviews() {
@@ -103,6 +103,15 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
             self.playerCircleContainerTopConstraint.constant = 30
         } else if DeviceType.iPhone4OrLess {
             self.playerCircleContainerTopConstraint.constant = 20
+        }
+        
+        if DeviceType.iPad {
+            let orientation = UIDevice.current.orientation
+            if orientation == .landscapeLeft || orientation == .landscapeRight {
+                self.playerCircleContainerTopConstraint.constant = 60
+            } else {
+                self.playerCircleContainerTopConstraint.constant = 155
+            }
         }
 
         let effectiveHeight = self.scrollView.frame.height - self.playerCircleContainer.frame.maxY

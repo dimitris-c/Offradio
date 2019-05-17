@@ -7,6 +7,7 @@
 //
 
 import SwiftyJSON
+import HTMLEntities
 
 struct CurrentTrack: Equatable {
     let track: String

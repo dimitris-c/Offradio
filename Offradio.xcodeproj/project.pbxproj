@@ -109,14 +109,6 @@
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */; };
-		B59A88E31F27AD05003509C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DF1F27AD05003509C3 /* Constants.swift */; };
-		B59A88E41F27AD05003509C3 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E01F27AD05003509C3 /* ParseError.swift */; };
-		B59A88E51F27AD05003509C3 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */; };
-		B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E21F27AD05003509C3 /* Utilities.swift */; };
-		B59A88E71F27ADC2003509C3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DF1F27AD05003509C3 /* Constants.swift */; };
-		B59A88E81F27ADC2003509C3 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E01F27AD05003509C3 /* ParseError.swift */; };
-		B59A88E91F27ADC2003509C3 /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */; };
-		B59A88EA1F27ADC2003509C3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88E21F27AD05003509C3 /* Utilities.swift */; };
 		B5A430891FA1405B006F0BC9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CBD0561F74409800250FC9 /* AVFoundation.framework */; };
 		B5A4308D1FA14093006F0BC9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */; };
 		B5A4308F1FA1409C006F0BC9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */; };
@@ -131,7 +123,6 @@
 		B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */; };
 		B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */; };
 		B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */; };
-		B5C44A311F9D19BA00D09CA6 /* M3UService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C44A301F9D19BA00D09CA6 /* M3UService.swift */; };
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */; };
@@ -326,10 +317,6 @@
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIColor+Offradio.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B59A88DF1F27AD05003509C3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		B59A88E01F27AD05003509C3 /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
-		B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTMLEntities.swift"; sourceTree = "<group>"; };
-		B59A88E21F27AD05003509C3 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -344,7 +331,6 @@
 		B5BB248E1E4B6B9B006FC751 /* AnimationsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnimationsFactory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5BB24901E4B82F6006FC751 /* Offradio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Offradio.entitlements; sourceTree = "<group>"; };
 		B5BC8DEF1F700F85007F5519 /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPI.swift; sourceTree = "<group>"; };
-		B5C44A301F9D19BA00D09CA6 /* M3UService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3UService.swift; sourceTree = "<group>"; };
 		B5CBD0561F74409800250FC9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrack.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923771E65E4800013A3F4 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Show.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -483,7 +469,6 @@
 				B503956C1E4BCA0100D9A71B /* PlaylistService.swift */,
 				B503956D1E4BCA0100D9A71B /* ScheduleService.swift */,
 				B524E5FC1E672622003A75EE /* ProducersService.swift */,
-				B5C44A301F9D19BA00D09CA6 /* M3UService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -507,14 +492,6 @@
 				B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */,
 			);
 			path = Realm;
-			sourceTree = "<group>";
-		};
-		B51BE4DC1E3ABF79005775F4 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				B59A88DE1F27ACFA003509C3 /* HTMLEntities */,
-			);
-			path = Vendor;
 			sourceTree = "<group>";
 		};
 		B524E5FE1E673BC6003A75EE /* NowPlaying View Controller */ = {
@@ -704,7 +681,6 @@
 				B52A6C371E36BAC2005893D2 /* Utilities */,
 				B5745E531EB0D5AD00A60283 /* OffradioWatch */,
 				B52A6C1F1E36B3BE005893D2 /* Resources */,
-				B51BE4DC1E3ABF79005775F4 /* Vendor */,
 				B54BC8B41E36A9DC0043F248 /* Info.plist */,
 			);
 			path = Offradio;
@@ -883,17 +859,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		B59A88DE1F27ACFA003509C3 /* HTMLEntities */ = {
-			isa = PBXGroup;
-			children = (
-				B59A88DF1F27AD05003509C3 /* Constants.swift */,
-				B59A88E01F27AD05003509C3 /* ParseError.swift */,
-				B59A88E11F27AD05003509C3 /* String+HTMLEntities.swift */,
-				B59A88E21F27AD05003509C3 /* Utilities.swift */,
-			);
-			path = HTMLEntities;
-			sourceTree = "<group>";
-		};
 		B5AF72971F96A20B0060D5F8 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -976,10 +941,10 @@
 				B54BC8A11E36A9DB0043F248 /* Resources */,
 				D07345AF44A5FDFE72120D15 /* [CP] Embed Pods Frameworks */,
 				001F021AD1209C7AD0B62390 /* [CP] Copy Pods Resources */,
-				B52A6C1E1E36B242005893D2 /* Fabric */,
-				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
 				B58678D41EAFCF1C005321CA /* Embed Watch Content */,
+				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
 				B5872B241F28CAC9007CFBCE /* SwiftLint */,
+				B52A6C1E1E36B242005893D2 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -999,8 +964,6 @@
 				B54BC8B51E36A9DC0043F248 /* Sources */,
 				B54BC8B61E36A9DC0043F248 /* Frameworks */,
 				B54BC8B71E36A9DC0043F248 /* Resources */,
-				C61E15331B32E3E40C22FCED /* [CP] Embed Pods Frameworks */,
-				5094F9B947BC38FA2EC622F9 /* [CP] Copy Pods Resources */,
 				B5872B231F28CA97007CFBCE /* ShellScript */,
 			);
 			buildRules = (
@@ -1021,8 +984,6 @@
 				B54BC8C01E36A9DC0043F248 /* Sources */,
 				B54BC8C11E36A9DC0043F248 /* Frameworks */,
 				B54BC8C21E36A9DC0043F248 /* Resources */,
-				3AB8904C27EF3B5D589F5DD7 /* [CP] Embed Pods Frameworks */,
-				FE5C08E6C9165E17FAEB8166 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1061,7 +1022,6 @@
 				B58678E01EAFCF4A005321CA /* Frameworks */,
 				B58678E11EAFCF4A005321CA /* Resources */,
 				A5F2C0595FD15E4B434800BE /* [CP] Embed Pods Frameworks */,
-				32F24A44CAC88BA4256ED9B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1084,6 +1044,7 @@
 				TargetAttributes = {
 					B54BC8A21E36A9DB0043F248 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1100,13 +1061,14 @@
 					B54BC8B81E36A9DC0043F248 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5Y92JCRVR7;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B54BC8A21E36A9DB0043F248;
 					};
 					B54BC8C31E36A9DC0043F248 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5Y92JCRVR7;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B54BC8A21E36A9DB0043F248;
 					};
@@ -1124,9 +1086,13 @@
 					};
 					B58678E21EAFCF4A005321CA = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes.watchos.extension = {
 								enabled = 1;
 							};
 							com.apple.Keychain = {
@@ -1141,6 +1107,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1210,17 +1177,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Offradio/Pods-Offradio-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Offradio/Pods-Offradio-resources.sh",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
-				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Offradio/Pods-Offradio-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Offradio/Pods-Offradio-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		0923F246011818820D9E7391 /* [CP] Check Pods Manifest.lock */ = {
@@ -1238,52 +1204,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		32F24A44CAC88BA4256ED9B6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3AB8904C27EF3B5D589F5DD7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioUITests/Pods-OffradioUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5094F9B947BC38FA2EC622F9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5C47F303EC25D9C9A864CC25 /* [CP] Check Pods Manifest.lock */ = {
@@ -1301,7 +1222,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		67802758F0E08A4AEC03C5A1 /* [CP] Check Pods Manifest.lock */ = {
@@ -1319,7 +1240,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A5F2C0595FD15E4B434800BE /* [CP] Embed Pods Frameworks */ = {
@@ -1328,20 +1249,24 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HTMLEntities-watchOS/HTMLEntities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher-watchOS/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa-watchOS/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift-watchOS/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-watchOS/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HTMLEntities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B52A6C1E1E36B242005893D2 /* Fabric */ = {
@@ -1356,7 +1281,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" fe804b3ccea4e9e56a4730e91c304d42292404f9 420e31e0e1a80f4d057ce561b6a5177201e4289671991538ab3656afcdf3f4f7";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" fe804b3ccea4e9e56a4730e91c304d42292404f9 420e31e0e1a80f4d057ce561b6a5177201e4289671991538ab3656afcdf3f4f7\n";
 		};
 		B5872B231F28CA97007CFBCE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1383,22 +1308,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-		C61E15331B32E3E40C22FCED /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioTests/Pods-OffradioTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		D07345AF44A5FDFE72120D15 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1406,36 +1316,39 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Offradio/Pods-Offradio-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Offradio/Pods-Offradio-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/AutoScrollLabel/AutoScrollLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/HTMLEntities-iOS/HTMLEntities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher-iOS/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa-iOS/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift-iOS/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/StreamingKit/StreamingKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-iOS/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ToggleSwitch/ToggleSwitch.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoScrollLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HTMLEntities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -1445,13 +1358,16 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StreamingKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ToggleSwitch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Offradio/Pods-Offradio-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Offradio/Pods-Offradio-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F47790714685A2E73A650C63 /* [CP] Check Pods Manifest.lock */ = {
@@ -1469,22 +1385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FE5C08E6C9165E17FAEB8166 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OffradioUITests/Pods-OffradioUITests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1508,7 +1409,6 @@
 				B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */,
 				B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */,
 				B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */,
-				B59A88E41F27AD05003509C3 /* ParseError.swift in Sources */,
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
@@ -1536,11 +1436,9 @@
 				B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */,
 				B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */,
 				B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */,
-				B59A88E51F27AD05003509C3 /* String+HTMLEntities.swift in Sources */,
 				B50395701E4BCA0100D9A71B /* PlaylistService.swift in Sources */,
 				B54E08841E4D242A00B54FB3 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				B5BA383E1E4F67CB00DB49C9 /* PlaylistTableViewCell.swift in Sources */,
-				B59A88E31F27AD05003509C3 /* Constants.swift in Sources */,
 				B5483B961EB4F44E004AC6BF /* Song.swift in Sources */,
 				B503957A1E4BEB5E00D9A71B /* Configurable.swift in Sources */,
 				B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */,
@@ -1550,7 +1448,6 @@
 				B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */,
 				B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */,
 				B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */,
-				B59A88E61F27AD05003509C3 /* Utilities.swift in Sources */,
 				B5BC8DF01F700F85007F5519 /* iTunesSearchAPI.swift in Sources */,
 				B507C0A61E56869800792414 /* DataLayer.swift in Sources */,
 				B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */,
@@ -1564,7 +1461,6 @@
 				B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */,
 				B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */,
 				B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */,
-				B5C44A311F9D19BA00D09CA6 /* M3UService.swift in Sources */,
 				B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */,
 				B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */,
 				B54AAF2D1F96ABB70005C952 /* BundleExtensions.swift in Sources */,
@@ -1608,14 +1504,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B59A88E81F27ADC2003509C3 /* ParseError.swift in Sources */,
 				B5483B991EB4F813004AC6BF /* PlaylistTableViewRow.swift in Sources */,
 				B5483B921EB4EFA2004AC6BF /* InterfaceController.swift in Sources */,
 				B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */,
 				B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */,
 				B52C2D481EB1091700AF8514 /* OffradioWatchRadioAction.swift in Sources */,
-				B59A88EA1F27ADC2003509C3 /* Utilities.swift in Sources */,
-				B59A88E71F27ADC2003509C3 /* Constants.swift in Sources */,
 				B52C2D421EB0F18700AF8514 /* Radio.swift in Sources */,
 				B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */,
 				B5483B931EB4EFA2004AC6BF /* PlaylistController.swift in Sources */,
@@ -1624,7 +1517,6 @@
 				B58E755B1EB39F9100D06C15 /* Show.swift in Sources */,
 				B5483B971EB4F489004AC6BF /* Song.swift in Sources */,
 				B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */,
-				B59A88E91F27ADC2003509C3 /* String+HTMLEntities.swift in Sources */,
 				B5483B911EB4EFA2004AC6BF /* CurrentTrackController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1779,13 +1671,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
-				CURRENT_PROJECT_VERSION = 148;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 160;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Offradio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
@@ -1793,8 +1686,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1806,12 +1698,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
-				CURRENT_PROJECT_VERSION = 148;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 160;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Offradio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
@@ -1819,8 +1712,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1837,7 +1729,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.OffradioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Offradio.app/Offradio";
 			};
 			name = Debug;
@@ -1854,7 +1746,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.OffradioTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Offradio.app/Offradio";
 			};
 			name = Release;
@@ -1869,7 +1761,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.OffradioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Offradio;
 			};
 			name = Debug;
@@ -1884,7 +1776,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.OffradioUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = Offradio;
 			};
 			name = Release;
@@ -1897,7 +1789,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 145;
+				CURRENT_PROJECT_VERSION = 160;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1905,7 +1797,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
@@ -1919,7 +1811,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 145;
+				CURRENT_PROJECT_VERSION = 160;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -1927,7 +1819,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
@@ -1940,15 +1832,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
-				CURRENT_PROJECT_VERSION = 145;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 160;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				IBSC_MODULE = OffradioWatchKit_Extension;
 				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
@@ -1961,15 +1855,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
-				CURRENT_PROJECT_VERSION = 145;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 160;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				IBSC_MODULE = OffradioWatchKit_Extension;
 				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};

@@ -13,75 +13,75 @@ import RxRealm
 import Crashlytics
 
 final class NowPlayingViewModel {
-    fileprivate let disposeBag = DisposeBag()
+    fileprivate let radioMetadata: RadioMetadata
+    fileprivate let favouritesLayer: PlaylistFavouritesLayer
 
-    fileprivate var radioMetadata: RadioMetadata!
-    fileprivate var favouritesLayer: PlaylistFavouritesLayer!
-
-    var nowPlaying: Variable<NowPlaying>? {
-        if let metadata = self.radioMetadata {
-            return metadata.nowPlaying
-        }
-        return nil
+    var nowPlaying: BehaviorRelay<NowPlaying> {
+        return self.radioMetadata.nowPlaying
     }
+    
+    let viewWillAppear = PublishRelay<Void>()
+    let markTrackAsFavourite = PublishSubject<Bool>()
 
-    let favouriteTrack: Variable<Bool>       = Variable<Bool>(false)
-    let currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(CurrentTrack.empty)
-    let show: Variable<Show>                 = Variable<Show>(Show.default)
+    let favouriteTrack: Driver<Bool>
+    let currentTrack: Driver<CurrentTrack>
+    let show: Driver<Show>
 
     init(with radioMetadata: RadioMetadata) {
         self.radioMetadata = radioMetadata
 
         self.favouritesLayer = PlaylistFavouritesLayer()
 
-        self.radioMetadata.nowPlaying.asObservable()
+        let nowPlaying  = self.radioMetadata.nowPlaying
+            .share(replay: 1, scope: .whileConnected)
+        
+        self.show = nowPlaying
             .map { $0.show }
             .startWith(Show.default)
-            .bind(to: show)
-            .addDisposableTo(disposeBag)
+            .asDriver(onErrorJustReturn: .default)
 
-        self.radioMetadata.nowPlaying.asObservable()
+        self.currentTrack = nowPlaying
             .map { $0.current }
             .startWith(CurrentTrack.default)
-            .do(onNext: { [weak self] track in
-                guard let sSelf = self else { return }
+            .asDriver(onErrorJustReturn: .default)
+        
+        let checkIfFavourite = self.viewWillAppear
+            .withLatestFrom(self.currentTrack.asObservable())
+            .flatMapLatest { [favouritesLayer] track -> Observable<Bool> in
                 if track != CurrentTrack.default {
-                    sSelf.favouriteTrack.value = sSelf.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track)
+                    let isFavourite = favouritesLayer.isFavourite(for: track.artist, songTitle: track.track)
+                    return .just(isFavourite)
                 }
-            })
-            .bind(to: currentTrack)
-            .addDisposableTo(disposeBag)
-
-        self.favouriteTrack.asObservable()
-            .subscribe(onNext: { [weak self] (favourite) in
-                guard let sSelf = self else { return }
-                let track = sSelf.currentTrack.value
-                if favourite && !sSelf.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) {
+                return .just(false)
+            }
+        
+        let markAsFavourite = markTrackAsFavourite.asObservable()
+            .withLatestFrom(self.currentTrack.asObservable()) { ($0, $1) }
+            .flatMapLatest { [favouritesLayer] (shouldFavourite, track) -> Observable<Bool> in
+                if shouldFavourite && !favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) {
                     let model = track.toPlaylistSong()
-                    try? sSelf.favouritesLayer.createFavourite(with: model)
-                    sSelf.trackAddedSong(with: track.toSong())
-                } else if !favourite {
-                    try? sSelf.favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
-                    sSelf.trackRemovedSong(with: track.toSong())
+                    try? favouritesLayer.createFavourite(with: model)
+                    NowPlayingViewModel.trackAddedSong(with: track.toSong())
+                    return .just(true)
+                } else if !shouldFavourite {
+                    try? favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
+                    NowPlayingViewModel.trackRemovedSong(with: track.toSong())
+                    return .just(false)
                 }
-
-            }).addDisposableTo(disposeBag)
+                return .just(false)
+            }
+        
+        self.favouriteTrack = Observable.merge(checkIfFavourite, markAsFavourite)
+            .asDriver(onErrorJustReturn: false)
 
     }
 
-    func checkForUpdatesInFavourite() {
-        let track = self.currentTrack.value
-        if track != CurrentTrack.default {
-            self.favouriteTrack.value = self.favouritesLayer.isFavourite(for: track.artist, songTitle: track.track)
-        }
-    }
-
-    private func trackAddedSong(with song: Song) {
+    private static func trackAddedSong(with song: Song) {
         let attributes: [String: Any] = ["song": song.title]
         Answers.logContentView(withName: "Added favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
     }
 
-    private func trackRemovedSong(with song: Song) {
+    private static func trackRemovedSong(with song: Song) {
         let attributes: [String: Any] = ["song": song.title]
         Answers.logContentView(withName: "Removed favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
     }

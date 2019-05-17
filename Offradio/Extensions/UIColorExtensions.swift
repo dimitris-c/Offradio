@@ -20,7 +20,7 @@ extension UIColor {
     convenience init?(hex: String, alpha: Float = 1.0) {
         var hexString: String = hex
         if hex.hasPrefix("#") {
-            hexString = String(hex.characters.dropFirst())
+            hexString = String(hex.dropFirst())
         }
         var hexValue: UInt32 = 0
         guard Scanner(string: hexString).scanHexInt32(&hexValue) else {

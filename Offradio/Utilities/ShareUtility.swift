@@ -37,11 +37,10 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
     class func shareOnFacebook(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
         guard let viewController = viewController else { return }
         print("Sharing on Facebook")
-        let shareContent = FBSDKShareLinkContent()
-        shareContent.contentURL = URL(string: "http://www.offradio.gr")
-        shareContent.ref = "offradio_ios_app"
+        let shareContent = ShareLinkContent()
+        shareContent.contentURL = URL(string: "http://www.offradio.gr")!
 
-        FBSDKShareDialog.show(from: viewController, with: shareContent, delegate: nil)
+        ShareDialog(fromViewController: viewController, content: shareContent, delegate: nil).show()
     }
 
     class func shareOnTwitter(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
@@ -87,13 +86,13 @@ struct TwitterTitleFactory {
 
     func title(with nowPlaying: NowPlaying) -> String {
         var fullTitle = "\(firstPart) Listening to \(nowPlaying.show.name) \(hashtag) \(nowPlaying.current.title) \(mention)"
-        if fullTitle.characters.count > limit {
+        if fullTitle.count > limit {
             fullTitle = "\(firstPart) Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
         }
-        if fullTitle.characters.count > limit {
+        if fullTitle.count > limit {
             fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
         }
-        if fullTitle.characters.count > limit {
+        if fullTitle.count > limit {
             fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
         }
         return fullTitle

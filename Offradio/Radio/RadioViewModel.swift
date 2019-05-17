@@ -8,85 +8,70 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import Crashlytics
 import StreamingKit
 
-final class RadioViewModel: NSObject, STKAudioPlayerDelegate {
+final class RadioViewModel {
 
-    let disposeBag: DisposeBag = DisposeBag()
+    final private(set) var radio: Offradio
 
-    final private(set) var radio: Offradio!
+    let toggleRadioTriggered: PublishSubject<Bool> = PublishSubject<Bool>()
 
-    let toggleRadio: BehaviorSubject<Bool> = BehaviorSubject<Bool>(value: false)
+    let radioState: Signal<RadioState>
+    let isBuffering: Signal<Bool>
+    let isPlaying: Signal<Bool>
 
-    let isBuffering: Variable<Bool> = Variable<Bool>(false)
-    let isPlaying: Variable<Bool> = Variable<Bool>(false)
+    let nowPlaying: Driver<NowPlaying>
 
-    let nowPlaying: Variable<NowPlaying> = Variable<NowPlaying>(NowPlaying.empty)
-
-    let watchCommunication: OffradioWatchCommunication!
+    let watchCommunication: OffradioWatchCommunication
 
     init(with radio: Offradio, and watchCommunication: OffradioWatchCommunication) {
         self.radio = radio
         self.watchCommunication = watchCommunication
-        super.init()
 
-        self.radio.kit.delegate = self
-
-        toggleRadio.asObservable()
-            .subscribe(onNext: { [weak self] shouldTurnRadioOn in
+        nowPlaying = radio.metadata.nowPlaying.asDriver()
+            .do(onNext: { [watchCommunication] track in
+                watchCommunication.sendCurrentTrack(with: track.current)
+            })
+        
+        self.radioState = toggleRadioTriggered
+            .asObservable()
+            .do(onNext: { [radio] shouldTurnRadioOn in
                 if shouldTurnRadioOn {
-                    self?.radio.start()
+                    radio.start()
                 } else {
-                    self?.radio.stop()
+                    radio.stop()
                 }
             })
-            .addDisposableTo(disposeBag)
-
-        radio.metadata.nowPlaying.asObservable()
-            .do(onNext: { [weak self] track in
-                self?.watchCommunication.sendCurrentTrack(with: track.current)
+            .flatMap({ _ -> Observable<RadioState> in
+                return radio.stateChanged.map({ state -> RadioState in
+                    switch state {
+                    case STKAudioPlayerState.buffering:
+                        return .buffering
+                    case STKAudioPlayerState.playing:
+                        return .playing
+                    case STKAudioPlayerState.buffering:
+                        return .buffering
+                    case STKAudioPlayerState.stopped:
+                        return .stopped
+                    default: return .stopped
+                    }
+                })
             })
-            .bind(to: nowPlaying)
-            .addDisposableTo(disposeBag)
-
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, stateChanged state: STKAudioPlayerState, previousState: STKAudioPlayerState) {
-        if state == STKAudioPlayerState.buffering {
-            isBuffering.value = true
-            isPlaying.value = false
-        } else if state == STKAudioPlayerState.playing {
-            isBuffering.value = false
-            isPlaying.value = true
-            watchCommunication.sendTurnRadioOn()
-        } else if state == STKAudioPlayerState.stopped {
-            isBuffering.value = false
-            isPlaying.value = false
-            watchCommunication.sendTurnRadioOff()
-        }
-        Log.debug("audio player state changed: \(state)")
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didReadStreamMetadata dictionary: [AnyHashable : Any]) {
-        Log.debug("audio player received metadata: \(dictionary)")
-        self.radio.metadata.forceRefresh()
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didStartPlayingQueueItemId queueItemId: NSObject) {
-        Log.debug("audio player did start playing")
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishBufferingSourceWithQueueItemId queueItemId: NSObject) {
-        Log.debug("audio player did finish buffering")
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishPlayingQueueItemId queueItemId: NSObject, with stopReason: STKAudioPlayerStopReason, andProgress progress: Double, andDuration duration: Double) {
-        Log.debug("audio player did finish playing reason: \(stopReason)")
-    }
-
-    func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
-        Log.debug("audio player error: \(errorCode)")
+            .asSignal(onErrorSignalWith: .empty())
+        
+        self.isPlaying = self.radioState.map { $0 == .playing }
+            .do(onNext: { _ in
+                watchCommunication.sendTurnRadioOn()
+            })
+            .startWith(false)
+        self.isBuffering = self.radioState.map { $0 == .buffering }
+            .do(onNext: { _ in
+                watchCommunication.sendTurnRadioOff()
+            })
+            .startWith(false)
+        
     }
 
 }

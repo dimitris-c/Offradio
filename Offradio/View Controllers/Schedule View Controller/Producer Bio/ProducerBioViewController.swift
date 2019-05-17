@@ -45,13 +45,13 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.addSubview(self.scrollViewContainer)
 
         self.producerTopView = UIView(frame: .zero)
-        self.producerTopView.backgroundColor = UIColor(red:0.08, green:0.08, blue:0.08, alpha:1.00)
+        self.producerTopView.backgroundColor = UIColor(red: 0.08, green: 0.08, blue: 0.08, alpha: 1.00)
         self.scrollViewContainer.addSubview(self.producerTopView)
 
         self.producerImageView = UIImageView(frame: .zero)
         self.producerTopView.addSubview(self.producerImageView)
 
-        self.producerImageViewIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        self.producerImageViewIndicator = UIActivityIndicatorView(style: .white)
         self.producerImageViewIndicator.startAnimating()
         self.producerImageView.addSubview(self.producerImageViewIndicator)
 
@@ -104,8 +104,8 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerTopView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: topViewHeight)
 
         self.producerImageView.sizeToFit()
-        self.producerImageView.frame.size = CGSize.deviceValue(iPhone: CGSize(width: 240, height: 240),
-                                                               iPad: CGSize(width: 320, height: 320))
+        let imageHeight = topViewHeight - 60
+        self.producerImageView.frame.size = CGSize(width: imageHeight, height: imageHeight)
         self.producerImageView.center.x = self.producerTopView.center.x
         self.producerImageView.frame.origin.y = CGFloat.deviceValue(iPhone: 20, iPad: 40)
 
@@ -116,8 +116,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerNameLabel.frame.size.width = self.scrollViewContainer.frame.width
         self.producerNameLabel.center.x = self.scrollViewContainer.center.x
 
-        let effectiveHeight = self.producerTopView.frame.height - self.producerImageView.frame.maxY
-        self.producerNameLabel.frame.origin.y = self.producerImageView.frame.maxY + (effectiveHeight - self.producerNameLabel.frame.height) * 0.5
+        self.producerNameLabel.frame.origin.y = self.producerTopView.frame.maxY + 15
 
         let contentInsetsLabel = UIEdgeInsets.deviceValue(iPhone: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20),
                                                           iPad: UIEdgeInsets(top: 30, left: 80, bottom: 30, right: 80))
@@ -125,7 +124,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerBioLabel.sizeToFit()
 
         self.producerBioLabel.center.x = self.scrollView.center.x
-        self.producerBioLabel.frame.origin.y = self.producerTopView.frame.maxY + contentInsetsLabel.top
+        self.producerBioLabel.frame.origin.y = self.producerNameLabel.frame.maxY + contentInsetsLabel.top
 
         let bottom: CGFloat = self.producerBioLabel.frame.maxY + contentInsetsLabel.bottom
 

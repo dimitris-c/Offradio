@@ -39,7 +39,7 @@ final class PlaylistViewController: UIViewController {
         self.trackAnalytics()
 
         self.tableViewActivityContainerView = UIView(frame: .zero)
-        self.tableViewActivityView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+        self.tableViewActivityView = UIActivityIndicatorView(style: .white)
         self.tableViewActivityContainerView.addSubview(self.tableViewActivityView)
 
         self.tableView = UITableView(frame: .zero)
@@ -51,7 +51,7 @@ final class PlaylistViewController: UIViewController {
         self.tableView.tableFooterView = self.tableViewActivityContainerView
         self.view.addSubview(self.tableView)
 
-        self.initialLoadActivityView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        self.initialLoadActivityView = UIActivityIndicatorView(style: .whiteLarge)
         self.initialLoadActivityView.startAnimating()
         self.view.addSubview(self.initialLoadActivityView)
 
@@ -61,7 +61,7 @@ final class PlaylistViewController: UIViewController {
         favouritesListButton.sizeToFit()
         favouritesListButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
                 self?.showFavouritesList()
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favouritesListButton)
 
         self.viewModel = PlaylistViewModel(viewWillAppear: rx.viewWillAppear.asDriver(),
@@ -75,32 +75,32 @@ final class PlaylistViewController: UIViewController {
                 cell.configure(with: model)
                 cell.delegate = self
                 cell.showSwipe(orientation: .right)
-            }.addDisposableTo(disposeBag)
+            }.disposed(by: disposeBag)
 
         self.refreshControl = UIRefreshControl()
         if #available(iOS 10.0, *) {
             self.tableView.refreshControl = self.refreshControl
         } else {
             tableView?.addSubview(refreshControl)
-            tableView.sendSubview(toBack: refreshControl)
+            tableView.sendSubviewToBack(refreshControl)
         }
 
         self.refreshControl.rx.controlEvent(.valueChanged)
             .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? false) }
             .bind(to: self.viewModel.refresh)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.viewModel.refresh.asObservable()
             .bind(to: self.refreshControl.rx.isRefreshing)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.viewModel.indicatorViewAnimating.asObservable()
             .bind(to: self.tableViewActivityView.rx.isAnimating)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         self.viewModel.initialLoad.asObservable()
             .bind(to: self.initialLoadActivityView.rx.isAnimating)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 
@@ -155,7 +155,6 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
                         if let url = URL(string: value) {
                             UIApplication.open(url: url)
                         }
-                        break
                     case .failure(let error):
                         if error == .noResult {
                             sSelf.showAlert(title: "Error", message: "Could not find song on iTunes.")

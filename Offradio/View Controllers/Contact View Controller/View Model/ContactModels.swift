@@ -8,11 +8,20 @@
 
 import UIKit
 
-enum ContactItemType {
+enum ContactItemType: CaseIterable {
     case facebook
     case twitter
     case email
     case visit
+    
+    var title: String {
+        switch self {
+        case .facebook: return "Offradio on Facebook"
+        case .twitter: return "Offradio on Twitter"
+        case .email: return "Email Offradio"
+        case .visit: return "Visit Offradio.gr"
+        }
+    }
 }
 
 struct ContactItem {

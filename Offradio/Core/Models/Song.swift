@@ -7,6 +7,7 @@
 //
 
 import SwiftyJSON
+import HTMLEntities
 /// Alias of PlaylistSong for use in watch without Realm dependancies
 struct Song {
     let time: String

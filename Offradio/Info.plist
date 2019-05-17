@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>4.2</string>
+	<string>4.5</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -47,7 +47,7 @@
 		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>151</string>
+	<string>161</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -82,6 +82,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This is used to stream better quality</string>
 	<key>NSSupportsSuddenTermination</key>
 	<false/>
 	<key>UIAppFonts</key>
@@ -135,28 +137,17 @@
 	<true/>
 	<key>UIRequiresPersistentWiFi</key>
 	<true/>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
-	<key>UIStatusBarTintParameters</key>
-	<dict>
-		<key>UINavigationBar</key>
-		<dict>
-			<key>Style</key>
-			<string>UIBarStyleDefault</string>
-			<key>Translucent</key>
-			<false/>
-		</dict>
-	</dict>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
 </dict>
 </plist>

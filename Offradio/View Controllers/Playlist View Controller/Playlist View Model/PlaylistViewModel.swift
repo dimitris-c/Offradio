@@ -52,7 +52,7 @@ final class PlaylistViewModel {
                 strongSelf.page = 0
                 strongSelf.fetchPlaylist(withPage: 0)
             }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
         viewWillAppear.asObservable()
             .take(1)
@@ -61,7 +61,7 @@ final class PlaylistViewModel {
                 guard let sSelf = self else { return }
                 sSelf.fetchPlaylist(withPage: page)
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
         scrollViewDidReachBottom.asObservable().subscribe(onNext: { [weak self] _ in
             guard let strongSelf = self, !strongSelf.indicatorViewAnimating.value else { return }
@@ -69,7 +69,7 @@ final class PlaylistViewModel {
                 strongSelf.fetchPlaylist(withPage: strongSelf.page)
                 strongSelf.indicatorViewAnimating.value = true
             }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
 
     }
 
@@ -78,10 +78,8 @@ final class PlaylistViewModel {
             switch provider {
             case .itunes:
                 searchOniTunes(for: item, completion: completion)
-                break
             case .spotify:
                 searchOnSpotifty(for: item, completion: completion)
-                break
             }
         }
     }
@@ -91,8 +89,8 @@ final class PlaylistViewModel {
     fileprivate func searchOniTunes(`for` item: PlaylistSong, completion: @escaping SearchBlock) {
         itunesService.request(.search(with: item)) { result in
             do {
-                let data = try result.dematerialize().data
-                let json = JSON(data: data)
+                let data = try result.get().data
+                let json = try JSON(data: data)
                 if let urlString = json["results"].arrayValue.first?["trackViewUrl"].stringValue {
                     completion(.success(urlString))
                 } else {
@@ -128,10 +126,8 @@ final class PlaylistViewModel {
                     strongSelf.indicatorViewAnimating.value = false
                     strongSelf.initialLoad.value = false
                 } catch { }
-                break
             case .failure(let error):
                 Log.debug(error.localizedDescription)
-                break
             }
         }
     }

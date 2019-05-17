@@ -20,8 +20,8 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
     
     func activate() {
         if WCSession.isSupported() {
-            WCSession.default().delegate = self
-            WCSession.default().activate()
+            WCSession.default.delegate = self
+            WCSession.default.activate()
         }
     }
     

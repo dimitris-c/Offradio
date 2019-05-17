@@ -52,11 +52,7 @@ final class MainTabBarViewController: UITabBarController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
-
-    override var shouldAutorotate: Bool {
-        return false
+        return .allButUpsideDown
     }
 
     // MARK: View Controllers

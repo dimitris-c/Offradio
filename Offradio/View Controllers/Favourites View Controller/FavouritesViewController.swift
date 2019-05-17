@@ -48,11 +48,11 @@ final class FavouritesViewController: UIViewController {
         let identifier = PlaylistTableViewCell.identifier
         let cellType = PlaylistTableViewCell.self
 
-        self.viewModel.playlistData.asObservable()
-            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, model, cell in
+        self.viewModel.playlistData
+            .drive(tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, model, cell in
                 cell.shownInFavouritesList = true
                 cell.configure(with: model)
-            }.addDisposableTo(disposeBag)
+            }.disposed(by: disposeBag)
 
     }
 
