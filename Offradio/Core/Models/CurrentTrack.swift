@@ -42,7 +42,7 @@ struct CurrentTrack: Equatable {
 
     func update(with lastFmImageUrl: String) -> CurrentTrack {
         return CurrentTrack(track: self.track,
-                            image: self.image,
+                            image: lastFmImageUrl,
                             artist: self.artist,
                             lastFMImageUrl: lastFmImageUrl)
     }
