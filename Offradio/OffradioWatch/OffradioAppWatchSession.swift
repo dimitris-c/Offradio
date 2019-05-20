@@ -36,7 +36,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
         self.parseMessage(with: message)
     }
 
-    func session(_ session: WCSession, didReceiveMessage message: [String: Any], replyHandler: @escaping ([String : Any]) -> Void) {
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any], replyHandler: @escaping ([String: Any]) -> Void) {
         let application = UIApplication.shared
         var identifier = UIBackgroundTaskIdentifier.invalid
         let endBlock = {
@@ -57,7 +57,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     func sessionDidDeactivate(_ session: WCSession) {
-
+        self.activate()
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) {
