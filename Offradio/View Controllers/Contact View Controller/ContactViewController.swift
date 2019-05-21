@@ -49,7 +49,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol, UITable
         self.funkytapsLogo.setBackgroundImage(#imageLiteral(resourceName: "created-by-funkytaps"), for: .normal)
 
         self.funkytapsLogo.rx.tap.subscribe(onNext: {
-            UIApplication.open(url: URL(string: "http://www.niceandneat.gr")!)
+            UIApplication.shared.open(URL(string: "http://www.niceandneat.gr")!)
         }).disposed(by: disposeBag)
 
         self.view.addSubview(self.funkytapsLogo)
@@ -101,27 +101,22 @@ final class ContactViewController: UIViewController, TabBarItemProtocol, UITable
     }
 
     final fileprivate func showFacebookPage() {
-        guard let url = URL(string: "https://www.facebook.com/turnyourradiooff"),
-            let directUrl = URL(string: "fb://profile/26061842985") else {
-            return
+        if let directUrl = URL(string: "fb://profile/26061842985") {
+            UIApplication.shared.open(directUrl)
         }
-
-        let directOpened = UIApplication.open(url: directUrl)
-        if !directOpened {
-            UIApplication.open(url: url)
+        
+        if let url = URL(string: "https://www.facebook.com/turnyourradiooff") {
+            UIApplication.shared.open(url)
         }
-
     }
 
     final fileprivate func showTwitterPage() {
-        guard let url = URL(string: "http://www.twitter.com/offradio"),
-            let directUrl = URL(string: "twitter://user?screen_name=offradio") else {
-                return
+        if let directUrl = URL(string: "twitter://user?screen_name=offradio") {
+            UIApplication.shared.open(directUrl)
         }
-
-        let directOpened = UIApplication.open(url: directUrl)
-        if !directOpened {
-            UIApplication.open(url: url)
+        
+        if let url = URL(string: "http://www.twitter.com/offradio") {
+            UIApplication.shared.open(url)
         }
     }
 
@@ -143,9 +138,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol, UITable
         guard let url = URL(string: "http://www.offradio.gr") else {
             return
         }
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
+        UIApplication.shared.open(url)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

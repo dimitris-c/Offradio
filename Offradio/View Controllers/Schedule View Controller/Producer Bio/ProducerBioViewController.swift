@@ -19,7 +19,6 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
     fileprivate var producerTopView: UIView!
     fileprivate var producerImageView: UIImageView!
-    fileprivate var producerImageViewIndicator: UIActivityIndicatorView!
     fileprivate var producerNameLabel: UILabel!
     fileprivate var producerBioLabel: UILabel!
 
@@ -50,10 +49,6 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
         self.producerImageView = UIImageView(frame: .zero)
         self.producerTopView.addSubview(self.producerImageView)
-
-        self.producerImageViewIndicator = UIActivityIndicatorView(style: .white)
-        self.producerImageViewIndicator.startAnimating()
-        self.producerImageView.addSubview(self.producerImageViewIndicator)
 
         if let imageUrl = URL(string: self.producer.photoUrl) {
             self.loadProducerImage(with: imageUrl)
@@ -109,9 +104,6 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerImageView.center.x = self.producerTopView.center.x
         self.producerImageView.frame.origin.y = CGFloat.deviceValue(iPhone: 20, iPad: 40)
 
-        self.producerImageViewIndicator.sizeToFit()
-        self.producerImageViewIndicator.center = CGPoint(x: self.producerImageView.bounds.midX, y: self.producerImageView.bounds.midY)
-
         self.producerNameLabel.sizeToFit()
         self.producerNameLabel.frame.size.width = self.scrollViewContainer.frame.width
         self.producerNameLabel.center.x = self.scrollViewContainer.center.x
@@ -147,17 +139,8 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
     }
 
     private func loadProducerImage(with imageUrl: URL) {
-        self.producerImageView.kf.setImage(with: imageUrl) { [weak self] (_, _, cacheType, _) in
-            if cacheType == .none {
-                self?.producerImageView.alpha = 0.0
-                UIView.animate(withDuration: 0.35, animations: {
-                    self?.producerImageView.alpha = 1.0
-                })
-            } else {
-                self?.producerImageView.alpha = 1.0
-            }
-            self?.producerImageViewIndicator?.stopAnimating()
-        }
+        self.producerImageView.kf.indicatorType = .activity
+        self.producerImageView.kf.setImage(with: imageUrl, options: [.transition(.fade(0.35))])
     }
 
 }

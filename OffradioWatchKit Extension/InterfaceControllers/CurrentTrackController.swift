@@ -89,8 +89,10 @@ class CurrentTrackController: WKInterfaceController {
     }
     
     fileprivate func loadAlbumArtwork(url: URL) {
-        KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil) { (image, error, cacheType, url) in
-            self.albumArtwork.setBackgroundImage(image)
+        KingfisherManager.shared.retrieveImage(with: url) { result in
+            if case let .success(data) = result {
+                self.albumArtwork.setBackgroundImage(data.image)
+            }
         }
     }
 }

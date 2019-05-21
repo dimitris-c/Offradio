@@ -153,7 +153,7 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
                     switch result {
                     case .success(let value):
                         if let url = URL(string: value) {
-                            UIApplication.open(url: url)
+                            UIApplication.shared.open(url)
                         }
                     case .failure(let error):
                         if error == .noResult {

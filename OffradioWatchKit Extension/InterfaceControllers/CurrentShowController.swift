@@ -52,8 +52,10 @@ class CurrentShowController: WKInterfaceController {
     }
     
     fileprivate func loadProducerArtwork(url: URL) {
-        KingfisherManager.shared.retrieveImage(with: url, options: nil, progressBlock: nil) { (image, error, cacheType, url) in
-            self.producerArtwork.setImage(image)
+        KingfisherManager.shared.retrieveImage(with: url) { result in
+            if case let .success(data) = result {
+                self.producerArtwork.setImage(data.image)
+            }
         }
     }
     

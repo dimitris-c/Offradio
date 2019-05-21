@@ -75,7 +75,6 @@
 		B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08891E4E2FB200B54FB3 /* ContactTableViewCell.swift */; };
 		B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */; };
 		B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088E1E4E307700B54FB3 /* ContactModels.swift */; };
-		B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */; };
 		B55970511F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55970501F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift */; };
 		B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F191E64857D00E5DB0E /* Offradio.swift */; };
 		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
@@ -282,7 +281,6 @@
 		B54E08891E4E2FB200B54FB3 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B54E088E1E4E307700B54FB3 /* ContactModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactModels.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		B55970501F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterFactoryMessageTests.swift; sourceTree = "<group>"; };
 		B5656F191E64857D00E5DB0E /* Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Offradio.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OffradioMetadata.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -578,7 +576,6 @@
 				B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */,
 				B50395751E4BCAE800D9A71B /* UITableViewExtensions.swift */,
 				B5FA39ED1E5DF1BE001B4760 /* UITableView+RxRealm.swift */,
-				B54E08901E4E3ED800B54FB3 /* UIApplicationExtensions.swift */,
 				B5BA38401E4F702200DB49C9 /* UIScrollView+Rx.swift */,
 				B5BA38421E4FA50100DB49C9 /* StringExtensions.swift */,
 				B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */,
@@ -1471,7 +1468,6 @@
 				B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */,
 				B543EF771F90178000E4B2AB /* AnalyticsTrackable.swift in Sources */,
 				B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */,
-				B54E08911E4E3ED800B54FB3 /* UIApplicationExtensions.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
 				B51E3FBC1E4B9F49009F4C37 /* Producer.swift in Sources */,
 				B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */,
