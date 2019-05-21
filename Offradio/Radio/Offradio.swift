@@ -35,6 +35,7 @@ final class Offradio: NSObject, RadioProtocol {
 
         self.addNotifications()
         self.configureAudioSession()
+        
     }
 
     final func setupRadio() {
@@ -75,7 +76,7 @@ final class Offradio: NSObject, RadioProtocol {
     }
 
     final fileprivate func startRadio() {
-//        self.activateAudioSession()
+        self.activateAudioSession()
         
         self.kit.play("http://s3.yesstreaming.net:7033/stream")
 //        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")

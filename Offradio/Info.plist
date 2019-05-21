@@ -84,8 +84,6 @@
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>This is used to stream better quality</string>
-	<key>NSSupportsSuddenTermination</key>
-	<false/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>LeagueGothic-Italic.otf</string>
