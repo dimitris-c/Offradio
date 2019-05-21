@@ -33,17 +33,18 @@ final class Offradio: NSObject, RadioProtocol {
 
         self.metadata = OffradioMetadata()
 
-        addNotifications()
+        self.addNotifications()
+        self.configureAudioSession()
     }
 
     final func setupRadio() {
         var options = STKAudioPlayerOptions()
         options.bufferSizeInSeconds = 0
         options.readBufferSize = 0
-        options.secondsRequiredToStartPlaying = 0.5
+        options.secondsRequiredToStartPlaying = 1
         options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
-        options.gracePeriodAfterSeekInSeconds = 0
         options.enableVolumeMixer = true
+        options.flushQueueOnSeek = true
         self.kit = STKAudioPlayer(options: options)
         self.kit.volume = 1
         self.kit.delegate = self
@@ -56,8 +57,9 @@ final class Offradio: NSObject, RadioProtocol {
     }
 
     final func stop() {
-
         self.kit.stop()
+        self.kit.dispose()
+        self.setupRadio()
         self.metadata.stopTimer()
 
         self.status = .stopped
@@ -73,10 +75,7 @@ final class Offradio: NSObject, RadioProtocol {
     }
 
     final fileprivate func startRadio() {
-        self.configureAudioSession()
-        self.activateAudioSession()
-        // http://s3.yesstreaming.net:7033/stream
-        // http://94.23.214.108/proxy/offradio2?mp=/stream
+//        self.activateAudioSession()
         
         self.kit.play("http://s3.yesstreaming.net:7033/stream")
 //        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
@@ -134,6 +133,9 @@ extension Offradio: STKAudioPlayerDelegate {
     
     func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishPlayingQueueItemId queueItemId: NSObject, with stopReason: STKAudioPlayerStopReason, andProgress progress: Double, andDuration duration: Double) {
         Log.debug("audio player did finish playing reason: \(stopReason)")
+        if stopReason == .userAction {
+            self.deactivateAudioSession()
+        }
     }
     
     func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
