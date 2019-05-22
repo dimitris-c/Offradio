@@ -30,7 +30,7 @@ final class RadioViewModel {
         self.radio = radio
         self.watchCommunication = watchCommunication
 
-        nowPlaying = radio.metadata.nowPlaying.asDriver()
+        nowPlaying = radio.metadata.nowPlaying.asDriver(onErrorJustReturn: .empty)
             .do(onNext: { [watchCommunication] track in
                 watchCommunication.sendCurrentTrack(with: track.current)
             })

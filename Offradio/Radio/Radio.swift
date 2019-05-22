@@ -21,7 +21,7 @@ protocol RadioProtocol {
 }
 
 protocol RadioMetadata {
-    var nowPlaying: BehaviorRelay<NowPlaying> { get }
+    var nowPlaying: Observable<NowPlaying> { get }
 
     func startTimer()
     func stopTimer()

@@ -28,11 +28,10 @@ final class Offradio: NSObject, RadioProtocol {
     }
 
     override init() {
+        self.metadata = OffradioMetadata()
         super.init()
         self.setupRadio()
-
-        self.metadata = OffradioMetadata()
-
+        
         self.addNotifications()
         self.configureAudioSession()
         

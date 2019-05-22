@@ -15,15 +15,36 @@ final class OffradioMetadata: RadioMetadata {
     fileprivate let disposeBag = DisposeBag()
     
     private let queue = ConcurrentDispatchQueueScheduler(qos: .background)
-    let nowPlaying = BehaviorRelay<NowPlaying>(value: .empty)
+    let nowPlaying: Observable<NowPlaying>
     
+    fileprivate let refresh = PublishRelay<Void>()
     fileprivate let crc: BehaviorRelay<String> = BehaviorRelay<String>(value: "")
     fileprivate let crcService = MoyaProvider<CRCService>()
     fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
     fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
-    fileprivate let nowPlayingParser = NowPlayingParse()
     
     fileprivate var timerDisposeBag: DisposeBag?
+    
+    public init() {
+        
+        let fetchNowPlaying = self.nowPlayingService.rx.request(.nowPlaying)
+            .observeOn(queue)
+            .mapJSON()
+            .map { NowPlaying(json: JSON($0)) }
+            .asObservable()
+            .catchErrorJustReturn(NowPlaying.default)
+        
+        nowPlaying = Observable.merge(crc.asObservable(), refresh.map { _ in "" })
+            .skipWhile { $0.isEmpty }
+            .distinctUntilChanged()
+            .flatMapLatest { _ -> Observable<NowPlaying> in
+                return fetchNowPlaying
+            }
+            .observeOn(MainScheduler.asyncInstance)
+            .catchErrorJustReturn(NowPlaying.default)
+            .share(replay: 1, scope: .whileConnected)
+            .debug()
+    }
     
     func startTimer() {
         timerDisposeBag = DisposeBag()
@@ -37,18 +58,6 @@ final class OffradioMetadata: RadioMetadata {
             .catchErrorJustReturn("")
             .bind(to: crc)
         
-        let crcDisposable = crc.asObservable()
-            .skipWhile { $0.isEmpty }
-            .distinctUntilChanged()
-            .flatMapLatest { [weak self] _ -> Observable<NowPlaying> in
-                guard let strongSelf = self else { return Observable.just(NowPlaying.default) }
-                return strongSelf.fetchNowPlaying()
-            }
-            .observeOn(MainScheduler.asyncInstance)
-            .catchErrorJustReturn(NowPlaying.default)
-            .bind(to: nowPlaying)
-        
-        timerDisposeBag?.insert(crcDisposable)
         timerDisposeBag?.insert(crcTimerDisposable)
     }
     
@@ -57,9 +66,7 @@ final class OffradioMetadata: RadioMetadata {
     }
     
     func forceRefresh() {
-        self.fetchNowPlaying()
-            .bind(to: nowPlaying)
-            .disposed(by: disposeBag)
+        refresh.accept(())
     }
 
     func fetchNowPlaying() -> Observable<NowPlaying> {
