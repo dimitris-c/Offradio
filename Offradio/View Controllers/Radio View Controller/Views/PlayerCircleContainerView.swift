@@ -16,8 +16,8 @@ final class PlayerCircleContainerView: UIView {
     fileprivate let disposeBag = DisposeBag()
 
     let switched: PublishSubject<Bool> = PublishSubject<Bool>()
-    let buffering: Variable<Bool> = Variable<Bool>(false)
-    let playing: Variable<Bool> = Variable<Bool>(false)
+    let buffering = BehaviorRelay<Bool>(value: false)
+    let playing = BehaviorRelay<Bool>(value: false)
 
     @IBOutlet weak var bufferCircle: UIImageView!
     @IBOutlet weak var offradioLogo: UIImageView!

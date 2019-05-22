@@ -17,7 +17,7 @@ final class PlaylistCellViewModel {
 
     private(set) var item: PlaylistSong!
 
-    var favourited: Variable<Bool> = Variable<Bool>(false)
+    var favourited: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     let playlistFavouritesLayer: PlaylistFavouritesLayer = PlaylistFavouritesLayer()
 
     init(with item: PlaylistSong) {
@@ -27,7 +27,7 @@ final class PlaylistCellViewModel {
     func initialise(with driver: Driver<Bool>) {
         disposeBag = DisposeBag()
 
-        favourited.value = self.playlistFavouritesLayer.isFavourite(for: self.item.artist, songTitle: self.item.songTitle)
+        favourited.accept(self.playlistFavouritesLayer.isFavourite(for: self.item.artist, songTitle: self.item.songTitle))
 
         let tapObservable = driver.asObservable().subscribe(onNext: { [weak self] shouldFavourite in
             guard let strongSelf = self else { return }
@@ -39,11 +39,11 @@ final class PlaylistCellViewModel {
             if shouldFavourite && !itemExists {
                 try? strongSelf.playlistFavouritesLayer.createFavourite(with: strongSelf.item)
                 self?.trackAddedSong(with: strongSelf.item.toSong())
-                strongSelf.favourited.value = true
+                strongSelf.favourited.accept(true)
             } else {
                 self?.trackRemovedSong(with: strongSelf.item.toSong())
                 try? strongSelf.playlistFavouritesLayer.deleteFavourite(for: artist, songTitle: songTitle)
-                strongSelf.favourited.value = false
+                strongSelf.favourited.accept(false)
             }
         })
 

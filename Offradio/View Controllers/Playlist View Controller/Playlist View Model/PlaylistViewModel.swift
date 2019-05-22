@@ -29,13 +29,13 @@ final class PlaylistViewModel {
 
     private let disposeBag = DisposeBag()
 
-    let initialLoad: Variable<Bool> = Variable<Bool>(true)
+    let initialLoad = BehaviorRelay<Bool>(value: true)
 
-    let refresh: Variable<Bool> = Variable<Bool>(false)
+    let refresh = BehaviorRelay<Bool>(value: false)
 
-    let indicatorViewAnimating: Variable<Bool> = Variable<Bool>(false)
+    let indicatorViewAnimating = BehaviorRelay<Bool>(value: false)
 
-    var playlistData: Variable<[PlaylistCellViewModel]> = Variable<[PlaylistCellViewModel]>([])
+    var playlistData = BehaviorRelay<[PlaylistCellViewModel]>(value: [])
 
     let playlistService = MoyaProvider<PlaylistService>()
     let itunesService = MoyaProvider<iTunesSearchAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
@@ -67,7 +67,7 @@ final class PlaylistViewModel {
             guard let strongSelf = self, !strongSelf.indicatorViewAnimating.value else { return }
             if strongSelf.page <= strongSelf.totalPagesToFetch {
                 strongSelf.fetchPlaylist(withPage: strongSelf.page)
-                strongSelf.indicatorViewAnimating.value = true
+                strongSelf.indicatorViewAnimating.accept(true)
             }
         }).disposed(by: disposeBag)
 
@@ -114,17 +114,20 @@ final class PlaylistViewModel {
                     let data = try response.mapJSON()
                     let json = JSON(data)
                     if strongSelf.page == 0 {
-                        strongSelf.playlistData.value = json["playlist"].arrayValue
+                        let values = json["playlist"].arrayValue
                             .map { PlaylistSong(with: $0) }
                             .map { PlaylistCellViewModel(with: $0) }
+                        strongSelf.playlistData.accept(values)
                     } else {
-                        strongSelf.playlistData.value.append(contentsOf: json["playlist"].arrayValue
+                        var updatedValues = strongSelf.playlistData.value
+                        updatedValues.append(contentsOf: json["playlist"].arrayValue
                             .map { PlaylistSong(with: $0) }.map { PlaylistCellViewModel(with: $0) })
+                        strongSelf.playlistData.accept(updatedValues)
                     }
                     strongSelf.page += 1
-                    strongSelf.refresh.value = false
-                    strongSelf.indicatorViewAnimating.value = false
-                    strongSelf.initialLoad.value = false
+                    strongSelf.refresh.accept(false)
+                    strongSelf.indicatorViewAnimating.accept(false)
+                    strongSelf.initialLoad.accept(false)
                 } catch { }
             case .failure(let error):
                 Log.debug(error.localizedDescription)

@@ -9,14 +9,15 @@
 import WatchConnectivity
 import SwiftyJSON
 import RxSwift
+import RxCocoa
 
 class OffradioWatchSession: NSObject, WCSessionDelegate {
     
     static let shared: OffradioWatchSession = OffradioWatchSession()
     
-    let radioState: Variable<RadioState> = Variable<RadioState>(.stopped)
-    let currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(CurrentTrack.default)
-    let isFavourite: Variable<Bool> = Variable<Bool>(false)
+    let radioState = BehaviorRelay<RadioState>(value: .stopped)
+    let currentTrack = BehaviorRelay<CurrentTrack>(value: CurrentTrack.default)
+    let isFavourite = BehaviorRelay<Bool>(value: false)
     
     func activate() {
         if WCSession.isSupported() {
@@ -39,19 +40,19 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
         switch action {
         case .radioStatus:
             let rawStatus = message["data"] as? Int ?? 0
-            radioState.value = RadioState(rawValue: rawStatus) ?? .stopped
+            radioState.accept(RadioState(rawValue: rawStatus) ?? .stopped)
             break
         case .toggleRadio:
             let shouldToggleRadio: Bool = message["data"] as? Bool ?? false
-            radioState.value = shouldToggleRadio ? .playing : .stopped
+            radioState.accept(shouldToggleRadio ? .playing : .stopped)
             break
         case .currentTrack:
             if let data = message["data"] as? [String: Any] {                
                 let track = CurrentTrack(json: JSON(data))
-                currentTrack.value = track
+                currentTrack.accept(track)
             }
         case .favouriteStatus:
-            self.isFavourite.value = message["data"] as? Bool ?? false
+            self.isFavourite.accept(message["data"] as? Bool ?? false)
         default:
             break
         }

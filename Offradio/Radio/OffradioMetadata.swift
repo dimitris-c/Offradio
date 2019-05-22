@@ -16,7 +16,7 @@ final class OffradioMetadata: RadioMetadata {
     
     let nowPlaying = BehaviorRelay<NowPlaying>(value: .empty)
     
-    fileprivate let crc: Variable<String> = Variable<String>("")
+    fileprivate let crc: BehaviorRelay<String> = BehaviorRelay<String>(value: "")
     fileprivate let crcService = MoyaProvider<CRCService>()
     fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
     fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()

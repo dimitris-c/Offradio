@@ -13,7 +13,7 @@ final class TrackShareViewModel {
 
     final fileprivate let disposeBag = DisposeBag()
 
-    let shareOn: Variable<ShareType> = Variable<ShareType>(.none)
+    let shareOn: BehaviorRelay<ShareType> = BehaviorRelay<ShareType>(value: .none)
 
     init(with currentTrack: Driver<CurrentTrack>) {
 

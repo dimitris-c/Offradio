@@ -16,10 +16,10 @@ import RxCocoa
 final class Offradio: NSObject, RadioProtocol {
 
     private var disposeBag = DisposeBag()
-    var kit: STKAudioPlayer = STKAudioPlayer()
+    private var kit: STKAudioPlayer = STKAudioPlayer()
 
     var status: RadioState = .stopped
-    var isInForeground: Bool = true
+    private var isInForeground: Bool = true
     var metadata: RadioMetadata = OffradioMetadata()
     
     private var stateChangedSubject = PublishSubject<STKAudioPlayerState>()
@@ -40,10 +40,6 @@ final class Offradio: NSObject, RadioProtocol {
 
     final func setupRadio() {
         var options = STKAudioPlayerOptions()
-        options.bufferSizeInSeconds = 0
-        options.readBufferSize = 0
-        options.secondsRequiredToStartPlaying = 1
-        options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
         options.enableVolumeMixer = true
         options.flushQueueOnSeek = true
         self.kit = STKAudioPlayer(options: options)
@@ -53,8 +49,10 @@ final class Offradio: NSObject, RadioProtocol {
 
     final func start() {
         guard self.status != .playing else { return }
-
+        
         self.startRadio()
+        
+        self.status = .playing
     }
 
     final func stop() {
@@ -62,9 +60,8 @@ final class Offradio: NSObject, RadioProtocol {
         self.kit.dispose()
         self.setupRadio()
         self.metadata.stopTimer()
-
+        
         self.status = .stopped
-
     }
 
     final func toggleRadio() {
@@ -78,10 +75,9 @@ final class Offradio: NSObject, RadioProtocol {
     final fileprivate func startRadio() {
         self.activateAudioSession()
         
-        self.kit.play("http://s3.yesstreaming.net:7033/stream")
-//        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
+//        self.kit.play("http://s3.yesstreaming.net:7033/stream")
+        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
         self.metadata.startTimer()
-        self.status = .playing
     }
     
     final fileprivate func configureAudioSession() {

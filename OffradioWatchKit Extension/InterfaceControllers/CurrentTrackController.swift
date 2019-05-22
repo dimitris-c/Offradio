@@ -10,6 +10,7 @@ import WatchKit
 import Kingfisher
 import WatchConnectivity
 import RxSwift
+import RxCocoa
 import SwiftyJSON
 
 class CurrentTrackController: WKInterfaceController {
@@ -20,7 +21,7 @@ class CurrentTrackController: WKInterfaceController {
     @IBOutlet var songTitle: WKInterfaceLabel!
     @IBOutlet var favouriteIcon: WKInterfaceImage!
     
-    fileprivate var currentTrack: Variable<CurrentTrack> = Variable<CurrentTrack>(CurrentTrack.empty)
+    fileprivate var currentTrack = BehaviorRelay<CurrentTrack>(value: CurrentTrack.empty)
     fileprivate var isFavourite: Bool = false
     
     override func awake(withContext context: Any?) {
@@ -35,7 +36,7 @@ class CurrentTrackController: WKInterfaceController {
         OffradioWatchSession.shared.currentTrack.asObservable()
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] track in
-                self?.currentTrack.value = track
+                self?.currentTrack.accept(track)
                 DispatchQueue.main.async {
                     self?.songTitle.setText(track.title)
                     if let url = URL(string: track.image) {
@@ -52,7 +53,7 @@ class CurrentTrackController: WKInterfaceController {
             if let data = info["data"] as? [String: Any] {
                 let json = JSON(data)
                 let track = CurrentTrack(json: json)
-                self?.currentTrack.value = track
+                self?.currentTrack.accept(track)
                 DispatchQueue.main.async {
                     self?.songTitle.setText(track.title)
                     if let url = URL(string: track.image) {

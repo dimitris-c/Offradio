@@ -15,21 +15,21 @@ import SwiftyJSON
 final class ScheduleViewModel {
     let disposeBag: DisposeBag = DisposeBag()
 
-    var firstLoad: Variable<Bool> = Variable<Bool>(true)
-    var refresh: Variable<Bool> = Variable<Bool>(false)
+    var firstLoad = BehaviorRelay<Bool>(value: true)
+    var refresh = BehaviorRelay<Bool>(value: false)
 
     fileprivate var scheduleService = MoyaProvider<ScheduleService>()
     fileprivate var producersService = MoyaProvider<ProducersBioService>()
 
-    let navigationTitle: Variable<String> = Variable<String>("Offradio")
-    let schedule: Variable<[ScheduleItem]> = Variable<[ScheduleItem]>([])
-    let producers: Variable<[Producer]> = Variable<[Producer]>([])
+    let navigationTitle = BehaviorRelay<String>(value: "Offradio")
+    let schedule = BehaviorRelay<[ScheduleItem]>(value: [])
+    let producers = BehaviorRelay<[Producer]>(value: [])
 
     init() {
 
         self.fetchSchedule()
             .do(onNext: { [weak self] schedule in
-                self?.navigationTitle.value = schedule.dayFormatted
+                self?.navigationTitle.accept(schedule.dayFormatted)
             })
             .map { $0.items }
             .catchErrorJustReturn([])
@@ -70,11 +70,11 @@ final class ScheduleViewModel {
             .asObservable()
             .map { Schedule(with: $0) }
             .do(onError: { [weak self] (_) in
-                self?.refresh.value = false
-                self?.firstLoad.value = false
+                self?.refresh.accept(false)
+                self?.firstLoad.accept(false)
             }, onCompleted: { [weak self] in
-                self?.refresh.value = false
-                self?.firstLoad.value = false
+                self?.refresh.accept(false)
+                self?.firstLoad.accept(false)
             })
     }
 
