@@ -27,7 +27,7 @@ final class OffradioMetadata: RadioMetadata {
     func startTimer() {
         timerDisposeBag = DisposeBag()
         
-        let crcTimer = Observable<Int>.timer(0, period: 14, scheduler: MainScheduler.instance)
+        let crcTimer = Observable<Int>.timer(0, period: 14, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
         let crcTimerDisposable = crcTimer.asObservable()
             .flatMapLatest({ [weak self] _ -> Observable<String> in
                 guard let strongSelf = self else { return Observable.empty() }
@@ -43,6 +43,7 @@ final class OffradioMetadata: RadioMetadata {
                 guard let strongSelf = self else { return Observable.just(NowPlaying.default) }
                 return strongSelf.fetchNowPlaying()
             }
+            .observeOn(MainScheduler.asyncInstance)
             .catchErrorJustReturn(NowPlaying.default)
             .bind(to: nowPlaying)
         
@@ -62,6 +63,7 @@ final class OffradioMetadata: RadioMetadata {
 
     func fetchNowPlaying() -> Observable<NowPlaying> {
         return self.nowPlayingService.rx.request(.nowPlaying)
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .mapJSON()
             .map { NowPlaying(json: JSON($0)) }
             .asObservable()
@@ -75,6 +77,7 @@ final class OffradioMetadata: RadioMetadata {
     fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
         let path: LastFMAPIService = .artistInfo(artist: nowPlaying.current.artist)
         return self.lastFMApiService.rx.request(path)
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .mapJSON()
             .map { JSON($0) }
             .map { LastFMArtist(with: $0["artist"]) }
