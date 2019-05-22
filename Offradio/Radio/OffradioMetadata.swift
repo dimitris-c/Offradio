@@ -18,7 +18,7 @@ final class OffradioMetadata: RadioMetadata {
     let nowPlaying: Observable<NowPlaying>
     
     fileprivate let refresh = PublishRelay<Void>()
-    fileprivate let crc: BehaviorRelay<String> = BehaviorRelay<String>(value: "")
+    fileprivate let crc = PublishRelay<String>()
     fileprivate let crcService = MoyaProvider<CRCService>()
     fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
     fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
@@ -43,7 +43,6 @@ final class OffradioMetadata: RadioMetadata {
             .observeOn(MainScheduler.asyncInstance)
             .catchErrorJustReturn(NowPlaying.default)
             .share(replay: 1, scope: .whileConnected)
-            .debug()
     }
     
     func startTimer() {
