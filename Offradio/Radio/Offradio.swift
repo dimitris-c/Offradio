@@ -39,6 +39,7 @@ final class Offradio: NSObject, RadioProtocol {
 
     final func setupRadio() {
         var options = STKAudioPlayerOptions()
+        options.bufferSizeInSeconds = 2
         options.enableVolumeMixer = true
         options.flushQueueOnSeek = true
         self.kit = STKAudioPlayer(options: options)
