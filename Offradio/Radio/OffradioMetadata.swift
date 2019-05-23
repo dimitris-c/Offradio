@@ -11,19 +11,25 @@ import RxAlamofire
 import Moya
 import SwiftyJSON
 
+enum MetadataTrigger: Equatable {
+    case crc(value: String)
+    case refresh
+    case none
+}
+
 final class OffradioMetadata: RadioMetadata {
     fileprivate let disposeBag = DisposeBag()
     
     private let queue = ConcurrentDispatchQueueScheduler(qos: .background)
     let nowPlaying: Observable<NowPlaying>
     
-    fileprivate let refresh = PublishRelay<Void>()
-    fileprivate let crc = PublishRelay<String>()
+    fileprivate let refresh = PublishRelay<MetadataTrigger>()
+    fileprivate let crcTrigger = PublishRelay<MetadataTrigger>()
+    fileprivate var crcTimerDisposable: Disposable?
+    
     fileprivate let crcService = MoyaProvider<CRCService>()
     fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
     fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
-    
-    fileprivate var timerDisposeBag: DisposeBag?
     
     public init() {
         
@@ -34,8 +40,8 @@ final class OffradioMetadata: RadioMetadata {
             .asObservable()
             .catchErrorJustReturn(NowPlaying.default)
         
-        nowPlaying = Observable.merge(crc.asObservable(), refresh.map { _ in "" })
-            .skipWhile { $0.isEmpty }
+        nowPlaying = Observable.merge(crcTrigger.asObservable(), refresh.asObservable())
+            .skipWhile { $0 == .none }
             .distinctUntilChanged()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
@@ -46,26 +52,27 @@ final class OffradioMetadata: RadioMetadata {
     }
     
     func startTimer() {
-        timerDisposeBag = DisposeBag()
-        
+        stopTimer()
         let crcTimer = Observable<Int>.timer(0, period: 14, scheduler: queue)
-        let crcTimerDisposable = crcTimer.asObservable()
-            .flatMapLatest({ [weak self] _ -> Observable<String> in
+        crcTimerDisposable = crcTimer.asObservable()
+            .flatMapLatest({ [weak self] _ -> Observable<MetadataTrigger> in
                 guard let strongSelf = self else { return Observable.empty() }
-                return strongSelf.crcService.rx.request(.crc).mapString().asObservable()
+                return strongSelf.crcService.rx.request(.crc)
+                    .mapString()
+                    .asObservable()
+                    .map { MetadataTrigger.crc(value: $0) }
             })
-            .catchErrorJustReturn("")
-            .bind(to: crc)
-        
-        timerDisposeBag?.insert(crcTimerDisposable)
+            .catchErrorJustReturn(.none)
+            .bind(to: crcTrigger)
     }
     
     func stopTimer() {
-        timerDisposeBag = nil
+        crcTimerDisposable?.dispose()
+        crcTimerDisposable = nil
     }
     
     func forceRefresh() {
-        refresh.accept(())
+        refresh.accept(.refresh)
     }
 
     func fetchNowPlaying() -> Observable<NowPlaying> {
