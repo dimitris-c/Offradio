@@ -23,6 +23,8 @@ final class OffradioMetadata: RadioMetadata {
     private let queue = ConcurrentDispatchQueueScheduler(qos: .background)
     let nowPlaying: Observable<NowPlaying>
     
+    let currentTrack = BehaviorRelay<CurrentTrack>(value: .default)
+    
     fileprivate let refresh = PublishRelay<MetadataTrigger>()
     fileprivate let crcTrigger = PublishRelay<MetadataTrigger>()
     fileprivate var crcTimerDisposable: Disposable?
@@ -45,10 +47,15 @@ final class OffradioMetadata: RadioMetadata {
             .distinctUntilChanged()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
-            }
+            }.debug()
             .observeOn(MainScheduler.asyncInstance)
             .catchErrorJustReturn(NowPlaying.default)
             .share(replay: 1, scope: .whileConnected)
+        
+        nowPlaying
+            .map { $0.current }
+            .bind(to: currentTrack)
+            .disposed(by: disposeBag)
     }
     
     func startTimer() {

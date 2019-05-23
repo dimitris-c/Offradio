@@ -10,8 +10,8 @@ import MediaPlayer
 
 final class OffradioCommandCenter {
     fileprivate final let sharedCenter = MPRemoteCommandCenter.shared()
-    fileprivate final var offradio: Offradio!
-    fileprivate final var favouritesDataLayer: PlaylistFavouritesLayer!
+    fileprivate final let offradio: Offradio
+    fileprivate final let favouritesDataLayer: PlaylistFavouritesLayer
 
     final var isEnabled: Bool {
         didSet {
@@ -70,28 +70,25 @@ final class OffradioCommandCenter {
     }
 
     fileprivate func enableLikeDislikeCommand() {
-//        self.sharedCenter.likeCommand.localizedTitle = "Add Favourite"
-//        self.sharedCenter.likeCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
-//            guard let strongSelf = self else { return .noSuchContent }
-//            let nowPlaying = strongSelf.offradio.metadata.nowPlaying.value
-//            let playlistSong = nowPlaying.current.toPlaylistSong()
-//            if !strongSelf.favouritesDataLayer.isFavourite(for: playlistSong.artist,
-//                                                           songTitle: playlistSong.songTitle) {
-//                try? strongSelf.favouritesDataLayer.createFavourite(with: playlistSong)
-//                return .success
-//            } else {
-//                return .noSuchContent
-//            }
-//        }
-//
-//        self.sharedCenter.dislikeCommand.localizedTitle = "Remove Favourite"
-//        self.sharedCenter.dislikeCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
-//            guard let strongSelf = self else { return .noSuchContent }
-//            let nowPlaying = strongSelf.offradio.metadata.nowPlaying.value
-//            try? strongSelf.favouritesDataLayer.deleteFavourite(for: nowPlaying.current.artist,
-//                                                                songTitle: nowPlaying.current.track)
-//            return .success
-//        }
+        self.sharedCenter.likeCommand.localizedTitle = "Add Favourite"
+        self.sharedCenter.likeCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let self = self else { return .noSuchContent }
+            let song = self.offradio.metadata.currentTrack.value
+            if !self.favouritesDataLayer.isFavourite(for: song.artist,
+                                                     songTitle: song.track) {
+                try? self.favouritesDataLayer.createFavourite(with: song.toPlaylistSong())
+                return .success
+            }
+            return .noSuchContent
+        }
+        self.sharedCenter.dislikeCommand.localizedTitle = "Remove Favourite"
+        self.sharedCenter.dislikeCommand.addTarget { [weak self] _ -> MPRemoteCommandHandlerStatus in
+            guard let self = self else { return .noSuchContent }
+            let song = self.offradio.metadata.currentTrack.value
+            try? self.favouritesDataLayer.deleteFavourite(for: song.artist,
+                                                          songTitle: song.track)
+            return .success
+        }
     }
-
+    
 }
