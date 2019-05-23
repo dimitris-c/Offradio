@@ -47,7 +47,7 @@ final class OffradioMetadata: RadioMetadata {
             .distinctUntilChanged()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
-            }.debug()
+            }
             .observeOn(MainScheduler.asyncInstance)
             .catchErrorJustReturn(NowPlaying.default)
             .share(replay: 1, scope: .whileConnected)
