@@ -15,12 +15,11 @@ import RxCocoa
 
 final class Offradio: NSObject, RadioProtocol {
 
-    private var disposeBag = DisposeBag()
+    private var isInForeground: Bool = true
     private var kit: STKAudioPlayer = STKAudioPlayer()
 
     var status: RadioState = .stopped
-    private var isInForeground: Bool = true
-    var metadata: RadioMetadata = OffradioMetadata()
+    let metadata: RadioMetadata
     
     private var stateChangedSubject = PublishSubject<STKAudioPlayerState>()
     var stateChanged: Observable<STKAudioPlayerState> {
@@ -30,10 +29,9 @@ final class Offradio: NSObject, RadioProtocol {
     override init() {
         self.metadata = OffradioMetadata()
         super.init()
-        self.setupRadio()
-        
-        self.addNotifications()
         self.configureAudioSession()
+        self.addNotifications()
+        self.setupRadio()
         
     }
 
@@ -75,8 +73,8 @@ final class Offradio: NSObject, RadioProtocol {
     final fileprivate func startRadio() {
         self.activateAudioSession()
         
-//        self.kit.play("http://s3.yesstreaming.net:7033/stream")
-        self.kit.play("http://94.23.214.108/proxy/offradio2?mp=/stream")
+        self.kit.play("http://s3.yesstreaming.net:7033/stream")
+        
         self.metadata.startTimer()
     }
     
@@ -190,7 +188,6 @@ extension Offradio {
     @objc final fileprivate func movedToBackground() {
         Log.debug("app moved to background")
         isInForeground = false
-        self.metadata.stopTimer()
         if self.status != .playing {
             self.deactivateAudioSession()
         }

@@ -43,7 +43,6 @@ final class OffradioMetadata: RadioMetadata {
             .catchErrorJustReturn(NowPlaying.default)
         
         nowPlaying = Observable.merge(crcTrigger.asObservable(), refresh.asObservable())
-            .skipWhile { $0 == .none }
             .distinctUntilChanged()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
@@ -60,7 +59,7 @@ final class OffradioMetadata: RadioMetadata {
     
     func startTimer() {
         stopTimer()
-        let crcTimer = Observable<Int>.timer(0, period: 14, scheduler: queue)
+        let crcTimer = Observable<Int>.timer(0, period: 20, scheduler: queue)
         crcTimerDisposable = crcTimer.asObservable()
             .flatMapLatest({ [weak self] _ -> Observable<MetadataTrigger> in
                 guard let strongSelf = self else { return Observable.empty() }
