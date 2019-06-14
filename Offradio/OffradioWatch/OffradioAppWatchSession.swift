@@ -148,17 +148,21 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     fileprivate func fetchPlaylist(withReply reply: @escaping ([Song]) -> Void) {
-        self.playlistService.request(.playlist(page: 0)) { _ in
-            reply([])
-        }
-//        self.playlistService.call(with: .playlist(page: 0), parse: PlaylistResponseParse()) { (success, result, _) in
-//            if success, let data = result.value {
-//                let songs = data.map { $0.toSong() }
-//                reply(songs)
-//                return
-//            }
-//            reply([])
-//        }
+        let disposable = self.playlistService.rx.request(.playlist(page: 0))
+            .mapJSON()
+            .map { data -> [Song] in
+                let json = JSON(data)
+                let playlist: [Song] = json["playlist"].arrayValue
+                    .map(Song.init(with:))
+                return playlist
+            }
+            .catchErrorJustReturn([])
+            .asObservable()
+            .take(1)
+            .subscribe(onNext: { songs in
+                reply(songs)
+            })
+        disposeBag?.insert(disposable)
     }
 
     fileprivate func fetchCurrentTrack(withReply reply: @escaping (CurrentTrack) -> Void) {
