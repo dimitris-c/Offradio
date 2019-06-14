@@ -6,29 +6,29 @@ PODS:
   - Crashlytics (3.13.1):
     - Fabric (~> 1.10.1)
   - Fabric (1.10.1)
-  - FBSDKCoreKit (5.0.1):
-    - FBSDKCoreKit/Basics (= 5.0.1)
-    - FBSDKCoreKit/Core (= 5.0.1)
-  - FBSDKCoreKit/Basics (5.0.1)
-  - FBSDKCoreKit/Core (5.0.1):
+  - FBSDKCoreKit (5.0.2):
+    - FBSDKCoreKit/Basics (= 5.0.2)
+    - FBSDKCoreKit/Core (= 5.0.2)
+  - FBSDKCoreKit/Basics (5.0.2)
+  - FBSDKCoreKit/Core (5.0.2):
     - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (5.0.1):
+  - FBSDKLoginKit (5.0.2):
     - FBSDKCoreKit (~> 5.0)
-  - FBSDKShareKit (5.0.1):
+  - FBSDKShareKit (5.0.2):
     - FBSDKCoreKit (~> 5.0)
   - HTMLEntities (3.0.13)
-  - Kingfisher (5.5.0)
+  - Kingfisher (5.6.0)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - Moya/RxSwift (13.0.1):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - Realm (3.16.0):
-    - Realm/Headers (= 3.16.0)
-  - Realm/Headers (3.16.0)
-  - RealmSwift (3.16.0):
-    - Realm (= 3.16.0)
+  - Realm (3.16.1):
+    - Realm/Headers (= 3.16.1)
+  - Realm/Headers (3.16.1)
+  - RealmSwift (3.16.1):
+    - Realm (= 3.16.1)
   - Result (4.1.0)
   - RxAlamofire (4.4.1):
     - RxAlamofire/Core (= 4.4.1)
@@ -120,14 +120,14 @@ SPEC CHECKSUMS:
   AutoScrollLabel: bee53a1d4532569b49cbecaf9b80ca003bed3767
   Crashlytics: 5aa8e90dcbf2f34898b4f5a0037787531246cca0
   Fabric: f6f21452846788bb44595d73e9909d79d328e617
-  FBSDKCoreKit: 4a19534474ade7c71bd016d800aa5e7722bcdda1
-  FBSDKLoginKit: 41efa754b909b0ea813fa9a8596dacc8ed196d50
-  FBSDKShareKit: 11faa09311bc009740b9a939ee2673146df2c9df
+  FBSDKCoreKit: 3e41c402eb64ea7799c71833ff9e5690f27b9c42
+  FBSDKLoginKit: a88f36da648e4c5d60eb261c63eac067abb97130
+  FBSDKShareKit: 8695bbb97c18a381bbf2851a3f24f95a59121b82
   HTMLEntities: 83738511518b3f29cf9644d0877505b8d3d1a849
-  Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
+  Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  Realm: 5ca1b8c472dfc532cd0ba0bfe2ce49f97130158f
-  RealmSwift: 2ee401dbcc188706261921326146f5a539d4d4a7
+  Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
+  RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxAlamofire: ed65f451f5a9a59419b0b9e705043dc01410edd9
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
