@@ -130,6 +130,7 @@
 		B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125231E5CC82400579D4B /* VerticalArranger.swift */; };
 		B5F125281E5CC82400579D4B /* ViewArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125241E5CC82400579D4B /* ViewArranger.swift */; };
 		B5FA39EE1E5DF1BE001B4760 /* UITableView+RxRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FA39ED1E5DF1BE001B4760 /* UITableView+RxRealm.swift */; };
+		B7CA3B6B22B66BD700BEEEA9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7CA3B6A22B66BD700BEEEA9 /* Launch Screen.storyboard */; };
 		E5E44A20BE4620E661879F5D /* Pods_OffradioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B71279240BE79BF219B25 /* Pods_OffradioUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -338,6 +339,7 @@
 		B5F125231E5CC82400579D4B /* VerticalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = VerticalArranger.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5F125241E5CC82400579D4B /* ViewArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewArranger.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5FA39ED1E5DF1BE001B4760 /* UITableView+RxRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+RxRealm.swift"; sourceTree = "<group>"; };
+		B7CA3B6A22B66BD700BEEEA9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Offradio.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Offradio/Pods-Offradio.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B751C09ECFDB3EF2CBA6FC /* Pods-OffradioWatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OffradioWatchKit Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		EDF5DBEC5F603E8970316FB8 /* Pods-TodayWidget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayWidget.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayWidget/Pods-TodayWidget.debug.xcconfig"; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 		B52A6C1F1E36B3BE005893D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B7CA3B6A22B66BD700BEEEA9 /* Launch Screen.storyboard */,
 				B52A6C201E36B3BE005893D2 /* Fonts */,
 			);
 			path = Resources;
@@ -1036,7 +1039,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = decimal;
 				TargetAttributes = {
 					B54BC8A21E36A9DB0043F248 = {
@@ -1101,10 +1104,9 @@
 			};
 			buildConfigurationList = B54BC89E1E36A9DB0043F248 /* Build configuration list for PBXProject "Offradio" */;
 			compatibilityVersion = "Xcode 8.0";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -1130,6 +1132,7 @@
 				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
 				B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
+				B7CA3B6B22B66BD700BEEEA9 /* Launch Screen.storyboard in Resources */,
 				B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1567,6 +1570,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1574,6 +1578,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1623,6 +1628,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1630,6 +1636,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1664,7 +1671,6 @@
 			baseConfigurationReference = BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1691,7 +1697,6 @@
 			baseConfigurationReference = 819B564ECCD7BD5F563B5D8C /* Pods-Offradio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
