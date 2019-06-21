@@ -31,11 +31,11 @@ class CurrentShowController: WKInterfaceController {
     override func didAppear() {
         super.didAppear()
         
-        communication.getCurrentShow { (info) in
+        communication.getCurrentShow { [weak self] (info) in
             if let data = info["data"] as? [String: Any] {
                 let json = JSON(data)
                 let show = Show(json: json)
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     self?.producerName.setText(show.name)
                     if let url = URL(string: show.photo) {
                         self?.loadProducerArtwork(url: url)
@@ -52,9 +52,9 @@ class CurrentShowController: WKInterfaceController {
     }
     
     fileprivate func loadProducerArtwork(url: URL) {
-        KingfisherManager.shared.retrieveImage(with: url) { result in
+        KingfisherManager.shared.retrieveImage(with: url) { [weak self] result in
             if case let .success(data) = result {
-                self.producerArtwork.setImage(data.image)
+                self?.producerArtwork.setImage(data.image)
             }
         }
     }

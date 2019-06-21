@@ -14,7 +14,6 @@ class PlaylistController: WKInterfaceController {
     let communication = OffradioWatchCommunication()
     
     @IBOutlet var playlistTable: WKInterfaceTable!
-    fileprivate var songs: [Song] = []
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -23,23 +22,18 @@ class PlaylistController: WKInterfaceController {
     
     override func didAppear() {
         super.didAppear()
-        self.playlistTable.setNumberOfRows(self.songs.count, withRowType: "playlistRow")
         
-        self.communication.getPlaylist { data in
+        self.communication.getPlaylist { [weak self] data in
             if let songs = data["data"] as? [[String: Any]] {
-                for songData in songs {
-                    let json = JSON(songData)
-                    let song = Song(with: json)
-                    self.songs.append(song)
-                    self.populateRows()
-                }
+                let final = songs.map { JSON($0) }.map(Song.init(with:))
+                self?.populateRows(songs: final)
             }
         }
         
     }
     
-    fileprivate func populateRows() {
-        self.playlistTable.setNumberOfRows(self.songs.count, withRowType: "playlistRow")
+    fileprivate func populateRows(songs: [Song]) {
+        self.playlistTable.setNumberOfRows(songs.count, withRowType: "playlistRow")
         for (index,song) in songs.enumerated() {
             if let cell = self.playlistTable.rowController(at: index) as? PlaylistTableViewRow {
                 cell.songTitle.setText(song.title)

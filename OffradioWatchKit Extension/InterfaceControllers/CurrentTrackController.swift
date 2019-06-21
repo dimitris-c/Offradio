@@ -65,18 +65,18 @@ class CurrentTrackController: WKInterfaceController {
     }
     
     fileprivate func checkFavouriteStatus(with track: CurrentTrack) {
-        communication.getIsFavourite(for: track) { replyInfo in
+        communication.getIsFavourite(for: track) { [weak self] replyInfo in
             let data = replyInfo["data"] as? [String: Any]
             let isFavourite: Bool = data?["isFavourite"] as? Bool ?? false
-            self.adjustFavouriteIcon(with: isFavourite)
+            self?.adjustFavouriteIcon(with: isFavourite)
         }
     }
 
     @IBAction func toggleFavourite() {
-        self.communication.toggleFavourite(for: self.currentTrack.value) { replyInfo in
+        self.communication.toggleFavourite(for: self.currentTrack.value) { [weak self] replyInfo in
             if let data = replyInfo["data"] as? [String: Any] {
                 let favourite = data["isFavourite"] as? Bool ?? false
-                self.adjustFavouriteIcon(with: favourite)
+                self?.adjustFavouriteIcon(with: favourite)
             }
         }
     }
@@ -90,9 +90,9 @@ class CurrentTrackController: WKInterfaceController {
     }
     
     fileprivate func loadAlbumArtwork(url: URL) {
-        KingfisherManager.shared.retrieveImage(with: url) { result in
+        KingfisherManager.shared.retrieveImage(with: url) { [weak self] result in
             if case let .success(data) = result {
-                self.albumArtwork.setBackgroundImage(data.image)
+                self?.albumArtwork.setBackgroundImage(data.image)
             }
         }
     }
