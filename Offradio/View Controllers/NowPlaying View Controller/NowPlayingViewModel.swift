@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import RxRealm
-import Crashlytics
+import FirebaseAnalytics
 
 final class NowPlayingViewModel {
     fileprivate let radioMetadata: RadioMetadata
@@ -78,12 +78,12 @@ final class NowPlayingViewModel {
 
     private static func trackAddedSong(with song: Song) {
         let attributes: [String: Any] = ["song": song.title]
-        Answers.logContentView(withName: "Added favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
+        Analytics.logEvent("Added favourite", parameters: attributes)
     }
 
     private static func trackRemovedSong(with song: Song) {
         let attributes: [String: Any] = ["song": song.title]
-        Answers.logContentView(withName: "Removed favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
+        Analytics.logEvent("Removed favourite", parameters: attributes)
     }
 
 }

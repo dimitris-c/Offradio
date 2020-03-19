@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import Fabric
 import TwitterKit
-import Crashlytics
 import FBSDKCoreKit
 import RealmSwift
 import AlamofireNetworkActivityIndicator
+import Firebase
+import FirebaseCrashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
         URLCache.shared = cache
 
-        Fabric.with([Crashlytics.self, Answers.self])
+//        Fabric.with([Crashlytics.self, Answers.self])
+        FirebaseApp.configure()
+        Crashlytics.crashlytics()
         TWTRTwitter.sharedInstance().start(withConsumerKey: "AfJ2HbxzaW4gvPekIwHdak4RS",
                                            consumerSecret: "KRgr4T0Yk4AeVlwDIWvUra00tjRkjhCCWUpGV3dPeoTpDKqymt")
 

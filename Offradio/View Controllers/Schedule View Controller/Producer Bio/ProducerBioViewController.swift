@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-import Crashlytics
+import FirebaseAnalytics
 
 final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
@@ -143,11 +143,4 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerImageView.kf.setImage(with: imageUrl, options: [.transition(.fade(0.35))])
     }
 
-}
-
-extension ProducersBioViewController: AnalyticsTrackable {
-    func trackAnalytics() {
-        let name: String = self.producer.name
-        Answers.logContentView(withName: "Produce Bio screen", contentType: "screen", contentId: "", customAttributes: ["name": name])
-    }
 }

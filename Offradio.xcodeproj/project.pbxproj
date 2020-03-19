@@ -43,9 +43,9 @@
 		B52C2D481EB1091700AF8514 /* OffradioWatchRadioAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52C2D461EB1090F00AF8514 /* OffradioWatchRadioAction.swift */; };
 		B52C2D4A1EB25A3100AF8514 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D491EB25A3100AF8514 /* WatchConnectivity.framework */; };
 		B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4B1EB25A3B00AF8514 /* WatchConnectivity.framework */; };
-		B52C2D4E1EB25A3B00AF8514 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4C1EB25A3B00AF8514 /* WatchKit.framework */; };
 		B52C2D501EB25A4300AF8514 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */; };
 		B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */; };
+		B53BDBBD2423DD0F001F42E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B53BDBBC2423DD0F001F42E7 /* GoogleService-Info.plist */; };
 		B53FC4751E9C04C600DC82AD /* CurrentTrackShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */; };
 		B53FC4761E9C04C600DC82AD /* TrackShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4741E9C04C600DC82AD /* TrackShareViewModel.swift */; };
 		B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4771E9C04DF00DC82AD /* ShareButton.swift */; };
@@ -248,6 +248,7 @@
 		B52C2D4C1EB25A3B00AF8514 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
 		B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 		B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B53BDBBC2423DD0F001F42E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Offradio/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackShareView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B53FC4741E9C04C600DC82AD /* TrackShareViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackShareViewModel.swift; sourceTree = "<group>"; };
 		B53FC4771E9C04DF00DC82AD /* ShareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -365,7 +366,6 @@
 				B5A430891FA1405B006F0BC9 /* AVFoundation.framework in Frameworks */,
 				B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */,
 				B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */,
-				B52C2D4E1EB25A3B00AF8514 /* WatchKit.framework in Frameworks */,
 				B56960461E4909E0003BFBC6 /* MediaPlayer.framework in Frameworks */,
 				B56960441E4909D0003BFBC6 /* MobileCoreServices.framework in Frameworks */,
 				8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */,
@@ -681,6 +681,7 @@
 				B52A6C371E36BAC2005893D2 /* Utilities */,
 				B5745E531EB0D5AD00A60283 /* OffradioWatch */,
 				B52A6C1F1E36B3BE005893D2 /* Resources */,
+				B53BDBBC2423DD0F001F42E7 /* GoogleService-Info.plist */,
 				B54BC8B41E36A9DC0043F248 /* Info.plist */,
 			);
 			path = Offradio;
@@ -945,6 +946,7 @@
 				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
 				B5872B241F28CAC9007CFBCE /* SwiftLint */,
 				B52A6C1E1E36B242005893D2 /* Fabric */,
+				B53BDC5F2423E34A001F42E7 /* Upload Symbols */,
 			);
 			buildRules = (
 			);
@@ -1134,6 +1136,7 @@
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 				B7CA3B6B22B66BD700BEEEA9 /* Launch Screen.storyboard in Resources */,
 				B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */,
+				B53BDBBD2423DD0F001F42E7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1275,13 +1278,33 @@
 			files = (
 			);
 			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = Fabric;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" fe804b3ccea4e9e56a4730e91c304d42292404f9 420e31e0e1a80f4d057ce561b6a5177201e4289671991538ab3656afcdf3f4f7\n";
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+		B53BDC5F2423E34A001F42E7 /* Upload Symbols */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Upload Symbols";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp \"${PROJECT_DIR}/Offradio/GoogleService-Info.plist\" -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"\n";
 		};
 		B5872B231F28CA97007CFBCE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1323,9 +1346,11 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/HTMLEntities-iOS/HTMLEntities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher-iOS/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -1339,6 +1364,7 @@
 				"${BUILT_PRODUCTS_DIR}/ToggleSwitch/ToggleSwitch.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1348,9 +1374,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HTMLEntities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -1364,6 +1392,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ToggleSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import MessageUI
-import Crashlytics
+import FirebaseAnalytics
 
 final class NowPlayingViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
@@ -34,8 +34,6 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = true
         self.view.backgroundColor = UIColor.lightBlack
-
-        self.trackAnalytics()
 
         self.setupUI()
         self.setupBingings()
@@ -123,12 +121,6 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         self.becomeFirstResponder()
         controller.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension NowPlayingViewController: AnalyticsTrackable {
-    func trackAnalytics() {
-        Answers.logContentView(withName: "NowPlaying screen", contentType: "screen", contentId: "", customAttributes: [:])
     }
 }
 

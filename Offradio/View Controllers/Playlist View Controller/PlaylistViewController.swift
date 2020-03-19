@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import SwipeCellKit
-import Crashlytics
+import FirebaseAnalytics
 
 final class PlaylistViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -36,7 +36,6 @@ final class PlaylistViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
-        self.trackAnalytics()
 
         self.tableViewActivityContainerView = UIView(frame: .zero)
         self.tableViewActivityView = UIActivityIndicatorView(style: .white)
@@ -132,12 +131,6 @@ final class PlaylistViewController: UIViewController {
 
     }
 
-}
-
-extension PlaylistViewController: AnalyticsTrackable {
-    func trackAnalytics() {
-        Answers.logContentView(withName: "Playlist screen", contentType: "screen", contentId: nil, customAttributes: nil)
-    }
 }
 
 extension PlaylistViewController: SwipeTableViewCellDelegate {

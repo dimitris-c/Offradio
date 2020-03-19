@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import Crashlytics
+import FirebaseAnalytics
 import StreamingKit
 
 final class RadioViewModel {

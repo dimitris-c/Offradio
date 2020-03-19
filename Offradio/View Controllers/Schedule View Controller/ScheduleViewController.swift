@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Crashlytics
+import FirebaseAnalytics
 
 final class ScheduleViewController: UIViewController {
 
@@ -34,7 +34,6 @@ final class ScheduleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
-        self.trackAnalytics()
 
         let date = Date()
         if let weekDay = date.dayOfWeek() {
@@ -121,12 +120,6 @@ final class ScheduleViewController: UIViewController {
         self.navigationController?.pushViewController(producerBioViewController, animated: true)
     }
 
-}
-
-extension ScheduleViewController: AnalyticsTrackable {
-    func trackAnalytics() {
-        Answers.logContentView(withName: "Schedule screen", contentType: "screen", contentId: "", customAttributes: nil)
-    }
 }
 
 extension ScheduleViewController {

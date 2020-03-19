@@ -9,7 +9,7 @@
 import RxSwift
 import RxCocoa
 import RealmSwift
-import Crashlytics
+import FirebaseAnalytics
 
 final class PlaylistCellViewModel {
 
@@ -52,12 +52,12 @@ final class PlaylistCellViewModel {
 
     private func trackAddedSong(with song: Song) {
         let attributes: [String: Any] = ["song": song.title]
-        Answers.logContentView(withName: "Added favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
+        Analytics.logEvent("Added favourite", parameters: attributes)
     }
 
     private func trackRemovedSong(with song: Song) {
         let attributes: [String: Any] = ["song": song.title]
-        Answers.logContentView(withName: "Removed favourite", contentType: "favourite", contentId: nil, customAttributes: attributes)
+        Analytics.logEvent("Removed favourite", parameters: attributes)
     }
 
 }
