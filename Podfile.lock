@@ -1,7 +1,7 @@
 PODS:
-  - Alamofire (4.9.1)
-  - AlamofireNetworkActivityIndicator (2.4.0):
-    - Alamofire (~> 4.8)
+  - Alamofire (5.0.4)
+  - AlamofireNetworkActivityIndicator (3.0.1):
+    - Alamofire (~> 5.0)
   - AutoScrollLabel (0.4.3)
   - Fabric (1.10.2)
   - FBSDKCoreKit (6.2.0):
@@ -91,35 +91,31 @@ PODS:
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
-  - Moya/Core (13.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
-  - Moya/RxSwift (13.0.1):
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
     - Moya/Core
-    - RxSwift (~> 4.0)
+    - RxSwift (~> 5.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
-  - Realm (3.21.0):
-    - Realm/Headers (= 3.21.0)
-  - Realm/Headers (3.21.0)
-  - RealmSwift (3.21.0):
-    - Realm (= 3.21.0)
-  - Result (4.1.0)
-  - RxAlamofire (4.4.1):
-    - RxAlamofire/Core (= 4.4.1)
-  - RxAlamofire/Core (4.4.1):
-    - Alamofire (~> 4.8)
-    - RxSwift (~> 4.5)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxRealm (0.7.6):
-    - RealmSwift (~> 3.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.5.0)
+  - Realm (4.3.2):
+    - Realm/Headers (= 4.3.2)
+  - Realm/Headers (4.3.2)
+  - RealmSwift (4.3.2):
+    - Realm (= 4.3.2)
+  - RxCocoa (5.1.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRealm (2.0.0):
+    - RealmSwift (~> 4.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.0)
   - StreamingKit (0.1.31)
   - SwiftyJSON (5.0.0)
   - SwipeCellKit (2.7.1)
@@ -131,7 +127,7 @@ PODS:
     - TwitterCore (>= 3.2.0)
 
 DEPENDENCIES:
-  - Alamofire
+  - Alamofire (~> 5)
   - AlamofireNetworkActivityIndicator
   - AutoScrollLabel
   - Fabric
@@ -142,9 +138,8 @@ DEPENDENCIES:
   - Firebase/Crashlytics
   - HTMLEntities (from `https://github.com/IBM-Swift/swift-html-entities.git`)
   - Kingfisher
-  - Moya/RxSwift
-  - RealmSwift
-  - RxAlamofire
+  - Moya/RxSwift (~> 14.0)
+  - RealmSwift (~> 4.0)
   - RxCocoa
   - RxRealm
   - RxSwift
@@ -181,10 +176,9 @@ SPEC REPOS:
     - PromisesObjC
     - Realm
     - RealmSwift
-    - Result
-    - RxAlamofire
     - RxCocoa
     - RxRealm
+    - RxRelay
     - RxSwift
     - SwiftyJSON
     - SwipeCellKit
@@ -208,8 +202,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/tumtumtum/StreamingKit.git
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AlamofireNetworkActivityIndicator: 9acc3de3ca6645bf0efed462396b0df13dd3e7b8
+  Alamofire: 0fe5fd24b4298dc377a6550da7d5f1b30e286fcb
+  AlamofireNetworkActivityIndicator: f7d4cd8d12bcf61dc569cbe000b0c35e9c8d8d32
   AutoScrollLabel: bee53a1d4532569b49cbecaf9b80ca003bed3767
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FBSDKCoreKit: a7bb9f5ac56c1e11d5f8ae0b90a3610f8744b43a
@@ -229,16 +223,15 @@ SPEC CHECKSUMS:
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
   HTMLEntities: 83738511518b3f29cf9644d0877505b8d3d1a849
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
-  Realm: 38e9dcb19104b58407167d99f70d4995f7c16023
-  RealmSwift: 3183cc1ad48378fbcd634311b22c0e6c44021152
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
-  RxAlamofire: ed65f451f5a9a59419b0b9e705043dc01410edd9
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
+  RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
+  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
+  RxRealm: 900f5c7e6f0a2d6527b56eaf7283f3035ec1e8ba
+  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
+  RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
   StreamingKit: 017093dadc370099b78457e860a0433aa8be5552
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
@@ -246,6 +239,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: a90a9f23e4a1ce7ca8a77cb5d58bfe8a5f3ea734
+PODFILE CHECKSUM: 3acd8e941db2d3ec67be69161f0d4f3a3323d169
 
 COCOAPODS: 1.9.1

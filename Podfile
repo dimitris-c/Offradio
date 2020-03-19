@@ -1,4 +1,10 @@
-platform :ios, '10.0'
+source 'https://cdn.cocoapods.org/'
+
+install! 'cocoapods', :generate_multiple_pod_projects => true
+
+platform :ios, '11.0'
+use_frameworks!
+inhibit_all_warnings!
 
 target 'Offradio' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -6,9 +12,9 @@ target 'Offradio' do
   inhibit_all_warnings!
 
   # Pods for Offradio
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 5'
   pod 'AlamofireNetworkActivityIndicator'
-  pod 'Moya/RxSwift'
+  pod 'Moya/RxSwift', '~> 14.0'
   pod 'SwiftyJSON'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
@@ -18,11 +24,9 @@ target 'Offradio' do
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
   pod 'TwitterKit'
-  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 4.0'
   pod 'RxRealm'
-  pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'RxAlamofire'
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit'

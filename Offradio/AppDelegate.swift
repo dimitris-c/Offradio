@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
         URLCache.shared = cache
 
-//        Fabric.with([Crashlytics.self, Answers.self])
         FirebaseApp.configure()
         Crashlytics.crashlytics()
         TWTRTwitter.sharedInstance().start(withConsumerKey: "AfJ2HbxzaW4gvPekIwHdak4RS",

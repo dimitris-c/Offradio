@@ -7,7 +7,6 @@
 //
 import RxSwift
 import RxCocoa
-import RxAlamofire
 import Moya
 import SwiftyJSON
 
@@ -59,7 +58,7 @@ final class OffradioMetadata: RadioMetadata {
     
     func startTimer() {
         stopTimer()
-        let crcTimer = Observable<Int>.timer(0, period: 20, scheduler: queue)
+        let crcTimer = Observable<Int>.timer(.seconds(0), period: .seconds(20), scheduler: queue)
         crcTimerDisposable = crcTimer.asObservable()
             .flatMapLatest({ [weak self] _ -> Observable<MetadataTrigger> in
                 guard let strongSelf = self else { return Observable.empty() }

@@ -13,7 +13,6 @@ import RealmSwift
 import RxRealm
 import Moya
 import SwiftyJSON
-import Result
 
 public enum PlaylistCellSearchProvider: String {
     case itunes
@@ -38,7 +37,7 @@ final class PlaylistViewModel {
     var playlistData = BehaviorRelay<[PlaylistCellViewModel]>(value: [])
 
     let playlistService = MoyaProvider<PlaylistService>()
-    let itunesService = MoyaProvider<iTunesSearchAPI>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    let itunesService = MoyaProvider<iTunesSearchAPI>(plugins: [NetworkLoggerPlugin()])
     let playlistParser = PlaylistResponseParse()
 
     fileprivate var page: Int = 0
