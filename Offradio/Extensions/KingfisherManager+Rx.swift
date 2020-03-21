@@ -3,7 +3,7 @@ import Kingfisher
 
 extension Reactive where Base == KingfisherManager {
     public func loadImage(with resource: Resource,
-                          options: KingfisherOptionsInfo? = nil) -> Single<Image> {
+                          options: KingfisherOptionsInfo? = nil) -> Single<KFCrossPlatformImage> {
         return Single.create { [base] single in
             let task = base.retrieveImage(with: resource,
                                           options: options) { result in

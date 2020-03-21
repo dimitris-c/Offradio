@@ -32,7 +32,6 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.automaticallyAdjustsScrollViewInsets = true
         self.view.backgroundColor = UIColor.lightBlack
 
         self.setupUI()
@@ -43,6 +42,7 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
         self.scrollView = UIScrollView(frame: .zero)
         self.scrollView.alwaysBounceVertical = true
         self.scrollView.delegate = self
+        self.scrollView.contentInsetAdjustmentBehavior = .always
         self.view.addSubview(self.scrollView)
         
         self.currentTrackView = CurrentTrackView(with: self.viewModel.currentTrack)
