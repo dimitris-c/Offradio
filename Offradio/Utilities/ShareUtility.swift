@@ -63,7 +63,6 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
 
         if MFMailComposeViewController.canSendMail() {
             let mailController = MFMailComposeViewController()
-            mailController.navigationBar.tintColor = UIColor.white
             mailController.mailComposeDelegate = viewController as? MFMailComposeViewControllerDelegate
             mailController.setSubject("I'm listening to Offradio!")
             let messageBody = "I've turned my Radio OFF! <p>Listening to <b> \(nowPlaying.show.name).</b> <br>Currently playing <b> \(nowPlaying.current.title) </b></p> <p> Turn your radio OFF at — http://www.offradio.com/player </p>"
