@@ -123,8 +123,8 @@ PODS:
     - ToggleSwitch/Core (= 1.2.1)
   - ToggleSwitch/Core (1.2.1)
   - TwitterCore (3.2.0)
-  - TwitterKit (3.4.2):
-    - TwitterCore (>= 3.2.0)
+  - TwitterKit5 (5.1.0):
+    - TwitterCore (>= 3.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5)
@@ -147,7 +147,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - SwipeCellKit
   - ToggleSwitch (~> 1.0)
-  - TwitterKit
+  - TwitterKit5
 
 SPEC REPOS:
   trunk:
@@ -184,7 +184,7 @@ SPEC REPOS:
     - SwipeCellKit
     - ToggleSwitch
     - TwitterCore
-    - TwitterKit
+    - TwitterKit5
 
 EXTERNAL SOURCES:
   HTMLEntities:
@@ -237,8 +237,8 @@ SPEC CHECKSUMS:
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   ToggleSwitch: 528853e108d090fb78e68692bd7d8742a07c11dd
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
-  TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
+  TwitterKit5: de28c7a3e022f18fd644e0bd61f9fca448991faa
 
-PODFILE CHECKSUM: ad2326761c7a80590753826fc47d022aecfe3e52
+PODFILE CHECKSUM: d308514f4f4df35ffc607d1cc5c7bb269d66e3c5
 
 COCOAPODS: 1.9.1

@@ -13,8 +13,6 @@ public enum TabIdentifier: Int {
     case schedule = 0
     case listen = 1
     case contact = 2
-
-    static let allValues = [schedule, listen, contact]
 }
 
 final class MainTabBarViewController: UITabBarController {
@@ -47,6 +45,7 @@ final class MainTabBarViewController: UITabBarController {
         self.tabBar.backgroundImage = UIImage(named: "tabbar-background")
 
         self.tabBar.tintColor = UIColor.white
+        self.tabBar.unselectedItemTintColor = UIColor.darkGray
         self.tabBar.isTranslucent = false
 
     }

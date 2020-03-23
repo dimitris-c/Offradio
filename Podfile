@@ -23,7 +23,7 @@ target 'Offradio' do
   pod 'Fabric'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
-  pod 'TwitterKit'
+  pod 'TwitterKit5'
   pod 'RealmSwift', '~> 4.0'
   pod 'RxRealm'
   pod 'RxCocoa'
@@ -44,7 +44,7 @@ target 'Offradio' do
   end
 
   target 'OffradioWatchKit Extension' do
-      platform :watchos, '3.0'
+      platform :watchos, '4.0'
       pod 'RxSwift'
       pod 'RxCocoa'
       pod 'SwiftyJSON'
@@ -53,15 +53,3 @@ target 'Offradio' do
   end
   
 end
-
-#post_install do |installer|
-#    require 'fileutils'
-#    installer.pods_project.targets.each do |target|
-#        target.build_configurations.each do |config|
-#            config.build_settings['SWIFT_VERSION'] = '3.0'
-#        end
-#    end
-#
-#    #FileUtils.cp_r('Pods/Target Support Files/Pods-Carlito/Pods-Carlito-acknowledgements.plist', 'Carlito/Resources/Settings.bundle/Acknowledgements.plist', :remove_destination => true)
-#end
-
