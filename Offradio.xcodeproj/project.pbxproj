@@ -20,6 +20,7 @@
 		B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A01E54CE3000792414 /* PlaylistCellViewModel.swift */; };
 		B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */; };
 		B507C0A61E56869800792414 /* DataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A51E56869800792414 /* DataLayer.swift */; };
+		B50F0DB724B85EEE006D660E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50F0DB624B85EEE006D660E /* CoreServices.framework */; };
 		B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
 		B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB91E4B9E50009F4C37 /* Schedule.swift */; };
@@ -85,7 +86,6 @@
 		B569603D1E4908D0003BFBC6 /* RadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603C1E4908D0003BFBC6 /* RadioViewController.swift */; };
 		B569603F1E490907003BFBC6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569603E1E490907003BFBC6 /* Theme.swift */; };
 		B56960421E490957003BFBC6 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960411E490957003BFBC6 /* Radio.swift */; };
-		B56960441E4909D0003BFBC6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56960431E4909D0003BFBC6 /* MobileCoreServices.framework */; };
 		B56960461E4909E0003BFBC6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B56960451E4909E0003BFBC6 /* MediaPlayer.framework */; };
 		B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B569604B1E491A15003BFBC6 /* UIViewControllerExtensions.swift */; };
 		B56960521E492A35003BFBC6 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960501E492A35003BFBC6 /* MainTabBarViewController.swift */; };
@@ -224,6 +224,7 @@
 		B507C0A01E54CE3000792414 /* PlaylistCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistCellViewModel.swift; sourceTree = "<group>"; };
 		B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistFavouritesLayer.swift; sourceTree = "<group>"; };
 		B507C0A51E56869800792414 /* DataLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayer.swift; sourceTree = "<group>"; };
+		B50F0DB624B85EEE006D660E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
 		B51E3FB71E4B9C06009F4C37 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		B51E3FB91E4B9E50009F4C37 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -365,9 +366,9 @@
 				B5A4308D1FA14093006F0BC9 /* SystemConfiguration.framework in Frameworks */,
 				B5A430891FA1405B006F0BC9 /* AVFoundation.framework in Frameworks */,
 				B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */,
+				B50F0DB724B85EEE006D660E /* CoreServices.framework in Frameworks */,
 				B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */,
 				B56960461E4909E0003BFBC6 /* MediaPlayer.framework in Frameworks */,
-				B56960441E4909D0003BFBC6 /* MobileCoreServices.framework in Frameworks */,
 				8BD23FE4A6183C713D75E9AF /* Pods_Offradio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +424,7 @@
 		7270B8A41F99A77388A95EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B50F0DB624B85EEE006D660E /* CoreServices.framework */,
 				B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */,
 				B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */,
 				B5CBD0561F74409800250FC9 /* AVFoundation.framework */,
