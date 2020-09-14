@@ -15,7 +15,7 @@ enum ProducersBioService: TargetType {
 }
 
 extension ProducersBioService {
-    var baseURL: URL { return URL(string: APIURL(enviroment: .old).apiPath)! }
+    var baseURL: URL { return URL(string: APIURL(enviroment: .new).apiPath)! }
 
     var method: HTTPMethod {
         return .get
@@ -36,14 +36,4 @@ extension ProducersBioService {
     var headers: [String : String]? {
         return nil
     }
-}
-
-struct ProducerResponseParse {
-
-    func toData(rawData data: JSON) -> [Producer] {
-        var items: [Producer] = []
-        items = data.map { Producer(with: $0.1) }
-        return items
-    }
-
 }

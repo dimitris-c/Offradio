@@ -48,9 +48,10 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.scrollViewContainer.addSubview(self.producerTopView)
 
         self.producerImageView = UIImageView(frame: .zero)
+        self.producerImageView.clipsToBounds = true
         self.producerTopView.addSubview(self.producerImageView)
 
-        if let imageUrl = URL(string: self.producer.photoUrl) {
+        if let imageUrl = self.producer.image {
             self.loadProducerImage(with: imageUrl)
         }
 
@@ -58,6 +59,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerNameLabel.textColor = UIColor.white
         self.producerNameLabel.text = self.producer.name.uppercased()
         self.producerNameLabel.textAlignment = .center
+        self.producerNameLabel.numberOfLines = 0
         let producerNameLabelfontSize: CGFloat = CGFloat.deviceValue(iPhone: 30, iPad: 40)
         self.producerNameLabel.font = UIFont.leagueGothicItalic(withSize: producerNameLabelfontSize)
         self.scrollViewContainer.addSubview(self.producerNameLabel)
@@ -103,9 +105,12 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerImageView.frame.size = CGSize(width: imageHeight, height: imageHeight)
         self.producerImageView.center.x = self.producerTopView.center.x
         self.producerImageView.frame.origin.y = CGFloat.deviceValue(iPhone: 20, iPad: 40)
-
-        self.producerNameLabel.sizeToFit()
+        self.producerImageView.layer.cornerRadius = self.producerImageView.frame.size.width * 0.5
+        self.producerImageView.layer.borderColor = UIColor.white.cgColor
+        self.producerImageView.layer.borderWidth = 8
+        
         self.producerNameLabel.frame.size.width = self.scrollViewContainer.frame.width
+        self.producerNameLabel.sizeToFit()
         self.producerNameLabel.center.x = self.scrollViewContainer.center.x
 
         self.producerNameLabel.frame.origin.y = self.producerTopView.frame.maxY + 15

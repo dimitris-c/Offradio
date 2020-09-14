@@ -52,8 +52,8 @@ final class ScheduleViewModel {
 
     // MARK: Public methods
 
-    func getProducerBio(`for` name: String) -> Producer? {
-        return self.producers.value.filter { $0.name == name }.first
+    func getProducerBio(`for` id: String) -> Producer? {
+        return self.producers.value.filter { $0.producerId == Int(id) }.first
     }
 
     func getSchedule(at indexPath: IndexPath) -> ScheduleItem {
@@ -77,10 +77,8 @@ final class ScheduleViewModel {
 
     fileprivate func fetchProducers() -> Observable<[Producer]> {
         return self.producersService.rx.request(.producers)
-            .mapJSON()
-            .map { JSON($0) }
+            .map([Producer].self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: true)
             .asObservable()
-            .map { $0.map { Producer(with: $0.1) } }
     }
 
 }

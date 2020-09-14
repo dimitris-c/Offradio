@@ -8,15 +8,10 @@
 
 import SwiftyJSON
 
-struct Producer {
+struct Producer: Decodable {
     let name: String
     let bio: String
-    let photoUrl: String
-
-    init(with json: JSON) {
-        self.name   = json["name"].stringValue
-        self.bio    = json["bio"].stringValue
-        self.photoUrl = json["photo"].stringValue
-    }
+    let image: URL?
+    let producerId: Int
 
 }

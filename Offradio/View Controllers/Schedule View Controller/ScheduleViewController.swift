@@ -73,7 +73,7 @@ final class ScheduleViewController: UIViewController {
             guard let sSelf = self else { return }
             sSelf.tableView.deselectRow(at: indexPath, animated: true)
             let item = sSelf.viewModel.getSchedule(at: indexPath)
-            if item.hasBio, let bio = sSelf.viewModel.getProducerBio(for: item.showTitle) {
+            if let producerId = item.producerId, let bio = sSelf.viewModel.getProducerBio(for: producerId) {
                 sSelf.showProducerBio(with: bio)
             }
         }).disposed(by: disposeBag)
