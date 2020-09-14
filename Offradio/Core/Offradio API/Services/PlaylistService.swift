@@ -16,7 +16,7 @@ enum PlaylistService: TargetType {
 }
 
 extension PlaylistService {
-    var baseURL: URL { return URL(string: APIURL().apiPath)! }
+    var baseURL: URL { return URL(string: APIURL(enviroment: .new).apiPath)! }
 
     var method: Moya.Method {
         return .get

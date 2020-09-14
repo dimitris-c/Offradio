@@ -15,7 +15,7 @@ enum ScheduleService: TargetType {
 }
 
 extension ScheduleService {
-    var baseURL: URL { return URL(string: APIURL().apiPath)! }
+    var baseURL: URL { return URL(string: APIURL(enviroment: .new).apiPath)! }
 
     var method: HTTPMethod {
         return .get
@@ -36,12 +36,4 @@ extension ScheduleService {
     var headers: [String : String]? {
         return nil
     }
-}
-
-final class ScheduleResponseParse {
-
-    func toData(rawData data: JSON) -> Schedule {
-        return Schedule(with: data)
-    }
-
 }

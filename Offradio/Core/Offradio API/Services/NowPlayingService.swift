@@ -15,7 +15,7 @@ enum NowPlayingService: TargetType {
 }
 
 extension NowPlayingService {
-    var baseURL: URL { return URL(string: APIURL().apiPath)! }
+    var baseURL: URL { return URL(string: APIURL(enviroment: .old).apiPath)! }
 
     var method: Moya.Method {
         return .get
@@ -53,7 +53,7 @@ enum CRCService: TargetType {
 }
 
 extension CRCService {
-    var baseURL: URL { return URL(string: APIURL().baseUrl)! }
+    var baseURL: URL { return URL(string: APIURL(enviroment: .old).baseUrl)! }
 
     var method: Moya.Method {
         return .get

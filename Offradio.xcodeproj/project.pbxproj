@@ -125,6 +125,7 @@
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */; };
+		B5E93F77250F9020008412E7 /* Decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F76250F9020008412E7 /* Decoders.swift */; };
 		B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125211E5CC82400579D4B /* HorizontalArranger.swift */; };
 		B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125221E5CC82400579D4B /* SizeObject.swift */; };
 		B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125231E5CC82400579D4B /* VerticalArranger.swift */; };
@@ -336,6 +337,7 @@
 		B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrack.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923771E65E4800013A3F4 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Show.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigrationLayer.swift; sourceTree = "<group>"; };
+		B5E93F76250F9020008412E7 /* Decoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoders.swift; sourceTree = "<group>"; };
 		B5F125211E5CC82400579D4B /* HorizontalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalArranger.swift; sourceTree = "<group>"; };
 		B5F125221E5CC82400579D4B /* SizeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SizeObject.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5F125231E5CC82400579D4B /* VerticalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = VerticalArranger.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -460,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				B50395691E4BCA0100D9A71B /* APIURL.swift */,
+				B5E93F76250F9020008412E7 /* Decoders.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1370,6 +1373,7 @@
 				B50395711E4BCA0100D9A71B /* ScheduleService.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
 				B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */,
+				B5E93F77250F9020008412E7 /* Decoders.swift in Sources */,
 				B52C2D471EB1090F00AF8514 /* OffradioWatchRadioAction.swift in Sources */,
 				B53FC4751E9C04C600DC82AD /* CurrentTrackShareView.swift in Sources */,
 				B503956F1E4BCA0100D9A71B /* NowPlayingService.swift in Sources */,

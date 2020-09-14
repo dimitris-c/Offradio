@@ -15,7 +15,7 @@ enum ProducersBioService: TargetType {
 }
 
 extension ProducersBioService {
-    var baseURL: URL { return URL(string: APIURL().apiPath)! }
+    var baseURL: URL { return URL(string: APIURL(enviroment: .old).apiPath)! }
 
     var method: HTTPMethod {
         return .get

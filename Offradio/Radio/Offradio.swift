@@ -14,10 +14,10 @@ import AVFoundation
 import RxCocoa
 
 final class Offradio: NSObject, RadioProtocol {
-
+    
     private var isInForeground: Bool = true
-    private var kit: STKAudioPlayer = STKAudioPlayer()
-
+    private var kit: STKAudioPlayer? = STKAudioPlayer()
+    
     var status: RadioState = .stopped
     let metadata: RadioMetadata
     
@@ -25,26 +25,27 @@ final class Offradio: NSObject, RadioProtocol {
     var stateChanged: Observable<STKAudioPlayerState> {
         return self.stateChangedSubject.asObservable()
     }
-
+    
     override init() {
         self.metadata = OffradioMetadata()
         super.init()
         self.configureAudioSession()
         self.addNotifications()
         self.setupRadio()
-        
     }
-
+    
     final func setupRadio() {
         var options = STKAudioPlayerOptions()
-        options.bufferSizeInSeconds = 2
+        options.bufferSizeInSeconds = 4
+        options.secondsRequiredToStartPlaying = 1
+        options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
         options.enableVolumeMixer = true
-        options.flushQueueOnSeek = true
+        options.flushQueueOnSeek = false
         self.kit = STKAudioPlayer(options: options)
-        self.kit.volume = 1
-        self.kit.delegate = self
+        self.kit?.volume = 1.0
+        self.kit?.delegate = self
     }
-
+    
     final func start() {
         guard self.status != .playing else { return }
         
@@ -52,16 +53,17 @@ final class Offradio: NSObject, RadioProtocol {
         
         self.status = .playing
     }
-
+    
     final func stop() {
-        self.kit.stop()
-        self.kit.dispose()
+        self.kit?.stop()
+//        self.kit?.dispose()
+        self.kit = nil
         self.setupRadio()
         self.metadata.stopTimer()
         
         self.status = .stopped
     }
-
+    
     final func toggleRadio() {
         if self.status == .playing {
             self.stop()
@@ -69,11 +71,11 @@ final class Offradio: NSObject, RadioProtocol {
             self.start()
         }
     }
-
+    
     final fileprivate func startRadio() {
         self.activateAudioSession()
         
-        self.kit.play("http://s3.yesstreaming.net:7033/stream")
+        self.kit?.play("http://s3.yesstreaming.net:7033/stream")
         
         self.metadata.startTimer()
     }
@@ -81,31 +83,31 @@ final class Offradio: NSObject, RadioProtocol {
     final fileprivate func configureAudioSession() {
         do {
             Log.debug("AudioSession category is AVAudioSessionCategoryPlayback")
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .longFormAudio, options: [])
             try AVAudioSession.sharedInstance().setPreferredIOBufferDuration(0.1)
         } catch let error as NSError {
             Log.debug("Couldn't setup audio session category to Playback \(error.localizedDescription)")
         }
     }
-
+    
     final fileprivate func activateAudioSession() {
         do {
             Log.debug("AudioSession is active")
-            try AVAudioSession.sharedInstance().setActive(true)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
         } catch let error as NSError {
             Log.debug("Couldn't set audio session to active: \(error.localizedDescription)")
         }
     }
-
+    
     final fileprivate func deactivateAudioSession() {
         do {
             Log.debug("AudioSession is deactivated")
-            try AVAudioSession.sharedInstance().setActive(false)
+            //            try AVAudioSession.sharedInstance().setActive(false)
         } catch let error as NSError {
             Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
         }
     }
-
+    
 }
 
 extension Offradio: STKAudioPlayerDelegate {
@@ -129,54 +131,51 @@ extension Offradio: STKAudioPlayerDelegate {
     
     func audioPlayer(_ audioPlayer: STKAudioPlayer, didFinishPlayingQueueItemId queueItemId: NSObject, with stopReason: STKAudioPlayerStopReason, andProgress progress: Double, andDuration duration: Double) {
         Log.debug("audio player did finish playing reason: \(stopReason)")
-        if stopReason == .userAction {
-            self.deactivateAudioSession()
-        }
     }
     
     func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
         Log.debug("audio player error: \(errorCode)")
         switch errorCode {
-        case STKAudioPlayerErrorCode.audioSystemError,
-             STKAudioPlayerErrorCode.codecError,
-             STKAudioPlayerErrorCode.dataNotFound:
-            self.setupRadio()
-            self.start()
-        default:
-            break
+            case STKAudioPlayerErrorCode.audioSystemError,
+                 STKAudioPlayerErrorCode.codecError,
+                 STKAudioPlayerErrorCode.dataNotFound:
+                self.setupRadio()
+                self.start()
+            default:
+                break
         }
     }
 }
 
 extension Offradio {
-
+    
     final fileprivate func addNotifications() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleInterruption),
                                                name: AVAudioSession.interruptionNotification,
                                                object: nil)
-
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleRouteChange),
                                                name: AVAudioSession.routeChangeNotification,
                                                object: nil)
-
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handleMediaReset),
                                                name: AVAudioSession.mediaServicesWereResetNotification,
                                                object: nil)
-
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(movedToBackground),
                                                name: UIApplication.didEnterBackgroundNotification,
                                                object: nil)
-
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(movedToForeground),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
     }
-
+    
     @objc final fileprivate func handleMediaReset() {
         Log.debug("handle system media reset")
         self.status = .stopped
@@ -185,7 +184,7 @@ extension Offradio {
         self.deactivateAudioSession()
         self.configureAudioSession()
     }
-
+    
     @objc final fileprivate func movedToBackground() {
         Log.debug("app moved to background")
         isInForeground = false
@@ -193,7 +192,7 @@ extension Offradio {
             self.deactivateAudioSession()
         }
     }
-
+    
     @objc final fileprivate func movedToForeground() {
         if status == .playing && !isInForeground {
             self.metadata.startTimer()
@@ -201,15 +200,15 @@ extension Offradio {
         Log.debug("app moved to foreground")
         isInForeground = true
     }
-
+    
     @objc final fileprivate func handleInterruption(_ notification: Notification) {
         let info = notification.userInfo
         Log.debug("audio interruption\n\(String(describing: info))")
         print("\(String(describing: info))")
-
+        
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
-
-        let audioPlayerState = kit.state
+        
+        let audioPlayerState = kit?.state
         if interruptionState.uintValue == AVAudioSession.InterruptionType.began.rawValue {
             let wasSuspended: Bool = info?[AVAudioSessionInterruptionWasSuspendedKey] as? Bool ?? false
             Log.debug("audio interruption began")
@@ -224,7 +223,7 @@ extension Offradio {
                 let interruptionOption = AVAudioSession.InterruptionOptions(rawValue: reasonInt)
                 if interruptionOption == AVAudioSession.InterruptionOptions.shouldResume {
                     Log.debug("audio shouldResume after interruption")
-                    if audioPlayerState == STKAudioPlayerState.stopped && self.status == .interrupted {
+                    if (audioPlayerState == .stopped || audioPlayerState == .disposed) && self.status == .interrupted {
                         Log.debug("offradio should resume playback interruption")
                         self.start()
                     }
@@ -232,16 +231,19 @@ extension Offradio {
             }
         }
     }
-
+    
     @objc final fileprivate func handleRouteChange(_ notification: Notification) {
-        Log.debug("audio route change")//\n\(String(describing: notification.userInfo))")
-        if let reason: NSNumber = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? NSNumber {
-            if reason.uintValue == AVAudioSession.RouteChangeReason.categoryChange.rawValue {
-                if kit.state != STKAudioPlayerState.stopped && self.status == .playing {
-                    self.start()
-                }
-            }
+        Log.debug("audio route change//\n\(String(describing: notification.userInfo))")
+        guard let reasonNumber = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? NSNumber,
+            let reason = AVAudioSession.RouteChangeReason(rawValue: UInt(reasonNumber.int32Value)) else {
+                return
+        }
+        switch reason {
+            case .oldDeviceUnavailable:
+                self.stop()
+            default:
+                break
         }
     }
-
+    
 }

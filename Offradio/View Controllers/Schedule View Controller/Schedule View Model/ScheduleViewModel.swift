@@ -30,7 +30,7 @@ final class ScheduleViewModel {
             .do(onNext: { [weak self] schedule in
                 self?.navigationTitle.accept(schedule.dayFormatted)
             })
-            .map { $0.items }
+            .map { $0.shows }
             .catchErrorJustReturn([])
             .bind(to: schedule)
             .disposed(by: disposeBag)
@@ -41,7 +41,7 @@ final class ScheduleViewModel {
                 guard let strongSelf = self else { return Observable.empty() }
                 return strongSelf.fetchSchedule()
             }
-            .map { $0.items }
+            .map { $0.shows }
             .catchErrorJustReturn([])
             .bind(to: schedule)
             .disposed(by: disposeBag)
@@ -64,11 +64,9 @@ final class ScheduleViewModel {
 
     fileprivate func fetchSchedule() -> Observable<Schedule> {
         return self.scheduleService.rx.request(.schedule)
-            .mapJSON()
-            .map { JSON($0) }
+            .map(Schedule.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
-            .map { Schedule(with: $0) }
-            .do(onError: { [weak self] (_) in
+            .do(onError: { [weak self] _ in
                 self?.refresh.accept(false)
                 self?.firstLoad.accept(false)
             }, onCompleted: { [weak self] in
