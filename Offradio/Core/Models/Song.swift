@@ -21,7 +21,7 @@ struct Song: Decodable {
 //    var isFavourite: Bool = false
     
     var time: String {
-        Formatters.playlistFormatter.string(from: airedDatetime)
+        Formatters.apiDateFormatter.string(from: airedDatetime)
     }
     
     var titleFormatted: String {

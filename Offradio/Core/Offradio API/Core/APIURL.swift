@@ -14,7 +14,7 @@ enum APIEnviroment {
             case .old:
                 return "http://www.offradio.gr"
             case .new:
-                return "https://www.off-radio.com/wp-json"
+                return "https://api.offradio.gr"
         }
     }
     
