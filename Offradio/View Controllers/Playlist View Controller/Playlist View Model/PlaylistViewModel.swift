@@ -110,7 +110,6 @@ final class PlaylistViewModel {
             switch result {
             case .success(let response):
                 do {
-                    print(String(data: response.data, encoding: .utf8))
                     let data = try response.map([PlaylistSong].self, using: Decoders.defaultKeysJSONDecoder, failsOnEmptyData: false)
                     if strongSelf.page == 1 {
                         let values = data

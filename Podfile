@@ -12,7 +12,7 @@ target 'Offradio' do
   inhibit_all_warnings!
 
   # Pods for Offradio
-  pod 'Alamofire', '~> 5'
+  pod 'Alamofire', '~> 5.2'
   pod 'AlamofireNetworkActivityIndicator'
   pod 'Moya/RxSwift', '~> 14.0'
   pod 'SwiftyJSON'
