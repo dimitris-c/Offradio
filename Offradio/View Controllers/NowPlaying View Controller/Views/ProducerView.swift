@@ -19,7 +19,7 @@ final class ProducerView: UIView {
     fileprivate final var producerNameLabel: UILabel!
     fileprivate final var producerBodyLabel: UILabel!
 
-    init(with currentTrack: Driver<Show>) {
+    init(with currentTrack: Driver<Producer_v2>) {
         super.init(frame: .zero)
 
         self.container = UIView()
@@ -35,7 +35,7 @@ final class ProducerView: UIView {
         self.supplySubviews()
 
         currentTrack.asObservable()
-            .map { $0.largePhoto }
+            .map { $0.producerImage }
             .subscribe(onNext: { [weak self] url in
                 if let url = URL(string: url) {
                     self?.producerImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "producer-static-image"))
@@ -43,14 +43,14 @@ final class ProducerView: UIView {
             }).disposed(by: disposeBag)
 
         currentTrack.asObservable()
-            .map { $0.name }
-            .ifEmpty(default: Show.default.name)
+            .map { $0.producerName }
+            .ifEmpty(default: Producer_v2.default.producerName)
             .bind(to: self.producerNameLabel.rx.text)
             .disposed(by: disposeBag)
 
         currentTrack.asObservable()
-            .map { $0.body }
-            .ifEmpty(default: Show.default.body)
+            .map { $0.showTitle }
+            .ifEmpty(default: Producer_v2.default.showTitle)
             .bind(to: self.producerBodyLabel.rx.text)
             .disposed(by: disposeBag)
 

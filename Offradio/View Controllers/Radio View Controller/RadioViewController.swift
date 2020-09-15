@@ -80,7 +80,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
             }).disposed(by: disposeBag)
 
         viewModel.nowPlaying
-            .map { $0.current.title }
+            .map { $0.track.title }
             .drive(self.nowPlayingButton.rx.title)
             .disposed(by: disposeBag)
 

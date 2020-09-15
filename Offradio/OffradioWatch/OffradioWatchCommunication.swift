@@ -33,7 +33,7 @@ class OffradioWatchCommunication {
         })
     }
 
-    func sendCurrentTrack(with model: CurrentTrack) {
+    func sendCurrentTrack(with model: CurrentTrack_v2) {
         guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.currentTrack.rawValue,
                                       "data": model.toDictionary()]
@@ -85,10 +85,10 @@ class OffradioWatchCommunication {
         })
     }
 
-    func getIsFavourite(`for` song: CurrentTrack, with reply: @escaping ([String: Any]) -> Void) {
+    func getIsFavourite(`for` song: CurrentTrack_v2, with reply: @escaping ([String: Any]) -> Void) {
         guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.favouriteStatus.rawValue,
-                                      "data": ["artist": song.artist, "track": song.track]]
+                                      "data": ["artist": song.artist, "track": song.name]]
         WCSession.default.sendMessage(message, replyHandler: { replyInfo in
             reply(replyInfo)
         }, errorHandler: { error in
@@ -96,7 +96,7 @@ class OffradioWatchCommunication {
         })
     }
 
-    func toggleFavourite(`for` song: CurrentTrack, with reply: @escaping ([String: Any]) -> Void) {
+    func toggleFavourite(`for` song: CurrentTrack_v2, with reply: @escaping ([String: Any]) -> Void) {
         guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.toggleFavourite.rawValue,
                                       "data": song.toDictionary()]

@@ -7,7 +7,6 @@
 //
 
 import SwiftyJSON
-import HTMLEntities
 
 struct Show: Equatable {
     let name: String
@@ -18,13 +17,6 @@ struct Show: Equatable {
     static let empty = Show("", photo: "", largePhoto: "", body: "")
 
     static let `default` = Show("Offradio", photo: "", largePhoto: "", body: "Turn Your Radio Off")
-
-    init(json: JSON) {
-        self.name = json["name"].stringValue.htmlUnescape()
-        self.photo = json["photo"].stringValue
-        self.largePhoto = json["largephoto"].stringValue
-        self.body = json["body"].stringValue.htmlUnescape()
-    }
 
     init(_ name: String, photo: String, largePhoto: String, body: String) {
         self.name = name
@@ -38,6 +30,16 @@ struct Show: Equatable {
             self.photo.isEmpty &&
             self.largePhoto.isEmpty &&
             self.body.isEmpty
+    }
+    
+    static func from(dictionary: [String: Any]) -> Show {
+        guard let name = dictionary["name"] as? String,
+            let photo = dictionary["photo"] as? String,
+            let largePhoto = dictionary["largePhoto"] as? String,
+            let body = dictionary["body"] as? String else {
+                return Show.empty
+            }
+        return Show(name, photo: photo, largePhoto: largePhoto, body: body)
     }
 
     func toDictionary() -> [String: Any] {

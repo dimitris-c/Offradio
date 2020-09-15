@@ -21,7 +21,7 @@ class CurrentTrackController: WKInterfaceController {
     @IBOutlet var songTitle: WKInterfaceLabel!
     @IBOutlet var favouriteIcon: WKInterfaceImage!
     
-    fileprivate var currentTrack = BehaviorRelay<CurrentTrack>(value: CurrentTrack.empty)
+    fileprivate var currentTrack = BehaviorRelay<CurrentTrack_v2>(value: CurrentTrack_v2.empty)
     fileprivate var isFavourite: Bool = false
     
     override func awake(withContext context: Any?) {
@@ -51,8 +51,7 @@ class CurrentTrackController: WKInterfaceController {
         super.didAppear()
         communication.getCurrentTrack { [weak self] info in
             if let data = info["data"] as? [String: Any] {
-                let json = JSON(data)
-                let track = CurrentTrack(json: json)
+                let track = CurrentTrack_v2.from(dictionary: data)
                 self?.currentTrack.accept(track)
                 DispatchQueue.main.async {
                     self?.songTitle.setText(track.title)
@@ -64,7 +63,7 @@ class CurrentTrackController: WKInterfaceController {
         }
     }
     
-    fileprivate func checkFavouriteStatus(with track: CurrentTrack) {
+    fileprivate func checkFavouriteStatus(with track: CurrentTrack_v2) {
         communication.getIsFavourite(for: track) { [weak self] replyInfo in
             let data = replyInfo["data"] as? [String: Any]
             let isFavourite: Bool = data?["isFavourite"] as? Bool ?? false

@@ -15,7 +15,7 @@ final class TrackShareViewModel {
 
     let shareOn: BehaviorRelay<ShareType> = BehaviorRelay<ShareType>(value: .none)
 
-    init(with currentTrack: Driver<CurrentTrack>) {
+    init(with currentTrack: Driver<CurrentTrack_v2>) {
 
         shareOn.asObservable().subscribe(onNext: { shareType in
             print("\(shareType)")

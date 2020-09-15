@@ -16,7 +16,7 @@ final class NowPlayingViewModel {
     fileprivate let radioMetadata: RadioMetadata
     fileprivate let favouritesLayer: PlaylistFavouritesLayer
 
-    var nowPlaying: Observable<NowPlaying> {
+    var nowPlaying: Observable<NowPlaying_v2> {
         return self.radioMetadata.nowPlaying
     }
     
@@ -24,8 +24,8 @@ final class NowPlayingViewModel {
     let markTrackAsFavourite = PublishSubject<Bool>()
 
     let favouriteTrack: Driver<Bool>
-    let currentTrack: Driver<CurrentTrack>
-    let show: Driver<Show>
+    let currentTrack: Driver<CurrentTrack_v2>
+    let show: Driver<Producer_v2>
 
     init(with radioMetadata: RadioMetadata) {
         self.radioMetadata = radioMetadata
@@ -36,20 +36,20 @@ final class NowPlayingViewModel {
             .share(replay: 1, scope: .whileConnected)
         
         self.show = nowPlaying
-            .map { $0.show }
-            .startWith(Show.default)
+            .map { $0.producer }
+            .startWith(Producer_v2.default)
             .asDriver(onErrorJustReturn: .default)
 
         self.currentTrack = nowPlaying
-            .map { $0.current }
-            .startWith(CurrentTrack.default)
+            .map { $0.track }
+            .startWith(CurrentTrack_v2.default)
             .asDriver(onErrorJustReturn: .default)
         
         let checkIfFavourite = self.viewWillAppear
             .withLatestFrom(self.currentTrack.asObservable())
             .flatMapLatest { [favouritesLayer] track -> Observable<Bool> in
-                if track != CurrentTrack.default {
-                    let isFavourite = favouritesLayer.isFavourite(for: track.artist, songTitle: track.track)
+                if track != CurrentTrack_v2.default {
+                    let isFavourite = favouritesLayer.isFavourite(for: track.artist, songTitle: track.name)
                     return .just(isFavourite)
                 }
                 return .just(false)
@@ -58,13 +58,13 @@ final class NowPlayingViewModel {
         let markAsFavourite = markTrackAsFavourite.asObservable()
             .withLatestFrom(self.currentTrack.asObservable()) { ($0, $1) }
             .flatMapLatest { [favouritesLayer] (shouldFavourite, track) -> Observable<Bool> in
-                if shouldFavourite && !favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) {
+                if shouldFavourite && !favouritesLayer.isFavourite(for: track.artist, songTitle: track.name) {
                     let model = track.toPlaylistSong()
                     try? favouritesLayer.createFavourite(with: model)
                     NowPlayingViewModel.trackAddedSong(with: track.toSong())
                     return .just(true)
                 } else if !shouldFavourite {
-                    try? favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
+                    try? favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.name)
                     NowPlayingViewModel.trackRemovedSong(with: track.toSong())
                     return .just(false)
                 }

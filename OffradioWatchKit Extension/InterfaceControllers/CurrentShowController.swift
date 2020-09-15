@@ -33,8 +33,7 @@ class CurrentShowController: WKInterfaceController {
         
         communication.getCurrentShow { [weak self] (info) in
             if let data = info["data"] as? [String: Any] {
-                let json = JSON(data)
-                let show = Show(json: json)
+                let show = Show.from(dictionary: data)
                 DispatchQueue.main.async {
                     self?.producerName.setText(show.name)
                     if let url = URL(string: show.photo) {

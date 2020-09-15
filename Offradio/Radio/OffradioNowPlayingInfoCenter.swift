@@ -30,7 +30,7 @@ class OffradioNowPlayingInfoCenter {
             .skipWhile({ $0.isEmpty() })
             .distinctUntilChanged()
             .flatMapLatest { nowPlaying -> Observable<UIImage?> in
-                if let url = URL(string: nowPlaying.current.image) {
+                if let url = URL(string: nowPlaying.track.image) {
                     return URLSession.shared.rx.data(request: URLRequest(url: url))
                         .map({ data -> UIImage? in
                             return UIImage(data: data) ?? placeholder
@@ -47,11 +47,11 @@ class OffradioNowPlayingInfoCenter {
         
     }
     
-    fileprivate func updateInfo(with nowPlaying: NowPlaying) {
+    fileprivate func updateInfo(with nowPlaying: NowPlaying_v2) {
         var info: [String: Any] = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
-        info[MPMediaItemPropertyTitle]      = nowPlaying.current.track
-        info[MPMediaItemPropertyArtist]     = nowPlaying.current.artist
-        info[MPMediaItemPropertyAlbumTitle] = "Offradio - \(nowPlaying.show.name)"
+        info[MPMediaItemPropertyTitle]      = nowPlaying.track.name
+        info[MPMediaItemPropertyArtist]     = nowPlaying.track.artist
+        info[MPMediaItemPropertyAlbumTitle] = "Offradio - \(nowPlaying.producer.producerName)"
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
     

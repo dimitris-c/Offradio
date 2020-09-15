@@ -22,7 +22,7 @@ final class RadioViewModel {
     let isBuffering: Signal<Bool>
     let isPlaying: Signal<Bool>
 
-    let nowPlaying: Driver<NowPlaying>
+    let nowPlaying: Driver<NowPlaying_v2>
 
     let watchCommunication: OffradioWatchCommunication
 
@@ -31,8 +31,8 @@ final class RadioViewModel {
         self.watchCommunication = watchCommunication
 
         nowPlaying = radio.metadata.nowPlaying.asDriver(onErrorJustReturn: .empty)
-            .do(onNext: { [watchCommunication] track in
-                watchCommunication.sendCurrentTrack(with: track.current)
+            .do(onNext: { [watchCommunication] nowPlaying in
+                watchCommunication.sendCurrentTrack(with: nowPlaying.track)
             })
         
         self.radioState = toggleRadioTriggered

@@ -15,7 +15,7 @@ enum NowPlayingService: TargetType {
 }
 
 extension NowPlayingService {
-    var baseURL: URL { return URL(string: APIURL(enviroment: .old).apiPath)! }
+    var baseURL: URL { return URL(string: APIURL(enviroment: .new).apiPath)! }
 
     var method: Moya.Method {
         return .get
@@ -27,7 +27,7 @@ extension NowPlayingService {
     }
 
     var path: String {
-        return "nowplaying"
+        return "now-playing"
     }
 
     var sampleData: Data {
@@ -36,14 +36,6 @@ extension NowPlayingService {
 
     var headers: [String : String]? {
         return nil
-    }
-
-}
-
-final class NowPlayingParse {
-
-    func toData(rawData data: JSON) -> NowPlaying {
-        return NowPlaying(json: data)
     }
 
 }
@@ -74,11 +66,5 @@ extension CRCService {
 
     var headers: [String : String]? {
         return nil
-    }
-}
-
-final class CRCResponse {
-    func toData(rawData data: JSON) -> String? {
-        return data.stringValue
     }
 }

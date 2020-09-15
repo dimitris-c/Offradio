@@ -8,7 +8,6 @@
 
 import Realm
 import RealmSwift
-import SwiftyJSON
 
 class PlaylistSong: Object, Decodable {
 
@@ -81,7 +80,7 @@ class PlaylistSong: Object, Decodable {
         return Song(with: airedDatetime, artist: artist, songTitle: title, imageUrl: image)
     }
 
-    func toCurrentTrack() -> CurrentTrack {
-        return CurrentTrack(track: title, image: image, artist: artist, lastFMImageUrl: "")
+    func toCurrentTrack() -> CurrentTrack_v2 {
+        return CurrentTrack_v2(name: title, artist: artist, artistImage: artistImage, trackImage: trackImage, timeAired: "", links: .empty)
     }
 }

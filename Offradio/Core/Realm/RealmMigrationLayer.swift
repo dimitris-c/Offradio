@@ -17,7 +17,6 @@ final class RealmMigrationLayer {
             }
         })
         Realm.Configuration.defaultConfiguration = config
-        print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteString)
     }
 
     class func migratePlaylistSongs(migration: Migration) {
