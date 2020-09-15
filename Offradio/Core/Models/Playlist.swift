@@ -10,36 +10,67 @@ import Realm
 import RealmSwift
 import SwiftyJSON
 
-class PlaylistSong: Object {
+class PlaylistSong: Object, Decodable {
 
-    @objc dynamic var time: String = ""
+    @objc dynamic var airedAt: Int = 0
+    @objc dynamic var airedDatetime: Date = Date()
     @objc dynamic var artist: String = ""
-    @objc dynamic var songTitle: String = ""
-    @objc dynamic var imageUrl: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var artistImage: String = ""
+    @objc dynamic var trackImage: String = ""
 
-    @objc dynamic var sanitizedTitle: String = ""
+    var sanitizedTitle: String {
+        "\(self.artist) - \(self.title)".lowercased().toBase64()
+    }
 
     @objc dynamic var isFavourite: Bool = false
+    
+    var time: String {
+        Formatters.playlistFormatter.string(from: airedDatetime)
+    }
+    
+    var image: String {
+        if !trackImage.isEmpty {
+            return trackImage
+        } else if !artistImage.isEmpty {
+            return artistImage
+        }
+        return ""
+    }
+    
+    enum Keys: String, CodingKey {
+        case aired_datetime
+        case artist
+        case title
+        case artist_image
+        case track_image
+        case aired_at
+    }
+    
+    
+    required init() {
+        super.init()
+    }
 
-    convenience init(with json: JSON) {
-        self.init()
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
 
-        self.time = json["time"].stringValue
-        self.artist = json["artist"].stringValue.htmlUnescape()
-        self.songTitle = json["songtitle"].stringValue.htmlUnescape()
-        self.imageUrl = json["imageurl"].stringValue.htmlUnescape()
+        self.airedAt = try container.decode(Int.self, forKey: .aired_at)
+        self.airedDatetime = try container.decode(Date.self, forKey: .aired_datetime)
 
-        self.sanitizedTitle = "\(self.artist) - \(self.songTitle)".lowercased().toBase64()
+        self.title = try container.decode(String.self, forKey: .title)
+        self.artist = try container.decode(String.self, forKey: .artist)
+        self.artistImage = try container.decode(String.self, forKey: .artist_image)
+        self.trackImage = try container.decode(String.self, forKey: .track_image)
+
     }
 
     convenience init(_ artist: String, songTitle: String, imageUrl: String) {
         self.init()
 
         self.artist = artist
-        self.songTitle = songTitle
-        self.imageUrl = imageUrl
-
-        self.sanitizedTitle = "\(self.artist) - \(self.songTitle)".lowercased().toBase64()
+        self.title = songTitle
+        self.trackImage = imageUrl
     }
 
     func deepCopy() -> PlaylistSong {
@@ -47,10 +78,10 @@ class PlaylistSong: Object {
     }
 
     func toSong() -> Song {
-        return Song(with: time, artist: artist, songTitle: songTitle, imageUrl: imageUrl)
+        return Song(with: airedDatetime, artist: artist, songTitle: title, imageUrl: image)
     }
 
     func toCurrentTrack() -> CurrentTrack {
-        return CurrentTrack(track: songTitle, image: imageUrl, artist: artist, lastFMImageUrl: "")
+        return CurrentTrack(track: title, image: image, artist: artist, lastFMImageUrl: "")
     }
 }

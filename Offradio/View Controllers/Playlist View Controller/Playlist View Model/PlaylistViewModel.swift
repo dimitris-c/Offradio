@@ -38,9 +38,8 @@ final class PlaylistViewModel {
 
     let playlistService = MoyaProvider<PlaylistService>()
     let itunesService = MoyaProvider<iTunesSearchAPI>(plugins: [NetworkLoggerPlugin()])
-    let playlistParser = PlaylistResponseParse()
 
-    fileprivate var page: Int = 0
+    fileprivate var page: Int = 1
     fileprivate let totalPagesToFetch: Int = 10
 
     init(viewWillAppear: Driver<Void>, scrollViewDidReachBottom: Driver<Void>) {
@@ -48,14 +47,15 @@ final class PlaylistViewModel {
         self.refresh.asObservable().subscribe(onNext: { [weak self] refresh in
             guard let strongSelf = self else { return }
             if refresh && !strongSelf.indicatorViewAnimating.value {
-                strongSelf.page = 0
-                strongSelf.fetchPlaylist(withPage: 0)
+                strongSelf.page = 1
+                
+                strongSelf.fetchPlaylist(withPage: 1)
             }
         }).disposed(by: disposeBag)
 
         viewWillAppear.asObservable()
             .take(1)
-            .map { _ in 0 }
+            .map { _ in 1 }
             .subscribe(onNext: { [weak self] page in
                 guard let sSelf = self else { return }
                 sSelf.fetchPlaylist(withPage: page)
@@ -110,24 +110,24 @@ final class PlaylistViewModel {
             switch result {
             case .success(let response):
                 do {
-                    let data = try response.mapJSON()
-                    let json = JSON(data)
-                    if strongSelf.page == 0 {
-                        let values = json["playlist"].arrayValue
-                            .map { PlaylistSong(with: $0) }
+                    print(String(data: response.data, encoding: .utf8))
+                    let data = try response.map([PlaylistSong].self, using: Decoders.defaultKeysJSONDecoder, failsOnEmptyData: false)
+                    if strongSelf.page == 1 {
+                        let values = data
                             .map { PlaylistCellViewModel(with: $0) }
                         strongSelf.playlistData.accept(values)
                     } else {
                         var updatedValues = strongSelf.playlistData.value
-                        updatedValues.append(contentsOf: json["playlist"].arrayValue
-                            .map { PlaylistSong(with: $0) }.map { PlaylistCellViewModel(with: $0) })
+                        updatedValues.append(contentsOf: data.map { PlaylistCellViewModel(with: $0) })
                         strongSelf.playlistData.accept(updatedValues)
                     }
                     strongSelf.page += 1
                     strongSelf.refresh.accept(false)
                     strongSelf.indicatorViewAnimating.accept(false)
                     strongSelf.initialLoad.accept(false)
-                } catch { }
+                } catch {
+                    Log.debug(error.localizedDescription)
+                }
             case .failure(let error):
                 Log.debug(error.localizedDescription)
             }

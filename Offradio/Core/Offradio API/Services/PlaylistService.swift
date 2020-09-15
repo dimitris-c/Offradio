@@ -43,13 +43,3 @@ extension PlaylistService {
     }
 
 }
-
-final class PlaylistResponseParse {
-
- func toData(rawData data: JSON) -> [PlaylistSong] {
-        var items: [PlaylistSong] = []
-        items = data["playlist"].arrayValue.map { PlaylistSong(with: $0) }
-        return items
-    }
-
-}

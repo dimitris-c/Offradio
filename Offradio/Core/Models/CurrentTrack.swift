@@ -59,7 +59,7 @@ struct CurrentTrack: Equatable {
     }
 
     func toSong() -> Song {
-        return Song(with: "", artist: artist, songTitle: track, imageUrl: image)
+        return Song(with: Date(), artist: artist, songTitle: track, imageUrl: image)
     }
 }
 

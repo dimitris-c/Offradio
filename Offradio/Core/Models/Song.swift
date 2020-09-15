@@ -9,39 +9,39 @@
 import SwiftyJSON
 import HTMLEntities
 /// Alias of PlaylistSong for use in watch without Realm dependancies
-struct Song {
-    let time: String
+struct Song: Decodable {
+    let airedDatetime: Date
     let artist: String
-    let songTitle: String
-    let imageUrl: String
+    let title: String
+//    let artistImage: String
+    let trackImage: String
 
-    var title: String {
-        guard !artist.isEmpty && !songTitle.isEmpty else {
+//    let sanitizedTitle: String
+
+//    var isFavourite: Bool = false
+    
+    var time: String {
+        Formatters.playlistFormatter.string(from: airedDatetime)
+    }
+    
+    var titleFormatted: String {
+        guard !artist.isEmpty && !title.isEmpty else {
             return "Turn your radio off"
         }
-        return "\(artist) - \(songTitle)"
+        return "\(artist) - \(title)"
     }
-
-    init(with json: JSON) {
-
-        self.time = json["time"].stringValue
-        self.artist = json["artist"].stringValue.htmlUnescape()
-        self.songTitle = json["songtitle"].stringValue.htmlUnescape()
-        self.imageUrl = json["imageurl"].stringValue.htmlUnescape()
-
-    }
-
-    init(with time: String, artist: String, songTitle: String, imageUrl: String) {
-        self.time = time
+    
+    init(with date: Date, artist: String, songTitle: String, imageUrl: String) {
+        self.airedDatetime = date
         self.artist = artist
-        self.songTitle = songTitle
-        self.imageUrl = imageUrl
+        self.title = songTitle
+        self.trackImage = imageUrl
     }
 
     func toDictionary() -> [String: Any] {
         return ["time": time,
                 "artist": artist,
-                "songtitle": songTitle,
-                "imageUrl": imageUrl]
+                "songtitle": title,
+                "imageUrl": trackImage]
     }
 }

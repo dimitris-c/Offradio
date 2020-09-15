@@ -27,13 +27,13 @@ final class PlaylistCellViewModel {
     func initialise(with driver: Driver<Bool>) {
         disposeBag = DisposeBag()
 
-        favourited.accept(self.playlistFavouritesLayer.isFavourite(for: self.item.artist, songTitle: self.item.songTitle))
+        favourited.accept(self.playlistFavouritesLayer.isFavourite(for: self.item.artist, songTitle: self.item.title))
 
         let tapObservable = driver.asObservable().subscribe(onNext: { [weak self] shouldFavourite in
             guard let strongSelf = self else { return }
 
             let artist: String = strongSelf.item.artist
-            let songTitle: String = strongSelf.item.songTitle
+            let songTitle: String = strongSelf.item.title
 
             let itemExists: Bool = strongSelf.playlistFavouritesLayer.isFavourite(for: artist, songTitle: songTitle)
             if shouldFavourite && !itemExists {

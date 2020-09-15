@@ -26,7 +26,7 @@ extension iTunesSearchAPI {
             let locale = Locale.current.regionCode ?? ""
             let charset = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789?&=.-_*+/: ").inverted
             let sanitisedArtist = song.artist.replacingOccurrences(of: " ", with: "+").components(separatedBy: charset).joined(separator: "")
-            let sanitisedSongTitle = song.songTitle.replacingOccurrences(of: " ", with: "+").components(separatedBy: charset).joined(separator: "")
+            let sanitisedSongTitle = song.title.replacingOccurrences(of: " ", with: "+").components(separatedBy: charset).joined(separator: "")
             return "?country=\(locale)&media=music&app=music&entity=song&term=\(sanitisedArtist)+\(sanitisedSongTitle)&artistTerm=\(sanitisedArtist)&songTerm=\(sanitisedSongTitle)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         }
     }

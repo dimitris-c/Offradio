@@ -100,12 +100,12 @@ final class Offradio: NSObject, RadioProtocol {
     }
     
     final fileprivate func deactivateAudioSession() {
-        do {
-            Log.debug("AudioSession is deactivated")
-            //            try AVAudioSession.sharedInstance().setActive(false)
-        } catch let error as NSError {
-            Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
-        }
+//        do {
+//            Log.debug("AudioSession is deactivated")
+//            try AVAudioSession.sharedInstance().setActive(false)
+//        } catch let error as NSError {
+//            Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
+//        }
     }
     
 }

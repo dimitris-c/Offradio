@@ -24,10 +24,10 @@ class PlaylistController: WKInterfaceController {
         super.didAppear()
         
         self.communication.getPlaylist { [weak self] data in
-            if let songs = data["data"] as? [[String: Any]] {
-                let final = songs.map { JSON($0) }.map(Song.init(with:))
-                self?.populateRows(songs: final)
-            }
+//            if let songs = data["data"] as? [[String: Any]] {
+//                let final = songs.map { JSON($0) }.map(Song.init(with:))
+//                self?.populateRows(songs: final)
+//            }
         }
         
     }
