@@ -30,7 +30,7 @@ target 'Offradio' do
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit'
-  pod 'Starscream'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   pod 'StreamingKit', :git => 'https://github.com/tumtumtum/StreamingKit.git', :branch => 'master'
 
   target 'OffradioTests' do

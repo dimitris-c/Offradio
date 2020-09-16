@@ -33,7 +33,7 @@ final class CurrentTrackView: UIView {
     fileprivate var shareButton: UIButton!
     var favouriteButton: UIButton!
 
-    init(with currentTrack: Driver<CurrentTrack_v2>) {
+    init(with currentTrack: Driver<CurrentTrack>) {
         super.init(frame: .zero)
         self.clipsToBounds = true
 
@@ -158,7 +158,7 @@ final class CurrentTrackView: UIView {
         self.bottomGradient.frame               = self.bottomGradientView.bounds
     }
 
-    fileprivate func updateSong(with track: CurrentTrack_v2) {
+    fileprivate func updateSong(with track: CurrentTrack) {
 
         let animations = {
             self.nowPlayingIcon.frame.origin.y   = self.bottomViewsContainer.frame.maxY

@@ -8,13 +8,13 @@
 
 import SwiftyJSON
 
-struct NowPlaying_v2: Decodable, Equatable {
-    let track: CurrentTrack_v2
-    let producer: Producer_v2
+struct NowPlaying: Decodable, Equatable {
+    let track: CurrentTrack
+    let producer: ProducerShow
     
-    static let empty = NowPlaying_v2(track: .empty, producer: .empty)
+    static let empty = NowPlaying(track: .empty, producer: .empty)
     
-    static let `default` = NowPlaying_v2(track: .default, producer: .default)
+    static let `default` = NowPlaying(track: .default, producer: .default)
     
     func isEmpty() -> Bool {
         self.track.isEmpty() && self.producer.isEmpty()

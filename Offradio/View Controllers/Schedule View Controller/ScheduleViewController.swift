@@ -114,7 +114,7 @@ final class ScheduleViewController: UIViewController {
 
     }
 
-    private func showProducerBio(with producer: Producer) {
+    private func showProducerBio(with producer: Producer1) {
         self.hideLabelOnBackButton()
         let producerBioViewController = ProducersBioViewController(with: producer)
         self.navigationController?.pushViewController(producerBioViewController, animated: true)

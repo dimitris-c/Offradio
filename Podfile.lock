@@ -112,7 +112,9 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
-  - Starscream (4.0.4)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
   - StreamingKit (0.1.31)
   - SwiftyJSON (5.0.0)
   - SwipeCellKit (2.7.1)
@@ -139,7 +141,7 @@ DEPENDENCIES:
   - RxCocoa
   - RxRealm
   - RxSwift
-  - Starscream
+  - Socket.IO-Client-Swift (~> 15.2.0)
   - StreamingKit (from `https://github.com/tumtumtum/StreamingKit.git`, branch `master`)
   - SwiftyJSON
   - SwipeCellKit
@@ -174,6 +176,7 @@ SPEC REPOS:
     - RxRealm
     - RxRelay
     - RxSwift
+    - Socket.IO-Client-Swift
     - Starscream
     - SwiftyJSON
     - SwipeCellKit
@@ -218,7 +221,8 @@ SPEC CHECKSUMS:
   RxRealm: 900f5c7e6f0a2d6527b56eaf7283f3035ec1e8ba
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
-  Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   StreamingKit: 017093dadc370099b78457e860a0433aa8be5552
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
@@ -226,6 +230,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit5: 64095dfefcf39be2355711ef27112d55e340d90e
 
-PODFILE CHECKSUM: e5f807162080bfcd1d36fc8c854aad486c375717
+PODFILE CHECKSUM: 233cd3f8a968d49e65fd1b28b9ac283c5637b813
 
 COCOAPODS: 1.9.3

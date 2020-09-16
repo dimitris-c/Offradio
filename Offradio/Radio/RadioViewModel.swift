@@ -22,7 +22,7 @@ final class RadioViewModel {
     let isBuffering: Signal<Bool>
     let isPlaying: Signal<Bool>
 
-    let nowPlaying: Driver<NowPlaying_v2>
+    let nowPlaying: Driver<NowPlaying>
 
     let watchCommunication: OffradioWatchCommunication
 

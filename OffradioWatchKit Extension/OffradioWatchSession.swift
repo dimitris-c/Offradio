@@ -16,7 +16,7 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
     static let shared: OffradioWatchSession = OffradioWatchSession()
     
     let radioState = BehaviorRelay<RadioState>(value: .stopped)
-    let currentTrack = BehaviorRelay<CurrentTrack_v2>(value: CurrentTrack_v2.default)
+    let currentTrack = BehaviorRelay<CurrentTrack>(value: CurrentTrack.default)
     let isFavourite = BehaviorRelay<Bool>(value: false)
     
     func activate() {
@@ -48,7 +48,7 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
             break
         case .currentTrack:
             if let data = message["data"] as? [String: Any] {                
-                let track = CurrentTrack_v2.from(dictionary: data)
+                let track = CurrentTrack.from(dictionary: data)
                 currentTrack.accept(track)
             }
         case .favouriteStatus:

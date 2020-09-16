@@ -16,7 +16,7 @@ final class NowPlayingViewModel {
     fileprivate let radioMetadata: RadioMetadata
     fileprivate let favouritesLayer: PlaylistFavouritesLayer
 
-    var nowPlaying: Observable<NowPlaying_v2> {
+    var nowPlaying: Observable<NowPlaying> {
         return self.radioMetadata.nowPlaying
     }
     
@@ -24,8 +24,8 @@ final class NowPlayingViewModel {
     let markTrackAsFavourite = PublishSubject<Bool>()
 
     let favouriteTrack: Driver<Bool>
-    let currentTrack: Driver<CurrentTrack_v2>
-    let show: Driver<Producer_v2>
+    let currentTrack: Driver<CurrentTrack>
+    let show: Driver<ProducerShow>
 
     init(with radioMetadata: RadioMetadata) {
         self.radioMetadata = radioMetadata
@@ -37,18 +37,18 @@ final class NowPlayingViewModel {
         
         self.show = nowPlaying
             .map { $0.producer }
-            .startWith(Producer_v2.default)
+            .startWith(ProducerShow.default)
             .asDriver(onErrorJustReturn: .default)
 
         self.currentTrack = nowPlaying
             .map { $0.track }
-            .startWith(CurrentTrack_v2.default)
+            .startWith(CurrentTrack.default)
             .asDriver(onErrorJustReturn: .default)
         
         let checkIfFavourite = self.viewWillAppear
             .withLatestFrom(self.currentTrack.asObservable())
             .flatMapLatest { [favouritesLayer] track -> Observable<Bool> in
-                if track != CurrentTrack_v2.default {
+                if track != CurrentTrack.default {
                     let isFavourite = favouritesLayer.isFavourite(for: track.artist, songTitle: track.name)
                     return .just(isFavourite)
                 }

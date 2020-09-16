@@ -21,14 +21,14 @@ protocol RadioProtocol {
 }
 
 protocol RadioMetadata {
-    var nowPlaying: Observable<NowPlaying_v2> { get }
-    var currentTrack: BehaviorRelay<CurrentTrack_v2> { get }
+    var nowPlaying: Observable<NowPlaying> { get }
+    var currentTrack: BehaviorRelay<CurrentTrack> { get }
     
     func startTimer()
     func stopTimer()
     func forceRefresh()
 
-    func fetchNowPlaying() -> Observable<NowPlaying_v2>
+    func fetchNowPlaying() -> Observable<NowPlaying>
 }
 
 /**

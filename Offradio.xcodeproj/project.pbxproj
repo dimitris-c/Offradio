@@ -21,10 +21,13 @@
 		B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */; };
 		B507C0A61E56869800792414 /* DataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A51E56869800792414 /* DataLayer.swift */; };
 		B50F0DB724B85EEE006D660E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50F0DB624B85EEE006D660E /* CoreServices.framework */; };
+		B519062D25122BD8005537BF /* NowPlayingSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519062C25122BD8005537BF /* NowPlayingSocketService.swift */; };
+		B519063925122C37005537BF /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519063825122C37005537BF /* WebSocketService.swift */; };
+		B519064025123314005537BF /* JSONDecoder+DecodeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519063F25123314005537BF /* JSONDecoder+DecodeString.swift */; };
 		B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB71E4B9C06009F4C37 /* Playlist.swift */; };
 		B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB91E4B9E50009F4C37 /* Schedule.swift */; };
-		B51E3FBC1E4B9F49009F4C37 /* Producer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FBB1E4B9F49009F4C37 /* Producer.swift */; };
+		B51E3FBC1E4B9F49009F4C37 /* ProducerShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FBB1E4B9F49009F4C37 /* ProducerShow.swift */; };
 		B524E5FD1E672622003A75EE /* ProducersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E5FC1E672622003A75EE /* ProducersService.swift */; };
 		B524E6001E673BD6003A75EE /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E5FF1E673BD6003A75EE /* NowPlayingViewController.swift */; };
 		B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */; };
@@ -45,6 +48,7 @@
 		B52C2D4A1EB25A3100AF8514 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D491EB25A3100AF8514 /* WatchConnectivity.framework */; };
 		B52C2D4D1EB25A3B00AF8514 /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4B1EB25A3B00AF8514 /* WatchConnectivity.framework */; };
 		B52C2D501EB25A4300AF8514 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */; };
+		B52E568D25121D4E000AC1B8 /* Starscream+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52E568C25121D4E000AC1B8 /* Starscream+Rx.swift */; };
 		B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */; };
 		B53BDBBD2423DD0F001F42E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B53BDBBC2423DD0F001F42E7 /* GoogleService-Info.plist */; };
 		B53FC4751E9C04C600DC82AD /* CurrentTrackShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */; };
@@ -128,7 +132,7 @@
 		B5E93F77250F9020008412E7 /* Decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F76250F9020008412E7 /* Decoders.swift */; };
 		B5E93F7925100D66008412E7 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F7825100D66008412E7 /* Formatters.swift */; };
 		B5E93F7A25100F17008412E7 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F7825100D66008412E7 /* Formatters.swift */; };
-		B5E93FFF25112D5B008412E7 /* Producer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FBB1E4B9F49009F4C37 /* Producer.swift */; };
+		B5E93FFF25112D5B008412E7 /* ProducerShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FBB1E4B9F49009F4C37 /* ProducerShow.swift */; };
 		B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125211E5CC82400579D4B /* HorizontalArranger.swift */; };
 		B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125221E5CC82400579D4B /* SizeObject.swift */; };
 		B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F125231E5CC82400579D4B /* VerticalArranger.swift */; };
@@ -229,10 +233,13 @@
 		B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistFavouritesLayer.swift; sourceTree = "<group>"; };
 		B507C0A51E56869800792414 /* DataLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayer.swift; sourceTree = "<group>"; };
 		B50F0DB624B85EEE006D660E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		B519062C25122BD8005537BF /* NowPlayingSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingSocketService.swift; sourceTree = "<group>"; };
+		B519063825122C37005537BF /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		B519063F25123314005537BF /* JSONDecoder+DecodeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+DecodeString.swift"; sourceTree = "<group>"; };
 		B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
 		B51E3FB71E4B9C06009F4C37 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		B51E3FB91E4B9E50009F4C37 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
-		B51E3FBB1E4B9F49009F4C37 /* Producer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Producer.swift; sourceTree = "<group>"; };
+		B51E3FBB1E4B9F49009F4C37 /* ProducerShow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducerShow.swift; sourceTree = "<group>"; };
 		B524E5FC1E672622003A75EE /* ProducersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProducersService.swift; sourceTree = "<group>"; };
 		B524E5FF1E673BD6003A75EE /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NowPlayingViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = NowPlayingViewModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -252,6 +259,7 @@
 		B52C2D4B1EB25A3B00AF8514 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 		B52C2D4C1EB25A3B00AF8514 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
 		B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
+		B52E568C25121D4E000AC1B8 /* Starscream+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Starscream+Rx.swift"; sourceTree = "<group>"; };
 		B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B53BDBBC2423DD0F001F42E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Offradio/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackShareView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -554,6 +562,8 @@
 		B52A6C261E36B3CE005893D2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B52E568B25121D31000AC1B8 /* WebSocket */,
+				B52E568A25121D19000AC1B8 /* NowPlaying */,
 				B52A6C391E36BAC2005893D2 /* AppConstants.swift */,
 				B5BC8DEE1F700F74007F5519 /* iTunesSearch API */,
 				B5656F2C1E6501B200E5DB0E /* LastFM API */,
@@ -594,6 +604,7 @@
 				B54DC4CA1E5C9EA600FA376D /* UIViewExtensions.swift */,
 				B5656F311E65DC9A00E5DB0E /* KingfisherManager+Rx.swift */,
 				B54AAF2C1F96ABB70005C952 /* BundleExtensions.swift */,
+				B519063F25123314005537BF /* JSONDecoder+DecodeString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -604,7 +615,7 @@
 				B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */,
 				B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */,
 				B51E3FB71E4B9C06009F4C37 /* Playlist.swift */,
-				B51E3FBB1E4B9F49009F4C37 /* Producer.swift */,
+				B51E3FBB1E4B9F49009F4C37 /* ProducerShow.swift */,
 				B51E3FB91E4B9E50009F4C37 /* Schedule.swift */,
 				B5D923771E65E4800013A3F4 /* Show.swift */,
 				B5483B951EB4F44E004AC6BF /* Song.swift */,
@@ -622,6 +633,23 @@
 				B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B52E568A25121D19000AC1B8 /* NowPlaying */ = {
+			isa = PBXGroup;
+			children = (
+				B519062C25122BD8005537BF /* NowPlayingSocketService.swift */,
+			);
+			path = NowPlaying;
+			sourceTree = "<group>";
+		};
+		B52E568B25121D31000AC1B8 /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				B52E568C25121D4E000AC1B8 /* Starscream+Rx.swift */,
+				B519063825122C37005537BF /* WebSocketService.swift */,
+			);
+			path = WebSocket;
 			sourceTree = "<group>";
 		};
 		B53FC4721E9C04C600DC82AD /* ShareTrackView */ = {
@@ -1363,6 +1391,7 @@
 				B54BC8A71E36A9DC0043F248 /* AppDelegate.swift in Sources */,
 				B524E6001E673BD6003A75EE /* NowPlayingViewController.swift in Sources */,
 				B5656F301E65025B00E5DB0E /* LastFMApiService.swift in Sources */,
+				B519064025123314005537BF /* JSONDecoder+DecodeString.swift in Sources */,
 				B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */,
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
 				B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */,
@@ -1385,6 +1414,7 @@
 				B503956F1E4BCA0100D9A71B /* NowPlayingService.swift in Sources */,
 				B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */,
 				B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */,
+				B519063925122C37005537BF /* WebSocketService.swift in Sources */,
 				B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */,
 				B52C2D441EB0F5E000AF8514 /* RadioViewModel.swift in Sources */,
 				B52A6C421E36BAC2005893D2 /* Log.swift in Sources */,
@@ -1392,6 +1422,7 @@
 				B54DC4D01E5CA3A600FA376D /* FavouritesViewModel.swift in Sources */,
 				B54E08811E4D10C400B54FB3 /* ScheduleViewModel.swift in Sources */,
 				B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */,
+				B52E568D25121D4E000AC1B8 /* Starscream+Rx.swift in Sources */,
 				B5656F321E65DC9A00E5DB0E /* KingfisherManager+Rx.swift in Sources */,
 				B5BA38411E4F702200DB49C9 /* UIScrollView+Rx.swift in Sources */,
 				B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */,
@@ -1427,6 +1458,7 @@
 				B53FC4761E9C04C600DC82AD /* TrackShareViewModel.swift in Sources */,
 				B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */,
 				B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */,
+				B519062D25122BD8005537BF /* NowPlayingSocketService.swift in Sources */,
 				B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */,
 				B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */,
 				B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */,
@@ -1439,7 +1471,7 @@
 				B543EF771F90178000E4B2AB /* AnalyticsTrackable.swift in Sources */,
 				B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
-				B51E3FBC1E4B9F49009F4C37 /* Producer.swift in Sources */,
+				B51E3FBC1E4B9F49009F4C37 /* ProducerShow.swift in Sources */,
 				B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */,
 				B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */,
 				B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */,
@@ -1483,7 +1515,7 @@
 				B5483B901EB4EFA2004AC6BF /* CurrentShowController.swift in Sources */,
 				B58E755B1EB39F9100D06C15 /* Show.swift in Sources */,
 				B5483B971EB4F489004AC6BF /* Song.swift in Sources */,
-				B5E93FFF25112D5B008412E7 /* Producer.swift in Sources */,
+				B5E93FFF25112D5B008412E7 /* ProducerShow.swift in Sources */,
 				B52C2D3F1EB0E3B400AF8514 /* OffradioWatchCommunication.swift in Sources */,
 				B5483B911EB4EFA2004AC6BF /* CurrentTrackController.swift in Sources */,
 			);
@@ -1650,7 +1682,7 @@
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Offradio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1678,7 +1710,7 @@
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Offradio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1845,7 +1877,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
 		};
@@ -1868,7 +1900,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};

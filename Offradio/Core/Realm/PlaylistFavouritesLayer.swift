@@ -49,7 +49,7 @@ struct PlaylistFavouritesLayer: DataLayerProtocol {
 
 }
 
-extension CurrentTrack_v2 {
+extension CurrentTrack {
     func toPlaylistSong() -> PlaylistSong {
         return PlaylistSong(self.artist, songTitle: self.name, imageUrl: self.image)
     }

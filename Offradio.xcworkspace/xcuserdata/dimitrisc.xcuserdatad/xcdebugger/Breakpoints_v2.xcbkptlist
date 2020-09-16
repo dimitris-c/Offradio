@@ -27,16 +27,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F6E3AA5F-9699-416E-9866-69D720B4E79D"
+            uuid = "16E613A9-2FC6-4FA3-B789-4EABD1774013"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Moya/Sources/Moya/Response.swift"
+            filePath = "Pods/Starscream/Sources/Engine/NativeEngine.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "map(_:atKeyPath:using:failsOnEmptyData:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "doRead()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "070FBEE5-D712-4965-9BAF-B9052D277AF7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/Starscream/Sources/Engine/NativeEngine.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "urlSession(_:webSocketTask:didCloseWith:reason:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4A8F0BC3-87D6-4F3D-AD8D-A177AB33AD83"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Offradio/Core/NowPlaying/NowPlayingSocketService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "read()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

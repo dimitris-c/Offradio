@@ -47,7 +47,7 @@ class OffradioNowPlayingInfoCenter {
         
     }
     
-    fileprivate func updateInfo(with nowPlaying: NowPlaying_v2) {
+    fileprivate func updateInfo(with nowPlaying: NowPlaying) {
         var info: [String: Any] = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
         info[MPMediaItemPropertyTitle]      = nowPlaying.track.name
         info[MPMediaItemPropertyArtist]     = nowPlaying.track.artist

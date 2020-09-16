@@ -8,7 +8,7 @@
 
 import SwiftyJSON
 
-struct CurrentTrack_v2: Decodable, Equatable {
+struct CurrentTrack: Decodable, Equatable {
     let name: String
     let artist: String
     let artistImage: String
@@ -34,17 +34,17 @@ struct CurrentTrack_v2: Decodable, Equatable {
         return "\(artist) - \(name)"
     }
 
-    static let empty = CurrentTrack_v2(name: "", artist: "", artistImage: "", trackImage: "", timeAired: "", links: .empty)
+    static let empty = CurrentTrack(name: "", artist: "", artistImage: "", trackImage: "", timeAired: "", links: .empty)
 
-    static let `default` = CurrentTrack_v2(name: "Turn Your Radio Off", artist: "Offradio", artistImage: "", trackImage: "", timeAired: "", links: .empty)
+    static let `default` = CurrentTrack(name: "Turn Your Radio Off", artist: "Offradio", artistImage: "", trackImage: "", timeAired: "", links: .empty)
 
-    static func from(dictionary: [String: Any]) -> CurrentTrack_v2 {
+    static func from(dictionary: [String: Any]) -> CurrentTrack {
         guard let track = dictionary["track"] as? String,
             let artist = dictionary["artist"] as? String,
             let image = dictionary["image"] as? String else {
                 return .default
         }
-        return CurrentTrack_v2(name: track, artist: artist, artistImage: image, trackImage: "", timeAired: "", links: CurrentTrackLinks.empty)
+        return CurrentTrack(name: track, artist: artist, artistImage: image, trackImage: "", timeAired: "", links: CurrentTrackLinks.empty)
     }
     
     func toDictionary() -> [String: Any] {

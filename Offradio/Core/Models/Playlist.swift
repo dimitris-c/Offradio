@@ -80,7 +80,7 @@ class PlaylistSong: Object, Decodable {
         return Song(with: airedDatetime, artist: artist, songTitle: title, imageUrl: image)
     }
 
-    func toCurrentTrack() -> CurrentTrack_v2 {
-        return CurrentTrack_v2(name: title, artist: artist, artistImage: artistImage, trackImage: trackImage, timeAired: "", links: .empty)
+    func toCurrentTrack() -> CurrentTrack {
+        return CurrentTrack(name: title, artist: artist, artistImage: artistImage, trackImage: trackImage, timeAired: "", links: .empty)
     }
 }

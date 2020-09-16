@@ -11,7 +11,6 @@ import Moya
 import SwiftyJSON
 
 enum MetadataTrigger: Equatable {
-    case crc(value: String)
     case refresh
     case none
 }
@@ -20,9 +19,9 @@ final class OffradioMetadata: RadioMetadata {
     fileprivate let disposeBag = DisposeBag()
     
     private let queue = ConcurrentDispatchQueueScheduler(qos: .background)
-    let nowPlaying: Observable<NowPlaying_v2>
+    let nowPlaying: Observable<NowPlaying>
     
-    let currentTrack = BehaviorRelay<CurrentTrack_v2>(value: .default)
+    let currentTrack = BehaviorRelay<CurrentTrack>(value: .default)
     
     fileprivate let refresh = PublishRelay<MetadataTrigger>()
     fileprivate let crcTrigger = PublishRelay<MetadataTrigger>()
@@ -32,59 +31,57 @@ final class OffradioMetadata: RadioMetadata {
     fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
     fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
     
+    private let nowPlayinSocketService: NowPlayingSocketService
+    
     public init() {
+        
+        self.nowPlayinSocketService = NowPlayingSocketService(builder: OffradioWebsocketBuilder(),
+                                                              url: APIURL(enviroment: .new).socket)
         
         let fetchNowPlaying = self.nowPlayingService.rx.request(.nowPlaying)
             .observeOn(queue)
-            .map(NowPlaying_v2.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
+            .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
-            .catchErrorJustReturn(NowPlaying_v2.default)
+            .catchErrorJustReturn(NowPlaying.default)
         
         nowPlaying = refresh.asObservable()
-            .distinctUntilChanged()
-            .flatMapLatest { _ -> Observable<NowPlaying_v2> in
+            .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
             }
             .observeOn(MainScheduler.asyncInstance)
-            .catchErrorJustReturn(NowPlaying_v2.default)
+            .catchErrorJustReturn(NowPlaying.default)
             .share(replay: 1, scope: .whileConnected)
         
         nowPlaying
             .map { $0.track }
             .bind(to: currentTrack)
             .disposed(by: disposeBag)
+        
+        nowPlayinSocketService.nowPlayingUpdates()
+            .distinctUntilChanged()
+            .map { $0.track }
+            .drive(currentTrack)
+            .disposed(by: disposeBag)
+        
     }
     
     func startTimer() {
-        stopTimer()
-        let crcTimer = Observable<Int>.timer(.seconds(0), period: .seconds(20), scheduler: queue)
-        crcTimerDisposable = crcTimer.asObservable()
-            .flatMapLatest({ [weak self] _ -> Observable<MetadataTrigger> in
-                guard let strongSelf = self else { return Observable.empty() }
-                return strongSelf.crcService.rx.request(.crc)
-                    .mapString()
-                    .asObservable()
-                    .map { MetadataTrigger.crc(value: $0) }
-            })
-            .catchErrorJustReturn(.none)
-            .bind(to: crcTrigger)
+        
     }
     
     func stopTimer() {
-        crcTimerDisposable?.dispose()
-        crcTimerDisposable = nil
     }
     
     func forceRefresh() {
         refresh.accept(.refresh)
     }
-
-    func fetchNowPlaying() -> Observable<NowPlaying_v2> {
+    
+    func fetchNowPlaying() -> Observable<NowPlaying> {
         return self.nowPlayingService.rx.request(.nowPlaying)
             .observeOn(queue)
-            .map(NowPlaying_v2.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
+            .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
-            .catchErrorJustReturn(NowPlaying_v2.default)
+            .catchErrorJustReturn(NowPlaying.default)
     }
-
+    
 }

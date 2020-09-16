@@ -107,7 +107,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
             })
         case .toggleFavourite:
             if let data = message["data"] as? [String: Any] {
-                let track = CurrentTrack_v2.from(dictionary: data)
+                let track = CurrentTrack.from(dictionary: data)
                 let isAlreadyFavourite = self.isAlreadyFavourited(with: track)
                 reply(["action": OffradioWatchAction.favouriteStatus.rawValue, "data": ["isFavourite": !isAlreadyFavourite]])
 
@@ -124,7 +124,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
         }
     }
 
-    fileprivate func isAlreadyFavourited(with track: CurrentTrack_v2) -> Bool {
+    fileprivate func isAlreadyFavourited(with track: CurrentTrack) -> Bool {
         let isAlreadyFavourite: Bool = playlistFavouritesLayer.isFavourite(for: track.artist, songTitle: track.name)
         if !isAlreadyFavourite {
             try? self.playlistFavouritesLayer.createFavourite(with: track.toPlaylistSong())
@@ -166,9 +166,9 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
         disposeBag?.insert(disposable)
     }
 
-    fileprivate func fetchCurrentTrack(withReply reply: @escaping (CurrentTrack_v2) -> Void) {
+    fileprivate func fetchCurrentTrack(withReply reply: @escaping (CurrentTrack) -> Void) {
         let disposable = self.radio.metadata.fetchNowPlaying().asObservable()
-            .catchErrorJustReturn(NowPlaying_v2.empty)
+            .catchErrorJustReturn(NowPlaying.empty)
             .map { $0.track }
             .subscribe(onNext: { track in
                 reply(track)
@@ -178,9 +178,9 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
         disposeBag?.insert(disposable)
     }
 
-    fileprivate func fetchCurrentShow(withReply reply: @escaping (Producer_v2) -> Void) {
+    fileprivate func fetchCurrentShow(withReply reply: @escaping (ProducerShow) -> Void) {
         let disposable = self.radio.metadata.fetchNowPlaying().asObservable()
-            .catchErrorJustReturn(NowPlaying_v2.empty)
+            .catchErrorJustReturn(NowPlaying.empty)
             .map { $0.producer }
             .subscribe(onNext: { show in
                 reply(show)

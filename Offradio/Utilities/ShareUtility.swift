@@ -15,7 +15,7 @@ import FirebaseAnalytics
 
 class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
 
-    class func share(on type: ShareType, with nowPlaying: NowPlaying_v2, using viewController: UIViewController) {
+    class func share(on type: ShareType, with nowPlaying: NowPlaying, using viewController: UIViewController) {
         switch type {
         case .facebook:
             self.shareOnFacebook(with: nowPlaying, using: viewController)
@@ -31,7 +31,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         Analytics.logEvent("Sharing song", parameters: attributes)
     }
 
-    class func shareOnFacebook(with nowPlaying: NowPlaying_v2, using viewController: UIViewController?) {
+    class func shareOnFacebook(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
         guard let viewController = viewController else { return }
         print("Sharing on Facebook")
         let shareContent = ShareLinkContent()
@@ -40,7 +40,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         ShareDialog(fromViewController: viewController, content: shareContent, delegate: nil).show()
     }
 
-    class func shareOnTwitter(with nowPlaying: NowPlaying_v2, using viewController: UIViewController?) {
+    class func shareOnTwitter(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
         guard let viewController = viewController else { return }
         print("Sharing on Twitter")
 
@@ -57,7 +57,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
 
     }
 
-    class func shareOnEmail(with nowPlaying: NowPlaying_v2, using viewController: UIViewController?) {
+    class func shareOnEmail(with nowPlaying: NowPlaying, using viewController: UIViewController?) {
         guard let viewController = viewController else { return }
         print("Sharing on email")
 
@@ -80,7 +80,7 @@ struct TwitterTitleFactory {
 
     private let limit: Int = 140
 
-    func title(with nowPlaying: NowPlaying_v2) -> String {
+    func title(with nowPlaying: NowPlaying) -> String {
         var fullTitle = "\(firstPart) Listening to \(nowPlaying.producer.producerName) \(hashtag) \(nowPlaying.track.title) \(mention)"
         if fullTitle.count > limit {
             fullTitle = "\(firstPart) Listening to \(nowPlaying.track.title) \(hashtag) \(mention)"
