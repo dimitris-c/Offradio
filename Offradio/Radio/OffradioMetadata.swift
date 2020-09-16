@@ -27,10 +27,9 @@ final class OffradioMetadata: RadioMetadata {
     fileprivate let crcTrigger = PublishRelay<MetadataTrigger>()
     fileprivate var crcTimerDisposable: Disposable?
     
-    fileprivate let crcService = MoyaProvider<CRCService>()
-    fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
     fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
     
+    private var nowPlayingSocketDisposable: Disposable?
     private let nowPlayinSocketService: NowPlayingSocketService
     
     public init() {
@@ -57,19 +56,19 @@ final class OffradioMetadata: RadioMetadata {
             .bind(to: currentTrack)
             .disposed(by: disposeBag)
         
-        nowPlayinSocketService.nowPlayingUpdates()
+    }
+    
+    func openSocket() {
+        closeSocket()
+        nowPlayingSocketDisposable = nowPlayinSocketService.nowPlayingUpdates()
             .distinctUntilChanged()
             .map { $0.track }
             .drive(currentTrack)
-            .disposed(by: disposeBag)
-        
     }
     
-    func startTimer() {
-        
-    }
-    
-    func stopTimer() {
+    func closeSocket() {
+        nowPlayingSocketDisposable?.dispose()
+        nowPlayingSocketDisposable = nil
     }
     
     func forceRefresh() {

@@ -52,6 +52,7 @@ class OffradioNowPlayingInfoCenter {
         info[MPMediaItemPropertyTitle]      = nowPlaying.track.name
         info[MPMediaItemPropertyArtist]     = nowPlaying.track.artist
         info[MPMediaItemPropertyAlbumTitle] = "Offradio - \(nowPlaying.producer.producerName)"
+        info[MPNowPlayingInfoPropertyIsLiveStream] = true
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
     

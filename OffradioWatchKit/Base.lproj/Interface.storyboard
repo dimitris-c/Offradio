@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42"/>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14490.21"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17034"/>
     </dependencies>
     <scenes>
         <!--offradio-->
@@ -111,11 +109,12 @@
                                 <table alignment="left" id="811-bt-oQ5">
                                     <items>
                                         <tableRow identifier="playlistRow" selectable="NO" id="S6Q-UD-OhG" customClass="PlaylistTableViewRow" customModule="OffradioWatchKit" customModuleProvider="target">
-                                            <group key="rootItem" width="1" height="0.0" alignment="left" spacing="0.0" id="ue5-ES-l43">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" spacing="3" id="ue5-ES-l43">
                                                 <items>
-                                                    <group width="156" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
+                                                    <imageView width="45" height="45" alignment="left" verticalAlignment="center" id="ATY-yS-mRM"/>
+                                                    <group width="100" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
                                                         <items>
-                                                            <label width="129" height="20" alignment="left" id="TK7-Bp-ZNf">
+                                                            <label width="1" height="13" alignment="left" id="TK7-Bp-ZNf">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" type="system" pointSize="11"/>
                                                             </label>
@@ -127,9 +126,10 @@
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="4"/>
                                                     </group>
                                                 </items>
-                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </group>
                                             <connections>
+                                                <outlet property="image" destination="ATY-yS-mRM" id="Ufm-dq-PlD"/>
                                                 <outlet property="songTitle" destination="If9-Sx-TBX" id="FSl-0K-TjB"/>
                                                 <outlet property="timeLabel" destination="TK7-Bp-ZNf" id="yAL-6K-2tR"/>
                                             </connections>
@@ -148,4 +148,7 @@
         </scene>
     </scenes>
     <color key="tintColor" red="0.9859483242" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <resources>
+        <image name="favourite-button-icon" width="28.5" height="28.5"/>
+    </resources>
 </document>

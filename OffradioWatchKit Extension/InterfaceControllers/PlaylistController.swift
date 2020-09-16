@@ -8,6 +8,7 @@
 
 import WatchKit
 import SwiftyJSON
+import Kingfisher
 
 class PlaylistController: WKInterfaceController {
     
@@ -24,10 +25,10 @@ class PlaylistController: WKInterfaceController {
         super.didAppear()
         
         self.communication.getPlaylist { [weak self] data in
-//            if let songs = data["data"] as? [[String: Any]] {
-//                let final = songs.map { JSON($0) }.map(Song.init(with:))
-//                self?.populateRows(songs: final)
-//            }
+            if let songs = data["data"] as? [[String: Any]] {
+                let final = songs.map(Song.from(dictionary:))
+                self?.populateRows(songs: final)
+            }
         }
         
     }
@@ -38,6 +39,9 @@ class PlaylistController: WKInterfaceController {
             if let cell = self.playlistTable.rowController(at: index) as? PlaylistTableViewRow {
                 cell.songTitle.setText(song.title)
                 cell.timeLabel.setText(song.time)
+                if let url = URL(string: song.trackImage) {
+                    cell.image.kf.setImage(with: url)
+                }
             }
         }
     }

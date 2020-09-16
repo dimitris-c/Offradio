@@ -54,7 +54,7 @@ struct CurrentTrack: Decodable, Equatable {
        }
     
     func toSong() -> Song {
-        Song(with: Date(), artist: artist, songTitle: name, imageUrl: image)
+        Song(with: Date(), artist: artist, songTitle: name, trackImage: image)
     }
     
     func isEmpty() -> Bool {

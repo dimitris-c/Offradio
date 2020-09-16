@@ -39,32 +39,3 @@ extension NowPlayingService {
     }
 
 }
-
-enum CRCService: TargetType {
-    case crc
-}
-
-extension CRCService {
-    var baseURL: URL { return URL(string: APIURL(enviroment: .old).baseUrl)! }
-
-    var method: Moya.Method {
-        return .get
-    }
-
-    var task: Task {
-        let now = Date().timeIntervalSince1970
-        return .requestParameters(parameters:  ["noCache": String(now)], encoding: URLEncoding.queryString)
-    }
-
-    var path: String {
-        return "mob_player.crc"
-    }
-
-    var sampleData: Data {
-        return Data()
-    }
-
-    var headers: [String : String]? {
-        return nil
-    }
-}

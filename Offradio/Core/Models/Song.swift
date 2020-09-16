@@ -13,7 +13,7 @@ struct Song: Decodable {
     let airedDatetime: Date
     let artist: String
     let title: String
-//    let artistImage: String
+    let artistImage: String
     let trackImage: String
 
 //    let sanitizedTitle: String
@@ -24,6 +24,16 @@ struct Song: Decodable {
         Formatters.apiDateFormatter.string(from: airedDatetime)
     }
     
+    var image: String {
+        if !trackImage.isEmpty {
+            return trackImage
+        }
+        else if !artistImage.isEmpty {
+            return artistImage
+        }
+        return ""
+    }
+    
     var titleFormatted: String {
         guard !artist.isEmpty && !title.isEmpty else {
             return "Turn your radio off"
@@ -31,17 +41,28 @@ struct Song: Decodable {
         return "\(artist) - \(title)"
     }
     
-    init(with date: Date, artist: String, songTitle: String, imageUrl: String) {
+    init(with date: Date, artist: String, songTitle: String, trackImage: String) {
         self.airedDatetime = date
         self.artist = artist
         self.title = songTitle
-        self.trackImage = imageUrl
+        self.trackImage = trackImage
+        self .artistImage = ""
+    }
+    
+    static func from(dictionary: [String: Any]) -> Song {
+        guard let artist = dictionary["artist"] as? String,
+              let songtitle = dictionary["songtitle"] as? String,
+              let imageUrl = dictionary["imageUrl"] as? String,
+              let time = dictionary["time"] as? Date else {
+            return Song(with: Date(), artist: "", songTitle: "", trackImage: "")
+        }
+        return Song(with: time, artist: artist, songTitle: songtitle, trackImage: imageUrl)
     }
 
     func toDictionary() -> [String: Any] {
-        return ["time": time,
+        return ["time": airedDatetime,
                 "artist": artist,
                 "songtitle": title,
-                "imageUrl": trackImage]
+                "imageUrl": image]
     }
 }

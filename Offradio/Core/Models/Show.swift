@@ -33,12 +33,10 @@ struct Show: Equatable {
     }
     
     static func from(dictionary: [String: Any]) -> Show {
-        guard let name = dictionary["name"] as? String,
-            let photo = dictionary["photo"] as? String,
-            let largePhoto = dictionary["largePhoto"] as? String,
-            let body = dictionary["body"] as? String else {
-                return Show.empty
-            }
+        let name = (dictionary["name"] as? String) ?? "Offradio"
+        let photo = (dictionary["photo"] as? String) ?? ""
+        let largePhoto = dictionary["largePhoto"] as? String ?? ""
+        let body = dictionary["body"] as? String ?? ""
         return Show(name, photo: photo, largePhoto: largePhoto, body: body)
     }
 

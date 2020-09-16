@@ -16,7 +16,7 @@ import RxCocoa
 final class Offradio: NSObject, RadioProtocol {
     
     private var isInForeground: Bool = true
-    private var kit: STKAudioPlayer? = STKAudioPlayer()
+    private var audioPlayer = STKAudioPlayer()
     
     var status: RadioState = .stopped
     let metadata: RadioMetadata
@@ -41,9 +41,9 @@ final class Offradio: NSObject, RadioProtocol {
         options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
         options.enableVolumeMixer = true
         options.flushQueueOnSeek = false
-        self.kit = STKAudioPlayer(options: options)
-        self.kit?.volume = 1.0
-        self.kit?.delegate = self
+        self.audioPlayer = STKAudioPlayer(options: options)
+        self.audioPlayer.volume = 1.0
+        self.audioPlayer.delegate = self
     }
     
     final func start() {
@@ -55,11 +55,8 @@ final class Offradio: NSObject, RadioProtocol {
     }
     
     final func stop() {
-        self.kit?.stop()
-//        self.kit?.dispose()
-        self.kit = nil
-        self.setupRadio()
-        self.metadata.stopTimer()
+        self.audioPlayer.stop()
+        self.metadata.closeSocket()
         
         self.status = .stopped
     }
@@ -75,9 +72,9 @@ final class Offradio: NSObject, RadioProtocol {
     final fileprivate func startRadio() {
         self.activateAudioSession()
         
-        self.kit?.play("http://s3.yesstreaming.net:7033/stream")
+        self.audioPlayer.play("http://s3.yesstreaming.net:7033/stream")
         
-        self.metadata.startTimer()
+        self.metadata.openSocket()
     }
     
     final fileprivate func configureAudioSession() {
@@ -100,12 +97,12 @@ final class Offradio: NSObject, RadioProtocol {
     }
     
     final fileprivate func deactivateAudioSession() {
-//        do {
-//            Log.debug("AudioSession is deactivated")
-//            try AVAudioSession.sharedInstance().setActive(false)
-//        } catch let error as NSError {
-//            Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
-//        }
+        do {
+            Log.debug("AudioSession is deactivated")
+            try AVAudioSession.sharedInstance().setActive(false)
+        } catch let error as NSError {
+            Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
+        }
     }
     
 }
@@ -179,7 +176,8 @@ extension Offradio {
     @objc final fileprivate func handleMediaReset() {
         Log.debug("handle system media reset")
         self.status = .stopped
-        self.metadata.stopTimer()
+        self.metadata.closeSocket()
+        
         self.setupRadio()
         self.deactivateAudioSession()
         self.configureAudioSession()
@@ -188,6 +186,7 @@ extension Offradio {
     @objc final fileprivate func movedToBackground() {
         Log.debug("app moved to background")
         isInForeground = false
+        self.metadata.closeSocket()
         if self.status != .playing {
             self.deactivateAudioSession()
         }
@@ -195,7 +194,7 @@ extension Offradio {
     
     @objc final fileprivate func movedToForeground() {
         if status == .playing && !isInForeground {
-            self.metadata.startTimer()
+            self.metadata.openSocket()
         }
         Log.debug("app moved to foreground")
         isInForeground = true
@@ -204,11 +203,10 @@ extension Offradio {
     @objc final fileprivate func handleInterruption(_ notification: Notification) {
         let info = notification.userInfo
         Log.debug("audio interruption\n\(String(describing: info))")
-        print("\(String(describing: info))")
         
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
         
-        let audioPlayerState = kit?.state
+        let audioPlayerState = audioPlayer.state
         if interruptionState.uintValue == AVAudioSession.InterruptionType.began.rawValue {
             let wasSuspended: Bool = info?[AVAudioSessionInterruptionWasSuspendedKey] as? Bool ?? false
             Log.debug("audio interruption began")

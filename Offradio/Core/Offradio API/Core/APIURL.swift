@@ -6,13 +6,10 @@
 //
 
 enum APIEnviroment {
-    case old
     case new
     
     var baseUrl: String {
         switch self {
-            case .old:
-                return "http://www.offradio.gr"
             case .new:
                 return "https://api.offradio.gr"
         }
@@ -20,8 +17,6 @@ enum APIEnviroment {
     
     var path: String {
         switch self {
-            case .old:
-                return "/mobile-api/"
             case .new:
                 return "/mobile/v1"
         }
@@ -29,8 +24,6 @@ enum APIEnviroment {
     
     var socket: String {
         switch self {
-            case .old:
-                return ""
             case .new:
                 return "wss://live.offradio.gr/socket.io/"
         }

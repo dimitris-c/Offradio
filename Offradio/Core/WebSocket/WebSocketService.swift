@@ -98,7 +98,9 @@ class OffradioWebSocketService: OffradioWebSocket {
                 }
             }
             socketManager.connect()
-            return Disposables.create()
+            return Disposables.create {
+                socket.disconnect()
+            }
         })
     }
     

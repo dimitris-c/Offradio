@@ -41,4 +41,8 @@ final class NowPlayingSocketService {
             return .empty()
         }
     }
+    
+    private func disconnect() -> Observable<WebSocketStatus>  {
+        websocket.disconnect()
+    }
 }
