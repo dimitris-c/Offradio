@@ -74,10 +74,12 @@ class OffradioWebSocketService: OffradioWebSocket {
     
     var read: Driver<String> {
         return Observable<String>.create { [socket] observer -> Disposable in
-            socket.on("onair:nowplaying") { (items, _) in
-                guard let raw = items.first else { return }
-                let json = String(describing: raw)
-                observer.on(.next(json))
+            socket.onAny { event in // //("onair:nowplaying") { (items, _) in
+                if event.event == "onair:nowplaying" {
+                    guard let raw = event.items?.first else { return }
+                    let json = String(describing: raw)
+                    observer.on(.next(json))
+                }
             }
             return Disposables.create()
         }.asDriver(onErrorDriveWith: .empty())

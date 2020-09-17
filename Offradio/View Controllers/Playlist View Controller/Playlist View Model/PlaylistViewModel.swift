@@ -37,6 +37,7 @@ final class PlaylistViewModel {
     var playlistData = BehaviorRelay<[PlaylistCellViewModel]>(value: [])
 
     let playlistService = MoyaProvider<PlaylistService>()
+    let itunesService = MoyaProvider<iTunesSearchAPI>(plugins: [NetworkLoggerPlugin()])
 
     fileprivate var page: Int = 1
     fileprivate let totalPagesToFetch: Int = 10
@@ -72,27 +73,36 @@ final class PlaylistViewModel {
     }
 
     func search(on provider: PlaylistCellSearchProvider, at indexPath: IndexPath, completion: @escaping SearchBlock) {
-        guard playlistData.value.count > indexPath.row else {
-            completion(.failure(.noResult))
-            return
-        }
-        if let links = playlistData.value[indexPath.row].item.links {
+        if let item = playlistData.value[indexPath.row].item {
             switch provider {
             case .itunes:
-                completion(.success(links.apple))
+                searchOniTunes(for: item, completion: completion)
             case .spotify:
-                if let encodedSpotifyLink = links.spotify.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-                    completion(.success(encodedSpotifyLink))
-                } else {
-                    completion(.failure(.noResult))
-                }
+                searchOnSpotifty(for: item, completion: completion)
             }
-        } else {
-            completion(.failure(.noResult))
         }
     }
 
     // MARK: Internal methods
+
+    fileprivate func searchOniTunes(`for` item: PlaylistSong, completion: @escaping SearchBlock) {
+        itunesService.request(.search(with: item)) { result in
+            do {
+                let data = try result.get().data
+                let json = try JSON(data: data)
+                if let urlString = json["results"].arrayValue.first?["trackViewUrl"].stringValue {
+                    completion(.success(urlString))
+                } else {
+                    completion(.failure(.noResult))
+                }
+            } catch { }
+        }
+    }
+
+    // Not yet implemented!
+    fileprivate func searchOnSpotifty(`for` item: PlaylistSong, completion: SearchBlock) {
+
+    }
 
     fileprivate func fetchPlaylist(withPage page: Int) {
         self.playlistService.request(.playlist(page: page)) { [weak self] result in

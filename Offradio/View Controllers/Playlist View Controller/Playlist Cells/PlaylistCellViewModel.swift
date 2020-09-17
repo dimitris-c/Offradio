@@ -15,7 +15,7 @@ final class PlaylistCellViewModel {
 
     var disposeBag: DisposeBag?
 
-    private(set) var item: PlaylistSong
+    private(set) var item: PlaylistSong!
 
     var favourited: BehaviorRelay<Bool> = BehaviorRelay<Bool>(value: false)
     let playlistFavouritesLayer: PlaylistFavouritesLayer = PlaylistFavouritesLayer()
