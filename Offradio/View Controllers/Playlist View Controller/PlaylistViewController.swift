@@ -70,19 +70,15 @@ final class PlaylistViewController: UIViewController {
         let cellType = PlaylistTableViewCell.self
 
         self.viewModel.playlistData.asObservable()
-            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { _, model, cell in
+            .bind(to: tableView.rx.items(cellIdentifier: identifier, cellType: cellType)) { [weak self] _, model, cell in
                 cell.configure(with: model)
                 cell.delegate = self
                 cell.showSwipe(orientation: .right)
             }.disposed(by: disposeBag)
 
         self.refreshControl = UIRefreshControl()
-        if #available(iOS 10.0, *) {
-            self.tableView.refreshControl = self.refreshControl
-        } else {
-            tableView?.addSubview(refreshControl)
-            tableView.sendSubviewToBack(refreshControl)
-        }
+        self.refreshControl.tintColor = UIColor.white
+        self.tableView.refreshControl = self.refreshControl
 
         self.refreshControl.rx.controlEvent(.valueChanged)
             .map { [weak self] _ in (self?.refreshControl.isRefreshing ?? false) }
@@ -139,10 +135,10 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
         guard orientation == .right else { return nil }
 
         let handleAction: ((SwipeAction, IndexPath) -> Void) = { [weak self] action, indexPath in
-            guard let sSelf = self else { return }
+            guard let self = self else { return }
             if let actionId = action.identifier,
                 let provider = PlaylistCellSearchProvider(rawValue: actionId) {
-                sSelf.viewModel.search(on: provider, at: indexPath) { result in
+                self.viewModel.search(on: provider, at: indexPath) { result in
                     switch result {
                     case .success(let value):
                         if let url = URL(string: value) {
@@ -150,29 +146,42 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
                         }
                     case .failure(let error):
                         if error == .noResult {
-                            sSelf.showAlert(title: "Error", message: "Could not find song on iTunes.")
+                            self.showAlert(title: "Error", message: "Could not find song.")
                         }
                     }
                 }
             }
         }
 
-        let itunesSeach = SwipeAction(style: .default, title: "Search on iTunes", handler: handleAction)
-        let spotifySearch = SwipeAction(style: .default, title: "Spotify", handler: handleAction)
+        let itunesSeach = SwipeAction(style: .default, title: nil, handler: handleAction)
+        let spotifySearch = SwipeAction(style: .default, title: nil, handler: handleAction)
 
         itunesSeach.identifier = PlaylistCellSearchProvider.itunes.rawValue
-        itunesSeach.font = UIFont.letterGothicBold(withSize: 15)
+        itunesSeach.image = UIImage(named: "applemusic_icon")
+        itunesSeach.font = UIFont.letterGothicBold(withSize: 12)
         itunesSeach.backgroundColor = UIColor.black
         itunesSeach.highlightedBackgroundColor = UIColor.offRed
 
-        spotifySearch.font = UIFont.leagueGothicRegular(withSize: 15)
+        spotifySearch.font = UIFont.leagueGothicRegular(withSize: 12)
+        spotifySearch.image = UIImage(named: "spotify_icon")
         spotifySearch.identifier = PlaylistCellSearchProvider.spotify.rawValue
         spotifySearch.backgroundColor = UIColor.black
+        spotifySearch.highlightedBackgroundColor = UIColor.offRed
 
         itunesSeach.transitionDelegate = ScaleTransition.default
         spotifySearch.transitionDelegate = ScaleTransition.default
-
-        return [itunesSeach]
+        
+        let item = self.viewModel.playlistData.value[indexPath.row].item
+        var actions: [SwipeAction] = []
+        if let links = item.links {
+            if links.hasSpotify {
+                actions.append(spotifySearch)
+            }
+            if links.hasAppleMusic {
+                actions.append(itunesSeach)
+            }            
+        }
+        return actions
     }
 
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {

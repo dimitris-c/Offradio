@@ -17,6 +17,7 @@ class PlaylistSong: Object, Decodable {
     @objc dynamic var title: String = ""
     @objc dynamic var artistImage: String = ""
     @objc dynamic var trackImage: String = ""
+    @objc dynamic var links: PlaylistSongLinks? = PlaylistSongLinks()
 
     var sanitizedTitle: String {
         "\(self.artist) - \(self.title)".lowercased().toBase64()
@@ -44,6 +45,7 @@ class PlaylistSong: Object, Decodable {
         case artist_image
         case track_image
         case aired_at
+        case links
     }
     
     
@@ -61,7 +63,8 @@ class PlaylistSong: Object, Decodable {
         self.artist = try container.decode(String.self, forKey: .artist)
         self.artistImage = try container.decode(String.self, forKey: .artist_image)
         self.trackImage = try container.decode(String.self, forKey: .track_image)
-
+        
+        self.links = try container.decodeIfPresent(PlaylistSongLinks.self, forKey: .links)
     }
 
     convenience init(_ artist: String, songTitle: String, imageUrl: String) {
@@ -83,4 +86,33 @@ class PlaylistSong: Object, Decodable {
     func toCurrentTrack() -> CurrentTrack {
         return CurrentTrack(name: title, artist: artist, artistImage: artistImage, trackImage: trackImage, timeAired: "", links: .empty)
     }
+}
+
+class PlaylistSongLinks: Object, Decodable {
+    @objc dynamic var spotify: String = ""
+    @objc dynamic var apple: String = ""
+    @objc dynamic var youtube: String = ""
+    @objc dynamic var soundcloud: String = ""
+    
+    var hasSpotify: Bool {
+        !spotify.isEmpty
+    }
+    
+    var hasAppleMusic: Bool {
+        !apple.isEmpty
+    }
+    
+    convenience init(spotify: String, apple: String, youtube: String, soundcloud: String) {
+        self.init()
+        self.spotify = spotify
+        self.apple = apple
+        self.youtube = youtube
+        self.soundcloud = soundcloud
+    }
+    
+    required init() {
+        super.init()
+    }
+    
+    static let empty = CurrentTrackLinks(spotify: "", apple: "", youtube: "", soundcloud: "")
 }
