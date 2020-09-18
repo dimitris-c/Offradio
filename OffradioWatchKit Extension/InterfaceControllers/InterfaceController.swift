@@ -16,7 +16,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var mainTitle: WKInterfaceLabel!
     @IBOutlet var playButtonGroup: WKInterfaceGroup!
     
-    let disposeBag: DisposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     var radioStatus: RadioState {
         return OffradioWatchSession.shared.radioState.value
@@ -34,16 +34,19 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        communication.getRadioStatus()
-        OffradioWatchSession.shared.radioState.asObservable().subscribe(onNext: { [weak self] state in
-            let isPlaying = state == RadioState.playing
-            self?.adjustIcon(with: isPlaying)
-        }).disposed(by: disposeBag)
+        disposeBag = DisposeBag()
+        OffradioWatchSession.shared.radioState.debug()
+            .subscribe(onNext: { [weak self] state in
+                let isPlaying = state == RadioState.playing || state == RadioState.buffering
+                self?.adjustIcon(with: isPlaying)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        disposeBag = DisposeBag()
     }
     
     @IBAction func toggleRadio() {

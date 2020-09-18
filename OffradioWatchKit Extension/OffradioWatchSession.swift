@@ -27,7 +27,13 @@ class OffradioWatchSession: NSObject, WCSessionDelegate {
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        print("\(activationState.rawValue)")
+        if WCSession.isSupported() {
+            if activationState == .activated, session.isReachable {
+                session.sendMessage(["action": OffradioWatchAction.radioStatus.rawValue],
+                                    replyHandler: nil,
+                                    errorHandler: nil)
+            }
+        }
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {

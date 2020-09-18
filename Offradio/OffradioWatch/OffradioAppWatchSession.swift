@@ -27,9 +27,14 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
 
     func activate() {
         if WCSession.isSupported() {
-            WCSession.default.delegate = self
-            WCSession.default.activate()
+            let defaultSession = WCSession.default
+            defaultSession.delegate = self
+            defaultSession.activate()
         }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
@@ -61,11 +66,6 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) {
-
-    }
-
-    @available(iOS 9.3, *)
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
 
     }
 

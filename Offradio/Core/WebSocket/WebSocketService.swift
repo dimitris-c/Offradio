@@ -91,7 +91,7 @@ class OffradioWebSocketService: OffradioWebSocket {
     func connect() -> Observable<WebSocketStatus> {
         return Observable<WebSocketStatus>.create({ [socket, socketManager] (observer) -> Disposable in
             socket.on(clientEvent: .statusChange) { (statuses, ack) in
-                if let status = statuses[0] as? SocketIOStatus {
+                if let status = statuses.first as? SocketIOStatus {
                     observer.onNext(WebSocketStatus.from(socketIOStatus: status))
                 }
             }
@@ -105,7 +105,7 @@ class OffradioWebSocketService: OffradioWebSocket {
     func disconnect() -> Observable<WebSocketStatus> {
         return Observable<WebSocketStatus>.create({ [socket, socketManager] (observer) -> Disposable in
             socket.on(clientEvent: .statusChange) { (statuses, ack) in
-                if let status = statuses[0] as? SocketIOStatus {
+                if let status = statuses.first as? SocketIOStatus {
                     observer.onNext(WebSocketStatus.from(socketIOStatus: status))
                 }
             }

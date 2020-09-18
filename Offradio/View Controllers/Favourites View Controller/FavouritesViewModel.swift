@@ -42,7 +42,11 @@ final class FavouritesViewModel {
             if let links = songs[indexPath.row].links {
                 switch provider {
                     case .itunes:
-                        return .just(.success(links.apple))
+                        if let encodedAppleLink = links.apple.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                            return .just(.success(encodedAppleLink))
+                        } else {
+                            return .just(.failure(.noResult))
+                        }
                     case .spotify:
                         if let encodedSpotifyLink = links.spotify.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                             return .just(.success(encodedSpotifyLink))

@@ -72,6 +72,7 @@ final class Offradio: NSObject, RadioProtocol {
     final fileprivate func startRadio() {
         self.activateAudioSession()
         
+        self.audioPlayer.stop()
         self.audioPlayer.play("http://s3.yesstreaming.net:7033/stream")
         
         self.metadata.openSocket()

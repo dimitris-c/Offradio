@@ -54,6 +54,7 @@
                                                 <edgeInsets key="margins" left="0.0" right="0.0" top="1" bottom="0.0"/>
                                             </group>
                                         </items>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <edgeInsets key="margins" left="5" right="0.0" top="5" bottom="0.0"/>
                                     </group>
                                     <connections>
@@ -62,7 +63,7 @@
                                 </button>
                             </items>
                         </group>
-                        <label width="128" alignment="center" text=" " numberOfLines="0" id="z8p-1p-lsk"/>
+                        <label width="1" widthAdjustment="-6" alignment="center" text=" " numberOfLines="0" id="z8p-1p-lsk"/>
                     </items>
                     <connections>
                         <outlet property="albumArtwork" destination="PHk-TF-dSh" id="fs4-MX-nNz"/>
@@ -79,12 +80,13 @@
             <objects>
                 <controller title="#onair" id="dhj-VP-TsJ" customClass="CurrentShowController" customModule="OffradioWatchKit" customModuleProvider="target">
                     <items>
-                        <group width="130" alignment="center" contentMode="center" id="n4T-8b-YUp">
+                        <group width="136" alignment="center" contentMode="center" id="n4T-8b-YUp">
                             <items>
                                 <imageView width="1" height="110" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="sMg-vj-lDD">
                                     <variation key="device=watch38mm" height="85"/>
                                 </imageView>
                             </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </group>
                         <label width="129" alignment="center" textAlignment="center" numberOfLines="0" id="miG-ml-cBe">
                             <fontDescription key="font" type="system" weight="light" pointSize="16"/>
@@ -97,7 +99,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="281" y="34"/>
+            <point key="canvasLocation" x="280.71794871794873" y="33.564102564102569"/>
         </scene>
         <!--playlist-->
         <scene sceneID="cEz-VM-L1d">
