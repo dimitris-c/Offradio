@@ -25,7 +25,7 @@ class CurrentShowController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
+        self.producerName.setText("#epicmusiconly")
     }
     
     override func didAppear() {
@@ -35,7 +35,11 @@ class CurrentShowController: WKInterfaceController {
             if let data = info["data"] as? [String: Any] {
                 let show = Show.from(dictionary: data)
                 DispatchQueue.main.async {
-                    self?.producerName.setText(show.name)
+                    if show.name.isEmpty {
+                        self?.producerName.setText(show.body)
+                    } else {
+                        self?.producerName.setText(show.name)                        
+                    }
                     if let url = URL(string: show.photo) {
                         self?.loadProducerArtwork(url: url)
                     }

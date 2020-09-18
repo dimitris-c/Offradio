@@ -16,8 +16,6 @@ struct Song: Decodable {
     let artistImage: String
     let trackImage: String
 
-//    let sanitizedTitle: String
-
 //    var isFavourite: Bool = false
     
     var time: String {

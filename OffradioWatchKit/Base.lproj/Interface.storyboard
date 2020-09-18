@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch42"/>
+    <device id="watch44"/>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -113,7 +113,12 @@
                                         <tableRow identifier="playlistRow" selectable="NO" id="S6Q-UD-OhG" customClass="PlaylistTableViewRow" customModule="OffradioWatchKit" customModuleProvider="target">
                                             <group key="rootItem" width="1" height="0.0" alignment="left" spacing="3" id="ue5-ES-l43">
                                                 <items>
-                                                    <imageView width="45" height="45" alignment="left" verticalAlignment="center" id="ATY-yS-mRM"/>
+                                                    <group width="45" height="45" alignment="left" radius="6" id="xDu-RS-z1z">
+                                                        <items>
+                                                            <imageView width="1" height="1" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="ATY-yS-mRM"/>
+                                                        </items>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </group>
                                                     <group width="100" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
                                                         <items>
                                                             <label width="1" height="13" alignment="left" id="TK7-Bp-ZNf">
