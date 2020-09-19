@@ -6,7 +6,7 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import SwiftyJSON
+import Foundation
 
 /// Alias of PlaylistSong for use in watch without Realm dependancies
 struct Song: Decodable {

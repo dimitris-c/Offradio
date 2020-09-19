@@ -7,7 +7,6 @@
 //
 
 import Alamofire
-import SwiftyJSON
 import RealmSwift
 import Moya
 

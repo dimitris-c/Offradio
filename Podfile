@@ -15,7 +15,6 @@ target 'Offradio' do
   pod 'Alamofire', '~> 5.2'
   pod 'AlamofireNetworkActivityIndicator'
   pod 'Moya/RxSwift', '~> 14.0'
-  pod 'SwiftyJSON'
   pod 'FBSDKCoreKit', :project_name => 'FBSDK'
   pod 'FBSDKShareKit', :project_name => 'FBSDK'
   pod 'FBSDKLoginKit', :project_name => 'FBSDK'
@@ -47,7 +46,6 @@ target 'Offradio' do
       platform :watchos, '4.0'
       pod 'RxSwift'
       pod 'RxCocoa'
-      pod 'SwiftyJSON'
       pod 'Kingfisher'
   end
   

@@ -7,7 +7,6 @@
 //
 
 import WatchKit
-import SwiftyJSON
 import Kingfisher
 
 class PlaylistController: WKInterfaceController {

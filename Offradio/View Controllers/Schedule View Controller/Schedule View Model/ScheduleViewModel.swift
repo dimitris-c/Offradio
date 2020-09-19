@@ -9,7 +9,6 @@
 import RxSwift
 import RxCocoa
 import Moya
-import SwiftyJSON
 
 final class ScheduleViewModel {
     let disposeBag: DisposeBag = DisposeBag()

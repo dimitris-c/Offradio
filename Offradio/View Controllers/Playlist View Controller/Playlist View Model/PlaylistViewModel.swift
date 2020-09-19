@@ -12,7 +12,6 @@ import RxCocoa
 import RealmSwift
 import RxRealm
 import Moya
-import SwiftyJSON
 
 public enum PlaylistCellSearchProvider: String {
     case itunes

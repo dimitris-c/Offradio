@@ -6,7 +6,7 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import SwiftyJSON
+import Foundation
 
 struct CurrentTrack: Decodable, Equatable {
     let name: String

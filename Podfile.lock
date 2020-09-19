@@ -84,9 +84,9 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
-  - Kingfisher (5.15.0):
-    - Kingfisher/Core (= 5.15.0)
-  - Kingfisher/Core (5.15.0)
+  - Kingfisher (5.15.1):
+    - Kingfisher/Core (= 5.15.1)
+  - Kingfisher/Core (5.15.1)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -116,7 +116,6 @@ PODS:
     - Starscream (~> 3.1)
   - Starscream (3.1.1)
   - StreamingKit (0.1.31)
-  - SwiftyJSON (5.0.0)
   - SwipeCellKit (2.7.1)
   - ToggleSwitch (1.2.1):
     - ToggleSwitch/Core (= 1.2.1)
@@ -143,7 +142,6 @@ DEPENDENCIES:
   - RxSwift
   - Socket.IO-Client-Swift (~> 15.2.0)
   - StreamingKit (from `https://github.com/tumtumtum/StreamingKit.git`, branch `master`)
-  - SwiftyJSON
   - SwipeCellKit
   - ToggleSwitch (~> 1.0)
   - TwitterKit5
@@ -178,7 +176,6 @@ SPEC REPOS:
     - RxSwift
     - Socket.IO-Client-Swift
     - Starscream
-    - SwiftyJSON
     - SwipeCellKit
     - ToggleSwitch
     - TwitterCore
@@ -211,7 +208,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 1a66f478c68ecd6c16ee63ee60c7c3a648e6b337
   GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
-  Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
+  Kingfisher: 3260a05e78a17fdbeb2f14dd8e66ffc768491231
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
@@ -224,12 +221,11 @@ SPEC CHECKSUMS:
   Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
   Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   StreamingKit: 017093dadc370099b78457e860a0433aa8be5552
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   ToggleSwitch: 528853e108d090fb78e68692bd7d8742a07c11dd
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit5: 64095dfefcf39be2355711ef27112d55e340d90e
 
-PODFILE CHECKSUM: 233cd3f8a968d49e65fd1b28b9ac283c5637b813
+PODFILE CHECKSUM: ca7337d1da3d5739ac62c377223b768e0ecec8ad
 
 COCOAPODS: 1.9.3

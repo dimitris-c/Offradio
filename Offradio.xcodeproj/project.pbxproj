@@ -115,6 +115,7 @@
 		B5A4308F1FA1409C006F0BC9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */; };
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
+		B5A93ED72515613B000C6665 /* NetStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A93ED62515613B000C6665 /* NetStatusService.swift */; };
 		B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF72991F96A2140060D5F8 /* DebugViewController.swift */; };
 		B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B571331F27AFF200AC25DE /* DeviceValue.swift */; };
 		B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */; };
@@ -332,6 +333,7 @@
 		B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
+		B5A93ED62515613B000C6665 /* NetStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetStatusService.swift; sourceTree = "<group>"; };
 		B5AF72991F96A2140060D5F8 /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		B5B571331F27AFF200AC25DE /* DeviceValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceValue.swift; sourceTree = "<group>"; };
 		B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlaylistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -570,6 +572,7 @@
 				B50395581E4BA4E800D9A71B /* Offradio API */,
 				B50395721E4BCA3000D9A71B /* Protocols */,
 				B507C0A21E55061800792414 /* Realm */,
+				B5A93ED62515613B000C6665 /* NetStatusService.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1457,6 +1460,7 @@
 				B54AAF2D1F96ABB70005C952 /* BundleExtensions.swift in Sources */,
 				B503956E1E4BCA0100D9A71B /* APIURL.swift in Sources */,
 				B5F125251E5CC82400579D4B /* HorizontalArranger.swift in Sources */,
+				B5A93ED72515613B000C6665 /* NetStatusService.swift in Sources */,
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */,
 				B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */,

@@ -8,7 +8,6 @@
 
 import WatchKit
 import Kingfisher
-import SwiftyJSON
 
 class CurrentShowController: WKInterfaceController {
     

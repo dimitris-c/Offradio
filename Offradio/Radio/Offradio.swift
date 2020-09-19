@@ -12,11 +12,36 @@ import Moya
 import StreamingKit
 import AVFoundation
 import RxCocoa
+import Network
+
+enum OffradioStreamQuality {
+    case sd
+    case hd
+    
+    var url: String {
+        switch self {
+            case .hd:
+                return "https://s3.yesstreaming.net:17062/stream"
+            case .sd:
+                return "https://s3.yesstreaming.net:17033/stream"
+        }
+    }
+    
+    static func quality(from connectionType: NetConnectionType) -> Self {
+        switch connectionType {
+            case .cellular: return .sd
+            case .wifi: return .hd
+            case .undetermined: return .sd
+        }
+    }
+}
 
 final class Offradio: NSObject, RadioProtocol {
     
     private var isInForeground: Bool = true
     private var audioPlayer = STKAudioPlayer()
+    
+    private let netStatusService: NetStatusService
     
     var status: RadioState = .stopped
     let metadata: RadioMetadata
@@ -28,10 +53,20 @@ final class Offradio: NSObject, RadioProtocol {
     
     override init() {
         self.metadata = OffradioMetadata()
+        self.netStatusService = NetStatusService(network: NWPathMonitor())
         super.init()
         self.configureAudioSession()
         self.addNotifications()
         self.setupRadio()
+        
+        self.netStatusService.start { [weak self] connectionType in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                if self.status == .playing || self.status == .buffering {
+                    self.adjustAudioStreamQuality(for: connectionType)
+                }
+            }
+        }
     }
     
     final func setupRadio() {
@@ -46,10 +81,22 @@ final class Offradio: NSObject, RadioProtocol {
         self.audioPlayer.delegate = self
     }
     
+    final func adjustAudioStreamQuality(for connectionType: NetConnectionType) {
+        self.startRadio(with: OffradioStreamQuality.quality(from: connectionType))
+    }
+    
+    final func start(with quality: OffradioStreamQuality) {
+        guard self.status != .playing else { return }
+        
+        self.startRadio(with: quality)
+        
+        self.status = .playing
+    }
+    
     final func start() {
         guard self.status != .playing else { return }
         
-        self.startRadio()
+        self.adjustAudioStreamQuality(for: self.netStatusService.connectionType)
         
         self.status = .playing
     }
@@ -57,6 +104,7 @@ final class Offradio: NSObject, RadioProtocol {
     final func stop() {
         self.audioPlayer.stop()
         self.metadata.closeSocket()
+//        self.netStatusService.stop()
         
         self.status = .stopped
     }
@@ -69,11 +117,12 @@ final class Offradio: NSObject, RadioProtocol {
         }
     }
     
-    final fileprivate func startRadio() {
+    final fileprivate func startRadio(with quality: OffradioStreamQuality) {
         self.activateAudioSession()
         
-        self.audioPlayer.stop()
-        self.audioPlayer.play("http://s3.yesstreaming.net:7033/stream")
+        print(quality, quality.url)
+        
+        self.audioPlayer.play(quality.url)
         
         self.metadata.openSocket()
     }

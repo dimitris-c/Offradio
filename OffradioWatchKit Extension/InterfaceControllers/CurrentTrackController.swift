@@ -11,7 +11,6 @@ import Kingfisher
 import WatchConnectivity
 import RxSwift
 import RxCocoa
-import SwiftyJSON
 
 class CurrentTrackController: WKInterfaceController {
     let disposeBag = DisposeBag()

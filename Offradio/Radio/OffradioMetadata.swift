@@ -8,7 +8,6 @@
 import RxSwift
 import RxCocoa
 import Moya
-import SwiftyJSON
 
 enum MetadataTrigger: Equatable {
     case refresh

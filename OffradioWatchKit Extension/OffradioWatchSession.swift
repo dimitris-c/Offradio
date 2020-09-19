@@ -7,7 +7,6 @@
 //
 
 import WatchConnectivity
-import SwiftyJSON
 import RxSwift
 import RxCocoa
 
