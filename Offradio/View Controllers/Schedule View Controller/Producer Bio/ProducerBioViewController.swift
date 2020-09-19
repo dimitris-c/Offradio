@@ -12,7 +12,7 @@ import FirebaseAnalytics
 
 final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
-    fileprivate var producer: Producer1!
+    fileprivate let producer: Producer
 
     fileprivate var scrollView: UIScrollView!
     fileprivate var scrollViewContainer: UIView!
@@ -24,9 +24,9 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
     fileprivate var producerTopViewInitialHeight: CGFloat = 0
 
-    init(with producer: Producer1) {
-        super.init(nibName: nil, bundle: nil)
+    init(with producer: Producer) {
         self.producer = producer
+        super.init(nibName: nil, bundle: nil)
     }
 
     override func viewDidLoad() {

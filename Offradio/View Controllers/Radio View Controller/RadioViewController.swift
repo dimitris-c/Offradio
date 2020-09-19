@@ -22,10 +22,11 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     final var offradio: Offradio!
     final var viewModel: RadioViewModel!
 
-    fileprivate final var turnYourRadioOffLabel: UILabel!
-    fileprivate final var nowPlayingButton: NowPlayingButton!
-
+    private let turnYourRadioOffLabel = UILabel()
+    private let nowPlayingButton: NowPlayingButton
+    
     required init?(coder aDecoder: NSCoder) {
+        self.nowPlayingButton = NowPlayingButton(frame: .zero)
         super.init(coder: aDecoder)
         self.title = "Offradio Player"
     }
@@ -41,20 +42,25 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
 
-        self.turnYourRadioOffLabel = UILabel()
         self.turnYourRadioOffLabel.font = UIFont.leagueGothicItalic(withSize: CGFloat.deviceValue(iPhone: 26, iPad: 36))
         self.turnYourRadioOffLabel.textColor = UIColor.white
         self.turnYourRadioOffLabel.text = "TURN YOUR RADIO OFF"
         self.turnYourRadioOffLabel.numberOfLines = 1
         self.scrollView.addSubview(self.turnYourRadioOffLabel)
 
-        self.nowPlayingButton = NowPlayingButton(frame: .zero)
+        
         self.nowPlayingButton.alpha = 0.0
         self.scrollView.addSubview(self.nowPlayingButton)
 
         self.registerForPreviewing(with: self, sourceView: self.nowPlayingButton)
 
         self.bindViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.nowPlayingButton.startScrolling()
     }
 
     func showPlaylistViewController() {

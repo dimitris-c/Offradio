@@ -66,6 +66,10 @@ final class NowPlayingButton: UIControl {
         self.scrollLabel.frame.origin = CGPoint(x: paddingLeft, y: 0)
 
     }
+    
+    func startScrolling() {
+        self.scrollLabel.refreshLabels()
+    }
 
 }
 

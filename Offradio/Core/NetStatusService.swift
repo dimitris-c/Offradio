@@ -50,14 +50,17 @@ final class NetStatusService: NetStatusType {
     
     /// Starts the monitoring of connection changes
     ///
-    /// - parameter connectionChange: A callback block to listen to changes of the network type, this skips duplicates
+    /// - parameter connectionChange: A callback block to listen to changes of the network type, this skips duplicates.
+    /// - Note:  The callback will be executed on the main thread.
     func start(connectionChange: @escaping (NetConnectionType) -> Void) {
         network.start(queue: monitorQueue)
         network.pathUpdateHandler = { [weak self] path in
             guard let self = self else { return }
             let connecionType = path.toNetConnectionType()
             if self.currentConnectionType != connecionType {
-                connectionChange(self.connectionType)
+                DispatchQueue.main.async {
+                    connectionChange(self.connectionType)
+                }
                 self.currentConnectionType = self.connectionType
             }
         }

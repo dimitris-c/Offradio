@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Producer1: Decodable {
+struct Producer: Decodable {
     let name: String
     let bio: String
     let image: URL?

@@ -21,7 +21,7 @@ final class ScheduleViewModel {
 
     let navigationTitle = BehaviorRelay<String>(value: "Offradio")
     let schedule = BehaviorRelay<[ScheduleItem]>(value: [])
-    let producers = BehaviorRelay<[Producer1]>(value: [])
+    let producers = BehaviorRelay<[Producer]>(value: [])
 
     init() {
 
@@ -51,7 +51,7 @@ final class ScheduleViewModel {
 
     // MARK: Public methods
 
-    func getProducerBio(`for` id: String) -> Producer1? {
+    func getProducerBio(`for` id: String) -> Producer? {
         return self.producers.value.filter { $0.producerId == Int(id) }.first
     }
 
@@ -74,9 +74,9 @@ final class ScheduleViewModel {
             })
     }
 
-    fileprivate func fetchProducers() -> Observable<[Producer1]> {
+    fileprivate func fetchProducers() -> Observable<[Producer]> {
         return self.producersService.rx.request(.producers)
-            .map([Producer1].self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: true)
+            .map([Producer].self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: true)
             .asObservable()
     }
 

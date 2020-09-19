@@ -27,7 +27,7 @@ enum OffradioStreamQuality {
         }
     }
     
-    static func quality(from connectionType: NetConnectionType) -> Self {
+    static func quality(for connectionType: NetConnectionType) -> Self {
         switch connectionType {
             case .cellular: return .sd
             case .wifi: return .hd
@@ -61,10 +61,8 @@ final class Offradio: NSObject, RadioProtocol {
         
         self.netStatusService.start { [weak self] connectionType in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                if self.status == .playing || self.status == .buffering {
-                    self.adjustAudioStreamQuality(for: connectionType)
-                }
+            if self.status == .playing || self.status == .buffering {
+                self.adjustAudioStreamQuality(for: connectionType)
             }
         }
     }
@@ -74,7 +72,7 @@ final class Offradio: NSObject, RadioProtocol {
         options.bufferSizeInSeconds = 4
         options.secondsRequiredToStartPlaying = 1
         options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
-        options.enableVolumeMixer = true
+        options.enableVolumeMixer = false
         options.flushQueueOnSeek = false
         self.audioPlayer = STKAudioPlayer(options: options)
         self.audioPlayer.volume = 1.0
@@ -82,7 +80,7 @@ final class Offradio: NSObject, RadioProtocol {
     }
     
     final func adjustAudioStreamQuality(for connectionType: NetConnectionType) {
-        self.startRadio(with: OffradioStreamQuality.quality(from: connectionType))
+        self.startRadio(with: OffradioStreamQuality.quality(for: connectionType))
     }
     
     final func start(with quality: OffradioStreamQuality) {
@@ -104,7 +102,6 @@ final class Offradio: NSObject, RadioProtocol {
     final func stop() {
         self.audioPlayer.stop()
         self.metadata.closeSocket()
-//        self.netStatusService.stop()
         
         self.status = .stopped
     }
@@ -119,8 +116,6 @@ final class Offradio: NSObject, RadioProtocol {
     
     final fileprivate func startRadio(with quality: OffradioStreamQuality) {
         self.activateAudioSession()
-        
-        print(quality, quality.url)
         
         self.audioPlayer.play(quality.url)
         
