@@ -26,6 +26,7 @@ target 'Offradio' do
   pod 'RealmSwift', '~> 4.0'
   pod 'RxRealm'
   pod 'RxCocoa'
+  pod 'RxDataSources', '~> 4.0'
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit'

@@ -3,6 +3,7 @@ PODS:
   - AlamofireNetworkActivityIndicator (3.1.0):
     - Alamofire (~> 5.1)
   - AutoScrollLabel (0.4.3)
+  - Differentiator (4.0.1)
   - Fabric (1.10.2)
   - FBSDKCoreKit (7.1.1):
     - FBSDKCoreKit/Basics (= 7.1.1)
@@ -106,6 +107,10 @@ PODS:
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - RxRealm (2.0.0):
     - RealmSwift (~> 4.0)
     - RxSwift (~> 5.0)
@@ -138,6 +143,7 @@ DEPENDENCIES:
   - Moya/RxSwift (~> 14.0)
   - RealmSwift (~> 4.0)
   - RxCocoa
+  - RxDataSources (~> 4.0)
   - RxRealm
   - RxSwift
   - Socket.IO-Client-Swift (~> 15.2.0)
@@ -151,6 +157,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireNetworkActivityIndicator
     - AutoScrollLabel
+    - Differentiator
     - Fabric
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -171,6 +178,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - RxCocoa
+    - RxDataSources
     - RxRealm
     - RxRelay
     - RxSwift
@@ -195,6 +203,7 @@ SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   AlamofireNetworkActivityIndicator: 6564782bd7b9e6c430ae67d9277af01907b01ca4
   AutoScrollLabel: bee53a1d4532569b49cbecaf9b80ca003bed3767
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FBSDKCoreKit: b46507dc8b8cefed31d644e74d7cc30e2a715ef8
   FBSDKLoginKit: 1a61d79e2b25e2fc0d03dccab1e34b38bbdf2546
@@ -215,6 +224,7 @@ SPEC CHECKSUMS:
   Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
   RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxRealm: 900f5c7e6f0a2d6527b56eaf7283f3035ec1e8ba
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
@@ -226,6 +236,6 @@ SPEC CHECKSUMS:
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit5: 64095dfefcf39be2355711ef27112d55e340d90e
 
-PODFILE CHECKSUM: ca7337d1da3d5739ac62c377223b768e0ecec8ad
+PODFILE CHECKSUM: 8dbe89ab010e49613c6f53f267e7514dc60b908e
 
 COCOAPODS: 1.9.3

@@ -14,7 +14,7 @@ import AVFoundation
 import RxCocoa
 import Network
 
-enum OffradioStreamQuality {
+enum OffradioStreamQuality: String {
     case sd
     case hd
     
@@ -41,7 +41,8 @@ final class Offradio: NSObject, RadioProtocol {
     private var isInForeground: Bool = true
     private var audioPlayer = STKAudioPlayer()
     
-    private let netStatusService: NetStatusService
+    private let netStatusService: NetStatusType
+    private let userSettings: UserSettings
     
     var status: RadioState = .stopped
     let metadata: RadioMetadata
@@ -51,9 +52,10 @@ final class Offradio: NSObject, RadioProtocol {
         return self.stateChangedSubject.asObservable()
     }
     
-    override init() {
-        self.metadata = OffradioMetadata()
-        self.netStatusService = NetStatusService(network: NWPathMonitor())
+    init(userSettings: UserSettings, metadata: OffradioMetadata, netStatusService: NetStatusType) {
+        self.userSettings = userSettings
+        self.metadata = metadata
+        self.netStatusService = netStatusService
         super.init()
         self.configureAudioSession()
         self.addNotifications()
@@ -61,6 +63,7 @@ final class Offradio: NSObject, RadioProtocol {
         
         self.netStatusService.start { [weak self] connectionType in
             guard let self = self else { return }
+            guard userSettings.audioStreamQualityAutomatic else { return }
             if self.status == .playing || self.status == .buffering {
                 self.adjustAudioStreamQuality(for: connectionType)
             }
@@ -94,7 +97,12 @@ final class Offradio: NSObject, RadioProtocol {
     final func start() {
         guard self.status != .playing else { return }
         
-        self.adjustAudioStreamQuality(for: self.netStatusService.connectionType)
+        if !userSettings.audioStreamQualityAutomatic {
+            let userSavedStreamQuality = OffradioStreamQuality(rawValue: userSettings.audioStreamQuality) ?? .hd
+            self.start(with: userSavedStreamQuality)
+        } else {
+            self.adjustAudioStreamQuality(for: self.netStatusService.connectionType)
+        }
         
         self.status = .playing
     }

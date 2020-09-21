@@ -35,9 +35,9 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
 
-        #if Debug
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Debug", style: .done, target: self, action: #selector(showDebugMenu))
-        #endif
+        let settingsImage = UIImage(named: "settings-icon")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(showSettings))
+        self.navigationItem.leftBarButtonItem?.tintColor = .white
 
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
@@ -94,12 +94,12 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon"), for: .normal)
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon-tapped"), for: .highlighted)
         playlistButton.sizeToFit()
-        let barButton = UIBarButtonItem(customView: playlistButton)
-        self.navigationItem.rightBarButtonItem = barButton
-
-        playlistButton.rx.tap.subscribe(onNext: { [weak self] in
-            self?.showPlaylistViewController()
-        }).disposed(by: disposeBag)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: playlistButton)
+        
+        playlistButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.showPlaylistViewController()
+            }).disposed(by: disposeBag)
     }
 
     override func viewDidLayoutSubviews() {
@@ -137,6 +137,13 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         let vc = DebugViewController()
         let nav = UINavigationController(rootViewController: vc)
         self.navigationController?.present(nav, animated: true, completion: nil)
+    }
+    
+    @objc private func showSettings() {
+        let viewModel = SettingsViewModel(userSettings: UserSettingsService())
+        let viewController = SettingsViewController(viewModel: viewModel)
+        self.navigationController?.pushViewController(viewController, animated: true)
+        //.present(viewController, animated: true, completion: nil)
     }
 
     fileprivate func fadeNowPlayingButton(shouldFadeIn: Bool) {

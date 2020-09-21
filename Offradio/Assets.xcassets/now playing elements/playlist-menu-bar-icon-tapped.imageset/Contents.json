@@ -1,32 +1,16 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
-      "filename" : "playlist-menu-bar-icon-tapped.png",
-      "scale" : "1x"
+      "filename" : "playlist-icon-highlighted.pdf",
+      "idiom" : "universal"
     },
     {
-      "idiom" : "universal",
-      "filename" : "playlist-menu-bar-icon-tapped@2x.png",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "playlist-menu-bar-icon-tapped@3x.png",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "ipad",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "ipad",
-      "filename" : "playlist-menu-bar-icon-tapped@3x-1.png",
-      "scale" : "2x"
+      "filename" : "playlist-icon-highlighted-1.pdf",
+      "idiom" : "ipad"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

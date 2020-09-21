@@ -116,6 +116,13 @@
 		B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */; };
 		B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
 		B5A93ED72515613B000C6665 /* NetStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A93ED62515613B000C6665 /* NetStatusService.swift */; };
+		B5A941C82515F6D4000C6665 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A941C72515F6D4000C6665 /* SettingsViewModel.swift */; };
+		B5A942082515F87E000C6665 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A942072515F87E000C6665 /* SettingsViewController.swift */; };
+		B5A942EA2515FE26000C6665 /* SettingsSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A942E92515FE26000C6665 /* SettingsSectionModel.swift */; };
+		B5A942F62515FF6D000C6665 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A942F52515FF6D000C6665 /* UserSettings.swift */; };
+		B5A942FD251610EF000C6665 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A942FC251610EF000C6665 /* UserDefault.swift */; };
+		B5A943D62516634E000C6665 /* SettingsToggableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A943D52516634E000C6665 /* SettingsToggableTableViewCell.swift */; };
+		B5A943E92517762D000C6665 /* SettingsSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A943E82517762D000C6665 /* SettingsSelectableTableViewCell.swift */; };
 		B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF72991F96A2140060D5F8 /* DebugViewController.swift */; };
 		B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B571331F27AFF200AC25DE /* DeviceValue.swift */; };
 		B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */; };
@@ -334,6 +341,13 @@
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontAppSpecific.swift; sourceTree = "<group>"; };
 		B5A93ED62515613B000C6665 /* NetStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetStatusService.swift; sourceTree = "<group>"; };
+		B5A941C72515F6D4000C6665 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		B5A942072515F87E000C6665 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B5A942E92515FE26000C6665 /* SettingsSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSectionModel.swift; sourceTree = "<group>"; };
+		B5A942F52515FF6D000C6665 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		B5A942FC251610EF000C6665 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		B5A943D52516634E000C6665 /* SettingsToggableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggableTableViewCell.swift; sourceTree = "<group>"; };
+		B5A943E82517762D000C6665 /* SettingsSelectableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectableTableViewCell.swift; sourceTree = "<group>"; };
 		B5AF72991F96A2140060D5F8 /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		B5B571331F27AFF200AC25DE /* DeviceValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceValue.swift; sourceTree = "<group>"; };
 		B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlaylistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -573,6 +587,8 @@
 				B50395721E4BCA3000D9A71B /* Protocols */,
 				B507C0A21E55061800792414 /* Realm */,
 				B5A93ED62515613B000C6665 /* NetStatusService.swift */,
+				B5A942F52515FF6D000C6665 /* UserSettings.swift */,
+				B5A942FC251610EF000C6665 /* UserDefault.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -580,6 +596,7 @@
 		B52A6C2A1E36B8F3005893D2 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B5A941C62515F6C0000C6665 /* Settings View Controller */,
 				B569604D1E492A1A003BFBC6 /* Contact View Controller */,
 				B569604F1E492A35003BFBC6 /* Content View Controller */,
 				B54DC4CC1E5CA35200FA376D /* Favourites View Controller */,
@@ -889,6 +906,26 @@
 				B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B5A941C62515F6C0000C6665 /* Settings View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5A942E82515FE0D000C6665 /* Section Model */,
+				B5A941C72515F6D4000C6665 /* SettingsViewModel.swift */,
+				B5A942072515F87E000C6665 /* SettingsViewController.swift */,
+				B5A943D52516634E000C6665 /* SettingsToggableTableViewCell.swift */,
+				B5A943E82517762D000C6665 /* SettingsSelectableTableViewCell.swift */,
+			);
+			path = "Settings View Controller";
+			sourceTree = "<group>";
+		};
+		B5A942E82515FE0D000C6665 /* Section Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5A942E92515FE26000C6665 /* SettingsSectionModel.swift */,
+			);
+			path = "Section Model";
 			sourceTree = "<group>";
 		};
 		B5AF72971F96A20B0060D5F8 /* Recovered References */ = {
@@ -1393,6 +1430,7 @@
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
 				B5D923781E65E4800013A3F4 /* Show.swift in Sources */,
 				B5E93F7925100D66008412E7 /* Formatters.swift in Sources */,
+				B5A942FD251610EF000C6665 /* UserDefault.swift in Sources */,
 				B50395741E4BCA3C00D9A71B /* Reusable.swift in Sources */,
 				B54E08861E4D554E00B54FB3 /* DateExtensions.swift in Sources */,
 				B50395761E4BCAE800D9A71B /* UITableViewExtensions.swift in Sources */,
@@ -1444,7 +1482,9 @@
 				B5656F281E64FCAF00E5DB0E /* OffradioNowPlayingInfoCenter.swift in Sources */,
 				B507C0A61E56869800792414 /* DataLayer.swift in Sources */,
 				B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */,
+				B5A942F62515FF6D000C6665 /* UserSettings.swift in Sources */,
 				B52C2D3E1EB0E12200AF8514 /* OffradioWatchCommunication.swift in Sources */,
+				B5A943E92517762D000C6665 /* SettingsSelectableTableViewCell.swift in Sources */,
 				B51E3FB81E4B9C06009F4C37 /* Playlist.swift in Sources */,
 				B54E087E1E4D10C400B54FB3 /* ProducerBioViewController.swift in Sources */,
 				B54DC4CE1E5CA39400FA376D /* FavouritesViewController.swift in Sources */,
@@ -1456,6 +1496,7 @@
 				B519062D25122BD8005537BF /* NowPlayingSocketService.swift in Sources */,
 				B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */,
 				B54E08821E4D10C400B54FB3 /* ScheduleViewController.swift in Sources */,
+				B5A942082515F87E000C6665 /* SettingsViewController.swift in Sources */,
 				B5BA38431E4FA50100DB49C9 /* StringExtensions.swift in Sources */,
 				B54AAF2D1F96ABB70005C952 /* BundleExtensions.swift in Sources */,
 				B503956E1E4BCA0100D9A71B /* APIURL.swift in Sources */,
@@ -1463,8 +1504,11 @@
 				B5A93ED72515613B000C6665 /* NetStatusService.swift in Sources */,
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */,
+				B5A941C82515F6D4000C6665 /* SettingsViewModel.swift in Sources */,
 				B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */,
+				B5A942EA2515FE26000C6665 /* SettingsSectionModel.swift in Sources */,
 				B543EF771F90178000E4B2AB /* AnalyticsTrackable.swift in Sources */,
+				B5A943D62516634E000C6665 /* SettingsToggableTableViewCell.swift in Sources */,
 				B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
 				B51E3FBC1E4B9F49009F4C37 /* ProducerShow.swift in Sources */,
@@ -1672,7 +1716,7 @@
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 100;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
@@ -1684,6 +1728,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 4.6;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1701,7 +1746,7 @@
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1712,6 +1757,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 4.6;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1810,7 +1856,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1818,6 +1864,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4.6;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1836,7 +1883,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1844,6 +1891,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MARKETING_VERSION = 4.6;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -1862,10 +1910,11 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				IBSC_MODULE = OffradioWatchKit_Extension;
 				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
+				MARKETING_VERSION = 4.6;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1885,10 +1934,11 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 100;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				IBSC_MODULE = OffradioWatchKit_Extension;
 				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
+				MARKETING_VERSION = 4.6;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

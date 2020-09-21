@@ -13,6 +13,7 @@ import RealmSwift
 import AlamofireNetworkActivityIndicator
 import Firebase
 import FirebaseCrashlytics
+import Network
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,7 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        self.offradio = Offradio()
+        let userSettings = UserSettingsService()
+        let metadata = OffradioMetadata()
+        let netStatusService = NetStatusService(network: NWPathMonitor())
+        self.offradio = Offradio(userSettings: userSettings, metadata: metadata, netStatusService: netStatusService)
         let watchCommunication = OffradioWatchCommunication()
         self.offradioViewModel = RadioViewModel(with: self.offradio, and: watchCommunication)
 
