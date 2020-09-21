@@ -143,6 +143,9 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         let viewModel = SettingsViewModel(userSettings: UserSettingsService())
         let viewController = SettingsViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            navigationController.modalPresentationStyle = .pageSheet
+        }
         self.present(navigationController, animated: true, completion: nil)
     }
 
