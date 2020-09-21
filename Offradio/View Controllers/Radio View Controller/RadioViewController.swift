@@ -142,8 +142,8 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     @objc private func showSettings() {
         let viewModel = SettingsViewModel(userSettings: UserSettingsService())
         let viewController = SettingsViewController(viewModel: viewModel)
-        self.navigationController?.pushViewController(viewController, animated: true)
-        //.present(viewController, animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        self.present(navigationController, animated: true, completion: nil)
     }
 
     fileprivate func fadeNowPlayingButton(shouldFadeIn: Bool) {
