@@ -19,7 +19,7 @@ struct Song: Decodable {
 //    var isFavourite: Bool = false
     
     var time: String {
-        Formatters.apiDateFormatter.string(from: airedDatetime)
+        Formatters.playlistFormatter.string(from: airedDatetime)
     }
     
     var image: String {

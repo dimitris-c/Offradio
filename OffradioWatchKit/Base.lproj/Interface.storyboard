@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17156" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch44"/>
+    <device id="watch38"/>
     <dependencies>
         <deployment identifier="watchOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -22,7 +22,7 @@
                                 </button>
                             </items>
                         </group>
-                        <label width="136" height="17" alignment="center" verticalAlignment="bottom" text="Turn Your Radio OFF" textAlignment="center" numberOfLines="0" id="hZZ-fT-d43">
+                        <label width="1" height="17" alignment="center" verticalAlignment="bottom" text="Turn Your Radio OFF" textAlignment="center" numberOfLines="0" id="hZZ-fT-d43">
                             <color key="textColor" red="0.9859483242" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" type="system" weight="medium" pointSize="13"/>
                         </label>
@@ -43,8 +43,8 @@
                     <items>
                         <group width="1" height="90" alignment="center" id="0iU-QL-zpw">
                             <items>
-                                <button alignment="left" id="jtf-UR-jlb">
-                                    <group key="contentGroup" width="1" height="1" alignment="left" contentMode="scaleAspectFill" spacing="0.0" id="PHk-TF-dSh">
+                                <button alignment="center" id="jtf-UR-jlb">
+                                    <group key="contentGroup" width="1" height="110" alignment="left" contentMode="scaleAspectFill" spacing="0.0" id="PHk-TF-dSh">
                                         <items>
                                             <group width="25" height="25" alignment="left" radius="12" id="Oxe-Tc-y3k">
                                                 <items>
@@ -62,8 +62,12 @@
                                     </connections>
                                 </button>
                             </items>
+                            <variation key="device=watch42mm" height="105"/>
+                            <variation key="device=watch44mm" height="110"/>
                         </group>
-                        <label width="1" widthAdjustment="-6" alignment="center" text=" " numberOfLines="0" id="z8p-1p-lsk"/>
+                        <label width="1" widthAdjustment="-6" alignment="center" textAlignment="left" numberOfLines="0" id="z8p-1p-lsk">
+                            <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                        </label>
                     </items>
                     <connections>
                         <outlet property="albumArtwork" destination="PHk-TF-dSh" id="fs4-MX-nNz"/>
@@ -73,23 +77,23 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="20" y="34"/>
+            <point key="canvasLocation" x="19.217391304347824" y="33.392857142857146"/>
         </scene>
         <!--#onair-->
         <scene sceneID="iWk-2X-bk3">
             <objects>
                 <controller title="#onair" id="dhj-VP-TsJ" customClass="CurrentShowController" customModule="OffradioWatchKit" customModuleProvider="target">
                     <items>
-                        <group width="136" alignment="center" contentMode="center" id="n4T-8b-YUp">
+                        <group width="1" height="90" alignment="center" contentMode="center" spacing="0.0" id="n4T-8b-YUp">
                             <items>
-                                <imageView width="1" height="110" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="sMg-vj-lDD">
-                                    <variation key="device=watch38mm" height="85"/>
-                                </imageView>
+                                <imageView width="1" height="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFill" id="sMg-vj-lDD"/>
                             </items>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <variation key="device=watch42mm" height="105"/>
+                            <variation key="device=watch44mm" height="110"/>
                         </group>
-                        <label width="129" alignment="center" textAlignment="center" numberOfLines="0" id="miG-ml-cBe">
-                            <fontDescription key="font" type="system" weight="light" pointSize="16"/>
+                        <label width="1" alignment="center" textAlignment="center" numberOfLines="0" id="miG-ml-cBe">
+                            <fontDescription key="font" type="system" weight="medium" pointSize="16"/>
                         </label>
                     </items>
                     <connections>
@@ -99,7 +103,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="280.71794871794873" y="33.564102564102569"/>
+            <point key="canvasLocation" x="280.13043478260869" y="33.392857142857146"/>
         </scene>
         <!--playlist-->
         <scene sceneID="cEz-VM-L1d">
@@ -115,22 +119,25 @@
                                                 <items>
                                                     <group width="45" height="45" alignment="left" radius="6" id="xDu-RS-z1z">
                                                         <items>
-                                                            <imageView width="1" height="1" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="ATY-yS-mRM"/>
+                                                            <imageView width="1" height="1" alignment="left" verticalAlignment="center" contentMode="scaleAspectFill" id="ATY-yS-mRM"/>
                                                         </items>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </group>
-                                                    <group width="100" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
+                                                    <group width="90" alignment="left" layout="vertical" spacing="0.0" id="NA2-8a-1WU">
                                                         <items>
                                                             <label width="1" height="13" alignment="left" id="TK7-Bp-ZNf">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" type="system" pointSize="11"/>
                                                             </label>
-                                                            <label width="136" alignment="left" numberOfLines="0" id="If9-Sx-TBX">
+                                                            <label width="1" alignment="left" numberOfLines="0" id="If9-Sx-TBX">
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="font" type="system" pointSize="15"/>
                                                             </label>
                                                         </items>
                                                         <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="4"/>
+                                                        <variation key="device=watch40mm" width="100"/>
+                                                        <variation key="device=watch42mm" width="110"/>
+                                                        <variation key="device=watch44mm" width="125"/>
                                                     </group>
                                                 </items>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -151,7 +158,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="536.15384615384619" y="33.564102564102569"/>
+            <point key="canvasLocation" x="535.13043478260863" y="32.633928571428569"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.9859483242" green="0.0" blue="0.026950567960000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
