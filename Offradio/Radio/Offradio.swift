@@ -49,7 +49,9 @@ final class Offradio: NSObject, RadioProtocol {
     
     private var stateChangedSubject = PublishSubject<STKAudioPlayerState>()
     var stateChanged: Observable<STKAudioPlayerState> {
-        return self.stateChangedSubject.asObservable()
+        return self.stateChangedSubject
+            .asObservable()
+            .distinctUntilChanged()
     }
     
     init(userSettings: UserSettings, metadata: OffradioMetadata, netStatusService: NetStatusType) {
@@ -190,7 +192,9 @@ extension Offradio: STKAudioPlayerDelegate {
                  STKAudioPlayerErrorCode.codecError,
                  STKAudioPlayerErrorCode.dataNotFound:
                 self.setupRadio()
-                self.start()
+                if status == .playing || status == .buffering {
+                    self.start()
+                }
             default:
                 break
         }
