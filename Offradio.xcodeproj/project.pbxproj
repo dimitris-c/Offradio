@@ -76,13 +76,11 @@
 		B54E088D1E4E306500B54FB3 /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088C1E4E306500B54FB3 /* ContactViewModel.swift */; };
 		B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E088E1E4E307700B54FB3 /* ContactModels.swift */; };
 		B55970511F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55970501F2A1CAF0011C0E3 /* TwitterFactoryMessageTests.swift */; };
-		B55FAF52251BCC7100F30CCC /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
-		B55FAF59251BCC7900F30CCC /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B951EB4F44E004AC6BF /* Song.swift */; };
-		B55FAF6D251C993000F30CCC /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F7825100D66008412E7 /* Formatters.swift */; };
 		B55FAF75251C9AA500F30CCC /* PlayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FAF74251C9AA500F30CCC /* PlayerConfiguration.swift */; };
 		B55FB025251CA0F000F30CCC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB024251CA0F000F30CCC /* AppCoordinator.swift */; };
 		B55FB047251CE10A00F30CCC /* OffradioNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB046251CE10A00F30CCC /* OffradioNetworkService.swift */; };
 		B55FB055251CE30100F30CCC /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB054251CE30100F30CCC /* Dependencies.swift */; };
+		B55FB11B251CF18500F30CCC /* ContentLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB11A251CF18500F30CCC /* ContentLoadingViewController.swift */; };
 		B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F191E64857D00E5DB0E /* Offradio.swift */; };
 		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
 		B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */; };
@@ -97,15 +95,6 @@
 		B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */; };
 		B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56960581E492AA1003BFBC6 /* ContactViewController.swift */; };
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
-		B56B658E2519FD7900F60690 /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
-		B56B65982519FDF100F60690 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */; };
-		B56B659F2519FDF300F60690 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B56B65972519FDED00F60690 /* LetterGothicStd-Bold.otf */; };
-		B56B65BA2519FEE200F60690 /* NowPlayingWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65A62519FEC100F60690 /* NowPlayingWidget.swift */; };
-		B56B660E251A194500F60690 /* NowPlayingSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */; };
-		B56B6615251A197100F60690 /* NowPlayingMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */; };
-		B56B662C251A728A00F60690 /* NowPlayingLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B662B251A728A00F60690 /* NowPlayingLargeView.swift */; };
-		B56B6653251A735100F60690 /* NowPlayingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B663F251A733300F60690 /* NowPlayingHeaderView.swift */; };
-		B56B666F251A73D900F60690 /* NowPlayingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B6667251A73C600F60690 /* NowPlayingProvider.swift */; };
 		B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */; };
 		B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B575DC441F2BA28E00CE6773 /* UIKit.framework */; };
 		B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */; };
@@ -316,6 +305,7 @@
 		B55FB024251CA0F000F30CCC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B55FB046251CE10A00F30CCC /* OffradioNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffradioNetworkService.swift; sourceTree = "<group>"; };
 		B55FB054251CE30100F30CCC /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		B55FB11A251CF18500F30CCC /* ContentLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoadingViewController.swift; sourceTree = "<group>"; };
 		B5656F191E64857D00E5DB0E /* Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Offradio.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OffradioMetadata.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioCommandCenter.swift; sourceTree = "<group>"; };
@@ -862,6 +852,7 @@
 		B569604F1E492A35003BFBC6 /* Content View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B55FB11A251CF18500F30CCC /* ContentLoadingViewController.swift */,
 				B56960501E492A35003BFBC6 /* MainTabBarViewController.swift */,
 				B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */,
 			);
@@ -1457,6 +1448,7 @@
 				B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */,
 				B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */,
 				B519063925122C37005537BF /* WebSocketService.swift in Sources */,
+				B55FB11B251CF18500F30CCC /* ContentLoadingViewController.swift in Sources */,
 				B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */,
 				B52C2D441EB0F5E000AF8514 /* RadioViewModel.swift in Sources */,
 				B52A6C421E36BAC2005893D2 /* Log.swift in Sources */,

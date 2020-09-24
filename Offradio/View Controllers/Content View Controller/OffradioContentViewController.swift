@@ -9,12 +9,30 @@
 import UIKit
 import MediaPlayer
 
+enum ContentState {
+    case loading(title: String?)
+    case render(UIViewController)
+}
+
 public protocol TabBarItemProtocol {
     func defaultTabBarItem() -> UITabBarItem
 }
 
-final class OffradioContentViewController: UIViewController {
+protocol RootContentDisplayable {
+    func transition(to state: ContentState)
+}
 
+extension RootContentDisplayable {
+    var viewController: UIViewController? {
+        return self as? UIViewController
+    }
+}
+
+
+final class OffradioContentViewController: UIViewController, RootContentDisplayable {
+    private var state: ContentState?
+    private var shownViewController: UIViewController?
+    
     var tabBarViewContainer: UIView?
     var mainTabBarController: MainTabBarViewController?
 
@@ -34,9 +52,6 @@ final class OffradioContentViewController: UIViewController {
 
         self.mainTabBarController = MainTabBarViewController(with: dependencies, andViewModel: self.offradioViewModel)
 
-        if let mainTabBarController = mainTabBarController {
-            self.addContainerViewController(mainTabBarController)
-        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -47,8 +62,12 @@ final class OffradioContentViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barStyle = .black
         self.setNeedsStatusBarAppearanceUpdate()
+        
+        if let mainTabBarController = mainTabBarController {
+            self.addContainerViewController(mainTabBarController)
+        }
     }
-
+    
     func showPlaylist() {
         self.mainTabBarController?.selectedIndex = TabIdentifier.listen.rawValue
         let radioViewController = getOffradioViewController()
@@ -83,4 +102,48 @@ final class OffradioContentViewController: UIViewController {
         return .lightContent
     }
 
+    
+    func transition(to state: ContentState) {
+        let vc = viewController(for: state)
+        self.display(rootViewController: vc)
+        shownViewController = vc
+        self.state = state
+    }
+    
+    private func display(rootViewController: UIViewController) {
+        if let current = shownViewController {
+            current.willMove(toParent: nil)
+            self.addChild(rootViewController)
+            rootViewController.view.frame = self.view.bounds
+            rootViewController.view.alpha = 0.0
+            self.transition(from: current,
+                            to: rootViewController,
+                            duration: 0.2,
+                            options: [.curveEaseInOut],
+                            animations: {
+                                rootViewController.view.alpha = 1.0
+            }, completion: { (_) in
+                current.removeFromParent()
+                rootViewController.didMove(toParent: self)
+            })
+        } else {
+            self.addContainerViewController(rootViewController)
+        }
+
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.setNeedsUpdateOfHomeIndicatorAutoHidden()
+        self.setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
+    }
+}
+
+
+private extension OffradioContentViewController {
+    func viewController(for state: ContentState) -> UIViewController {
+        switch state {
+        case .loading(let title):
+            return ContentLoadingViewController(with: title)
+        case .render(let viewController):
+            return viewController
+        }
+    }
 }

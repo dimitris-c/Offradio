@@ -21,9 +21,9 @@ enum OffradioStreamQuality: String {
     var url: String {
         switch self {
             case .hd:
-                return "https://31.24.224.52:17008/stream"
+                return "https://s9.yesstreaming.net:17008/stream"
             case .sd:
-                return "https://s3.yesstreaming.net:17033/stream"
+                return "https://s3.yesstreaming.net:17062/stream"
         }
     }
     
