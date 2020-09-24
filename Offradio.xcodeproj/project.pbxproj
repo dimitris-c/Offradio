@@ -81,6 +81,9 @@
 		B55FB047251CE10A00F30CCC /* OffradioNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB046251CE10A00F30CCC /* OffradioNetworkService.swift */; };
 		B55FB055251CE30100F30CCC /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB054251CE30100F30CCC /* Dependencies.swift */; };
 		B55FB11B251CF18500F30CCC /* ContentLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB11A251CF18500F30CCC /* ContentLoadingViewController.swift */; };
+		B55FB127251CFBA900F30CCC /* StreamsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB126251CFBA900F30CCC /* StreamsConfiguration.swift */; };
+		B55FB12F251D2CE600F30CCC /* StreamQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB12E251D2CE600F30CCC /* StreamQuality.swift */; };
+		B55FB136251D2D2F00F30CCC /* PlayerStreams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB135251D2D2F00F30CCC /* PlayerStreams.swift */; };
 		B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F191E64857D00E5DB0E /* Offradio.swift */; };
 		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
 		B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */; };
@@ -306,6 +309,9 @@
 		B55FB046251CE10A00F30CCC /* OffradioNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffradioNetworkService.swift; sourceTree = "<group>"; };
 		B55FB054251CE30100F30CCC /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		B55FB11A251CF18500F30CCC /* ContentLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentLoadingViewController.swift; sourceTree = "<group>"; };
+		B55FB126251CFBA900F30CCC /* StreamsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsConfiguration.swift; sourceTree = "<group>"; };
+		B55FB12E251D2CE600F30CCC /* StreamQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamQuality.swift; sourceTree = "<group>"; };
+		B55FB135251D2D2F00F30CCC /* PlayerStreams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStreams.swift; sourceTree = "<group>"; };
 		B5656F191E64857D00E5DB0E /* Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Offradio.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OffradioMetadata.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioCommandCenter.swift; sourceTree = "<group>"; };
@@ -587,6 +593,7 @@
 				B5A93ED62515613B000C6665 /* NetStatusService.swift */,
 				B5A942F52515FF6D000C6665 /* UserSettings.swift */,
 				B5A942FC251610EF000C6665 /* UserDefault.swift */,
+				B55FB126251CFBA900F30CCC /* StreamsConfiguration.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -629,6 +636,7 @@
 		B52A6C2C1E36B9BB005893D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B55FB12D251D2CC300F30CCC /* Player Configuration */,
 				B50395581E4BA4E800D9A71B /* Offradio API */,
 				B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */,
 				B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */,
@@ -637,7 +645,6 @@
 				B51E3FB91E4B9E50009F4C37 /* Schedule.swift */,
 				B5D923771E65E4800013A3F4 /* Show.swift */,
 				B5483B951EB4F44E004AC6BF /* Song.swift */,
-				B55FAF74251C9AA500F30CCC /* PlayerConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -803,6 +810,16 @@
 				B54E088E1E4E307700B54FB3 /* ContactModels.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		B55FB12D251D2CC300F30CCC /* Player Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				B55FAF74251C9AA500F30CCC /* PlayerConfiguration.swift */,
+				B55FB12E251D2CE600F30CCC /* StreamQuality.swift */,
+				B55FB135251D2D2F00F30CCC /* PlayerStreams.swift */,
+			);
+			path = "Player Configuration";
 			sourceTree = "<group>";
 		};
 		B56960391E4908B8003BFBC6 /* Radio View Controller */ = {
@@ -1448,6 +1465,7 @@
 				B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */,
 				B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */,
 				B519063925122C37005537BF /* WebSocketService.swift in Sources */,
+				B55FB12F251D2CE600F30CCC /* StreamQuality.swift in Sources */,
 				B55FB11B251CF18500F30CCC /* ContentLoadingViewController.swift in Sources */,
 				B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */,
 				B52C2D441EB0F5E000AF8514 /* RadioViewModel.swift in Sources */,
@@ -1508,6 +1526,7 @@
 				B5A93ED72515613B000C6665 /* NetStatusService.swift in Sources */,
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */,
+				B55FB127251CFBA900F30CCC /* StreamsConfiguration.swift in Sources */,
 				B5A941C82515F6D4000C6665 /* SettingsViewModel.swift in Sources */,
 				B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */,
 				B5A942EA2515FE26000C6665 /* SettingsSectionModel.swift in Sources */,
@@ -1522,6 +1541,7 @@
 				B53FC47C1E9C0C8A00DC82AD /* ShareUtility.swift in Sources */,
 				B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */,
 				B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */,
+				B55FB136251D2D2F00F30CCC /* PlayerStreams.swift in Sources */,
 				B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

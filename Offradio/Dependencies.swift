@@ -12,6 +12,7 @@ import Network
 typealias OffradioNetworkService = MoyaProvider<OffradioNetworkAPI>
 
 protocol CoreDependencies {
+    var configurationService: PlayerConfigurationProvider { get }
     var userSettings: UserSettings { get }
     var networkService: OffradioNetworkService { get }
     var metadata: RadioMetadata { get }
@@ -21,6 +22,7 @@ protocol CoreDependencies {
 }
 
 final class CoreDependenciesService: CoreDependencies {
+    let configurationService: PlayerConfigurationProvider
     let userSettings: UserSettings
     let metadata: RadioMetadata
     let netStatusService: NetStatusProvider
@@ -31,9 +33,13 @@ final class CoreDependenciesService: CoreDependencies {
     init() {
         self.userSettings = UserSettingsService()
         self.networkService = MoyaProvider<OffradioNetworkAPI>()
+        self.configurationService = PlayerConfigurationService(networkService: networkService)
         self.metadata = OffradioMetadata(networkService: networkService)
         self.netStatusService = NetStatusService(network: NWPathMonitor())
-        self.offradio = Offradio(userSettings: userSettings, metadata: metadata, netStatusService: netStatusService)
+        self.offradio = Offradio(userSettings: userSettings,
+                                 metadata: metadata,
+                                 netStatusService: netStatusService,
+                                 playerConfigurationService: configurationService)
         self.watchCommunication = OffradioWatchCommunication()
     }
 }

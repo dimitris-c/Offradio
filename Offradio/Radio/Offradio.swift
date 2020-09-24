@@ -17,23 +17,6 @@ import Network
 enum OffradioStreamQuality: String {
     case sd
     case hd
-    
-    var url: String {
-        switch self {
-            case .hd:
-                return "https://s9.yesstreaming.net:17008/stream"
-            case .sd:
-                return "https://s3.yesstreaming.net:17062/stream"
-        }
-    }
-    
-    static func quality(for connectionType: NetConnectionType) -> Self {
-        switch connectionType {
-            case .cellular: return .sd
-            case .wifi: return .hd
-            case .undetermined: return .sd
-        }
-    }
 }
 
 final class Offradio: NSObject, RadioProtocol {
@@ -43,6 +26,7 @@ final class Offradio: NSObject, RadioProtocol {
     
     private let netStatusService: NetStatusProvider
     private let userSettings: UserSettings
+    private let playerConfigurationService: PlayerConfigurationProvider
     
     var status: RadioState = .stopped
     let metadata: RadioMetadata
@@ -54,10 +38,14 @@ final class Offradio: NSObject, RadioProtocol {
             .distinctUntilChanged()
     }
     
-    init(userSettings: UserSettings, metadata: RadioMetadata, netStatusService: NetStatusProvider) {
+    init(userSettings: UserSettings,
+         metadata: RadioMetadata,
+         netStatusService: NetStatusProvider,
+         playerConfigurationService: PlayerConfigurationProvider) {
         self.userSettings = userSettings
         self.metadata = metadata
         self.netStatusService = netStatusService
+        self.playerConfigurationService = playerConfigurationService
         super.init()
         self.configureAudioSession()
         self.addNotifications()
@@ -85,10 +73,11 @@ final class Offradio: NSObject, RadioProtocol {
     }
     
     final func adjustAudioStreamQuality(for connectionType: NetConnectionType) {
-        self.startRadio(with: OffradioStreamQuality.quality(for: connectionType))
+        let streamQuality = self.playerConfigurationService.configuration.streams.quality(for: connectionType)
+        self.startRadio(with: streamQuality)
     }
     
-    final func start(with quality: OffradioStreamQuality) {
+    final func start(with quality: PlayerStreamQuality) {
         guard self.status != .playing else { return }
         
         self.startRadio(with: quality)
@@ -100,8 +89,9 @@ final class Offradio: NSObject, RadioProtocol {
         guard self.status != .playing else { return }
         
         if !userSettings.audioStreamQualityAutomatic {
-            let userSavedStreamQuality = OffradioStreamQuality(rawValue: userSettings.audioStreamQuality) ?? .hd
-            self.start(with: userSavedStreamQuality)
+            let quality = OffradioStreamQuality(rawValue: userSettings.audioStreamQuality) ?? .hd
+            let streamQuality = self.playerConfigurationService.configuration.streams.quality(for: quality)
+            self.start(with: streamQuality)
         } else {
             self.adjustAudioStreamQuality(for: self.netStatusService.connectionType)
         }
@@ -124,7 +114,7 @@ final class Offradio: NSObject, RadioProtocol {
         }
     }
     
-    final fileprivate func startRadio(with quality: OffradioStreamQuality) {
+    final fileprivate func startRadio(with quality: PlayerStreamQuality) {
         self.activateAudioSession()
         
         self.audioPlayer.play(quality.url)
