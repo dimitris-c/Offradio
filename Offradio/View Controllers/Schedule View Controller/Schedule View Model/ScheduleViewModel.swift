@@ -16,15 +16,15 @@ final class ScheduleViewModel {
     var firstLoad = BehaviorRelay<Bool>(value: true)
     var refresh = BehaviorRelay<Bool>(value: false)
 
-    fileprivate var scheduleService = MoyaProvider<ScheduleService>()
-    fileprivate var producersService = MoyaProvider<ProducersBioService>()
+    private let networkService: OffradioNetworkService
 
     let navigationTitle = BehaviorRelay<String>(value: "Offradio")
     let schedule = BehaviorRelay<[ScheduleItem]>(value: [])
     let producers = BehaviorRelay<[Producer]>(value: [])
 
-    init() {
-
+    init(networkService: OffradioNetworkService) {
+        self.networkService = networkService
+        
         self.fetchSchedule()
             .do(onNext: { [weak self] schedule in
                 self?.navigationTitle.accept(schedule.dayFormatted)
@@ -62,7 +62,7 @@ final class ScheduleViewModel {
     // MARK: Internal methods
 
     fileprivate func fetchSchedule() -> Observable<Schedule> {
-        return self.scheduleService.rx.request(.schedule)
+        return self.networkService.rx.request(.schedule)
             .map(Schedule.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
             .do(onError: { [weak self] _ in
@@ -75,7 +75,7 @@ final class ScheduleViewModel {
     }
 
     fileprivate func fetchProducers() -> Observable<[Producer]> {
-        return self.producersService.rx.request(.producers)
+        return self.networkService.rx.request(.producers)
             .map([Producer].self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: true)
             .asObservable()
     }

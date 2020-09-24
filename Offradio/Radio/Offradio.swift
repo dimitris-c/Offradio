@@ -21,7 +21,7 @@ enum OffradioStreamQuality: String {
     var url: String {
         switch self {
             case .hd:
-                return "https://s3.yesstreaming.net:17062/stream"
+                return "https://31.24.224.52:17008/stream"
             case .sd:
                 return "https://s3.yesstreaming.net:17033/stream"
         }
@@ -41,7 +41,7 @@ final class Offradio: NSObject, RadioProtocol {
     private var isInForeground: Bool = true
     private var audioPlayer = STKAudioPlayer()
     
-    private let netStatusService: NetStatusType
+    private let netStatusService: NetStatusProvider
     private let userSettings: UserSettings
     
     var status: RadioState = .stopped
@@ -54,7 +54,7 @@ final class Offradio: NSObject, RadioProtocol {
             .distinctUntilChanged()
     }
     
-    init(userSettings: UserSettings, metadata: OffradioMetadata, netStatusService: NetStatusType) {
+    init(userSettings: UserSettings, metadata: RadioMetadata, netStatusService: NetStatusProvider) {
         self.userSettings = userSettings
         self.metadata = metadata
         self.netStatusService = netStatusService

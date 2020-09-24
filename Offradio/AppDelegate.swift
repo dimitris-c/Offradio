@@ -20,10 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    var offradio: Offradio!
+    var dependencies: CoreDependencies?
+    
     var offradioViewModel: RadioViewModel!
     var watchSession: OffradioAppWatchSession?
     let shortcuts: Shortcuts = Shortcuts()
+    
+    var appCoordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -39,24 +42,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         NetworkActivityIndicatorManager.shared.isEnabled = true
 
-        window = UIWindow(frame: UIScreen.main.bounds)
+        let dependencies = CoreDependenciesService()
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
 
-        let userSettings = UserSettingsService()
-        let metadata = OffradioMetadata()
-        let netStatusService = NetStatusService(network: NWPathMonitor())
-        self.offradio = Offradio(userSettings: userSettings, metadata: metadata, netStatusService: netStatusService)
-        let watchCommunication = OffradioWatchCommunication()
-        self.offradioViewModel = RadioViewModel(with: self.offradio, and: watchCommunication)
-
-        let content = OffradioContentViewController(with: self.offradio, andViewModel: self.offradioViewModel)
-        window?.rootViewController = content
-
-        window?.makeKeyAndVisible()
-
+        let appCoordinator = AppCoordinator(window: window, dependencies: dependencies)
+        self.window = window
+        appCoordinator.start()
+        
+        self.appCoordinator = appCoordinator
+        self.dependencies = dependencies
+        
         Theme.setupNavBarAppearance()
-
-        watchSession = OffradioAppWatchSession(with: self.offradio, andViewModel: self.offradioViewModel)
-        watchSession?.activate()
 
         return true
     }
@@ -106,12 +103,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        guard let viewController = window?.rootViewController as? OffradioContentViewController else {
+        guard let coordinator = self.appCoordinator else {
             completionHandler(false)
             return
         }
 
-        let handledShortCutItem = self.shortcuts.handle(shortcut: shortcutItem, for: viewController)
+        let handledShortCutItem = coordinator.handleShortcut(for: shortcutItem)
         completionHandler(handledShortCutItem)
     }
 

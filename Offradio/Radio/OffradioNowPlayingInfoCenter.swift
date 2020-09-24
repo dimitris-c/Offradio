@@ -14,7 +14,7 @@ import Kingfisher
 class OffradioNowPlayingInfoCenter {
     fileprivate final let disposeBag = DisposeBag()
     
-    fileprivate var offradio: Offradio!
+    fileprivate let offradio: Offradio
     
     init(with radio: Offradio) {
         self.offradio = radio

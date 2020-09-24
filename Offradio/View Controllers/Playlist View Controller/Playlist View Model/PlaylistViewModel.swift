@@ -35,7 +35,7 @@ final class PlaylistViewModel {
 
     var playlistData = BehaviorRelay<[PlaylistCellViewModel]>(value: [])
 
-    let playlistService = MoyaProvider<PlaylistService>()
+    let playlistService = OffradioNetworkService()
 
     fileprivate var page: Int = 1
     fileprivate let totalPagesToFetch: Int = 10

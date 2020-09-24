@@ -10,18 +10,19 @@ import WatchConnectivity
 import RxSwift
 import Moya
 
-class OffradioAppWatchSession: NSObject, WCSessionDelegate {
+final class OffradioAppWatchSession: NSObject, WCSessionDelegate {
 
     var disposeBag: DisposeBag? = DisposeBag()
-    var radio: Offradio!
-    var viewModel: RadioViewModel!
-    let playlistService = MoyaProvider<PlaylistService>()
+    let radio: Offradio
+    let viewModel: RadioViewModel
+    let networkService: OffradioNetworkService
     let playlistFavouritesLayer = PlaylistFavouritesLayer()
 
-    init(with radio: Offradio, andViewModel model: RadioViewModel) {
-        super.init()
+    init(with radio: Offradio, networkService: OffradioNetworkService, andViewModel model: RadioViewModel) {
+        self.networkService = networkService
         self.radio = radio
         self.viewModel = model
+        super.init()
     }
 
     func activate() {
@@ -147,7 +148,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     fileprivate func fetchPlaylist(withReply reply: @escaping ([Song]) -> Void) {
-        let disposable = self.playlistService.rx.request(.playlist(page: 1))
+        let disposable = self.networkService.rx.request(.playlist(page: 1))
             .map([Song].self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .catchErrorJustReturn([])
             .asObservable()

@@ -26,17 +26,17 @@ final class OffradioMetadata: RadioMetadata {
     fileprivate let crcTrigger = PublishRelay<MetadataTrigger>()
     fileprivate var crcTimerDisposable: Disposable?
     
-    fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
+    fileprivate let networkService: OffradioNetworkService
     
     private var nowPlayingSocketDisposable: Disposable?
     private let nowPlayinSocketService: NowPlayingSocketService
     
-    public init() {
-        
+    public init(networkService: OffradioNetworkService) {
+        self.networkService = networkService
         self.nowPlayinSocketService = NowPlayingSocketService(builder: OffradioWebsocketBuilder(),
                                                               url: APIURL(enviroment: .new).socket)
         
-        let fetchNowPlaying = self.nowPlayingService.rx.request(.nowPlaying)
+        let fetchNowPlaying = self.networkService.rx.request(.nowPlaying)
             .observeOn(queue)
             .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
@@ -75,7 +75,7 @@ final class OffradioMetadata: RadioMetadata {
     }
     
     func fetchNowPlaying() -> Observable<NowPlaying> {
-        return self.nowPlayingService.rx.request(.nowPlaying)
+        return self.networkService.rx.request(.nowPlaying)
             .observeOn(queue)
             .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()

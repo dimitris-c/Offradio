@@ -15,7 +15,7 @@ enum NetConnectionType: Equatable {
     case undetermined
 }
 
-protocol NetStatusType {
+protocol NetStatusProvider {
     var isConnected: Bool { get }
     var connectionType: NetConnectionType { get }
     
@@ -23,7 +23,7 @@ protocol NetStatusType {
     func stop()
 }
 
-final class NetStatusService: NetStatusType {
+final class NetStatusService: NetStatusProvider {
     
     var isConnected: Bool {
         network.currentPath.status == .satisfied
