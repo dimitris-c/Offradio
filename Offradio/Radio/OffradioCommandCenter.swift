@@ -75,7 +75,7 @@ final class OffradioCommandCenter {
             guard let self = self else { return .noSuchContent }
             let song = self.offradio.metadata.currentTrack.value
             if !self.favouritesDataLayer.isFavourite(for: song.artist,
-                                                     songTitle: song.track) {
+                                                     songTitle: song.name) {
                 try? self.favouritesDataLayer.createFavourite(with: song.toPlaylistSong())
                 return .success
             }
@@ -86,7 +86,7 @@ final class OffradioCommandCenter {
             guard let self = self else { return .noSuchContent }
             let song = self.offradio.metadata.currentTrack.value
             try? self.favouritesDataLayer.deleteFavourite(for: song.artist,
-                                                          songTitle: song.track)
+                                                          songTitle: song.name)
             return .success
         }
     }

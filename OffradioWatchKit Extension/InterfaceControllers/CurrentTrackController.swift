@@ -11,7 +11,6 @@ import Kingfisher
 import WatchConnectivity
 import RxSwift
 import RxCocoa
-import SwiftyJSON
 
 class CurrentTrackController: WKInterfaceController {
     let disposeBag = DisposeBag()
@@ -51,8 +50,7 @@ class CurrentTrackController: WKInterfaceController {
         super.didAppear()
         communication.getCurrentTrack { [weak self] info in
             if let data = info["data"] as? [String: Any] {
-                let json = JSON(data)
-                let track = CurrentTrack(json: json)
+                let track = CurrentTrack.from(dictionary: data)
                 self?.currentTrack.accept(track)
                 DispatchQueue.main.async {
                     self?.songTitle.setText(track.title)

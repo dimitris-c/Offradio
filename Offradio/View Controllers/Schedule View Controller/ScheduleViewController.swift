@@ -17,12 +17,13 @@ final class ScheduleViewController: UIViewController {
 
     var tableView: UITableView!
 
-    var viewModel: ScheduleViewModel!
+    let viewModel: ScheduleViewModel
 
     var activityIndicator: UIActivityIndicatorView!
     var refreshControl: UIRefreshControl!
 
-    init() {
+    init(viewModel: ScheduleViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         self.title = "Schedule"
     }
@@ -39,8 +40,6 @@ final class ScheduleViewController: UIViewController {
         if let weekDay = date.dayOfWeek() {
             self.navigationItem.title = "Schedule - \(weekDay)"
         }
-
-        self.viewModel = ScheduleViewModel()
 
         self.tableView = UITableView()
         self.tableView.backgroundColor = self.view.backgroundColor?.withAlphaComponent(0)
@@ -73,7 +72,7 @@ final class ScheduleViewController: UIViewController {
             guard let sSelf = self else { return }
             sSelf.tableView.deselectRow(at: indexPath, animated: true)
             let item = sSelf.viewModel.getSchedule(at: indexPath)
-            if item.hasBio, let bio = sSelf.viewModel.getProducerBio(for: item.title) {
+            if let producerId = item.producerId, let bio = sSelf.viewModel.getProducerBio(for: producerId) {
                 sSelf.showProducerBio(with: bio)
             }
         }).disposed(by: disposeBag)
@@ -141,7 +140,7 @@ extension ScheduleViewController: UIViewControllerPreviewingDelegate {
         guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
 
         let item = viewModel.getSchedule(at: indexPath)
-        if item.hasBio, let bio = viewModel.getProducerBio(for: item.title) {
+        if item.hasBio, let bio = viewModel.getProducerBio(for: item.showTitle) {
 
             let producerBioViewController = ProducersBioViewController(with: bio)
             let cellRect = tableView.rectForRow(at: indexPath)

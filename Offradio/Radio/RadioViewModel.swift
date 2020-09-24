@@ -31,12 +31,13 @@ final class RadioViewModel {
         self.watchCommunication = watchCommunication
 
         nowPlaying = radio.metadata.nowPlaying.asDriver(onErrorJustReturn: .empty)
-            .do(onNext: { [watchCommunication] track in
-                watchCommunication.sendCurrentTrack(with: track.current)
+            .do(onNext: { [watchCommunication] nowPlaying in
+                watchCommunication.sendCurrentTrack(with: nowPlaying.track)
             })
         
         self.radioState = toggleRadioTriggered
             .asObservable()
+            .observeOn(MainScheduler.asyncInstance)
             .do(onNext: { [radio] shouldTurnRadioOn in
                 if shouldTurnRadioOn {
                     radio.start()
@@ -45,33 +46,37 @@ final class RadioViewModel {
                 }
             })
             .flatMap({ _ -> Observable<RadioState> in
-                return radio.stateChanged.map({ state -> RadioState in
+                return radio.stateChanged
+                    .map({ state -> RadioState in
                     switch state {
                     case STKAudioPlayerState.buffering:
                         return .buffering
                     case STKAudioPlayerState.playing:
                         return .playing
-                    case STKAudioPlayerState.buffering:
-                        return .buffering
                     case STKAudioPlayerState.stopped:
                         return .stopped
                     default: return .stopped
                     }
                 })
             })
+            .distinctUntilChanged()
+            .do(onNext: { state in
+                let isPlaying = state == .playing
+                if isPlaying {
+                    watchCommunication.sendTurnRadioOn()
+                } else if state == .stopped {
+                    watchCommunication.sendTurnRadioOff()
+                }
+            })
             .asSignal(onErrorSignalWith: .empty())
         
-        self.isPlaying = self.radioState.map { $0 == .playing }
-            .do(onNext: { _ in
-                watchCommunication.sendTurnRadioOn()
-            })
-            .startWith(false)
-        self.isBuffering = self.radioState.map { $0 == .buffering }
-            .do(onNext: { _ in
-                watchCommunication.sendTurnRadioOff()
-            })
+        self.isPlaying = self.radioState
+            .map { $0 == .playing }
             .startWith(false)
         
+        self.isBuffering = self.radioState
+            .map { $0 == .buffering }
+            .startWith(false)
     }
 
 }

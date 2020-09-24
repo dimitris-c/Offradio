@@ -6,31 +6,17 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import SwiftyJSON
+import Foundation
 
-struct NowPlaying: Equatable {
-    let show: Show
-    let current: CurrentTrack
-    static let empty = NowPlaying(show: .empty, current: .empty)
-    static let `default` = NowPlaying(show: .default, current: .default)
-
-    init(json: JSON) {
-        self.show = Show(json: json["show"])
-        self.current = CurrentTrack(json: json["current"])
-    }
-
-    init(show: Show, current: CurrentTrack) {
-        self.show = show
-        self.current = current
-    }
-
-    func update(with lastFmImageUrl: String) -> NowPlaying {
-        let current = self.current.update(with: lastFmImageUrl)
-        return NowPlaying(show: self.show, current: current)
-    }
-
+struct NowPlaying: Decodable, Equatable {
+    let track: CurrentTrack
+    let producer: ProducerShow
+    
+    static let empty = NowPlaying(track: .empty, producer: .empty)
+    
+    static let `default` = NowPlaying(track: .default, producer: .default)
+    
     func isEmpty() -> Bool {
-        return self.show.isEmpty() && self.current.isEmpty()
+        self.track.isEmpty() && self.producer.isEmpty()
     }
-
 }

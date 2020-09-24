@@ -12,10 +12,9 @@ target 'Offradio' do
   inhibit_all_warnings!
 
   # Pods for Offradio
-  pod 'Alamofire', '~> 5'
+  pod 'Alamofire', '~> 5.2'
   pod 'AlamofireNetworkActivityIndicator'
   pod 'Moya/RxSwift', '~> 14.0'
-  pod 'SwiftyJSON'
   pod 'FBSDKCoreKit', :project_name => 'FBSDK'
   pod 'FBSDKShareKit', :project_name => 'FBSDK'
   pod 'FBSDKLoginKit', :project_name => 'FBSDK'
@@ -27,10 +26,11 @@ target 'Offradio' do
   pod 'RealmSwift', '~> 4.0'
   pod 'RxRealm'
   pod 'RxCocoa'
+  pod 'RxDataSources', '~> 4.0'
   pod 'AutoScrollLabel'
   pod 'ToggleSwitch', '~> 1.0'
   pod 'SwipeCellKit'
-  pod 'HTMLEntities', :git => 'https://github.com/IBM-Swift/swift-html-entities.git'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   pod 'StreamingKit', :git => 'https://github.com/tumtumtum/StreamingKit.git', :branch => 'master'
 
   target 'OffradioTests' do
@@ -47,9 +47,7 @@ target 'Offradio' do
       platform :watchos, '4.0'
       pod 'RxSwift'
       pod 'RxCocoa'
-      pod 'SwiftyJSON'
       pod 'Kingfisher'
-      pod 'HTMLEntities', :git => 'https://github.com/IBM-Swift/swift-html-entities.git'
   end
   
 end

@@ -25,8 +25,8 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
             self.shareOnEmail(with: nowPlaying, using: viewController)
         default: break
         }
-        let attributes: [String: Any] = ["song": nowPlaying.current.title,
-                                         "producer": nowPlaying.show.name,
+        let attributes: [String: Any] = ["song": nowPlaying.track.title,
+                                         "producer": nowPlaying.producer.producerName,
                                          "share_type": type.rawValue]
         Analytics.logEvent("Sharing song", parameters: attributes)
     }
@@ -65,7 +65,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
             let mailController = MFMailComposeViewController()
             mailController.mailComposeDelegate = viewController as? MFMailComposeViewControllerDelegate
             mailController.setSubject("I'm listening to Offradio!")
-            let messageBody = "I've turned my Radio OFF! <p>Listening to <b> \(nowPlaying.show.name).</b> <br>Currently playing <b> \(nowPlaying.current.title) </b></p> <p> Turn your radio OFF at — http://www.offradio.com/player </p>"
+            let messageBody = "I've turned my Radio OFF! <p>Listening to <b> \(nowPlaying.producer.producerName).</b> <br>Currently playing <b> \(nowPlaying.track.title) </b></p> <p> Turn your radio OFF at — http://www.offradio.com/player </p>"
             mailController.setMessageBody(messageBody, isHTML: true)
             viewController.present(mailController, animated: true, completion: nil)
         }
@@ -81,15 +81,15 @@ struct TwitterTitleFactory {
     private let limit: Int = 140
 
     func title(with nowPlaying: NowPlaying) -> String {
-        var fullTitle = "\(firstPart) Listening to \(nowPlaying.show.name) \(hashtag) \(nowPlaying.current.title) \(mention)"
+        var fullTitle = "\(firstPart) Listening to \(nowPlaying.producer.producerName) \(hashtag) \(nowPlaying.track.title) \(mention)"
         if fullTitle.count > limit {
-            fullTitle = "\(firstPart) Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
+            fullTitle = "\(firstPart) Listening to \(nowPlaying.track.title) \(hashtag) \(mention)"
         }
         if fullTitle.count > limit {
-            fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
+            fullTitle = "Listening to \(nowPlaying.track.title) \(hashtag) \(mention)"
         }
         if fullTitle.count > limit {
-            fullTitle = "Listening to \(nowPlaying.current.title) \(hashtag) \(mention)"
+            fullTitle = "Listening to \(nowPlaying.track.title) \(hashtag) \(mention)"
         }
         return fullTitle
     }

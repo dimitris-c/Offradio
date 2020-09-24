@@ -6,69 +6,67 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import SwiftyJSON
-import HTMLEntities
+import Foundation
 
-struct CurrentTrack: Equatable {
-    let track: String
-    let image: String
+struct CurrentTrack: Decodable, Equatable {
+    let name: String
     let artist: String
-    let lastFMImageUrl: String
-
+    let artistImage: String
+    let trackImage: String
+    let timeAired: String
+//    let datetimeAired: Date?
+    let links: CurrentTrackLinks
+    
+    var image: String {
+        if !trackImage.isEmpty {
+            return trackImage
+        }
+        else if !artistImage.isEmpty {
+            return artistImage
+        }
+        return ""
+    }
+    
     var title: String {
-        guard !artist.isEmpty && !track.isEmpty else {
+        guard !artist.isEmpty && !name.isEmpty else {
             return "Turn your radio off"
         }
-        return "\(artist) - \(track)"
+        return "\(artist) - \(name)"
     }
 
-    static let empty = CurrentTrack(json: "")
+    static let empty = CurrentTrack(name: "", artist: "", artistImage: "", trackImage: "", timeAired: "", links: .empty)
 
-    static let `default` = CurrentTrack(track: "Turn Your Radio Off", image: "", artist: "Offradio", lastFMImageUrl: "")
+    static let `default` = CurrentTrack(name: "Turn Your Radio Off", artist: "Offradio", artistImage: "", trackImage: "", timeAired: "", links: .empty)
 
-    init(json: JSON) {
-        self.track = json["track"].stringValue.htmlUnescape().capitalized
-        self.artist = json["artist"].stringValue.htmlUnescape().capitalized
-        self.image = json["image"].stringValue
-        self.lastFMImageUrl = ""
+    static func from(dictionary: [String: Any]) -> CurrentTrack {
+        guard let track = dictionary["track"] as? String,
+            let artist = dictionary["artist"] as? String,
+            let image = dictionary["image"] as? String else {
+                return .default
+        }
+        return CurrentTrack(name: track, artist: artist, artistImage: image, trackImage: "", timeAired: "", links: CurrentTrackLinks.empty)
     }
-
-    init(track: String, image: String, artist: String, lastFMImageUrl: String) {
-        self.track = track
-        self.image = image
-        self.artist = artist
-        self.lastFMImageUrl = lastFMImageUrl
-    }
-
-    func update(with lastFmImageUrl: String) -> CurrentTrack {
-        return CurrentTrack(track: self.track,
-                            image: lastFmImageUrl,
-                            artist: self.artist,
-                            lastFMImageUrl: lastFmImageUrl)
-    }
-
-    func isEmpty() -> Bool {
-        return self.title.isEmpty && self.image.isEmpty && self.artist.isEmpty
-    }
-
+    
     func toDictionary() -> [String: Any] {
-        return ["track": track,
-                "image": image,
-                "artist": artist,
-                "lastFMImageUrl": lastFMImageUrl]
-    }
-
+           return ["track": name,
+                   "image": image,
+                   "artist": artist]
+       }
+    
     func toSong() -> Song {
-        return Song(with: "", artist: artist, songTitle: track, imageUrl: image)
+        Song(with: Date(), artist: artist, songTitle: name, trackImage: image)
+    }
+    
+    func isEmpty() -> Bool {
+        name.isEmpty && artist.isEmpty
     }
 }
 
-extension CurrentTrack {
-
-    public static func == (lhs: CurrentTrack, rhs: CurrentTrack) -> Bool {
-        return lhs.track == rhs.track &&
-        lhs.image == rhs.image &&
-        lhs.artist == rhs.artist
-    }
-
+struct CurrentTrackLinks: Decodable, Equatable {
+    let spotify: String
+    let apple: String
+    let youtube: String
+    let soundcloud: String
+    
+    static let empty = CurrentTrackLinks(spotify: "", apple: "", youtube: "", soundcloud: "")
 }

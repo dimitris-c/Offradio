@@ -27,7 +27,7 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
     init(with radioMetadata: RadioMetadata) {
         self.viewModel = NowPlayingViewModel(with: radioMetadata)
         super.init(nibName: nil, bundle: nil)
-
+        self.title = "Now Playing"
     }
 
     override func viewDidLoad() {

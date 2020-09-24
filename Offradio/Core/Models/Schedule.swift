@@ -5,47 +5,43 @@
 //  Created by Dimitris C. on 08/02/2017.
 //  Copyright © 2017 decimal. All rights reserved.
 //
+import Foundation
 
-import SwiftyJSON
+struct ScheduleItem: Decodable {
+   
+    let producer: String
+    let showTitle: String
+    let timeStart: String
+    let timeEnd: String
+    let producerId: String?
+    let producerBio: String?
+    let image: URL?
 
-struct ScheduleItem {
-
-    let endTime: String
-    let startTime: String
-    let title: String
-    let hasBio: Bool
-
-    var isOnAir: Bool = false
+    var hasBio: Bool {
+        guard let id = producerId, !id.isEmpty else {
+            return false
+        }
+        return true
+    }
+    
+    var title: String {
+        if producer.isEmpty {
+            return showTitle
+        }
+        return producer
+    }
 
     var timeTitle: String {
-        return "\(startTime) - \(endTime)"
+        return "\(timeStart) - \(timeEnd)"
     }
 
-    init(with json: JSON) {
-        self.startTime  = json["startTime"].stringValue
-        self.endTime    = json["endTime"].stringValue
-        self.title      = json["title"].stringValue
-        self.hasBio     = json["bio"].boolValue
-    }
-
-    init(withStartTime startTime: String, endTime: String, title: String, hasBio: Bool) {
-        self.startTime = startTime
-        self.endTime = endTime
-        self.title = title
-        self.hasBio = hasBio
-    }
 }
 
-struct Schedule {
+struct Schedule: Decodable {
     let day: String
-    var items: [ScheduleItem] = []
+    let shows: [ScheduleItem]
 
     var dayFormatted: String {
         return "Schedule - \(day)"
-    }
-
-    init(with json: JSON) {
-        self.day = json.arrayValue.first?["day"].stringValue ?? ""
-        self.items = json.arrayValue.dropFirst().map { ScheduleItem(with: $0) }
     }
 }

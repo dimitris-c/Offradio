@@ -24,8 +24,8 @@ protocol RadioMetadata {
     var nowPlaying: Observable<NowPlaying> { get }
     var currentTrack: BehaviorRelay<CurrentTrack> { get }
     
-    func startTimer()
-    func stopTimer()
+    func openSocket()
+    func closeSocket()
     func forceRefresh()
 
     func fetchNowPlaying() -> Observable<NowPlaying>

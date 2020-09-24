@@ -7,29 +7,34 @@
 //
 
 import WatchConnectivity
-import SwiftyJSON
 import RxSwift
 import Moya
 
-class OffradioAppWatchSession: NSObject, WCSessionDelegate {
+final class OffradioAppWatchSession: NSObject, WCSessionDelegate {
 
     var disposeBag: DisposeBag? = DisposeBag()
-    var radio: Offradio!
-    var viewModel: RadioViewModel!
-    let playlistService = MoyaProvider<PlaylistService>()
+    let radio: Offradio
+    let viewModel: RadioViewModel
+    let networkService: OffradioNetworkService
     let playlistFavouritesLayer = PlaylistFavouritesLayer()
 
-    init(with radio: Offradio, andViewModel model: RadioViewModel) {
-        super.init()
+    init(with radio: Offradio, networkService: OffradioNetworkService, andViewModel model: RadioViewModel) {
+        self.networkService = networkService
         self.radio = radio
         self.viewModel = model
+        super.init()
     }
 
     func activate() {
         if WCSession.isSupported() {
-            WCSession.default.delegate = self
-            WCSession.default.activate()
+            let defaultSession = WCSession.default
+            defaultSession.delegate = self
+            defaultSession.activate()
         }
+    }
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
@@ -61,11 +66,6 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     func sessionDidBecomeInactive(_ session: WCSession) {
-
-    }
-
-    @available(iOS 9.3, *)
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
 
     }
 
@@ -107,7 +107,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
             })
         case .toggleFavourite:
             if let data = message["data"] as? [String: Any] {
-                let track = CurrentTrack(json: JSON(data))
+                let track = CurrentTrack.from(dictionary: data)
                 let isAlreadyFavourite = self.isAlreadyFavourited(with: track)
                 reply(["action": OffradioWatchAction.favouriteStatus.rawValue, "data": ["isFavourite": !isAlreadyFavourite]])
 
@@ -125,11 +125,11 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     fileprivate func isAlreadyFavourited(with track: CurrentTrack) -> Bool {
-        let isAlreadyFavourite: Bool = playlistFavouritesLayer.isFavourite(for: track.artist, songTitle: track.track)
+        let isAlreadyFavourite: Bool = playlistFavouritesLayer.isFavourite(for: track.artist, songTitle: track.name)
         if !isAlreadyFavourite {
             try? self.playlistFavouritesLayer.createFavourite(with: track.toPlaylistSong())
         } else {
-            try? self.playlistFavouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
+            try? self.playlistFavouritesLayer.deleteFavourite(for: track.artist, songTitle: track.name)
         }
 
         return isAlreadyFavourite
@@ -148,14 +148,8 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     }
 
     fileprivate func fetchPlaylist(withReply reply: @escaping ([Song]) -> Void) {
-        let disposable = self.playlistService.rx.request(.playlist(page: 0))
-            .mapJSON()
-            .map { data -> [Song] in
-                let json = JSON(data)
-                let playlist: [Song] = json["playlist"].arrayValue
-                    .map(Song.init(with:))
-                return playlist
-            }
+        let disposable = self.networkService.rx.request(.playlist(page: 1))
+            .map([Song].self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .catchErrorJustReturn([])
             .asObservable()
             .take(1)
@@ -168,7 +162,7 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
     fileprivate func fetchCurrentTrack(withReply reply: @escaping (CurrentTrack) -> Void) {
         let disposable = self.radio.metadata.fetchNowPlaying().asObservable()
             .catchErrorJustReturn(NowPlaying.empty)
-            .map { $0.current }
+            .map { $0.track }
             .subscribe(onNext: { track in
                 reply(track)
             }, onCompleted: { [weak self] in
@@ -177,10 +171,10 @@ class OffradioAppWatchSession: NSObject, WCSessionDelegate {
         disposeBag?.insert(disposable)
     }
 
-    fileprivate func fetchCurrentShow(withReply reply: @escaping (Show) -> Void) {
+    fileprivate func fetchCurrentShow(withReply reply: @escaping (ProducerShow) -> Void) {
         let disposable = self.radio.metadata.fetchNowPlaying().asObservable()
             .catchErrorJustReturn(NowPlaying.empty)
-            .map { $0.show }
+            .map { $0.producer }
             .subscribe(onNext: { show in
                 reply(show)
             }, onCompleted: { [weak self] in

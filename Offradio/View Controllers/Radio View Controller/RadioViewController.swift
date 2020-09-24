@@ -22,10 +22,11 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     final var offradio: Offradio!
     final var viewModel: RadioViewModel!
 
-    fileprivate final var turnYourRadioOffLabel: UILabel!
-    fileprivate final var nowPlayingButton: NowPlayingButton!
-
+    private let turnYourRadioOffLabel = UILabel()
+    private let nowPlayingButton: NowPlayingButton
+    
     required init?(coder aDecoder: NSCoder) {
+        self.nowPlayingButton = NowPlayingButton(frame: .zero)
         super.init(coder: aDecoder)
         self.title = "Offradio Player"
     }
@@ -34,27 +35,32 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
 
-        #if Debug
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Debug", style: .done, target: self, action: #selector(showDebugMenu))
-        #endif
+        let settingsImage = UIImage(named: "settings-icon")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(showSettings))
+        self.navigationItem.leftBarButtonItem?.tintColor = .white
 
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
 
-        self.turnYourRadioOffLabel = UILabel()
         self.turnYourRadioOffLabel.font = UIFont.leagueGothicItalic(withSize: CGFloat.deviceValue(iPhone: 26, iPad: 36))
         self.turnYourRadioOffLabel.textColor = UIColor.white
         self.turnYourRadioOffLabel.text = "TURN YOUR RADIO OFF"
         self.turnYourRadioOffLabel.numberOfLines = 1
         self.scrollView.addSubview(self.turnYourRadioOffLabel)
 
-        self.nowPlayingButton = NowPlayingButton(frame: .zero)
+        
         self.nowPlayingButton.alpha = 0.0
         self.scrollView.addSubview(self.nowPlayingButton)
 
         self.registerForPreviewing(with: self, sourceView: self.nowPlayingButton)
 
         self.bindViewModel()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.nowPlayingButton.startScrolling()
     }
 
     func showPlaylistViewController() {
@@ -80,7 +86,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
             }).disposed(by: disposeBag)
 
         viewModel.nowPlaying
-            .map { $0.current.title }
+            .map { $0.track.title }
             .drive(self.nowPlayingButton.rx.title)
             .disposed(by: disposeBag)
 
@@ -88,12 +94,12 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon"), for: .normal)
         playlistButton.setBackgroundImage(#imageLiteral(resourceName: "playlist-menu-bar-icon-tapped"), for: .highlighted)
         playlistButton.sizeToFit()
-        let barButton = UIBarButtonItem(customView: playlistButton)
-        self.navigationItem.rightBarButtonItem = barButton
-
-        playlistButton.rx.tap.subscribe(onNext: { [weak self] in
-            self?.showPlaylistViewController()
-        }).disposed(by: disposeBag)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: playlistButton)
+        
+        playlistButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.showPlaylistViewController()
+            }).disposed(by: disposeBag)
     }
 
     override func viewDidLayoutSubviews() {
@@ -131,6 +137,16 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         let vc = DebugViewController()
         let nav = UINavigationController(rootViewController: vc)
         self.navigationController?.present(nav, animated: true, completion: nil)
+    }
+    
+    @objc private func showSettings() {
+        let viewModel = SettingsViewModel(userSettings: UserSettingsService())
+        let viewController = SettingsViewController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            navigationController.modalPresentationStyle = .pageSheet
+        }
+        self.present(navigationController, animated: true, completion: nil)
     }
 
     fileprivate func fadeNowPlayingButton(shouldFadeIn: Bool) {

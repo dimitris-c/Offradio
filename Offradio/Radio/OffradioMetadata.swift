@@ -8,10 +8,8 @@
 import RxSwift
 import RxCocoa
 import Moya
-import SwiftyJSON
 
 enum MetadataTrigger: Equatable {
-    case crc(value: String)
     case refresh
     case none
 }
@@ -28,21 +26,23 @@ final class OffradioMetadata: RadioMetadata {
     fileprivate let crcTrigger = PublishRelay<MetadataTrigger>()
     fileprivate var crcTimerDisposable: Disposable?
     
-    fileprivate let crcService = MoyaProvider<CRCService>()
-    fileprivate let lastFMApiService = MoyaProvider<LastFMAPIService>()
-    fileprivate let nowPlayingService = MoyaProvider<NowPlayingService>()
+    fileprivate let networkService: OffradioNetworkService
     
-    public init() {
+    private var nowPlayingSocketDisposable: Disposable?
+    private let nowPlayinSocketService: NowPlayingSocketService
+    
+    public init(networkService: OffradioNetworkService) {
+        self.networkService = networkService
+        self.nowPlayinSocketService = NowPlayingSocketService(builder: OffradioWebsocketBuilder(),
+                                                              url: APIURL(enviroment: .new).socket)
         
-        let fetchNowPlaying = self.nowPlayingService.rx.request(.nowPlaying)
+        let fetchNowPlaying = self.networkService.rx.request(.nowPlaying)
             .observeOn(queue)
-            .mapJSON()
-            .map { NowPlaying(json: JSON($0)) }
+            .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
             .catchErrorJustReturn(NowPlaying.default)
         
-        nowPlaying = Observable.merge(crcTrigger.asObservable(), refresh.asObservable())
-            .distinctUntilChanged()
+        nowPlaying = refresh.asObservable()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
             }
@@ -51,64 +51,35 @@ final class OffradioMetadata: RadioMetadata {
             .share(replay: 1, scope: .whileConnected)
         
         nowPlaying
-            .map { $0.current }
+            .map { $0.track }
             .bind(to: currentTrack)
             .disposed(by: disposeBag)
+        
     }
     
-    func startTimer() {
-        stopTimer()
-        let crcTimer = Observable<Int>.timer(.seconds(0), period: .seconds(20), scheduler: queue)
-        crcTimerDisposable = crcTimer.asObservable()
-            .flatMapLatest({ [weak self] _ -> Observable<MetadataTrigger> in
-                guard let strongSelf = self else { return Observable.empty() }
-                return strongSelf.crcService.rx.request(.crc)
-                    .mapString()
-                    .asObservable()
-                    .map { MetadataTrigger.crc(value: $0) }
-            })
-            .catchErrorJustReturn(.none)
-            .bind(to: crcTrigger)
+    func openSocket() {
+        closeSocket()
+        nowPlayingSocketDisposable = nowPlayinSocketService.nowPlayingUpdates()
+            .distinctUntilChanged()
+            .map { $0.track }
+            .drive(currentTrack)
     }
     
-    func stopTimer() {
-        crcTimerDisposable?.dispose()
-        crcTimerDisposable = nil
+    func closeSocket() {
+        nowPlayingSocketDisposable?.dispose()
+        nowPlayingSocketDisposable = nil
     }
     
     func forceRefresh() {
         refresh.accept(.refresh)
     }
-
+    
     func fetchNowPlaying() -> Observable<NowPlaying> {
-        return self.nowPlayingService.rx.request(.nowPlaying)
+        return self.networkService.rx.request(.nowPlaying)
             .observeOn(queue)
-            .mapJSON()
-            .map { NowPlaying(json: JSON($0)) }
+            .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
             .catchErrorJustReturn(NowPlaying.default)
-//            .flatMapLatest({ (nowPlaying) -> Observable<NowPlaying> in
-//                return self.fetchLastFMInfo(with: nowPlaying)
-//            })
     }
-
-    // Currently Not Used
-    fileprivate func fetchLastFMInfo(with nowPlaying: NowPlaying) -> Observable<NowPlaying> {
-        let path: LastFMAPIService = .artistInfo(artist: nowPlaying.current.artist)
-        return self.lastFMApiService.rx.request(path)
-            .observeOn(queue)
-            .mapJSON()
-            .map { JSON($0) }
-            .map { LastFMArtist(with: $0["artist"]) }
-            .map { artist -> NowPlaying in
-                let filtered = artist.images.filter { $0.size == "mega" || $0.size == "extralarge" }
-                if let image = filtered.first {
-                    return nowPlaying.update(with: image.url)
-                }
-                return nowPlaying
-            }
-            .asObservable()
-            .catchErrorJustReturn(.empty)
-    }
-
+    
 }

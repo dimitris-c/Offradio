@@ -25,7 +25,7 @@ final class NowPlayingViewModel {
 
     let favouriteTrack: Driver<Bool>
     let currentTrack: Driver<CurrentTrack>
-    let show: Driver<Show>
+    let show: Driver<ProducerShow>
 
     init(with radioMetadata: RadioMetadata) {
         self.radioMetadata = radioMetadata
@@ -36,12 +36,12 @@ final class NowPlayingViewModel {
             .share(replay: 1, scope: .whileConnected)
         
         self.show = nowPlaying
-            .map { $0.show }
-            .startWith(Show.default)
+            .map { $0.producer }
+            .startWith(ProducerShow.default)
             .asDriver(onErrorJustReturn: .default)
 
         self.currentTrack = nowPlaying
-            .map { $0.current }
+            .map { $0.track }
             .startWith(CurrentTrack.default)
             .asDriver(onErrorJustReturn: .default)
         
@@ -49,7 +49,7 @@ final class NowPlayingViewModel {
             .withLatestFrom(self.currentTrack.asObservable())
             .flatMapLatest { [favouritesLayer] track -> Observable<Bool> in
                 if track != CurrentTrack.default {
-                    let isFavourite = favouritesLayer.isFavourite(for: track.artist, songTitle: track.track)
+                    let isFavourite = favouritesLayer.isFavourite(for: track.artist, songTitle: track.name)
                     return .just(isFavourite)
                 }
                 return .just(false)
@@ -58,13 +58,13 @@ final class NowPlayingViewModel {
         let markAsFavourite = markTrackAsFavourite.asObservable()
             .withLatestFrom(self.currentTrack.asObservable()) { ($0, $1) }
             .flatMapLatest { [favouritesLayer] (shouldFavourite, track) -> Observable<Bool> in
-                if shouldFavourite && !favouritesLayer.isFavourite(for: track.artist, songTitle: track.track) {
+                if shouldFavourite && !favouritesLayer.isFavourite(for: track.artist, songTitle: track.name) {
                     let model = track.toPlaylistSong()
                     try? favouritesLayer.createFavourite(with: model)
                     NowPlayingViewModel.trackAddedSong(with: track.toSong())
                     return .just(true)
                 } else if !shouldFavourite {
-                    try? favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.track)
+                    try? favouritesLayer.deleteFavourite(for: track.artist, songTitle: track.name)
                     NowPlayingViewModel.trackRemovedSong(with: track.toSong())
                     return .just(false)
                 }

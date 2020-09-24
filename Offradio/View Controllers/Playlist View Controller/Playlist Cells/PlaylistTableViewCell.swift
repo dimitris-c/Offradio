@@ -127,9 +127,9 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
         self.timeLabel.text = self.item.time.uppercased()
 
         self.artistLabel.text = self.item.artist.uppercased()
-        self.songLabel.text = self.item.songTitle.uppercased()
+        self.songLabel.text = self.item.title.uppercased()
 
-        if let url = URL(string: self.item.imageUrl) {
+        if let url = URL(string: self.item.image) {
             self.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"))
         }
 

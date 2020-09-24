@@ -9,7 +9,6 @@
 import RxSwift
 import RxCocoa
 import Moya
-import SwiftyJSON
 
 final class ScheduleViewModel {
     let disposeBag: DisposeBag = DisposeBag()
@@ -17,20 +16,20 @@ final class ScheduleViewModel {
     var firstLoad = BehaviorRelay<Bool>(value: true)
     var refresh = BehaviorRelay<Bool>(value: false)
 
-    fileprivate var scheduleService = MoyaProvider<ScheduleService>()
-    fileprivate var producersService = MoyaProvider<ProducersBioService>()
+    private let networkService: OffradioNetworkService
 
     let navigationTitle = BehaviorRelay<String>(value: "Offradio")
     let schedule = BehaviorRelay<[ScheduleItem]>(value: [])
     let producers = BehaviorRelay<[Producer]>(value: [])
 
-    init() {
-
+    init(networkService: OffradioNetworkService) {
+        self.networkService = networkService
+        
         self.fetchSchedule()
             .do(onNext: { [weak self] schedule in
                 self?.navigationTitle.accept(schedule.dayFormatted)
             })
-            .map { $0.items }
+            .map { $0.shows }
             .catchErrorJustReturn([])
             .bind(to: schedule)
             .disposed(by: disposeBag)
@@ -41,7 +40,7 @@ final class ScheduleViewModel {
                 guard let strongSelf = self else { return Observable.empty() }
                 return strongSelf.fetchSchedule()
             }
-            .map { $0.items }
+            .map { $0.shows }
             .catchErrorJustReturn([])
             .bind(to: schedule)
             .disposed(by: disposeBag)
@@ -52,8 +51,8 @@ final class ScheduleViewModel {
 
     // MARK: Public methods
 
-    func getProducerBio(`for` name: String) -> Producer? {
-        return self.producers.value.filter { $0.name == name }.first
+    func getProducerBio(`for` id: String) -> Producer? {
+        return self.producers.value.filter { $0.producerId == Int(id) }.first
     }
 
     func getSchedule(at indexPath: IndexPath) -> ScheduleItem {
@@ -63,12 +62,10 @@ final class ScheduleViewModel {
     // MARK: Internal methods
 
     fileprivate func fetchSchedule() -> Observable<Schedule> {
-        return self.scheduleService.rx.request(.schedule)
-            .mapJSON()
-            .map { JSON($0) }
+        return self.networkService.rx.request(.schedule)
+            .map(Schedule.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
-            .map { Schedule(with: $0) }
-            .do(onError: { [weak self] (_) in
+            .do(onError: { [weak self] _ in
                 self?.refresh.accept(false)
                 self?.firstLoad.accept(false)
             }, onCompleted: { [weak self] in
@@ -78,11 +75,9 @@ final class ScheduleViewModel {
     }
 
     fileprivate func fetchProducers() -> Observable<[Producer]> {
-        return self.producersService.rx.request(.producers)
-            .mapJSON()
-            .map { JSON($0) }
+        return self.networkService.rx.request(.producers)
+            .map([Producer].self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: true)
             .asObservable()
-            .map { $0.map { Producer(with: $0.1) } }
     }
 
 }

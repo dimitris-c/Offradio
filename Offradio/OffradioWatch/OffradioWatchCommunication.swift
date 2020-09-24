@@ -16,7 +16,7 @@ class OffradioWatchCommunication {
         let message: [String: Any] = ["action": OffradioWatchAction.toggleRadio.rawValue,
                                       "data": true]
         WCSession.default.sendMessage(message, replyHandler: { _ in
-
+            
         }, errorHandler: { error in
             print(error.localizedDescription)
         })
@@ -45,11 +45,11 @@ class OffradioWatchCommunication {
     }
 
     // MARK: From watch
-    func getRadioStatus() {
+    func getRadioStatus(with reply: @escaping ([String: Any]) -> Void) {
         guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.radioStatus.rawValue]
-        WCSession.default.sendMessage(message, replyHandler: { _ in
-
+        WCSession.default.sendMessage(message, replyHandler: { replyInfo in
+            reply(replyInfo)
         }, errorHandler: { error in
             print(error.localizedDescription)
         })
@@ -88,7 +88,7 @@ class OffradioWatchCommunication {
     func getIsFavourite(`for` song: CurrentTrack, with reply: @escaping ([String: Any]) -> Void) {
         guard WCSession.default.isReachable else { return }
         let message: [String: Any] = ["action": OffradioWatchAction.favouriteStatus.rawValue,
-                                      "data": ["artist": song.artist, "track": song.track]]
+                                      "data": ["artist": song.artist, "track": song.name]]
         WCSession.default.sendMessage(message, replyHandler: { replyInfo in
             reply(replyInfo)
         }, errorHandler: { error in

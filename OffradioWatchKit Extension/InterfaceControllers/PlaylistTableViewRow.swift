@@ -10,6 +10,7 @@ import WatchKit
 
 class PlaylistTableViewRow: NSObject {
     
+    @IBOutlet var image: WKInterfaceImage!
     @IBOutlet var timeLabel: WKInterfaceLabel!
     @IBOutlet var songTitle: WKInterfaceLabel!
     

@@ -17,17 +17,17 @@ public enum TabIdentifier: Int {
 
 final class MainTabBarViewController: UITabBarController {
 
-    fileprivate var offradio: Offradio!
+    private let offradio: Offradio
 
-    init(with radio: Offradio, andViewModel model: RadioViewModel) {
+    init(with dependencies: CoreDependencies, andViewModel model: RadioViewModel) {
+        self.offradio = dependencies.offradio
         super.init(nibName: nil, bundle: nil)
-        self.offradio = radio
 
         self.view.backgroundColor = UIColor.white
         self.setupTabBarAppearance()
 
         let radioViewController = offradioViewController(with: self.offradio, andViewModel: model)
-        self.viewControllers = [scheduleViewController(),
+        self.viewControllers = [scheduleViewController(networkService: dependencies.networkService),
                                 radioViewController,
                                 contactViewController()]
 
@@ -56,8 +56,9 @@ final class MainTabBarViewController: UITabBarController {
 
     // MARK: View Controllers
 
-    fileprivate final func scheduleViewController() -> UINavigationController {
-        let rootViewController = ScheduleViewController()
+    fileprivate final func scheduleViewController(networkService: OffradioNetworkService) -> UINavigationController {
+        let viewModel = ScheduleViewModel(networkService: networkService)
+        let rootViewController = ScheduleViewController(viewModel: viewModel)
         rootViewController.tabBarItem = rootViewController.defaultTabBarItem()
         let scheduleNavigationController = navigationController(withRootViewController: rootViewController)
         return scheduleNavigationController

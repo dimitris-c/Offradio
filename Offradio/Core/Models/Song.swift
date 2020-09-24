@@ -6,42 +6,61 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import SwiftyJSON
-import HTMLEntities
-/// Alias of PlaylistSong for use in watch without Realm dependancies
-struct Song {
-    let time: String
-    let artist: String
-    let songTitle: String
-    let imageUrl: String
+import Foundation
 
-    var title: String {
-        guard !artist.isEmpty && !songTitle.isEmpty else {
+/// Alias of PlaylistSong for use in watch without Realm dependancies
+struct Song: Decodable {
+    let airedDatetime: Date
+    let artist: String
+    let title: String
+    let artistImage: String
+    let trackImage: String
+
+//    var isFavourite: Bool = false
+    
+    var time: String {
+        Formatters.playlistFormatter.string(from: airedDatetime)
+    }
+    
+    var image: String {
+        if !trackImage.isEmpty {
+            return trackImage
+        }
+        else if !artistImage.isEmpty {
+            return artistImage
+        }
+        return ""
+    }
+    
+    var titleFormatted: String {
+        guard !artist.isEmpty && !title.isEmpty else {
             return "Turn your radio off"
         }
-        return "\(artist) - \(songTitle)"
+        return "\(artist) - \(title)"
     }
-
-    init(with json: JSON) {
-
-        self.time = json["time"].stringValue
-        self.artist = json["artist"].stringValue.htmlUnescape()
-        self.songTitle = json["songtitle"].stringValue.htmlUnescape()
-        self.imageUrl = json["imageurl"].stringValue.htmlUnescape()
-
-    }
-
-    init(with time: String, artist: String, songTitle: String, imageUrl: String) {
-        self.time = time
+    
+    init(with date: Date, artist: String, songTitle: String, trackImage: String) {
+        self.airedDatetime = date
         self.artist = artist
-        self.songTitle = songTitle
-        self.imageUrl = imageUrl
+        self.title = songTitle
+        self.trackImage = trackImage
+        self .artistImage = ""
+    }
+    
+    static func from(dictionary: [String: Any]) -> Song {
+        guard let artist = dictionary["artist"] as? String,
+              let songtitle = dictionary["songtitle"] as? String,
+              let imageUrl = dictionary["imageUrl"] as? String,
+              let time = dictionary["time"] as? Date else {
+            return Song(with: Date(), artist: "", songTitle: "", trackImage: "")
+        }
+        return Song(with: time, artist: artist, songTitle: songtitle, trackImage: imageUrl)
     }
 
     func toDictionary() -> [String: Any] {
-        return ["time": time,
+        return ["time": airedDatetime,
                 "artist": artist,
-                "songtitle": songTitle,
-                "imageUrl": imageUrl]
+                "songtitle": title,
+                "imageUrl": image]
     }
 }

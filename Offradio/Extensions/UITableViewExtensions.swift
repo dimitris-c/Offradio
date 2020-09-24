@@ -9,11 +9,16 @@
 import RxSwift
 
 extension UITableViewCell: Reusable { }
+extension UITableViewHeaderFooterView: Reusable { }
 
 extension UITableView {
     // Registers a UITableViewCell subclass conforming to Reusable
     final func register<T: UITableViewCell>(cellType: T.Type) {
         self.register(cellType.self, forCellReuseIdentifier: cellType.identifier)
+    }
+    
+    final func register<T: UITableViewHeaderFooterView>(headerFooterType: T.Type) {
+        self.register(headerFooterType.self, forHeaderFooterViewReuseIdentifier: headerFooterType.identifier)
     }
 
     final func dequeueReusableCell<T: UITableViewCell>(`for` indexPath: IndexPath, cellType: T.Type = T.self) -> T {

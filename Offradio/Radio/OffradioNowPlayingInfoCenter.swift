@@ -14,7 +14,7 @@ import Kingfisher
 class OffradioNowPlayingInfoCenter {
     fileprivate final let disposeBag = DisposeBag()
     
-    fileprivate var offradio: Offradio!
+    fileprivate let offradio: Offradio
     
     init(with radio: Offradio) {
         self.offradio = radio
@@ -30,7 +30,7 @@ class OffradioNowPlayingInfoCenter {
             .skipWhile({ $0.isEmpty() })
             .distinctUntilChanged()
             .flatMapLatest { nowPlaying -> Observable<UIImage?> in
-                if let url = URL(string: nowPlaying.current.image) {
+                if let url = URL(string: nowPlaying.track.image) {
                     return URLSession.shared.rx.data(request: URLRequest(url: url))
                         .map({ data -> UIImage? in
                             return UIImage(data: data) ?? placeholder
@@ -49,9 +49,10 @@ class OffradioNowPlayingInfoCenter {
     
     fileprivate func updateInfo(with nowPlaying: NowPlaying) {
         var info: [String: Any] = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
-        info[MPMediaItemPropertyTitle]      = nowPlaying.current.track
-        info[MPMediaItemPropertyArtist]     = nowPlaying.current.artist
-        info[MPMediaItemPropertyAlbumTitle] = "Offradio - \(nowPlaying.show.name)"
+        info[MPMediaItemPropertyTitle]      = nowPlaying.track.name
+        info[MPMediaItemPropertyArtist]     = nowPlaying.track.artist
+        info[MPMediaItemPropertyAlbumTitle] = "Offradio - \(nowPlaying.producer.producerName)"
+        info[MPNowPlayingInfoPropertyIsLiveStream] = true
         MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
     

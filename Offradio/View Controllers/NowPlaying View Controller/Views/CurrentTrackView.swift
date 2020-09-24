@@ -168,7 +168,7 @@ final class CurrentTrackView: UIView {
 
         let completion: (Bool) -> Void = { completed in
             self.artistLabel.text    = track.artist.uppercased()
-            self.songTitleLabel.text = track.track.uppercased()
+            self.songTitleLabel.text = track.name.uppercased()
             self.showLabelsAnimated()
         }
 
