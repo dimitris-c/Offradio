@@ -16,7 +16,7 @@ struct Song: Decodable {
     let artistImage: String
     let trackImage: String
 
-//    var isFavourite: Bool = false
+    static let `default` = Song(with: Date(), artist: "Offradio", songTitle: "#epicmusiconly", trackImage: "")
     
     var time: String {
         Formatters.playlistFormatter.string(from: airedDatetime)
@@ -37,6 +37,26 @@ struct Song: Decodable {
             return "Turn your radio off"
         }
         return "\(artist) - \(title)"
+    }
+    
+    enum Keys: String, CodingKey {
+        case aired_datetime
+        case artist
+        case title
+        case artist_image
+        case track_image
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+
+        self.airedDatetime = try container.decode(Date.self, forKey: .aired_datetime)
+
+        self.title = try container.decode(String.self, forKey: .title)
+        self.artist = try container.decode(String.self, forKey: .artist)
+        self.artistImage = try container.decode(String.self, forKey: .artist_image)
+        self.trackImage = try container.decode(String.self, forKey: .track_image)
+        
     }
     
     init(with date: Date, artist: String, songTitle: String, trackImage: String) {

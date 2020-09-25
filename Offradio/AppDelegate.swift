@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.dependencies = dependencies
         
         Theme.setupNavBarAppearance()
-
+        
         return true
     }
 

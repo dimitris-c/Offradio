@@ -25,9 +25,7 @@ final class ProducerView: UIView {
         self.container = UIView()
         self.addSubview(self.container)
 
-        let sizeWidthHeight: CGFloat = CGFloat.deviceValue(iPhone: 65, iPad: 120)
-        self.producerImageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: sizeWidthHeight, height: sizeWidthHeight)))
-        self.producerImageView.layer.cornerRadius = CGFloat(sizeWidthHeight * 0.5)
+        self.producerImageView = UIImageView()
         self.producerImageView.layer.masksToBounds = true
         self.producerImageView.layer.borderColor = UIColor.white.cgColor
         self.container.addSubview(self.producerImageView)
@@ -66,14 +64,14 @@ final class ProducerView: UIView {
         self.producerNameLabel.font = UIFont.letterGothicBold(withSize: labelSize)
         self.producerNameLabel.textColor = UIColor.white
         self.producerNameLabel.textAlignment = .left
-        self.producerNameLabel.numberOfLines = 1
+        self.producerNameLabel.numberOfLines = 2
         self.container.addSubview(self.producerNameLabel)
 
         self.producerBodyLabel = UILabel(frame: .zero)
         self.producerBodyLabel.font = UIFont.letterGothicBold(withSize: labelSize)
         self.producerBodyLabel.textColor = UIColor.white
         self.producerBodyLabel.textAlignment = .left
-        self.producerBodyLabel.numberOfLines = 2
+        self.producerBodyLabel.numberOfLines = 4
         self.container.addSubview(self.producerBodyLabel)
     }
 
@@ -89,7 +87,7 @@ final class ProducerView: UIView {
     }
     /// iPhone
     fileprivate func layoutForSmallDevices() {
-        let containerHeight: CGFloat = 65
+        let containerHeight: CGFloat = 120
         let padding: CGFloat = 40
         self.container.frame.size = CGSize(width: self.frame.width - padding,
                                            height: containerHeight)
@@ -100,14 +98,19 @@ final class ProducerView: UIView {
         self.onAirIconView.frame.origin.x       = self.producerImageView.frame.maxX + 10
         self.producerNameLabel.frame.origin.x   = self.producerImageView.frame.maxX + 10
         self.producerBodyLabel.frame.origin.x   = self.producerImageView.frame.maxX + 10
+        
+        self.producerImageView.frame.size = CGSize(width: 80, height: 80)
+        self.producerImageView.layer.cornerRadius = CGFloat(self.producerImageView.bounds.height * 0.5)
 
         var verticalArranger = VerticalArranger()
         verticalArranger.add(object: SizeObject(type: .fixed, view: self.onAirIconView))
         verticalArranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 5)))
         verticalArranger.add(object: SizeObject(type: .flexible, view: self.producerNameLabel))
         verticalArranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 5)))
-        verticalArranger.add(object: SizeObject(type: .flexible, view: self.producerBodyLabel))
-
+        let producerBodyObject = SizeObject(type: .flexible, view: self.producerBodyLabel)
+        producerBodyObject.setAttached(width: self.container.frame.width - self.producerBodyLabel.frame.origin.x)
+        verticalArranger.add(object: producerBodyObject)
+        
         verticalArranger.resizeToFit()
         verticalArranger.arrange()
     }

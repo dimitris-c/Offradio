@@ -52,6 +52,9 @@
 		B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4791E9C04F400DC82AD /* ShareType.swift */; };
 		B53FC47C1E9C0C8A00DC82AD /* ShareUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */; };
 		B543EF771F90178000E4B2AB /* AnalyticsTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543EF761F90178000E4B2AB /* AnalyticsTrackable.swift */; };
+		B547E68C251B44BC0050855C /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B6682251A74EC00F60690 /* FontStyles.swift */; };
+		B547E6A1251B4D190050855C /* GradientStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B547E699251B49BF0050855C /* GradientStyles.swift */; };
+		B547E6BC251B53CD0050855C /* ColorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B547E6B4251B53CA0050855C /* ColorStyles.swift */; };
 		B5483B861EB4BB1E004AC6BF /* OffradioWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */; };
 		B5483B901EB4EFA2004AC6BF /* CurrentShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B8C1EB4EFA2004AC6BF /* CurrentShowController.swift */; };
 		B5483B911EB4EFA2004AC6BF /* CurrentTrackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B8D1EB4EFA2004AC6BF /* CurrentTrackController.swift */; };
@@ -84,6 +87,27 @@
 		B55FB127251CFBA900F30CCC /* StreamsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB126251CFBA900F30CCC /* StreamsConfiguration.swift */; };
 		B55FB12F251D2CE600F30CCC /* StreamQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB12E251D2CE600F30CCC /* StreamQuality.swift */; };
 		B55FB136251D2D2F00F30CCC /* PlayerStreams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB135251D2D2F00F30CCC /* PlayerStreams.swift */; };
+		B55FB1A4251D30DF00F30CCC /* UIFontAppSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A4EB9D1E36C1E800A1E8B1 /* UIFontAppSpecific.swift */; };
+		B55FB1AB251D310200F30CCC /* NowPlayingWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65A62519FEC100F60690 /* NowPlayingWidget.swift */; };
+		B55FB1B2251D310400F30CCC /* NowPlayingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B6667251A73C600F60690 /* NowPlayingProvider.swift */; };
+		B55FB1B3251D310900F30CCC /* NowPlayingLargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B662B251A728A00F60690 /* NowPlayingLargeView.swift */; };
+		B55FB1B4251D310900F30CCC /* NowPlayingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B663F251A733300F60690 /* NowPlayingHeaderView.swift */; };
+		B55FB1B5251D310900F30CCC /* NowPlayingMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */; };
+		B55FB1B6251D310900F30CCC /* NowPlayingSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */; };
+		B55FB1BD251D320500F30CCC /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */; };
+		B55FB1C4251D320700F30CCC /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B56B65972519FDED00F60690 /* LetterGothicStd-Bold.otf */; };
+		B55FB38F251DE7F100F30CCC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB38E251DE7F100F30CCC /* NetworkClient.swift */; };
+		B55FB3AA251DEA5A00F30CCC /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395691E4BCA0100D9A71B /* APIURL.swift */; };
+		B55FB3B1251DEA5F00F30CCC /* Decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F76250F9020008412E7 /* Decoders.swift */; };
+		B55FB3B8251DEA6200F30CCC /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F7825100D66008412E7 /* Formatters.swift */; };
+		B55FB3BF251DEA7100F30CCC /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
+		B55FB3C6251DEA7400F30CCC /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
+		B55FB3CD251DEA7900F30CCC /* ProducerShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FBB1E4B9F49009F4C37 /* ProducerShow.swift */; };
+		B55FB43D251DECBC00F30CCC /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5483B951EB4F44E004AC6BF /* Song.swift */; };
+		B55FB445251DEE5900F30CCC /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB444251DEE5900F30CCC /* NetworkImage.swift */; };
+		B55FB4BC251E040200F30CCC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A94446251958B5000C6665 /* WidgetKit.framework */; };
+		B55FB4C4251E045100F30CCC /* WidgetUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */; };
+		B55FB4CB251E04AB00F30CCC /* WidgetUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */; };
 		B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F191E64857D00E5DB0E /* Offradio.swift */; };
 		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
 		B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */; };
@@ -127,6 +151,11 @@
 		B5A942FD251610EF000C6665 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A942FC251610EF000C6665 /* UserDefault.swift */; };
 		B5A943D62516634E000C6665 /* SettingsToggableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A943D52516634E000C6665 /* SettingsToggableTableViewCell.swift */; };
 		B5A943E92517762D000C6665 /* SettingsSelectableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A943E82517762D000C6665 /* SettingsSelectableTableViewCell.swift */; };
+		B5A9447B25195A5C000C6665 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A94446251958B5000C6665 /* WidgetKit.framework */; };
+		B5A9447C25195A5C000C6665 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A94448251958B5000C6665 /* SwiftUI.framework */; };
+		B5A9447F25195A5C000C6665 /* NowPlayingEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9447E25195A5C000C6665 /* NowPlayingEntryView.swift */; };
+		B5A9448125195A5E000C6665 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A9448025195A5E000C6665 /* Assets.xcassets */; };
+		B5A9448525195A5E000C6665 /* NowPlayingWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5A9447A25195A5C000C6665 /* NowPlayingWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF72991F96A2140060D5F8 /* DebugViewController.swift */; };
 		B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B571331F27AFF200AC25DE /* DeviceValue.swift */; };
 		B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */; };
@@ -183,6 +212,13 @@
 			remoteGlobalIDString = B58678D61EAFCF4A005321CA;
 			remoteInfo = OffradioWatchKit;
 		};
+		B5A9448325195A5E000C6665 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54BC89B1E36A9DB0043F248 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5A9447925195A5C000C6665;
+			remoteInfo = NowPlayingWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -192,6 +228,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				B5A9448525195A5E000C6665 /* NowPlayingWidgetExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +312,8 @@
 		B53FC4791E9C04F400DC82AD /* ShareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareUtility.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B543EF761F90178000E4B2AB /* AnalyticsTrackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTrackable.swift; sourceTree = "<group>"; };
+		B547E699251B49BF0050855C /* GradientStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStyles.swift; sourceTree = "<group>"; };
+		B547E6B4251B53CA0050855C /* ColorStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStyles.swift; sourceTree = "<group>"; };
 		B5483B851EB4BB1E004AC6BF /* OffradioWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioWatchSession.swift; sourceTree = "<group>"; };
 		B5483B8C1EB4EFA2004AC6BF /* CurrentShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentShowController.swift; sourceTree = "<group>"; };
 		B5483B8D1EB4EFA2004AC6BF /* CurrentTrackController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTrackController.swift; sourceTree = "<group>"; };
@@ -312,6 +351,10 @@
 		B55FB126251CFBA900F30CCC /* StreamsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamsConfiguration.swift; sourceTree = "<group>"; };
 		B55FB12E251D2CE600F30CCC /* StreamQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamQuality.swift; sourceTree = "<group>"; };
 		B55FB135251D2D2F00F30CCC /* PlayerStreams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStreams.swift; sourceTree = "<group>"; };
+		B55FB34E251DE5D000F30CCC /* Starscream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Starscream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B55FB38E251DE7F100F30CCC /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		B55FB444251DEE5900F30CCC /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
+		B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetUpdater.swift; sourceTree = "<group>"; };
 		B5656F191E64857D00E5DB0E /* Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Offradio.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = OffradioMetadata.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioCommandCenter.swift; sourceTree = "<group>"; };
@@ -327,6 +370,15 @@
 		B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioContentViewController.swift; sourceTree = "<group>"; };
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
+		B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
+		B56B65972519FDED00F60690 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
+		B56B65A62519FEC100F60690 /* NowPlayingWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingWidget.swift; sourceTree = "<group>"; };
+		B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingMediumView.swift; sourceTree = "<group>"; };
+		B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingSmallView.swift; sourceTree = "<group>"; };
+		B56B662B251A728A00F60690 /* NowPlayingLargeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingLargeView.swift; sourceTree = "<group>"; };
+		B56B663F251A733300F60690 /* NowPlayingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingHeaderView.swift; sourceTree = "<group>"; };
+		B56B6667251A73C600F60690 /* NowPlayingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingProvider.swift; sourceTree = "<group>"; };
+		B56B6682251A74EC00F60690 /* FontStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyles.swift; sourceTree = "<group>"; };
 		B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioAppWatchSession.swift; sourceTree = "<group>"; };
 		B575DC441F2BA28E00CE6773 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShortcutsEnum.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -356,6 +408,12 @@
 		B5A942FC251610EF000C6665 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		B5A943D52516634E000C6665 /* SettingsToggableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggableTableViewCell.swift; sourceTree = "<group>"; };
 		B5A943E82517762D000C6665 /* SettingsSelectableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectableTableViewCell.swift; sourceTree = "<group>"; };
+		B5A94446251958B5000C6665 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		B5A94448251958B5000C6665 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		B5A9447A25195A5C000C6665 /* NowPlayingWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NowPlayingWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5A9447E25195A5C000C6665 /* NowPlayingEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingEntryView.swift; sourceTree = "<group>"; };
+		B5A9448025195A5E000C6665 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5A9448225195A5E000C6665 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5AF72991F96A2140060D5F8 /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		B5B571331F27AFF200AC25DE /* DeviceValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceValue.swift; sourceTree = "<group>"; };
 		B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PlaylistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -402,6 +460,7 @@
 			files = (
 				B5A4308F1FA1409C006F0BC9 /* AudioToolbox.framework in Frameworks */,
 				B5A4308D1FA14093006F0BC9 /* SystemConfiguration.framework in Frameworks */,
+				B55FB4BC251E040200F30CCC /* WidgetKit.framework in Frameworks */,
 				B5A430891FA1405B006F0BC9 /* AVFoundation.framework in Frameworks */,
 				B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */,
 				B50F0DB724B85EEE006D660E /* CoreServices.framework in Frameworks */,
@@ -437,6 +496,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5A9447725195A5C000C6665 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5A9447C25195A5C000C6665 /* SwiftUI.framework in Frameworks */,
+				B5A9447B25195A5C000C6665 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -462,6 +530,7 @@
 		7270B8A41F99A77388A95EEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B55FB34E251DE5D000F30CCC /* Starscream.framework */,
 				B50F0DB624B85EEE006D660E /* CoreServices.framework */,
 				B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */,
 				B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */,
@@ -481,6 +550,8 @@
 				8C5A4FC31A8E0AF747C735F9 /* Pods_OffradioWatchKit.framework */,
 				64DEA525FFB3D1534F0F6F73 /* Pods_OffradioWatchKit_Extension.framework */,
 				7F9AFE0EA4A3664E653D42D4 /* Pods_Offradio_OffradioWatchKit.framework */,
+				B5A94446251958B5000C6665 /* WidgetKit.framework */,
+				B5A94448251958B5000C6665 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -583,10 +654,12 @@
 		B52A6C261E36B3CE005893D2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */,
 				B5D60ECE2512B21C00B21085 /* AppStateReporter */,
 				B52E568B25121D31000AC1B8 /* WebSocket */,
 				B52E568A25121D19000AC1B8 /* NowPlaying */,
 				B52A6C391E36BAC2005893D2 /* AppConstants.swift */,
+				B50395581E4BA4E800D9A71B /* Offradio API */,
 				B52A6C2C1E36B9BB005893D2 /* Models */,
 				B50395721E4BCA3000D9A71B /* Protocols */,
 				B507C0A21E55061800792414 /* Realm */,
@@ -637,7 +710,6 @@
 			isa = PBXGroup;
 			children = (
 				B55FB12D251D2CC300F30CCC /* Player Configuration */,
-				B50395581E4BA4E800D9A71B /* Offradio API */,
 				B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */,
 				B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */,
 				B51E3FB71E4B9C06009F4C37 /* Playlist.swift */,
@@ -708,7 +780,7 @@
 				B54BC8C71E36A9DC0043F248 /* OffradioUITests */,
 				B58678D81EAFCF4A005321CA /* OffradioWatchKit */,
 				B58678E71EAFCF4A005321CA /* OffradioWatchKit Extension */,
-				B54BC8A41E36A9DC0043F248 /* Products */,
+				B5A9447D25195A5C000C6665 /* NowPlayingWidget */,
 				35C7325E9D0BD0544DE9EE3B /* Pods */,
 				7270B8A41F99A77388A95EEF /* Frameworks */,
 				B5AF72971F96A20B0060D5F8 /* Recovered References */,
@@ -723,8 +795,10 @@
 				B54BC8C41E36A9DC0043F248 /* OffradioUITests.xctest */,
 				B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */,
 				B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */,
+				B5A9447A25195A5C000C6665 /* NowPlayingWidgetExtension.appex */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B54BC8A51E36A9DC0043F248 /* Offradio */ = {
@@ -822,6 +896,25 @@
 			path = "Player Configuration";
 			sourceTree = "<group>";
 		};
+		B55FB396251DE80800F30CCC /* Styling */ = {
+			isa = PBXGroup;
+			children = (
+				B56B6682251A74EC00F60690 /* FontStyles.swift */,
+				B547E699251B49BF0050855C /* GradientStyles.swift */,
+				B547E6B4251B53CA0050855C /* ColorStyles.swift */,
+			);
+			path = Styling;
+			sourceTree = "<group>";
+		};
+		B55FB39D251DE81C00F30CCC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B55FB38E251DE7F100F30CCC /* NetworkClient.swift */,
+				B55FB444251DEE5900F30CCC /* NetworkImage.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		B56960391E4908B8003BFBC6 /* Radio View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +967,26 @@
 				B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */,
 			);
 			path = "Content View Controller";
+			sourceTree = "<group>";
+		};
+		B56B65952519FDED00F60690 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */,
+				B56B65972519FDED00F60690 /* LetterGothicStd-Bold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B56B665A251A739D00F60690 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B56B663F251A733300F60690 /* NowPlayingHeaderView.swift */,
+				B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */,
+				B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */,
+				B56B662B251A728A00F60690 /* NowPlayingLargeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B5745E531EB0D5AD00A60283 /* OffradioWatch */ = {
@@ -946,6 +1059,23 @@
 				B5A942E92515FE26000C6665 /* SettingsSectionModel.swift */,
 			);
 			path = "Section Model";
+			sourceTree = "<group>";
+		};
+		B5A9447D25195A5C000C6665 /* NowPlayingWidget */ = {
+			isa = PBXGroup;
+			children = (
+				B55FB39D251DE81C00F30CCC /* Core */,
+				B55FB396251DE80800F30CCC /* Styling */,
+				B56B65A62519FEC100F60690 /* NowPlayingWidget.swift */,
+				B56B6667251A73C600F60690 /* NowPlayingProvider.swift */,
+				B56B665A251A739D00F60690 /* Views */,
+				B5A9447E25195A5C000C6665 /* NowPlayingEntryView.swift */,
+				B5A9448025195A5E000C6665 /* Assets.xcassets */,
+				B56B65952519FDED00F60690 /* Fonts */,
+				B5A9448225195A5E000C6665 /* Info.plist */,
+				B54BC8A41E36A9DC0043F248 /* Products */,
+			);
+			path = NowPlayingWidget;
 			sourceTree = "<group>";
 		};
 		B5AF72971F96A20B0060D5F8 /* Recovered References */ = {
@@ -1041,6 +1171,7 @@
 			);
 			dependencies = (
 				B58678F01EAFCF4A005321CA /* PBXTargetDependency */,
+				B5A9448425195A5E000C6665 /* PBXTargetDependency */,
 			);
 			name = Offradio;
 			productName = Offradio;
@@ -1123,13 +1254,30 @@
 			productReference = B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
+		B5A9447925195A5C000C6665 /* NowPlayingWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5A9448625195A5E000C6665 /* Build configuration list for PBXNativeTarget "NowPlayingWidgetExtension" */;
+			buildPhases = (
+				B5A9447625195A5C000C6665 /* Sources */,
+				B5A9447725195A5C000C6665 /* Frameworks */,
+				B5A9447825195A5C000C6665 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NowPlayingWidgetExtension;
+			productName = NowPlayingWidgetExtension;
+			productReference = B5A9447A25195A5C000C6665 /* NowPlayingWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B54BC89B1E36A9DB0043F248 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = decimal;
 				TargetAttributes = {
@@ -1191,6 +1339,9 @@
 							};
 						};
 					};
+					B5A9447925195A5C000C6665 = {
+						CreatedOnToolsVersion = 12.0;
+					};
 				};
 			};
 			buildConfigurationList = B54BC89E1E36A9DB0043F248 /* Build configuration list for PBXProject "Offradio" */;
@@ -1211,6 +1362,7 @@
 				B58678E21EAFCF4A005321CA /* OffradioWatchKit Extension */,
 				B54BC8B81E36A9DC0043F248 /* OffradioTests */,
 				B54BC8C31E36A9DC0043F248 /* OffradioUITests */,
+				B5A9447925195A5C000C6665 /* NowPlayingWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1257,6 +1409,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58678ED1EAFCF4A005321CA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5A9447825195A5C000C6665 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B55FB1BD251D320500F30CCC /* LeagueGothic-Italic.otf in Resources */,
+				B55FB1C4251D320700F30CCC /* LetterGothicStd-Bold.otf in Resources */,
+				B5A9448125195A5E000C6665 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1479,6 +1641,7 @@
 				B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */,
 				B54E087F1E4D10C400B54FB3 /* ScheduleTableViewCell.swift in Sources */,
 				B56960421E490957003BFBC6 /* Radio.swift in Sources */,
+				B55FB4C4251E045100F30CCC /* WidgetUpdater.swift in Sources */,
 				B51E3FB61E4B9B76009F4C37 /* NowPlaying.swift in Sources */,
 				B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */,
 				B55FB055251CE30100F30CCC /* Dependencies.swift in Sources */,
@@ -1585,6 +1748,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5A9447625195A5C000C6665 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B547E68C251B44BC0050855C /* FontStyles.swift in Sources */,
+				B55FB3C6251DEA7400F30CCC /* NowPlaying.swift in Sources */,
+				B55FB1B4251D310900F30CCC /* NowPlayingHeaderView.swift in Sources */,
+				B55FB3AA251DEA5A00F30CCC /* APIURL.swift in Sources */,
+				B55FB3B8251DEA6200F30CCC /* Formatters.swift in Sources */,
+				B547E6BC251B53CD0050855C /* ColorStyles.swift in Sources */,
+				B55FB445251DEE5900F30CCC /* NetworkImage.swift in Sources */,
+				B55FB3BF251DEA7100F30CCC /* CurrentTrack.swift in Sources */,
+				B55FB4CB251E04AB00F30CCC /* WidgetUpdater.swift in Sources */,
+				B55FB1B3251D310900F30CCC /* NowPlayingLargeView.swift in Sources */,
+				B5A9447F25195A5C000C6665 /* NowPlayingEntryView.swift in Sources */,
+				B55FB1AB251D310200F30CCC /* NowPlayingWidget.swift in Sources */,
+				B55FB3CD251DEA7900F30CCC /* ProducerShow.swift in Sources */,
+				B55FB1B6251D310900F30CCC /* NowPlayingSmallView.swift in Sources */,
+				B55FB1B2251D310400F30CCC /* NowPlayingProvider.swift in Sources */,
+				B55FB1A4251D30DF00F30CCC /* UIFontAppSpecific.swift in Sources */,
+				B55FB43D251DECBC00F30CCC /* Song.swift in Sources */,
+				B55FB3B1251DEA5F00F30CCC /* Decoders.swift in Sources */,
+				B547E6A1251B4D190050855C /* GradientStyles.swift in Sources */,
+				B55FB1B5251D310900F30CCC /* NowPlayingMediumView.swift in Sources */,
+				B55FB38F251DE7F100F30CCC /* NetworkClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1607,6 +1798,11 @@
 			isa = PBXTargetDependency;
 			target = B58678D61EAFCF4A005321CA /* OffradioWatchKit */;
 			targetProxy = B58678EF1EAFCF4A005321CA /* PBXContainerItemProxy */;
+		};
+		B5A9448425195A5E000C6665 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5A9447925195A5C000C6665 /* NowPlayingWidgetExtension */;
+			targetProxy = B5A9448325195A5E000C6665 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1736,6 +1932,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE917143B9710DC35FB26051 /* Pods-Offradio.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
@@ -1766,6 +1963,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 819B564ECCD7BD5F563B5D8C /* Pods-Offradio.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
@@ -1974,6 +2172,67 @@
 			};
 			name = Release;
 		};
+		B5A9448725195A5E000C6665 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 100;
+				DEVELOPMENT_TEAM = 5Y92JCRVR7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = NowPlayingWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.NowPlayingWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B5A9448825195A5E000C6665 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 100;
+				DEVELOPMENT_TEAM = 5Y92JCRVR7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = NowPlayingWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.NowPlayingWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2027,6 +2286,15 @@
 			buildConfigurations = (
 				B58678F71EAFCF4A005321CA /* Debug */,
 				B58678F81EAFCF4A005321CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5A9448625195A5E000C6665 /* Build configuration list for PBXNativeTarget "NowPlayingWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5A9448725195A5E000C6665 /* Debug */,
+				B5A9448825195A5E000C6665 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

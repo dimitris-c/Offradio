@@ -62,6 +62,12 @@ final class OffradioMetadata: RadioMetadata {
         nowPlayingSocketDisposable = nowPlayinSocketService.nowPlayingUpdates()
             .distinctUntilChanged()
             .map { $0.track }
+            .do(onNext: { _ in
+                if #available(iOS 14.0, *) {
+                    WidgerUpdater().updateTimeline(for: .nowplaying)
+                } else {
+                }
+            })
             .drive(currentTrack)
     }
     
