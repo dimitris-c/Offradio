@@ -25,9 +25,7 @@ final class ProducerView: UIView {
         self.container = UIView()
         self.addSubview(self.container)
 
-        let sizeWidthHeight: CGFloat = CGFloat.deviceValue(iPhone: 65, iPad: 120)
-        self.producerImageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: sizeWidthHeight, height: sizeWidthHeight)))
-        self.producerImageView.layer.cornerRadius = CGFloat(sizeWidthHeight * 0.5)
+        self.producerImageView = UIImageView()
         self.producerImageView.layer.masksToBounds = true
         self.producerImageView.layer.borderColor = UIColor.white.cgColor
         self.container.addSubview(self.producerImageView)
@@ -100,6 +98,9 @@ final class ProducerView: UIView {
         self.onAirIconView.frame.origin.x       = self.producerImageView.frame.maxX + 10
         self.producerNameLabel.frame.origin.x   = self.producerImageView.frame.maxX + 10
         self.producerBodyLabel.frame.origin.x   = self.producerImageView.frame.maxX + 10
+        
+        self.producerImageView.frame.size = CGSize(width: 65, height: 65)
+        self.producerImageView.layer.cornerRadius = CGFloat(self.producerImageView.bounds.height * 0.5)
 
         var verticalArranger = VerticalArranger()
         verticalArranger.add(object: SizeObject(type: .fixed, view: self.onAirIconView))
