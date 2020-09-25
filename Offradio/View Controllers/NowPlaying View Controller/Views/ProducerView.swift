@@ -64,14 +64,14 @@ final class ProducerView: UIView {
         self.producerNameLabel.font = UIFont.letterGothicBold(withSize: labelSize)
         self.producerNameLabel.textColor = UIColor.white
         self.producerNameLabel.textAlignment = .left
-        self.producerNameLabel.numberOfLines = 1
+        self.producerNameLabel.numberOfLines = 2
         self.container.addSubview(self.producerNameLabel)
 
         self.producerBodyLabel = UILabel(frame: .zero)
         self.producerBodyLabel.font = UIFont.letterGothicBold(withSize: labelSize)
         self.producerBodyLabel.textColor = UIColor.white
         self.producerBodyLabel.textAlignment = .left
-        self.producerBodyLabel.numberOfLines = 2
+        self.producerBodyLabel.numberOfLines = 4
         self.container.addSubview(self.producerBodyLabel)
     }
 
@@ -87,7 +87,7 @@ final class ProducerView: UIView {
     }
     /// iPhone
     fileprivate func layoutForSmallDevices() {
-        let containerHeight: CGFloat = 65
+        let containerHeight: CGFloat = 120
         let padding: CGFloat = 40
         self.container.frame.size = CGSize(width: self.frame.width - padding,
                                            height: containerHeight)
@@ -99,7 +99,7 @@ final class ProducerView: UIView {
         self.producerNameLabel.frame.origin.x   = self.producerImageView.frame.maxX + 10
         self.producerBodyLabel.frame.origin.x   = self.producerImageView.frame.maxX + 10
         
-        self.producerImageView.frame.size = CGSize(width: 65, height: 65)
+        self.producerImageView.frame.size = CGSize(width: 80, height: 80)
         self.producerImageView.layer.cornerRadius = CGFloat(self.producerImageView.bounds.height * 0.5)
 
         var verticalArranger = VerticalArranger()
@@ -107,8 +107,10 @@ final class ProducerView: UIView {
         verticalArranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 5)))
         verticalArranger.add(object: SizeObject(type: .flexible, view: self.producerNameLabel))
         verticalArranger.add(object: SizeObject(type: .fixed, size: CGSize(width: 0, height: 5)))
-        verticalArranger.add(object: SizeObject(type: .flexible, view: self.producerBodyLabel))
-
+        let producerBodyObject = SizeObject(type: .flexible, view: self.producerBodyLabel)
+        producerBodyObject.setAttached(width: self.container.frame.width - self.producerBodyLabel.frame.origin.x)
+        verticalArranger.add(object: producerBodyObject)
+        
         verticalArranger.resizeToFit()
         verticalArranger.arrange()
     }

@@ -46,10 +46,10 @@ final class ContactViewController: UIViewController, TabBarItemProtocol, UITable
         self.view.addSubview(self.tableView)
 
         self.funkytapsLogo = UIButton(type: .custom)
-        self.funkytapsLogo.setBackgroundImage(#imageLiteral(resourceName: "created-by-funkytaps"), for: .normal)
+        self.funkytapsLogo.setBackgroundImage(UIImage(named: "decimal-logo"), for: .normal)
 
         self.funkytapsLogo.rx.tap.subscribe(onNext: {
-            UIApplication.shared.open(URL(string: "http://www.niceandneat.gr")!)
+            UIApplication.shared.open(URL(string: "https://www.decimal.digital")!)
         }).disposed(by: disposeBag)
 
         self.view.addSubview(self.funkytapsLogo)
