@@ -46,6 +46,9 @@ final class OffradioMetadata: RadioMetadata {
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
             }
+            .do(onNext: { _ in
+                Self.updateWidgetTimeline()
+            })
             .observeOn(MainScheduler.asyncInstance)
             .catchErrorJustReturn(NowPlaying.default)
             .share(replay: 1, scope: .whileConnected)
@@ -60,15 +63,19 @@ final class OffradioMetadata: RadioMetadata {
     func openSocket() {
         closeSocket()
         nowPlayingSocketDisposable = nowPlayinSocketService.nowPlayingUpdates()
-            .distinctUntilChanged()
             .map { $0.track }
             .do(onNext: { _ in
-                if #available(iOS 14.0, *) {
-                    WidgerUpdater().updateTimeline(for: .nowplaying)
-                } else {
-                }
+                Self.updateWidgetTimeline()
             })
+            .debug()
             .drive(currentTrack)
+    }
+    
+    static func updateWidgetTimeline() {
+        if #available(iOS 14.0, *) {
+            WidgerUpdater().updateTimeline(for: .nowplaying)
+        } else {
+        }
     }
     
     func closeSocket() {

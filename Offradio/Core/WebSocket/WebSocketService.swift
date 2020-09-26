@@ -38,6 +38,7 @@ enum WebsocketError: Equatable {
 }
 
 enum WebSocketStatus: Equatable {
+    case connecting
     case connected
     case disconnected
     
@@ -48,7 +49,7 @@ enum WebSocketStatus: Equatable {
             case .disconnected:
                 return .disconnected
             case .connecting:
-                return .connected
+                return .connecting
             case .notConnected:
                 return .disconnected
         }
@@ -59,7 +60,7 @@ protocol OffradioWebSocket {
     func connect() -> Observable<WebSocketStatus>
     func disconnect() -> Observable<WebSocketStatus>
     func write(data: Data) -> Driver<Void>
-    var read: Driver<String> { get }
+    var read: Observable<String> { get }
 }
 
 class OffradioWebSocketService: OffradioWebSocket {
@@ -72,15 +73,16 @@ class OffradioWebSocketService: OffradioWebSocket {
         self.socket = socketManager.defaultSocket
     }
     
-    var read: Driver<String> {
-        return Observable<String>.create { [socket] observer -> Disposable in
-            socket.on("onair:nowplaying") { (items, _) in
+    var read: Observable<String> {
+        return Observable<String>.create { [weak self] observer -> Disposable in
+            guard let self = self else { return Disposables.create() }
+            self.socket.on("onair:nowplaying") { (items, _) in
                 guard let raw = items.first else { return }
                 let json = String(describing: raw)
                 observer.on(.next(json))
             }
             return Disposables.create()
-        }.asDriver(onErrorDriveWith: .empty())
+        }
     }
     
     /// not yet implemented
@@ -89,27 +91,29 @@ class OffradioWebSocketService: OffradioWebSocket {
     }
     
     func connect() -> Observable<WebSocketStatus> {
-        return Observable<WebSocketStatus>.create({ [socket, socketManager] (observer) -> Disposable in
-            socket.on(clientEvent: .statusChange) { (statuses, ack) in
+        return Observable<WebSocketStatus>.create({ [weak self] (observer) -> Disposable in
+            guard let self = self else { return Disposables.create() }
+            self.socket.on(clientEvent: .statusChange) { (statuses, ack) in
                 if let status = statuses.first as? SocketIOStatus {
                     observer.onNext(WebSocketStatus.from(socketIOStatus: status))
                 }
             }
-            socketManager.connect()
+            self.socket.connect()
             return Disposables.create {
-                socket.disconnect()
+                self.socket.removeAllHandlers()
+                self.socket.disconnect()
             }
         })
     }
     
     func disconnect() -> Observable<WebSocketStatus> {
         return Observable<WebSocketStatus>.create({ [socket, socketManager] (observer) -> Disposable in
-            socket.on(clientEvent: .statusChange) { (statuses, ack) in
+            socket.on(clientEvent: .disconnect) { (statuses, ack) in
                 if let status = statuses.first as? SocketIOStatus {
                     observer.onNext(WebSocketStatus.from(socketIOStatus: status))
                 }
             }
-            socketManager.disconnect()
+            socket.disconnect()
             return Disposables.create()
         })
     }

@@ -70,6 +70,8 @@
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>This is used to stream better quality</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This is used to stream better quality</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>ConfigurationIntent</string>

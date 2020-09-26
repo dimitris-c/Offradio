@@ -21,25 +21,28 @@ final class NowPlayingSocketService {
     
     func nowPlayingUpdates() -> Driver<NowPlaying> {
         self.websocket.connect()
-            .flatMapLatest { [weak self] status -> Driver<NowPlaying> in
+            .debug()
+            .flatMap { [weak self] status -> Driver<NowPlaying> in
                 guard let self = self else { return .empty() }
                 switch status {
+                    case .connecting:
+                        return .empty()
                     case .connected:
                         return self.read()
                     case .disconnected:
-                        return .empty()
+                        return .just(.default)
                 }
             }.asDriver(onErrorDriveWith: .empty())
     }
     
     
     private func read() -> Driver<NowPlaying> {
-        websocket.read.flatMap { raw in
+        websocket.read.map { raw in
             if let decoded = Decoders.defaultJSONDecoder.decode(json: raw, type: NowPlaying.self) {
-                return .just(decoded)
+                return decoded
             }
-            return .empty()
-        }
+            return NowPlaying.default
+        }.asDriver(onErrorJustReturn: NowPlaying.default)
     }
     
     private func disconnect() -> Observable<WebSocketStatus>  {

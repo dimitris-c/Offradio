@@ -107,7 +107,6 @@
 		B55FB445251DEE5900F30CCC /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB444251DEE5900F30CCC /* NetworkImage.swift */; };
 		B55FB4BC251E040200F30CCC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A94446251958B5000C6665 /* WidgetKit.framework */; };
 		B55FB4C4251E045100F30CCC /* WidgetUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */; };
-		B55FB4CB251E04AB00F30CCC /* WidgetUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */; };
 		B5656F1A1E64857D00E5DB0E /* Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F191E64857D00E5DB0E /* Offradio.swift */; };
 		B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F1B1E6485C100E5DB0E /* OffradioMetadata.swift */; };
 		B5656F241E64D8F600E5DB0E /* OffradioCommandCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5656F231E64D8F600E5DB0E /* OffradioCommandCenter.swift */; };
@@ -1760,7 +1759,6 @@
 				B547E6BC251B53CD0050855C /* ColorStyles.swift in Sources */,
 				B55FB445251DEE5900F30CCC /* NetworkImage.swift in Sources */,
 				B55FB3BF251DEA7100F30CCC /* CurrentTrack.swift in Sources */,
-				B55FB4CB251E04AB00F30CCC /* WidgetUpdater.swift in Sources */,
 				B55FB1B3251D310900F30CCC /* NowPlayingLargeView.swift in Sources */,
 				B5A9447F25195A5C000C6665 /* NowPlayingEntryView.swift in Sources */,
 				B55FB1AB251D310200F30CCC /* NowPlayingWidget.swift in Sources */,
