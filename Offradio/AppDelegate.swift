@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import TwitterKit
-import FBSDKCoreKit
 import RealmSwift
 import AlamofireNetworkActivityIndicator
 import Firebase
@@ -35,11 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
         Crashlytics.crashlytics()
-        TWTRTwitter.sharedInstance().start(withConsumerKey: "AfJ2HbxzaW4gvPekIwHdak4RS",
-                                           consumerSecret: "KRgr4T0Yk4AeVlwDIWvUra00tjRkjhCCWUpGV3dPeoTpDKqymt")
-
         RealmMigrationLayer.performMigration()
-        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         NetworkActivityIndicatorManager.shared.isEnabled = true
 
         let dependencies = CoreDependenciesService()
@@ -74,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        AppEvents.activateApp()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -88,18 +81,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return .allButUpsideDown
         }
         return .portrait
-    }
-    
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        let handled = ApplicationDelegate.shared.application(application,
-                                                             open: url,
-                                                             sourceApplication: sourceApplication,
-                                                             annotation: annotation)
-        return handled
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-        return TWTRTwitter.sharedInstance().application(app, open: url, options: options)
     }
 
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {

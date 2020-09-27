@@ -39,6 +39,8 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
         self.contentView.backgroundColor = UIColor.clear
 
         self.albumArtwork = UIImageView(frame: CGRect(x: 0, y: 0, width: 160, height: 160))
+        self.albumArtwork.contentMode = .scaleAspectFill
+        self.albumArtwork.clipsToBounds = true
         self.albumArtwork.image = UIImage(named: "artwork-image-placeholder")
         self.contentView.addSubview(self.albumArtwork)
 

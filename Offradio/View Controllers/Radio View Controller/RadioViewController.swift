@@ -35,9 +35,15 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.lightBlack
 
-        let settingsImage = UIImage(named: "settings-icon")
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: settingsImage, style: .plain, target: self, action: #selector(showSettings))
-        self.navigationItem.leftBarButtonItem?.tintColor = .white
+        let settingsButton = UIButton(type: .custom)
+        settingsButton.setBackgroundImage(UIImage(named: "settings-icon"), for: .normal)
+        settingsButton.setBackgroundImage(UIImage(named: "settings-icon-highlighted"), for: .highlighted)
+        settingsButton.sizeToFit()
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: settingsButton)
+        settingsButton.rx.tap
+            .subscribe(onNext: { [weak self] _ in
+                self?.showSettings()
+            }).disposed(by: disposeBag)
 
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
@@ -140,7 +146,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.navigationController?.present(nav, animated: true, completion: nil)
     }
     
-    @objc private func showSettings() {
+    private func showSettings() {
         let viewModel = SettingsViewModel(userSettings: UserSettingsService())
         let viewController = SettingsViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: viewController)

@@ -12,7 +12,7 @@ import RxCocoa
 import MessageUI
 import FirebaseAnalytics
 
-final class NowPlayingViewController: UIViewController, MFMailComposeViewControllerDelegate {
+final class NowPlayingViewController: UIViewController {
 
     fileprivate let disposeBag = DisposeBag()
 
@@ -98,11 +98,14 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
     
     private func share(content: NowPlaying) {
         
-        let title = "I've turned my Radio OFF! #nowplaying \(content.producer.producerName) \(content.track.title) @offradio"
+        let title = "I've turned my Radio OFF! #nowplaying \(content.producer.producerName) \(content.track.title) @offradio — https://www.offradio.gr"
         let url = "https://www.offradio.gr"
         let items: [Any] = [title, url]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        activityViewController.excludedActivityTypes = [.assignToContact, .markupAsPDF, .openInIBooks, .print]
+        
+        activityViewController.popoverPresentationController?.sourceView = self.currentTrackView.shareButton
+        activityViewController.excludedActivityTypes = [.assignToContact, .addToReadingList, .markupAsPDF, .openInIBooks, .print]
+        
         present(activityViewController, animated: true, completion: nil)
     }
     
@@ -126,12 +129,6 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
         currentTrackViewInitialHeight = self.currentTrackView.frame.size.height
     }
 
-    // MARK: MFMailComposeViewController Delegate
-
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        self.becomeFirstResponder()
-        controller.dismiss(animated: true, completion: nil)
-    }
 }
 
 extension NowPlayingViewController: UIScrollViewDelegate {

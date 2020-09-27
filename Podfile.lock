@@ -5,20 +5,6 @@ PODS:
   - AutoScrollLabel (0.4.3)
   - Differentiator (4.0.1)
   - Fabric (1.10.2)
-  - FBSDKCoreKit (7.1.1):
-    - FBSDKCoreKit/Basics (= 7.1.1)
-    - FBSDKCoreKit/Core (= 7.1.1)
-  - FBSDKCoreKit/Basics (7.1.1)
-  - FBSDKCoreKit/Core (7.1.1):
-    - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (7.1.1):
-    - FBSDKLoginKit/Login (= 7.1.1)
-  - FBSDKLoginKit/Login (7.1.1):
-    - FBSDKCoreKit (~> 7.1.1)
-  - FBSDKShareKit (7.1.1):
-    - FBSDKShareKit/Share (= 7.1.1)
-  - FBSDKShareKit/Share (7.1.1):
-    - FBSDKCoreKit (~> 7.1.1)
   - Firebase/Analytics (6.32.2):
     - Firebase/Core
   - Firebase/Core (6.32.2):
@@ -125,18 +111,12 @@ PODS:
   - ToggleSwitch (1.2.1):
     - ToggleSwitch/Core (= 1.2.1)
   - ToggleSwitch/Core (1.2.1)
-  - TwitterCore (3.2.0)
-  - TwitterKit5 (5.2.0):
-    - TwitterCore (>= 3.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - AlamofireNetworkActivityIndicator
   - AutoScrollLabel
   - Fabric
-  - FBSDKCoreKit
-  - FBSDKLoginKit
-  - FBSDKShareKit
   - Firebase/Analytics
   - Firebase/Crashlytics
   - Kingfisher
@@ -150,7 +130,6 @@ DEPENDENCIES:
   - StreamingKit (from `https://github.com/tumtumtum/StreamingKit.git`, branch `master`)
   - SwipeCellKit
   - ToggleSwitch (~> 1.0)
-  - TwitterKit5
 
 SPEC REPOS:
   trunk:
@@ -159,9 +138,6 @@ SPEC REPOS:
     - AutoScrollLabel
     - Differentiator
     - Fabric
-    - FBSDKCoreKit
-    - FBSDKLoginKit
-    - FBSDKShareKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -186,8 +162,6 @@ SPEC REPOS:
     - Starscream
     - SwipeCellKit
     - ToggleSwitch
-    - TwitterCore
-    - TwitterKit5
 
 EXTERNAL SOURCES:
   StreamingKit:
@@ -205,9 +179,6 @@ SPEC CHECKSUMS:
   AutoScrollLabel: bee53a1d4532569b49cbecaf9b80ca003bed3767
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  FBSDKCoreKit: b46507dc8b8cefed31d644e74d7cc30e2a715ef8
-  FBSDKLoginKit: 1a61d79e2b25e2fc0d03dccab1e34b38bbdf2546
-  FBSDKShareKit: 00a055c1999b099596e00212dd1c0600c6697019
   Firebase: 47176280bfba198e531f909cfb1612dad216cb96
   FirebaseAnalytics: 3c2fee6a922023ccfda7af87e4e641bad1fc11ba
   FirebaseCore: 1d697bb944bf2af5fc248f1a66e165c9dd88bf97
@@ -233,9 +204,7 @@ SPEC CHECKSUMS:
   StreamingKit: 017093dadc370099b78457e860a0433aa8be5552
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   ToggleSwitch: 528853e108d090fb78e68692bd7d8742a07c11dd
-  TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
-  TwitterKit5: 64095dfefcf39be2355711ef27112d55e340d90e
 
-PODFILE CHECKSUM: 8dbe89ab010e49613c6f53f267e7514dc60b908e
+PODFILE CHECKSUM: d96ec52efc1cc145d1b079dbebd5efaf119e6462
 
 COCOAPODS: 1.9.3

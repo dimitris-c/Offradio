@@ -51,7 +51,6 @@
 		B53FC4761E9C04C600DC82AD /* TrackShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4741E9C04C600DC82AD /* TrackShareViewModel.swift */; };
 		B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4771E9C04DF00DC82AD /* ShareButton.swift */; };
 		B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4791E9C04F400DC82AD /* ShareType.swift */; };
-		B53FC47C1E9C0C8A00DC82AD /* ShareUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */; };
 		B543EF771F90178000E4B2AB /* AnalyticsTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543EF761F90178000E4B2AB /* AnalyticsTrackable.swift */; };
 		B547E68C251B44BC0050855C /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B6682251A74EC00F60690 /* FontStyles.swift */; };
 		B547E6A1251B4D190050855C /* GradientStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B547E699251B49BF0050855C /* GradientStyles.swift */; };
@@ -1167,7 +1166,6 @@
 				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
 				B52A6C1E1E36B242005893D2 /* Fabric */,
 				B53BDC5F2423E34A001F42E7 /* Upload Symbols */,
-				DA5489E2C4D376AD6CAD173D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1562,23 +1560,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Offradio/Pods-Offradio-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DA5489E2C4D376AD6CAD173D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Offradio/Pods-Offradio-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Offradio/Pods-Offradio-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Offradio/Pods-Offradio-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F47790714685A2E73A650C63 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1703,7 +1684,6 @@
 				B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */,
 				B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */,
 				B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */,
-				B53FC47C1E9C0C8A00DC82AD /* ShareUtility.swift in Sources */,
 				B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */,
 				B54E088F1E4E307700B54FB3 /* ContactModels.swift in Sources */,
 				B55FB136251D2D2F00F30CCC /* PlayerStreams.swift in Sources */,

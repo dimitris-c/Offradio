@@ -6,9 +6,6 @@
 //  Copyright © 2017 decimal. All rights reserved.
 //
 
-import FBSDKCoreKit
-import FBSDKShareKit
-import TwitterKit
 import MessageUI
 import Kingfisher
 import FirebaseAnalytics

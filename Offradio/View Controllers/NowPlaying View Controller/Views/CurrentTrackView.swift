@@ -31,7 +31,7 @@ final class CurrentTrackView: UIView {
         return self.shareButton.rx.tap
             .asSignal(onErrorSignalWith: .empty())
     }
-    private let shareButton = UIButton()
+    let shareButton = UIButton()
     
     var favouriteButton: UIButton!
 
