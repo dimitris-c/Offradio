@@ -149,7 +149,7 @@ final class OffradioAppWatchSession: NSObject, WCSessionDelegate {
 
     fileprivate func fetchPlaylist(withReply reply: @escaping ([Song]) -> Void) {
         let disposable = self.networkService.rx.request(.playlist(page: 1))
-            .map([Song].self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
+            .map([Song].self, atKeyPath: nil, using: Decoders.defaultKeysJSONDecoder, failsOnEmptyData: false)
             .catchErrorJustReturn([])
             .asObservable()
             .take(1)

@@ -31,7 +31,7 @@ class SettingsToggableTableViewCell: UITableViewCell {
         
         toggleSwitch.translatesAutoresizingMaskIntoConstraints = false
         toggleSwitch.tintColor = .black
-        toggleSwitch.onTintColor = .offRed
+        toggleSwitch.onTintColor = .red
         
         self.contentView.addSubview(titleLabel)
         self.contentView.addSubview(toggleSwitch)
