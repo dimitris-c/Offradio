@@ -94,6 +94,7 @@ final class ScheduleViewController: UIViewController {
         self.refreshControl = UIRefreshControl()
         if #available(iOS 10.0, *) {
             self.tableView.refreshControl = self.refreshControl
+            self.tableView.refreshControl?.tintColor = .white
         } else {
             tableView?.addSubview(refreshControl)
             tableView.sendSubviewToBack(refreshControl)

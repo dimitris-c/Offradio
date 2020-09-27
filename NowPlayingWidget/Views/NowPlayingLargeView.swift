@@ -15,36 +15,8 @@ struct NowPlayingLargeView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                HStack {
-                    Image("onair-icon")
-                    Spacer()
-                    Image("offradio-logo")
-                        .offset(x: 0, y: -3)
-                }
-                .padding(.bottom, 16)
-                HStack(alignment: .top, spacing: 16) {
-                    NetworkImage(urlString: entry.track.artistImage,
-                                 placeholderName: "artwork-image-placeholder")
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 100, height: 100, alignment: .center)
-                        .cornerRadius(4.0)
-                        .foregroundColor(.gray)
-                    VStack(alignment: .leading){
-                        Text("#NOWPLAYING")
-                            .font(Font.letterGothic(size: 12))
-                            .foregroundColor(.gray)
-                        Text(entry.track.artist)
-                            .lineLimit(1)
-                            .font(Font.leagueGothic(style: .italic, size: 25))
-                            .foregroundColor(.white)
-                        Text(entry.track.name)
-                            .font(Font.system(size: 16))
-                            .kerning(-0.4)
-                            .lineLimit(2)
-                            .font(Font.body)
-                            .foregroundColor(.white)
-                    }
-                }
+                NowPlayingHeaderView()
+                CurrentTrackView(entry: entry, showsArtwork: true)
             }
             .padding(.all, 16)
             .background(Color.NowPlayingWidget.background)

@@ -61,7 +61,7 @@ final class PlaylistViewController: UIViewController {
         favouritesListButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
                 self?.showFavouritesList()
             }).disposed(by: disposeBag)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favouritesListButton)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: favouritesListButton)
 
         self.viewModel = PlaylistViewModel(viewWillAppear: rx.viewWillAppear.asDriver(),
                                            scrollViewDidReachBottom: tableView.rx.reachedBottom.asDriver())
@@ -96,6 +96,16 @@ final class PlaylistViewController: UIViewController {
         self.viewModel.initialLoad.asObservable()
             .bind(to: self.initialLoadActivityView.rx.isAnimating)
             .disposed(by: disposeBag)
+        
+        if #available(iOS 13.0, *) {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: nil, action: nil)
+            self.navigationItem.rightBarButtonItem?.tintColor = .white
+        } else {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        }
+        self.navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: { [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
+        }).disposed(by: disposeBag)
 
     }
 

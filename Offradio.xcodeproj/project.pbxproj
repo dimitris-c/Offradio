@@ -18,6 +18,7 @@
 		B507C0A41E550AD900792414 /* PlaylistFavouritesLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */; };
 		B507C0A61E56869800792414 /* DataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A51E56869800792414 /* DataLayer.swift */; };
 		B50F0DB724B85EEE006D660E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50F0DB624B85EEE006D660E /* CoreServices.framework */; };
+		B51422992520DDFF0004900F /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51422982520DDFF0004900F /* CurrentTrackView.swift */; };
 		B519062D25122BD8005537BF /* NowPlayingSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519062C25122BD8005537BF /* NowPlayingSocketService.swift */; };
 		B519063925122C37005537BF /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519063825122C37005537BF /* WebSocketService.swift */; };
 		B519064025123314005537BF /* JSONDecoder+DecodeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519063F25123314005537BF /* JSONDecoder+DecodeString.swift */; };
@@ -278,6 +279,7 @@
 		B507C0A31E550AD900792414 /* PlaylistFavouritesLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistFavouritesLayer.swift; sourceTree = "<group>"; };
 		B507C0A51E56869800792414 /* DataLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayer.swift; sourceTree = "<group>"; };
 		B50F0DB624B85EEE006D660E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		B51422982520DDFF0004900F /* CurrentTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrackView.swift; sourceTree = "<group>"; };
 		B519062C25122BD8005537BF /* NowPlayingSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingSocketService.swift; sourceTree = "<group>"; };
 		B519063825122C37005537BF /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		B519063F25123314005537BF /* JSONDecoder+DecodeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+DecodeString.swift"; sourceTree = "<group>"; };
@@ -981,6 +983,7 @@
 			isa = PBXGroup;
 			children = (
 				B56B663F251A733300F60690 /* NowPlayingHeaderView.swift */,
+				B51422982520DDFF0004900F /* CurrentTrackView.swift */,
 				B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */,
 				B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */,
 				B56B662B251A728A00F60690 /* NowPlayingLargeView.swift */,
@@ -1762,6 +1765,7 @@
 				B55FB1B3251D310900F30CCC /* NowPlayingLargeView.swift in Sources */,
 				B5A9447F25195A5C000C6665 /* NowPlayingEntryView.swift in Sources */,
 				B55FB1AB251D310200F30CCC /* NowPlayingWidget.swift in Sources */,
+				B51422992520DDFF0004900F /* CurrentTrackView.swift in Sources */,
 				B55FB3CD251DEA7900F30CCC /* ProducerShow.swift in Sources */,
 				B55FB1B6251D310900F30CCC /* NowPlayingSmallView.swift in Sources */,
 				B55FB1B2251D310400F30CCC /* NowPlayingProvider.swift in Sources */,

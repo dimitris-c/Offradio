@@ -16,21 +16,7 @@ struct NowPlayingSmallView: View {
         VStack(alignment: .leading) {
             NowPlayingHeaderView()
             Spacer()
-            VStack(alignment: .leading){
-                Text("#NOWPLAYING")
-                    .font(Font.letterGothic(size: 11))
-                    .foregroundColor(.gray)
-                Text(entry.track.artist)
-                    .lineLimit(2)
-                    .font(Font.leagueGothic(style: .italic, size: 22))
-                    .foregroundColor(.white)
-                Text(entry.track.name)
-                    .font(Font.system(size: 15))
-                    .kerning(-0.4)
-                    .lineLimit(3)
-                    .font(Font.body)
-                    .foregroundColor(.white)
-            }
+            CurrentTrackView(entry: entry)
         }
         .padding(16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
