@@ -68,10 +68,9 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
         
         self.currentTrackView.shareOn
             .asObservable()
-            .withLatestFrom(viewModel.nowPlaying) { ($0, $1) }
-            .subscribe(onNext: { [weak self] (type, value) in
-                guard let sSelf = self else { return }
-                ShareUtility.share(on: type, with: value, using: sSelf)
+            .withLatestFrom(viewModel.nowPlaying)
+            .subscribe(onNext: { [weak self] value in
+                self?.share(content: value)
             }).disposed(by: disposeBag)
         
         self.rx.viewWillAppear
@@ -96,7 +95,17 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
     required init?(coder aDecoder: NSCoder) {
         fatalError("not implemented")
     }
-
+    
+    private func share(content: NowPlaying) {
+        
+        let title = "I've turned my Radio OFF! #nowplaying \(content.producer.producerName) \(content.track.title) @offradio"
+        let url = "https://www.offradio.gr"
+        let items: [Any] = [title, url]
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [.assignToContact, .markupAsPDF, .openInIBooks, .print]
+        present(activityViewController, animated: true, completion: nil)
+    }
+    
     fileprivate func showPlaylistViewController() {
         self.hideLabelOnBackButton()
         let playlistViewController = PlaylistViewController()

@@ -13,7 +13,7 @@ import Kingfisher
 final class CurrentTrackView: UIView {
     fileprivate let disposeBag = DisposeBag()
 
-    fileprivate var albumArtwork: UIImageView!
+    private(set) var albumArtwork: UIImageView!
 
     fileprivate var bottomViewsArranger = VerticalArranger()
     fileprivate var bottomViewsContainer: UIView!
@@ -27,10 +27,12 @@ final class CurrentTrackView: UIView {
         return CurrentTrackShareView(frame: .zero)
     }()
 
-    final var shareOn: Signal<ShareType> {
-        return self.shareView.rx.shareOn
+    var shareOn: Signal<Void> {
+        return self.shareButton.rx.tap
+            .asSignal(onErrorSignalWith: .empty())
     }
-    fileprivate var shareButton: UIButton!
+    private let shareButton = UIButton()
+    
     var favouriteButton: UIButton!
 
     init(with currentTrack: Driver<CurrentTrack>) {
@@ -38,10 +40,6 @@ final class CurrentTrackView: UIView {
         self.clipsToBounds = true
 
         self.supplySubviews()
-
-        self.shareButton.rx.tap.subscribe(onNext: { [weak self] _ in
-            self?.showShareTrackView()
-        }).disposed(by: disposeBag)
 
         self.shareView.alpha = 0
         self.addSubview(self.shareView)
@@ -80,7 +78,6 @@ final class CurrentTrackView: UIView {
         self.bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.9).cgColor]
         self.bottomGradientView.layer.addSublayer(bottomGradient)
 
-        self.shareButton = UIButton(type: .custom)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon"), for: .normal)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .highlighted)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .selected)

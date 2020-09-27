@@ -35,6 +35,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         guard let viewController = viewController else { return }
         print("Sharing on Facebook")
         let shareContent = ShareLinkContent()
+        shareContent.quote = "Now playing \(nowPlaying.track.title)"
         shareContent.contentURL = URL(string: "http://www.offradio.gr")!
 
         ShareDialog(fromViewController: viewController, content: shareContent, delegate: nil).show()
@@ -52,7 +53,8 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
         composer.setImage(UIImage(named: "turn-your-radio-off"))
         composer.setURL(URL(string: "http://www.offradio.gr"))
 
-        composer.show(from: viewController) { _ in
+        composer.show(from: viewController) { result in
+            print(result)
         }
 
     }
@@ -65,7 +67,7 @@ class ShareUtility: NSObject, MFMailComposeViewControllerDelegate {
             let mailController = MFMailComposeViewController()
             mailController.mailComposeDelegate = viewController as? MFMailComposeViewControllerDelegate
             mailController.setSubject("I'm listening to Offradio!")
-            let messageBody = "I've turned my Radio OFF! <p>Listening to <b> \(nowPlaying.producer.producerName).</b> <br>Currently playing <b> \(nowPlaying.track.title) </b></p> <p> Turn your radio OFF at — http://www.offradio.com/player </p>"
+            let messageBody = "I've turned my Radio OFF! <p>Listening to <b> \(nowPlaying.producer.producerName).</b> <br>Currently playing <b> \(nowPlaying.track.title) </b></p> <p> Turn your radio OFF at — http://www.offradio.gr </p>"
             mailController.setMessageBody(messageBody, isHTML: true)
             viewController.present(mailController, animated: true, completion: nil)
         }
