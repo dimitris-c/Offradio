@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "playlist-icon-normal.pdf",
+      "filename" : "playlist.pdf",
       "idiom" : "universal"
     },
     {
-      "filename" : "playlist-icon-normal-1.pdf",
+      "filename" : "playlist-1.pdf",
       "idiom" : "ipad"
     }
   ],

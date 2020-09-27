@@ -66,7 +66,8 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
     func showPlaylistViewController() {
         self.hideLabelOnBackButton()
         let playlistViewController = PlaylistViewController()
-        self.navigationController?.pushViewController(playlistViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: playlistViewController)
+        self.present(navigationController, animated: true, completion: nil)
     }
 
     final private func bindViewModel() {

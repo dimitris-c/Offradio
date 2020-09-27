@@ -25,7 +25,8 @@ struct NowPlayingLargeView: View {
                 HStack(alignment: .top, spacing: 16) {
                     NetworkImage(urlString: entry.track.artistImage,
                                  placeholderName: "artwork-image-placeholder")
-                        .frame(width: 100, height: 100, alignment: .leading)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 100, height: 100, alignment: .center)
                         .cornerRadius(4.0)
                         .foregroundColor(.gray)
                     VStack(alignment: .leading){
@@ -46,7 +47,7 @@ struct NowPlayingLargeView: View {
                 }
             }
             .padding(.all, 16)
-            .background(Color.NowPlayingWidget.darkGray)
+            .background(Color.NowPlayingWidget.background)
             VStack(alignment: .leading) {
                 Text("OFFRADIO PLAYLIST")
                     .font(Font.leagueGothic(style: .italic, size: 20))
@@ -60,7 +61,7 @@ struct NowPlayingLargeView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .background(Color.black)
+        .background(Color.NowPlayingWidget.lightBackground)
     }
 }
 
@@ -77,16 +78,24 @@ struct PlaylistRow: View {
                 .font(Font.system(size: 13, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
                 .padding(.trailing, 16)
+                .padding(.bottom, 4)
         }
         .padding(.leading, 16)
-        .padding(.bottom, 1)
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
     }
 }
 
 struct NowPlayingLarge_Previews: PreviewProvider {
     static var previews: some View {
-        NowPlayingWidgetEntryView(entry: NowPlayingEntry(date: Date(), track: .default, playlist: .default))
+        let playlist = Playlist(
+            songs: [
+                Song(with: Date(), artist: "Duke Dumont", songTitle: "Let me go (Cerrone Remix)", trackImage: ""),
+                Song(with: Date(), artist: "Moby", songTitle: "Victoria Lucas", trackImage: ""),
+                Song(with: Date(), artist: "Louis la Roche", songTitle: "Back to you (luxar brosas remo)", trackImage: ""),
+                Song(with: Date(), artist: "The Beloved", songTitle: "Sun Rising (Dee montenergo remix)", trackImage: ""),
+                Song(with: Date(), artist: "Chromatics", songTitle: "Cherry", trackImage: ""),
+            ])
+        NowPlayingWidgetEntryView(entry: NowPlayingEntry(date: Date(), track: .default, playlist: playlist))
             .previewContext(WidgetPreviewContext(family: .systemLarge))
     }
 }

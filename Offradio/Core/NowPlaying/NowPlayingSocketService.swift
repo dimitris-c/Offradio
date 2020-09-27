@@ -19,10 +19,10 @@ final class NowPlayingSocketService {
         self.websocket = builder.websocket(url: url)
     }
     
-    func nowPlayingUpdates() -> Driver<NowPlaying> {
+    func nowPlayingUpdates() -> Observable<NowPlaying> {
         self.websocket.connect()
             .debug()
-            .flatMap { [weak self] status -> Driver<NowPlaying> in
+            .flatMap { [weak self] status -> Observable<NowPlaying> in
                 guard let self = self else { return .empty() }
                 switch status {
                     case .connecting:
@@ -32,17 +32,17 @@ final class NowPlayingSocketService {
                     case .disconnected:
                         return .just(.default)
                 }
-            }.asDriver(onErrorDriveWith: .empty())
+            }
     }
     
     
-    private func read() -> Driver<NowPlaying> {
-        websocket.read.map { raw in
-            if let decoded = Decoders.defaultJSONDecoder.decode(json: raw, type: NowPlaying.self) {
+    func read() -> Observable<NowPlaying> {
+        websocket.read.map { data in
+            if let decoded = try? Decoders.defaultJSONDecoder.decode(NowPlaying.self, from: data) {
                 return decoded
             }
             return NowPlaying.default
-        }.asDriver(onErrorJustReturn: NowPlaying.default)
+        }.share(replay: 1, scope: .whileConnected)
     }
     
     private func disconnect() -> Observable<WebSocketStatus>  {

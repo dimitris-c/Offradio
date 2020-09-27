@@ -28,16 +28,16 @@ struct ContactItem {
     let title: String
     let type: ContactItemType
 
-    func accesoryImages() -> (normal: UIImage, selected: UIImage) {
+    func accesoryImage() -> UIImage? {
         switch type {
         case .facebook:
-            return (#imageLiteral(resourceName: "fb_icon"), #imageLiteral(resourceName: "fb_icon_selected"))
+            return UIImage(named: "facebook-icon")
         case .twitter:
-            return (#imageLiteral(resourceName: "twitter_icon"), #imageLiteral(resourceName: "twitter_icon_selected"))
+            return UIImage(named: "twitter_icon")
         case .email:
-            return (#imageLiteral(resourceName: "mail_icon"), #imageLiteral(resourceName: "mail_icon_selected"))
+            return UIImage(named: "email-icon")
         case .visit:
-            return (#imageLiteral(resourceName: "web_icon"), #imageLiteral(resourceName: "web_icon_selected"))
+            return UIImage(named: "website")
         }
     }
 }

@@ -15,18 +15,15 @@ enum MetadataTrigger: Equatable {
 }
 
 final class OffradioMetadata: RadioMetadata {
-    fileprivate let disposeBag = DisposeBag()
     
-    private let queue = ConcurrentDispatchQueueScheduler(qos: .background)
     let nowPlaying: Observable<NowPlaying>
-    
     let currentTrack = BehaviorRelay<CurrentTrack>(value: .default)
     
-    fileprivate let refresh = PublishRelay<MetadataTrigger>()
-    fileprivate let crcTrigger = PublishRelay<MetadataTrigger>()
-    fileprivate var crcTimerDisposable: Disposable?
+    private let disposeBag = DisposeBag()
+    private let queue = ConcurrentDispatchQueueScheduler(qos: .background)
     
-    fileprivate let networkService: OffradioNetworkService
+    private let refresh = PublishRelay<MetadataTrigger>()
+    private let networkService: OffradioNetworkService
     
     private var nowPlayingSocketDisposable: Disposable?
     private let nowPlayinSocketService: NowPlayingSocketService
@@ -42,14 +39,17 @@ final class OffradioMetadata: RadioMetadata {
             .asObservable()
             .catchErrorJustReturn(NowPlaying.default)
         
-        nowPlaying = refresh.asObservable()
+        let refreshNowPlaying = refresh.asObservable()
+            .debug("from refresh", trimOutput: true)
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
             }
+        
+        nowPlaying = Observable.merge(refreshNowPlaying, nowPlayinSocketService.read().debug("from socket", trimOutput: true))
             .do(onNext: { _ in
                 Self.updateWidgetTimeline()
             })
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribeOn(MainScheduler.asyncInstance)
             .catchErrorJustReturn(NowPlaying.default)
             .share(replay: 1, scope: .whileConnected)
         
@@ -63,12 +63,8 @@ final class OffradioMetadata: RadioMetadata {
     func openSocket() {
         closeSocket()
         nowPlayingSocketDisposable = nowPlayinSocketService.nowPlayingUpdates()
-            .map { $0.track }
-            .do(onNext: { _ in
-                Self.updateWidgetTimeline()
-            })
-            .debug()
-            .drive(currentTrack)
+            .map { $0 }
+            .subscribe()
     }
     
     static func updateWidgetTimeline() {

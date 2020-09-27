@@ -33,8 +33,20 @@ final class ContactTableViewCell: UITableViewCell, ConfigurableCell {
         self.item = item
 
         self.textLabel?.text = item.title
-        let accessoryImage = item.accesoryImages()
-        self.accessoryView = UIImageView(image: accessoryImage.normal, highlightedImage: accessoryImage.selected)
+        let accessoryImage = item.accesoryImage()?.withRenderingMode(.alwaysTemplate)
+        self.accessoryView = UIImageView(image: accessoryImage)
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        if animated {
+            UIView.animate(withDuration: 0.2) {
+                self.accessoryView?.tintColor = highlighted ? .red : .white
+            }
+        } else {
+            self.accessoryView?.tintColor = highlighted ? .red : .white
+        }
     }
 
 }

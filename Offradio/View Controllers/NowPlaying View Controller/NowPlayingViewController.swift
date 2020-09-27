@@ -100,7 +100,8 @@ final class NowPlayingViewController: UIViewController, MFMailComposeViewControl
     fileprivate func showPlaylistViewController() {
         self.hideLabelOnBackButton()
         let playlistViewController = PlaylistViewController()
-        self.navigationController?.pushViewController(playlistViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: playlistViewController)
+        self.present(navigationController, animated: true, completion: nil)
     }
 
     override func viewWillLayoutSubviews() {

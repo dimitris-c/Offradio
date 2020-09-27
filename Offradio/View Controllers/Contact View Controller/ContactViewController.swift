@@ -125,7 +125,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol, UITable
             let mailController = MFMailComposeViewController()
             mailController.setToRecipients(["studio@offradio.gr"])
             mailController.setSubject("I'm listening to OFFRadio!")
-            mailController.navigationBar.tintColor = UIColor.white
+            mailController.navigationBar.tintColor = UIColor.red
             mailController.navigationBar.barTintColor = self.view.backgroundColor
             mailController.mailComposeDelegate = self
             self.navigationController?.present(mailController, animated: true, completion: { [weak mailController] in

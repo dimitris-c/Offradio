@@ -10,7 +10,7 @@ import Foundation
 
 open class Log {
     
-    static var enabled: Bool = false
+    static var enabled: Bool = true
 
     public final class func debug(_ message: String, function: String = #function, file: String = #file, line: Int = #line) {
         let fileNameWithExtension: String = NSString(string: NSString(format: "%@", file).lastPathComponent).deletingPathExtension

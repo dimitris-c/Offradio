@@ -32,7 +32,7 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
-        self.title = "App Settings"
+        self.title = "Stream Settings"
         
         self.setupUI()
         self.setupBindings()

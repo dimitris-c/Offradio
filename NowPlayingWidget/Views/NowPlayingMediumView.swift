@@ -24,7 +24,8 @@ struct NowPlayingMediumView: View {
             HStack(alignment: .top, spacing: 16) {
                 NetworkImage(urlString: entry.track.artistImage,
                              placeholderName: "artwork-image-placeholder")
-                    .frame(width: 100, height: 100, alignment: .leading)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 100, height: 100, alignment: .center)
                     .cornerRadius(4.0)
                     .foregroundColor(.gray)
                 VStack(alignment: .leading){
@@ -46,7 +47,7 @@ struct NowPlayingMediumView: View {
         }
         .padding(16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .background(Gradient.NowPlayingWidget.background)
+        .background(Color.NowPlayingWidget.lightBackground)
     }
 }
 

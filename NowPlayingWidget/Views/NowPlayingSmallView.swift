@@ -34,7 +34,7 @@ struct NowPlayingSmallView: View {
         }
         .padding(16)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .background(Gradient.NowPlayingWidget.background)
+        .background(Color.NowPlayingWidget.lightBackground)
     }
 }
 

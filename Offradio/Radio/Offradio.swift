@@ -28,6 +28,8 @@ final class Offradio: NSObject, RadioProtocol {
     private let userSettings: UserSettings
     private let playerConfigurationService: PlayerConfigurationProvider
     
+    private var backgroundTaskIdentifier: UIBackgroundTaskIdentifier = .invalid
+    
     var status: RadioState = .stopped
     let metadata: RadioMetadata
     
@@ -101,6 +103,7 @@ final class Offradio: NSObject, RadioProtocol {
     
     final func stop() {
         self.audioPlayer.stop()
+        self.deactivateAudioSession()
         self.metadata.closeSocket()
         
         self.status = .stopped
@@ -135,19 +138,32 @@ final class Offradio: NSObject, RadioProtocol {
     final fileprivate func activateAudioSession() {
         do {
             Log.debug("AudioSession is active")
-            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            try AVAudioSession.sharedInstance().setActive(true, options: [])
+            if backgroundTaskIdentifier == .invalid {
+                self.backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: { [weak self] in
+                    guard let self = self else { return }
+                    UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier)
+                    self.backgroundTaskIdentifier = .invalid
+                })
+            }
         } catch let error as NSError {
             Log.debug("Couldn't set audio session to active: \(error.localizedDescription)")
         }
     }
     
     final fileprivate func deactivateAudioSession() {
-//        do {
-//            Log.debug("AudioSession is deactivated")
-//            try AVAudioSession.sharedInstance().setActive(false)
-//        } catch let error as NSError {
-//            Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
-//        }
+        do {
+            Log.debug("AudioSession is deactivated")
+            try AVAudioSession.sharedInstance().setActive(false)
+            
+            if backgroundTaskIdentifier != .invalid {
+                UIApplication.shared.endBackgroundTask(backgroundTaskIdentifier)
+                backgroundTaskIdentifier = .invalid
+            }
+            
+        } catch let error as NSError {
+            Log.debug("Couldn't deactivate audio session: \(error.localizedDescription)")
+        }
     }
     
 }
@@ -233,7 +249,8 @@ extension Offradio {
     @objc final fileprivate func movedToBackground() {
         Log.debug("app moved to background")
         isInForeground = false
-        self.metadata.closeSocket()
+//        self.metadata.closeSocket()
+//        self.metadata.openSocket()
         if self.status != .playing {
             self.deactivateAudioSession()
         }
@@ -241,6 +258,7 @@ extension Offradio {
     
     @objc final fileprivate func movedToForeground() {
         if status == .playing && !isInForeground {
+            self.metadata.forceRefresh()
             self.metadata.openSocket()
         }
         Log.debug("app moved to foreground")
@@ -253,11 +271,10 @@ extension Offradio {
         
         guard let interruptionState = info?[AVAudioSessionInterruptionTypeKey] as? NSNumber else { return }
         
-        let audioPlayerState = audioPlayer.state
         if interruptionState.uintValue == AVAudioSession.InterruptionType.began.rawValue {
             let wasSuspended: Bool = info?[AVAudioSessionInterruptionWasSuspendedKey] as? Bool ?? false
             Log.debug("audio interruption began")
-            if audioPlayerState != STKAudioPlayerState.stopped && !wasSuspended {
+            if status == .playing && !wasSuspended {
                 Log.debug("audio should stop")
                 self.stop()
                 // set the status to interrupted after stopping the audio
@@ -268,7 +285,7 @@ extension Offradio {
                 let interruptionOption = AVAudioSession.InterruptionOptions(rawValue: reasonInt)
                 if interruptionOption == AVAudioSession.InterruptionOptions.shouldResume {
                     Log.debug("audio shouldResume after interruption")
-                    if (audioPlayerState == .stopped || audioPlayerState == .disposed) && self.status == .interrupted {
+                    if self.status == .interrupted {
                         Log.debug("offradio should resume playback interruption")
                         self.start()
                     }

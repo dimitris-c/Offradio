@@ -60,7 +60,7 @@ protocol OffradioWebSocket {
     func connect() -> Observable<WebSocketStatus>
     func disconnect() -> Observable<WebSocketStatus>
     func write(data: Data) -> Driver<Void>
-    var read: Observable<String> { get }
+    var read: Observable<Data> { get }
 }
 
 class OffradioWebSocketService: OffradioWebSocket {
@@ -73,13 +73,17 @@ class OffradioWebSocketService: OffradioWebSocket {
         self.socket = socketManager.defaultSocket
     }
     
-    var read: Observable<String> {
-        return Observable<String>.create { [weak self] observer -> Disposable in
+    var read: Observable<Data> {
+        return Observable<Data>.create { [weak self] observer -> Disposable in
             guard let self = self else { return Disposables.create() }
             self.socket.on("onair:nowplaying") { (items, _) in
                 guard let raw = items.first else { return }
-                let json = String(describing: raw)
-                observer.on(.next(json))
+                do {
+                    let json = try JSONSerialization.data(withJSONObject: raw, options: .fragmentsAllowed)
+                    observer.on(.next(json))
+                } catch {
+                    print("Error \(error.localizedDescription)")
+                }
             }
             return Disposables.create()
         }
@@ -107,7 +111,7 @@ class OffradioWebSocketService: OffradioWebSocket {
     }
     
     func disconnect() -> Observable<WebSocketStatus> {
-        return Observable<WebSocketStatus>.create({ [socket, socketManager] (observer) -> Disposable in
+        return Observable<WebSocketStatus>.create({ [socket] (observer) -> Disposable in
             socket.on(clientEvent: .disconnect) { (statuses, ack) in
                 if let status = statuses.first as? SocketIOStatus {
                     observer.onNext(WebSocketStatus.from(socketIOStatus: status))
