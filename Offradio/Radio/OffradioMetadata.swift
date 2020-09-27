@@ -16,11 +16,11 @@ enum MetadataTrigger: Equatable {
 
 final class OffradioMetadata: RadioMetadata {
     
-    let nowPlaying: Observable<NowPlaying>
+    let nowPlaying = BehaviorRelay<NowPlaying>(value: .default)
     let currentTrack = BehaviorRelay<CurrentTrack>(value: .default)
     
     private let disposeBag = DisposeBag()
-    private let queue = ConcurrentDispatchQueueScheduler(qos: .background)
+    private let opQueue = ConcurrentDispatchQueueScheduler(qos: .background)
     
     private let refresh = PublishRelay<MetadataTrigger>()
     private let networkService: OffradioNetworkService
@@ -34,24 +34,21 @@ final class OffradioMetadata: RadioMetadata {
                                                               url: APIURL(enviroment: .new).socket)
         
         let fetchNowPlaying = self.networkService.rx.request(.nowPlaying)
-            .observeOn(queue)
             .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
             .catchErrorJustReturn(NowPlaying.default)
         
-        let refreshNowPlaying = refresh.asObservable()
-            .debug("from refresh", trimOutput: true)
+        refresh.asObservable()
             .flatMapLatest { _ -> Observable<NowPlaying> in
                 return fetchNowPlaying
             }
-        
-        nowPlaying = Observable.merge(refreshNowPlaying, nowPlayinSocketService.read().debug("from socket", trimOutput: true))
             .do(onNext: { _ in
                 Self.updateWidgetTimeline()
             })
             .subscribeOn(MainScheduler.asyncInstance)
             .catchErrorJustReturn(NowPlaying.default)
-            .share(replay: 1, scope: .whileConnected)
+            .bind(to: nowPlaying)
+            .disposed(by: disposeBag)
         
         nowPlaying
             .map { $0.track }
@@ -63,8 +60,11 @@ final class OffradioMetadata: RadioMetadata {
     func openSocket() {
         closeSocket()
         nowPlayingSocketDisposable = nowPlayinSocketService.nowPlayingUpdates()
-            .map { $0 }
-            .subscribe()
+            .do(onNext: { _ in
+                Self.updateWidgetTimeline()
+            })
+            .subscribeOn(MainScheduler.asyncInstance)
+            .bind(to: nowPlaying)
     }
     
     static func updateWidgetTimeline() {
@@ -85,7 +85,6 @@ final class OffradioMetadata: RadioMetadata {
     
     func fetchNowPlaying() -> Observable<NowPlaying> {
         return self.networkService.rx.request(.nowPlaying)
-            .observeOn(queue)
             .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)
             .asObservable()
             .catchErrorJustReturn(NowPlaying.default)

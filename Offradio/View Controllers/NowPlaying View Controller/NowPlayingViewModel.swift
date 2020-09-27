@@ -17,7 +17,7 @@ final class NowPlayingViewModel {
     fileprivate let favouritesLayer: PlaylistFavouritesLayer
 
     var nowPlaying: Observable<NowPlaying> {
-        return self.radioMetadata.nowPlaying
+        return self.radioMetadata.nowPlaying.asObservable()
     }
     
     let viewWillAppear = PublishRelay<Void>()

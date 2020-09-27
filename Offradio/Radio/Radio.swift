@@ -21,7 +21,7 @@ protocol RadioProtocol {
 }
 
 protocol RadioMetadata {
-    var nowPlaying: Observable<NowPlaying> { get }
+    var nowPlaying: BehaviorRelay<NowPlaying> { get }
     var currentTrack: BehaviorRelay<CurrentTrack> { get }
     
     func openSocket()

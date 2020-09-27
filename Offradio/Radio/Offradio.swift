@@ -38,6 +38,7 @@ final class Offradio: NSObject, RadioProtocol {
         return self.stateChangedSubject
             .asObservable()
             .distinctUntilChanged()
+            .share(replay: 1, scope: .whileConnected)
     }
     
     init(userSettings: UserSettings,

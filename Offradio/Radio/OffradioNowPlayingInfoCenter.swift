@@ -10,6 +10,7 @@ import MediaPlayer
 import RxSwift
 import RxCocoa
 import Kingfisher
+import StreamingKit
 
 class OffradioNowPlayingInfoCenter {
     fileprivate final let disposeBag = DisposeBag()
@@ -19,14 +20,17 @@ class OffradioNowPlayingInfoCenter {
     init(with radio: Offradio) {
         self.offradio = radio
         
-        self.offradio.metadata.nowPlaying.asObservable()
+        let nowPlaying = self.offradio.metadata.nowPlaying
+            .share(replay: 1, scope: .whileConnected)
+        
+        nowPlaying
             .skipWhile({ $0.isEmpty() })
             .subscribe(onNext: { [weak self] nowPlaying in
                 self?.updateInfo(with: nowPlaying)
             }).disposed(by: disposeBag)
         
         let placeholder = UIImage(named: "artwork-image-placeholder")!
-        self.offradio.metadata.nowPlaying.asObservable()
+        nowPlaying
             .skipWhile({ $0.isEmpty() })
             .distinctUntilChanged()
             .flatMapLatest { nowPlaying -> Observable<UIImage?> in
@@ -41,10 +45,24 @@ class OffradioNowPlayingInfoCenter {
             .catchErrorJustReturn(placeholder)
             .subscribe(onNext: { [weak self] image in
                 if let image = image {
-                    self?.updateInfo(with: image)
+                    self?.updateInfo(with: image)                    
                 }
             }).disposed(by: disposeBag)
         
+        self.offradio.stateChanged
+            .withLatestFrom(nowPlaying) { ($0, $1) }
+            .map { (state, nowPlaying) -> NowPlaying in
+                if state == STKAudioPlayerState.playing || state == STKAudioPlayerState.buffering {
+                    return nowPlaying
+                } else {
+                    return NowPlaying(track: .default, producer: nowPlaying.producer)
+                }
+            }
+            .subscribe { [weak self] nowPlaying in
+                self?.updateInfo(with: nowPlaying)
+            }
+            .disposed(by: disposeBag)
+
     }
     
     fileprivate func updateInfo(with nowPlaying: NowPlaying) {
