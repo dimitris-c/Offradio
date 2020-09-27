@@ -52,7 +52,7 @@ final class ContactViewController: UIViewController, TabBarItemProtocol, UITable
             UIApplication.shared.open(URL(string: "https://www.decimal.digital")!)
         }).disposed(by: disposeBag)
 
-        self.view.addSubview(self.funkytapsLogo)
+        self.tableView.addSubview(self.funkytapsLogo)
 
         let cellIdentifier = ContactTableViewCell.identifier
         let cellType = ContactTableViewCell.self
@@ -73,14 +73,15 @@ final class ContactViewController: UIViewController, TabBarItemProtocol, UITable
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
+        self.tableView.frame.size = self.view.bounds.size
+        
         // Since the data source is fixed then we just need to fit the height of the table based on
         // the data source items
-        let height = CGFloat(ContactItemType.allCases.count) * self.tableView.rowHeight
-        self.tableView.frame.size = CGSize(width: self.view.frame.width, height: height)
+        let topPart = self.tableView.frame.origin.y + CGFloat(ContactItemType.allCases.count) * self.tableView.rowHeight
 
         self.funkytapsLogo.sizeToFit()
         self.funkytapsLogo.center.x = self.view.center.x
-        self.funkytapsLogo.frame.origin.y = self.tableView.frame.maxY + ((self.view.frame.height - self.tableView.frame.maxY) - self.funkytapsLogo.frame.height) * 0.5
+        self.funkytapsLogo.frame.origin.y = topPart + ((self.view.frame.height - topPart) - self.funkytapsLogo.frame.height) * 0.5
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

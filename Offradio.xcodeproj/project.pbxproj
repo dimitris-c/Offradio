@@ -655,11 +655,10 @@
 		B52A6C261E36B3CE005893D2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */,
+				B52A6C391E36BAC2005893D2 /* AppConstants.swift */,
 				B5D60ECE2512B21C00B21085 /* AppStateReporter */,
 				B52E568B25121D31000AC1B8 /* WebSocket */,
 				B52E568A25121D19000AC1B8 /* NowPlaying */,
-				B52A6C391E36BAC2005893D2 /* AppConstants.swift */,
 				B50395581E4BA4E800D9A71B /* Offradio API */,
 				B52A6C2C1E36B9BB005893D2 /* Models */,
 				B50395721E4BCA3000D9A71B /* Protocols */,
@@ -668,6 +667,7 @@
 				B5A942F52515FF6D000C6665 /* UserSettings.swift */,
 				B5A942FC251610EF000C6665 /* UserDefault.swift */,
 				B55FB126251CFBA900F30CCC /* StreamsConfiguration.swift */,
+				B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
