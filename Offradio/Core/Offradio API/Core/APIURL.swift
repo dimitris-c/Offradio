@@ -6,25 +6,25 @@
 //
 
 enum APIEnviroment {
-    case new
+    case production
     
     var baseUrl: String {
         switch self {
-            case .new:
+            case .production:
                 return "https://api.offradio.gr"
         }
     }
     
     var path: String {
         switch self {
-            case .new:
+            case .production:
                 return "/mobile/v1"
         }
     }
     
     var socket: String {
         switch self {
-            case .new:
+            case .production:
                 return "wss://live.offradio.gr/socket.io/"
         }
     }

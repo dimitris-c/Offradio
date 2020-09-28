@@ -31,7 +31,7 @@ final class OffradioMetadata: RadioMetadata {
     public init(networkService: OffradioNetworkService) {
         self.networkService = networkService
         self.nowPlayinSocketService = NowPlayingSocketService(builder: OffradioWebsocketBuilder(),
-                                                              url: APIURL(enviroment: .new).socket)
+                                                              url: APIURL(enviroment: .production).socket)
         
         let fetchNowPlaying = self.networkService.rx.request(.nowPlaying)
             .map(NowPlaying.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)

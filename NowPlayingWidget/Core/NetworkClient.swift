@@ -44,7 +44,7 @@ final class OffradioAPIClient {
     }
     
     func getNowPlaying() -> AnyPublisher<CurrentTrack, RequestError> {
-        let urlPath = APIURL(enviroment: .new).with("/now-playing")
+        let urlPath = APIURL(enviroment: .production).with("/now-playing")
         return networkClient.request(url: urlPath)
             .decode(type: NowPlaying.self, decoder: Decoders.defaultJSONDecoder)
             .map(\.track)
@@ -55,7 +55,7 @@ final class OffradioAPIClient {
     }
     
     func getPlaylist() -> AnyPublisher<[Song], RequestError> {
-        let urlPath = APIURL(enviroment: .new).with("/playlist")
+        let urlPath = APIURL(enviroment: .production).with("/playlist")
         return networkClient.request(url: urlPath)
             .decode(type: [Song].self, decoder: Decoders.defaultKeysJSONDecoder)
             .print()

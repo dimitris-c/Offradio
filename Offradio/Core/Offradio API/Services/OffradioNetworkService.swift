@@ -18,7 +18,7 @@ enum OffradioNetworkAPI: TargetType {
 }
 
 extension OffradioNetworkAPI {
-    var baseURL: URL { return URL(string: APIURL(enviroment: .new).apiPath)! }
+    var baseURL: URL { return URL(string: APIURL(enviroment: .production).apiPath)! }
 
     var method: Moya.Method {
         return .get
