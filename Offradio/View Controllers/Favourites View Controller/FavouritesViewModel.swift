@@ -20,7 +20,7 @@ final class FavouritesViewModel {
 
     init(viewWillAppear: Driver<Void>) {
         
-        if let favourites = favouritesDataLayer.allFavourites() {
+        if let favourites = favouritesDataLayer.allFavourites()?.sorted(byKeyPath: "airedDatetime", ascending: false) {
             self.data = Observable.array(from: favourites)
                 .share(replay: 1, scope: .whileConnected)
             playlistData = data
