@@ -31,7 +31,7 @@ final class CurrentTrackView: UIView {
         return self.shareButton.rx.tap
             .asSignal(onErrorSignalWith: .empty())
     }
-    let shareButton = UIButton()
+    let shareButton = UIButton(type: .custom)
     
     var favouriteButton: UIButton!
 
@@ -80,7 +80,6 @@ final class CurrentTrackView: UIView {
 
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon"), for: .normal)
         self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .highlighted)
-        self.shareButton.setBackgroundImage(#imageLiteral(resourceName: "share-track-icon-tapped"), for: .selected)
         self.addSubview(self.shareButton)
 
         self.bottomViewsContainer = UIView()

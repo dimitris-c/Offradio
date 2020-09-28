@@ -15,7 +15,7 @@ struct CurrentTrackView: View {
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
             if showsArtwork {
-                NetworkImage(urlString: entry.track.artistImage,
+                NetworkImage(urlString: entry.track.image,
                              placeholderName: "artwork-image-placeholder")
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 100, height: 100, alignment: .center)

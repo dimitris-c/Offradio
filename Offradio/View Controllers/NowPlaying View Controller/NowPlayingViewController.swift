@@ -102,7 +102,6 @@ final class NowPlayingViewController: UIViewController {
         let url = "https://www.offradio.gr"
         let items: [Any] = [title, url]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        
         activityViewController.popoverPresentationController?.sourceView = self.currentTrackView.shareButton
         activityViewController.excludedActivityTypes = [.assignToContact, .addToReadingList, .markupAsPDF, .openInIBooks, .print]
         
