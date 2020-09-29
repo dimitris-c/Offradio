@@ -17,6 +17,7 @@ public enum HelveticaNeue: String {
 
 public enum LetterGothic: String {
     case bold       = "LetterGothicStd-Bold"
+    case fallback   = "RobotoMono-Regular"
 }
 
 public enum LeagueGothic: String {
@@ -27,15 +28,15 @@ public enum LeagueGothic: String {
 extension UIFont {
 
     class func leagueGothicRegular(withSize size: CGFloat) -> UIFont {
-        return font(LeagueGothic.regular.rawValue, size: size)
+        return font(LeagueGothic.regular.rawValue, fallback: "", size: size)
     }
 
     class func leagueGothicItalic(withSize size: CGFloat) -> UIFont {
-        return font(LeagueGothic.italic.rawValue, size: size)
+        return font(LeagueGothic.italic.rawValue, fallback: "", size: size)
     }
 
     class func letterGothicBold(withSize size: CGFloat) -> UIFont {
-        return font(LetterGothic.bold.rawValue, size: size)
+        return font(LetterGothic.bold.rawValue, fallback: LetterGothic.fallback.rawValue, size: size)
     }
 
     class func defaultLight(withSize size: CGFloat) -> UIFont {
@@ -54,7 +55,20 @@ extension UIFont {
         return font(HelveticaNeue.regular.rawValue, size: size)
     }
 
-    class func font(_ name: String, size: CGFloat) -> UIFont {
-        return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: size)
+    class func font(_ name: String, fallback: String? = nil, size: CGFloat) -> UIFont {
+        guard let font = UIFont(name: name, size: size) else { return .systemFont(ofSize: size)}
+        let descriptor = font.fontDescriptor
+        
+        if let fallback = fallback {
+            let fallbackDescriptor = descriptor.addingAttributes([UIFontDescriptor.AttributeName.name: fallback])
+            let descriptorWithFallback = descriptor.addingAttributes(
+                [
+                    UIFontDescriptor.AttributeName.cascadeList : [fallbackDescriptor]
+                ]
+            )
+            return UIFont(descriptor: descriptorWithFallback, size: size)
+        }
+        
+        return UIFont(descriptor: descriptor, size: size)
     }
 }

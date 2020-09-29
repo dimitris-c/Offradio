@@ -19,6 +19,7 @@
 		B507C0A61E56869800792414 /* DataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B507C0A51E56869800792414 /* DataLayer.swift */; };
 		B50F0DB724B85EEE006D660E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50F0DB624B85EEE006D660E /* CoreServices.framework */; };
 		B51422992520DDFF0004900F /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51422982520DDFF0004900F /* CurrentTrackView.swift */; };
+		B51423BE2521FAF20004900F /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B51423BD2521FAF10004900F /* RobotoMono-Regular.ttf */; };
 		B519062D25122BD8005537BF /* NowPlayingSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519062C25122BD8005537BF /* NowPlayingSocketService.swift */; };
 		B519063925122C37005537BF /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519063825122C37005537BF /* WebSocketService.swift */; };
 		B519064025123314005537BF /* JSONDecoder+DecodeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B519063F25123314005537BF /* JSONDecoder+DecodeString.swift */; };
@@ -279,6 +280,7 @@
 		B507C0A51E56869800792414 /* DataLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayer.swift; sourceTree = "<group>"; };
 		B50F0DB624B85EEE006D660E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		B51422982520DDFF0004900F /* CurrentTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTrackView.swift; sourceTree = "<group>"; };
+		B51423BD2521FAF10004900F /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
 		B519062C25122BD8005537BF /* NowPlayingSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingSocketService.swift; sourceTree = "<group>"; };
 		B519063825122C37005537BF /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
 		B519063F25123314005537BF /* JSONDecoder+DecodeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+DecodeString.swift"; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */,
+				B51423BD2521FAF10004900F /* RobotoMono-Regular.ttf */,
 				B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */,
 			);
 			path = Fonts;
@@ -1372,6 +1375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B51423BE2521FAF20004900F /* RobotoMono-Regular.ttf in Resources */,
 				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
 				B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
