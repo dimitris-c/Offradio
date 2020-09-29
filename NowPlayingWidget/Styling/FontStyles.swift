@@ -10,11 +10,11 @@ import SwiftUI
 
 extension Font {
     static func robotoRegular(size: CGFloat) -> Font {
-        Font(UIFont.robotoRegular(withSize: size))
+        Font.custom(RobotoMono.regular.rawValue, size: size)
     }
     
-    static func roboto(style: RobotoMono, size: CGFloat) -> Font {
-        Font(UIFont.font(style.rawValue, size: size))
+    static func leagueGothic(style: LeagueGothic, size: CGFloat) -> Font {
+        Font.custom(style.rawValue, size: size)
     }
     
 }

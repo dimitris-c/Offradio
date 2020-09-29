@@ -152,9 +152,7 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
                     switch result {
                     case .success(let value):
                         if let url = URL(string: value) {
-                            UIApplication.shared.open(url, options: [.universalLinksOnly: false]) { opened in
-                                print(opened)
-                            }
+                            UIApplication.shared.open(url)
                         }
                     case .failure(let error):
                         if error == .noResult {
@@ -174,7 +172,7 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
         itunesSeach.backgroundColor = UIColor.black
         itunesSeach.highlightedBackgroundColor = UIColor.offRed
 
-        spotifySearch.font = UIFont.robotoCondesedBold(withSize: 12)
+        spotifySearch.font = UIFont.leagueGothicRegular(withSize: 12)
         spotifySearch.image = UIImage(named: "spotify_icon")
         spotifySearch.identifier = PlaylistCellSearchProvider.spotify.rawValue
         spotifySearch.backgroundColor = UIColor.black

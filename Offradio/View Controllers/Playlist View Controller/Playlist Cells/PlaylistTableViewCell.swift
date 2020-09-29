@@ -51,14 +51,14 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
 
         self.artistLabel = UILabel(frame: .zero)
         self.artistLabel.textColor = UIColor.white
-        self.artistLabel.font = UIFont.robotoCondesedBold(withSize: 25)
+        self.artistLabel.font = UIFont.leagueGothicItalic(withSize: 25)
         self.artistLabel.textAlignment = .left
         self.artistLabel.lineBreakMode = .byWordWrapping
         self.artistLabel.numberOfLines = 2
         self.contentView.addSubview(self.artistLabel)
 
         self.songLabel = UILabel(frame: .zero)
-        self.songLabel.font = UIFont.robotoCondesedBold(withSize: 20)
+        self.songLabel.font = UIFont.leagueGothicItalic(withSize: 20)
         self.songLabel.textAlignment = .left
         self.songLabel.lineBreakMode = .byWordWrapping
         self.songLabel.textColor = UIColor.white

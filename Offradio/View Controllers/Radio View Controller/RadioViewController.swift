@@ -48,7 +48,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.playerCircleContainer.setupViews()
         self.playerCircleContainer.rearrangeViews()
 
-        self.turnYourRadioOffLabel.font = UIFont.robotoCondesedBold(withSize: CGFloat.deviceValue(iPhone: 26, iPad: 36))
+        self.turnYourRadioOffLabel.font = UIFont.leagueGothicItalic(withSize: CGFloat.deviceValue(iPhone: 26, iPad: 36))
         self.turnYourRadioOffLabel.textColor = UIColor.white
         self.turnYourRadioOffLabel.text = "TURN YOUR RADIO OFF"
         self.turnYourRadioOffLabel.numberOfLines = 1

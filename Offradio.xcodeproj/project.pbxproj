@@ -31,6 +31,7 @@
 		B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6011E673CFC003A75EE /* NowPlayingViewModel.swift */; };
 		B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6061E6741FD003A75EE /* ProducerView.swift */; };
 		B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */; };
+		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
 		B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C391E36BAC2005893D2 /* AppConstants.swift */; };
 		B52A6C421E36BAC2005893D2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3C1E36BAC2005893D2 /* Log.swift */; };
@@ -93,6 +94,7 @@
 		B55FB1B4251D310900F30CCC /* NowPlayingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B663F251A733300F60690 /* NowPlayingHeaderView.swift */; };
 		B55FB1B5251D310900F30CCC /* NowPlayingMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */; };
 		B55FB1B6251D310900F30CCC /* NowPlayingSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */; };
+		B55FB1BD251D320500F30CCC /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */; };
 		B55FB38F251DE7F100F30CCC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB38E251DE7F100F30CCC /* NetworkClient.swift */; };
 		B55FB3AA251DEA5A00F30CCC /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395691E4BCA0100D9A71B /* APIURL.swift */; };
 		B55FB3B1251DEA5F00F30CCC /* Decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F76250F9020008412E7 /* Decoders.swift */; };
@@ -120,6 +122,7 @@
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
 		B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */; };
 		B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B575DC441F2BA28E00CE6773 /* UIKit.framework */; };
+		B5853F0F25233D80007C1572 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B58E934625233B7300C94000 /* RobotoCondensed-BoldItalic.ttf */; };
 		B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */; };
 		B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AE1EAFC0E5005321CA /* Shortcuts.swift */; };
 		B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58678D91EAFCF4A005321CA /* Interface.storyboard */; };
@@ -135,6 +138,7 @@
 		B58E930225232DEB00C94000 /* LazyLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E930025232DEB00C94000 /* LazyLoadable.swift */; };
 		B58E930325232DEB00C94000 /* LazyResettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E930125232DEB00C94000 /* LazyResettable.swift */; };
 		B58E930C25232E1900C94000 /* ProxyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E930B25232E1900C94000 /* ProxyType.swift */; };
+		B58E934D25233C8200C94000 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B58E934525233B5200C94000 /* RobotoCondensed-BoldItalic.ttf */; };
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */; };
@@ -170,9 +174,6 @@
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */; };
-		B5E0E32F2523C6B60082CB4C /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B58E933825233A7700C94000 /* RobotoMono-Regular.ttf */; };
-		B5E0E33E2523CD200082CB4C /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5E0E33C2523CD200082CB4C /* RobotoCondensed-Bold.ttf */; };
-		B5E0E3582523CD350082CB4C /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B5E0E3572523CD310082CB4C /* RobotoCondensed-Bold.ttf */; };
 		B5E93F77250F9020008412E7 /* Decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F76250F9020008412E7 /* Decoders.swift */; };
 		B5E93F7925100D66008412E7 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F7825100D66008412E7 /* Formatters.swift */; };
 		B5E93F7A25100F17008412E7 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F7825100D66008412E7 /* Formatters.swift */; };
@@ -296,6 +297,7 @@
 		B524E6061E6741FD003A75EE /* ProducerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ProducerView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
 		B52A6C391E36BAC2005893D2 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = AppConstants.swift; path = ../Utilities/AppConstants.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B52A6C3C1E36BAC2005893D2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		B56960511E492A35003BFBC6 /* OffradioContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffradioContentViewController.swift; sourceTree = "<group>"; };
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
+		B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
 		B56B65A62519FEC100F60690 /* NowPlayingWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingWidget.swift; sourceTree = "<group>"; };
 		B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingMediumView.swift; sourceTree = "<group>"; };
 		B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingSmallView.swift; sourceTree = "<group>"; };
@@ -399,6 +402,8 @@
 		B58E930125232DEB00C94000 /* LazyResettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyResettable.swift; sourceTree = "<group>"; };
 		B58E930B25232E1900C94000 /* ProxyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyType.swift; sourceTree = "<group>"; };
 		B58E933825233A7700C94000 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		B58E934525233B5200C94000 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B58E934625233B7300C94000 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIColor+Offradio.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -436,8 +441,6 @@
 		B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrack.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923771E65E4800013A3F4 /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Show.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmMigrationLayer.swift; sourceTree = "<group>"; };
-		B5E0E33C2523CD200082CB4C /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
-		B5E0E3572523CD310082CB4C /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		B5E93F76250F9020008412E7 /* Decoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoders.swift; sourceTree = "<group>"; };
 		B5E93F7825100D66008412E7 /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		B5F125211E5CC82400579D4B /* HorizontalArranger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalArranger.swift; sourceTree = "<group>"; };
@@ -644,8 +647,9 @@
 		B52A6C201E36B3BE005893D2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				B5E0E3572523CD310082CB4C /* RobotoCondensed-Bold.ttf */,
+				B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */,
 				B51423BD2521FAF10004900F /* RobotoMono-Regular.ttf */,
+				B58E934525233B5200C94000 /* RobotoCondensed-BoldItalic.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -982,8 +986,9 @@
 		B56B65952519FDED00F60690 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				B5E0E33C2523CD200082CB4C /* RobotoCondensed-Bold.ttf */,
+				B58E934625233B7300C94000 /* RobotoCondensed-BoldItalic.ttf */,
 				B58E933825233A7700C94000 /* RobotoMono-Regular.ttf */,
+				B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1392,10 +1397,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58E934D25233C8200C94000 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				B51423BE2521FAF20004900F /* RobotoMono-Regular.ttf in Resources */,
 				B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */,
+				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 				B7CA3B6B22B66BD700BEEEA9 /* Launch Screen.storyboard in Resources */,
-				B5E0E3582523CD350082CB4C /* RobotoCondensed-Bold.ttf in Resources */,
 				B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */,
 				B53BDBBD2423DD0F001F42E7 /* GoogleService-Info.plist in Resources */,
 			);
@@ -1436,9 +1442,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B55FB1BD251D320500F30CCC /* LeagueGothic-Italic.otf in Resources */,
 				B5A9448125195A5E000C6665 /* Assets.xcassets in Resources */,
-				B5E0E33E2523CD200082CB4C /* RobotoCondensed-Bold.ttf in Resources */,
-				B5E0E32F2523C6B60082CB4C /* RobotoMono-Regular.ttf in Resources */,
+				B5853F0F25233D80007C1572 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1957,97 +1963,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 4.6;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
-					"-framework",
-					"\"Accelerate\"",
-					"-framework",
-					"\"Alamofire\"",
-					"-framework",
-					"\"AlamofireNetworkActivityIndicator\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"AutoScrollLabel\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreFoundation\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"Differentiator\"",
-					"-framework",
-					"\"FBLPromises\"",
-					"-framework",
-					"\"FIRAnalyticsConnector\"",
-					"-framework",
-					"\"Fabric\"",
-					"-framework",
-					"\"FirebaseAnalytics\"",
-					"-framework",
-					"\"FirebaseCore\"",
-					"-framework",
-					"\"FirebaseCoreDiagnostics\"",
-					"-framework",
-					"\"FirebaseCrashlytics\"",
-					"-framework",
-					"\"FirebaseInstallations\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"GoogleAppMeasurement\"",
-					"-framework",
-					"\"GoogleDataTransport\"",
-					"-framework",
-					"\"GoogleUtilities\"",
-					"-framework",
-					"\"Kingfisher\"",
-					"-framework",
-					"\"Moya\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Realm\"",
-					"-framework",
-					"\"RealmSwift\"",
-					"-framework",
-					"\"RxCocoa\"",
-					"-framework",
-					"\"RxDataSources\"",
-					"-framework",
-					"\"RxRealm\"",
-					"-framework",
-					"\"RxRelay\"",
-					"-framework",
-					"\"RxSwift\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SocketIO\"",
-					"-framework",
-					"\"Starscream\"",
-					"-framework",
-					"\"StoreKit\"",
-					"-framework",
-					"\"StreamingKit\"",
-					"-framework",
-					"\"SwipeCellKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"ToggleSwitch\"",
-					"-framework",
-					"\"UIKit\"",
-					"-framework",
-					"\"nanopb\"",
-				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2078,97 +1993,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 4.6;
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-ObjC",
-					"-l\"c++\"",
-					"-l\"sqlite3\"",
-					"-l\"z\"",
-					"-framework",
-					"\"Accelerate\"",
-					"-framework",
-					"\"Alamofire\"",
-					"-framework",
-					"\"AlamofireNetworkActivityIndicator\"",
-					"-framework",
-					"\"AudioToolbox\"",
-					"-framework",
-					"\"AutoScrollLabel\"",
-					"-framework",
-					"\"CFNetwork\"",
-					"-framework",
-					"\"CoreFoundation\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"Differentiator\"",
-					"-framework",
-					"\"FBLPromises\"",
-					"-framework",
-					"\"FIRAnalyticsConnector\"",
-					"-framework",
-					"\"Fabric\"",
-					"-framework",
-					"\"FirebaseAnalytics\"",
-					"-framework",
-					"\"FirebaseCore\"",
-					"-framework",
-					"\"FirebaseCoreDiagnostics\"",
-					"-framework",
-					"\"FirebaseCrashlytics\"",
-					"-framework",
-					"\"FirebaseInstallations\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"GoogleAppMeasurement\"",
-					"-framework",
-					"\"GoogleDataTransport\"",
-					"-framework",
-					"\"GoogleUtilities\"",
-					"-framework",
-					"\"Kingfisher\"",
-					"-framework",
-					"\"Moya\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"Realm\"",
-					"-framework",
-					"\"RealmSwift\"",
-					"-framework",
-					"\"RxCocoa\"",
-					"-framework",
-					"\"RxDataSources\"",
-					"-framework",
-					"\"RxRealm\"",
-					"-framework",
-					"\"RxRelay\"",
-					"-framework",
-					"\"RxSwift\"",
-					"-framework",
-					"\"Security\"",
-					"-framework",
-					"\"SocketIO\"",
-					"-framework",
-					"\"Starscream\"",
-					"-framework",
-					"\"StoreKit\"",
-					"-framework",
-					"\"StreamingKit\"",
-					"-framework",
-					"\"SwipeCellKit\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"ToggleSwitch\"",
-					"-framework",
-					"\"UIKit\"",
-					"-framework",
-					"\"nanopb\"",
-				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio;
 				PRODUCT_NAME = "$(TARGET_NAME)";

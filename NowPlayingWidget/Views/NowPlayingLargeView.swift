@@ -22,7 +22,7 @@ struct NowPlayingLargeView: View {
             .background(Color.NowPlayingWidget.background)
             VStack(alignment: .leading) {
                 Text("OFFRADIO PLAYLIST")
-                    .font(Font.roboto(style: .condensedBold, size: 20))
+                    .font(Font.leagueGothic(style: .italic, size: 20))
                     .foregroundColor(.white)
                     .padding(.top, 8)
                     .padding(.leading, 16)

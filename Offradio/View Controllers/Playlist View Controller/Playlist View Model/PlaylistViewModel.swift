@@ -60,13 +60,12 @@ final class PlaylistViewModel {
             })
             .disposed(by: disposeBag)
 
-        scrollViewDidReachBottom.asObservable()
-            .subscribe(onNext: { [weak self] _ in
-                guard let strongSelf = self, !strongSelf.indicatorViewAnimating.value else { return }
-                if strongSelf.page <= strongSelf.totalPagesToFetch {
-                    strongSelf.fetchPlaylist(withPage: strongSelf.page)
-                    strongSelf.indicatorViewAnimating.accept(true)
-                }
+        scrollViewDidReachBottom.asObservable().subscribe(onNext: { [weak self] _ in
+            guard let strongSelf = self, !strongSelf.indicatorViewAnimating.value else { return }
+            if strongSelf.page <= strongSelf.totalPagesToFetch {
+                strongSelf.fetchPlaylist(withPage: strongSelf.page)
+                strongSelf.indicatorViewAnimating.accept(true)
+            }
         }).disposed(by: disposeBag)
 
     }

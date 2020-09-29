@@ -16,18 +16,27 @@ public enum HelveticaNeue: String {
 }
 
 public enum RobotoMono: String {
-    case regular        = "RobotoMono-Regular"
-    case condensedBold  = "RobotoCondensed-Bold"
+    case regular                = "RobotoMono-Regular"
+    case condesedBoldItalic    = "RobotoCondensed-BoldItalic"
+}
+
+public enum LeagueGothic: String {
+    case italic     = "LeagueGothic-Italic"
+    case regular    = "LeagueGothic-Regular"
 }
 
 extension UIFont {
 
+    class func leagueGothicRegular(withSize size: CGFloat) -> UIFont {
+        return font(LeagueGothic.regular.rawValue, fallback: RobotoMono.condesedBoldItalic.rawValue, size: size)
+    }
+
+    class func leagueGothicItalic(withSize size: CGFloat) -> UIFont {
+        return font(LeagueGothic.italic.rawValue, fallback: RobotoMono.condesedBoldItalic.rawValue, size: size)
+    }
+
     class func robotoRegular(withSize size: CGFloat) -> UIFont {
         return font(RobotoMono.regular.rawValue, size: size)
-    }
-    
-    class func robotoCondesedBold(withSize size: CGFloat) -> UIFont {
-        return font(RobotoMono.condensedBold.rawValue, size: size)
     }
 
     class func defaultLight(withSize size: CGFloat) -> UIFont {
@@ -47,9 +56,19 @@ extension UIFont {
     }
 
     class func font(_ name: String, fallback: String? = nil, size: CGFloat) -> UIFont {
-        guard let font = UIFont(name: name, size: size) else {
-            return .systemFont(ofSize: size)
+        guard let font = UIFont(name: name, size: size) else { return .systemFont(ofSize: size)}
+        let descriptor = font.fontDescriptor
+        
+        if let fallback = fallback {
+            let fallbackDescriptor = descriptor.addingAttributes([UIFontDescriptor.AttributeName.name: fallback])
+            let descriptorWithFallback = descriptor.addingAttributes(
+                [
+                    UIFontDescriptor.AttributeName.cascadeList : [fallbackDescriptor]
+                ]
+            )
+            return UIFont(descriptor: descriptorWithFallback, size: size)
         }
-        return font
+        
+        return UIFont(descriptor: descriptor, size: size)
     }
 }
