@@ -23,10 +23,6 @@ final class CurrentTrackView: UIView {
     fileprivate var bottomGradientView: UIView!
     fileprivate var bottomGradient: CAGradientLayer!
 
-    fileprivate lazy var shareView: CurrentTrackShareView = {
-        return CurrentTrackShareView(frame: .zero)
-    }()
-
     var shareOn: Signal<Void> {
         return self.shareButton.rx.tap
             .asSignal(onErrorSignalWith: .empty())
@@ -40,14 +36,7 @@ final class CurrentTrackView: UIView {
         self.clipsToBounds = true
 
         self.supplySubviews()
-
-        self.shareView.alpha = 0
-        self.addSubview(self.shareView)
-
-        self.shareView.closeButtonTap.subscribe(onNext: { [weak self] _ in
-            self?.hideShareTrackView()
-        }).disposed(by: disposeBag)
-
+        
         currentTrack.asObservable()
             .map { $0.image }
             .subscribe(onNext: { [weak self] image in
@@ -127,7 +116,6 @@ final class CurrentTrackView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.shareView.frame    = self.bounds
         self.albumArtwork.frame = self.bounds
 
         self.shareButton.sizeToFit()
@@ -190,27 +178,6 @@ final class CurrentTrackView: UIView {
                        options: .curveEaseInOut,
                        animations: animations,
                        completion: nil)
-
-    }
-
-    fileprivate func showShareTrackView() {
-
-        UIView.animate(withDuration: 0.2) {
-            self.shareButton.alpha = 0
-            self.shareView.alpha = 1
-        }
-
-        self.shareView.showButtons()
-    }
-
-    fileprivate func hideShareTrackView() {
-
-        UIView.animate(withDuration: 0.2, animations: {
-            self.shareButton.alpha = 1
-            self.shareView.alpha = 0
-        }, completion: { _ in
-            self.shareView.hideButtons()
-        })
 
     }
 

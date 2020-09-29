@@ -47,10 +47,6 @@
 		B52C2D501EB25A4300AF8514 /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */; };
 		B53942891E4A8E0E00AF5BE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */; };
 		B53BDBBD2423DD0F001F42E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B53BDBBC2423DD0F001F42E7 /* GoogleService-Info.plist */; };
-		B53FC4751E9C04C600DC82AD /* CurrentTrackShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */; };
-		B53FC4761E9C04C600DC82AD /* TrackShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4741E9C04C600DC82AD /* TrackShareViewModel.swift */; };
-		B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4771E9C04DF00DC82AD /* ShareButton.swift */; };
-		B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53FC4791E9C04F400DC82AD /* ShareType.swift */; };
 		B543EF771F90178000E4B2AB /* AnalyticsTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543EF761F90178000E4B2AB /* AnalyticsTrackable.swift */; };
 		B547E68C251B44BC0050855C /* FontStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B6682251A74EC00F60690 /* FontStyles.swift */; };
 		B547E6A1251B4D190050855C /* GradientStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = B547E699251B49BF0050855C /* GradientStyles.swift */; };
@@ -174,6 +170,7 @@
 		B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
 		B5D923781E65E4800013A3F4 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923791E6700310013A3F4 /* RealmMigrationLayer.swift */; };
+		B5E0E45D2523D6000082CB4C /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B58E933825233A7700C94000 /* RobotoMono-Regular.ttf */; };
 		B5E93F77250F9020008412E7 /* Decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F76250F9020008412E7 /* Decoders.swift */; };
 		B5E93F7925100D66008412E7 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F7825100D66008412E7 /* Formatters.swift */; };
 		B5E93F7A25100F17008412E7 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F7825100D66008412E7 /* Formatters.swift */; };
@@ -311,10 +308,6 @@
 		B52C2D4F1EB25A4300AF8514 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS3.2.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 		B53942881E4A8E0E00AF5BE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B53BDBBC2423DD0F001F42E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Offradio/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackShareView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B53FC4741E9C04C600DC82AD /* TrackShareViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackShareViewModel.swift; sourceTree = "<group>"; };
-		B53FC4771E9C04DF00DC82AD /* ShareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		B53FC4791E9C04F400DC82AD /* ShareType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B53FC47B1E9C0C8A00DC82AD /* ShareUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ShareUtility.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B543EF761F90178000E4B2AB /* AnalyticsTrackable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTrackable.swift; sourceTree = "<group>"; };
 		B547E699251B49BF0050855C /* GradientStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientStyles.swift; sourceTree = "<group>"; };
@@ -628,7 +621,6 @@
 		B524E6051E6741FD003A75EE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B53FC4721E9C04C600DC82AD /* ShareTrackView */,
 				B524E6061E6741FD003A75EE /* ProducerView.swift */,
 				B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */,
 			);
@@ -761,17 +753,6 @@
 				B519063825122C37005537BF /* WebSocketService.swift */,
 			);
 			path = WebSocket;
-			sourceTree = "<group>";
-		};
-		B53FC4721E9C04C600DC82AD /* ShareTrackView */ = {
-			isa = PBXGroup;
-			children = (
-				B53FC4731E9C04C600DC82AD /* CurrentTrackShareView.swift */,
-				B53FC4741E9C04C600DC82AD /* TrackShareViewModel.swift */,
-				B53FC4771E9C04DF00DC82AD /* ShareButton.swift */,
-				B53FC4791E9C04F400DC82AD /* ShareType.swift */,
-			);
-			path = ShareTrackView;
 			sourceTree = "<group>";
 		};
 		B5483B8B1EB4EFA2004AC6BF /* InterfaceControllers */ = {
@@ -1445,6 +1426,7 @@
 				B55FB1BD251D320500F30CCC /* LeagueGothic-Italic.otf in Resources */,
 				B5A9448125195A5E000C6665 /* Assets.xcassets in Resources */,
 				B5853F0F25233D80007C1572 /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				B5E0E45D2523D6000082CB4C /* RobotoMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1617,7 +1599,6 @@
 				B519064025123314005537BF /* JSONDecoder+DecodeString.swift in Sources */,
 				B5F125261E5CC82400579D4B /* SizeObject.swift in Sources */,
 				B5A4EB9E1E36C1E800A1E8B1 /* UIColorExtensions.swift in Sources */,
-				B53FC47A1E9C04F400DC82AD /* ShareType.swift in Sources */,
 				B5BA383F1E4F67CB00DB49C9 /* PlaylistViewModel.swift in Sources */,
 				B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */,
 				B5D923781E65E4800013A3F4 /* Show.swift in Sources */,
@@ -1634,7 +1615,6 @@
 				B5E93F77250F9020008412E7 /* Decoders.swift in Sources */,
 				B5D60ED32512B21C00B21085 /* RxApplicationDelegateProxy.swift in Sources */,
 				B52C2D471EB1090F00AF8514 /* OffradioWatchRadioAction.swift in Sources */,
-				B53FC4751E9C04C600DC82AD /* CurrentTrackShareView.swift in Sources */,
 				B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */,
 				B56960531E492A35003BFBC6 /* OffradioContentViewController.swift in Sources */,
 				B519063925122C37005537BF /* WebSocketService.swift in Sources */,
@@ -1685,7 +1665,6 @@
 				B5F125281E5CC82400579D4B /* ViewArranger.swift in Sources */,
 				B5BB248F1E4B6B9B006FC751 /* AnimationsFactory.swift in Sources */,
 				B55FB025251CA0F000F30CCC /* AppCoordinator.swift in Sources */,
-				B53FC4761E9C04C600DC82AD /* TrackShareViewModel.swift in Sources */,
 				B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */,
 				B524E6021E673CFC003A75EE /* NowPlayingViewModel.swift in Sources */,
 				B55FB047251CE10A00F30CCC /* OffradioNetworkService.swift in Sources */,
@@ -1712,7 +1691,6 @@
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
 				B51E3FBC1E4B9F49009F4C37 /* ProducerShow.swift in Sources */,
 				B58E92F7252329E100C94000 /* InterfaceFeedbackService.swift in Sources */,
-				B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */,
 				B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */,
 				B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */,
 				B51E3FBA1E4B9E50009F4C37 /* Schedule.swift in Sources */,
@@ -1950,7 +1928,7 @@
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 180;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
@@ -1981,7 +1959,7 @@
 				COCOAPODS_PARALLEL_CODE_SIGN = "\"true\"";
 				CODE_SIGN_ENTITLEMENTS = Offradio/Offradio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -2091,7 +2069,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2118,7 +2096,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2145,7 +2123,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				IBSC_MODULE = OffradioWatchKit_Extension;
 				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
@@ -2169,7 +2147,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = OffradioWatchKit/OffradioWatchKit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				IBSC_MODULE = OffradioWatchKit_Extension;
 				INFOPLIST_FILE = OffradioWatchKit/Info.plist;
@@ -2196,7 +2174,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = NowPlayingWidget/Info.plist;
@@ -2228,7 +2206,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 160;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = NowPlayingWidget/Info.plist;
