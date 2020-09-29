@@ -60,12 +60,13 @@ final class PlaylistViewModel {
             })
             .disposed(by: disposeBag)
 
-        scrollViewDidReachBottom.asObservable().subscribe(onNext: { [weak self] _ in
-            guard let strongSelf = self, !strongSelf.indicatorViewAnimating.value else { return }
-            if strongSelf.page <= strongSelf.totalPagesToFetch {
-                strongSelf.fetchPlaylist(withPage: strongSelf.page)
-                strongSelf.indicatorViewAnimating.accept(true)
-            }
+        scrollViewDidReachBottom.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                guard let strongSelf = self, !strongSelf.indicatorViewAnimating.value else { return }
+                if strongSelf.page <= strongSelf.totalPagesToFetch {
+                    strongSelf.fetchPlaylist(withPage: strongSelf.page)
+                    strongSelf.indicatorViewAnimating.accept(true)
+                }
         }).disposed(by: disposeBag)
 
     }
@@ -78,12 +79,16 @@ final class PlaylistViewModel {
         if let links = playlistData.value[indexPath.row].item.links {
             switch provider {
             case .itunes:
-                completion(.success(links.apple))
+                if let encodedAppleLink = links.apple.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                    completion(.success(encodedAppleLink))
+                } else {
+                    completion(.success(links.apple))
+                }
             case .spotify:
                 if let encodedSpotifyLink = links.spotify.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                     completion(.success(encodedSpotifyLink))
                 } else {
-                    completion(.failure(.noResult))
+                    completion(.success(links.spotify))
                 }
             }
         } else {

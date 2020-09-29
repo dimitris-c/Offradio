@@ -90,7 +90,7 @@ final class CurrentTrackView: UIView {
 
         self.artistLabel = UILabel(frame: .zero)
         self.artistLabel.textColor = UIColor.white
-        self.artistLabel.font = UIFont.leagueGothicItalic(withSize: CGFloat.deviceValue(iPhone: 29, iPad: 38))
+        self.artistLabel.font = UIFont.robotoCondesedBold(withSize: CGFloat.deviceValue(iPhone: 29, iPad: 38))
         self.artistLabel.textAlignment = .left
         self.artistLabel.lineBreakMode = .byWordWrapping
         self.artistLabel.numberOfLines = 2
@@ -99,7 +99,7 @@ final class CurrentTrackView: UIView {
 
         self.songTitleLabel = UILabel(frame: .zero)
         self.songTitleLabel.textColor = UIColor.white
-        self.songTitleLabel.font = UIFont.leagueGothicItalic(withSize: CGFloat.deviceValue(iPhone: 24, iPad: 34))
+        self.songTitleLabel.font = UIFont.robotoCondesedBold(withSize: CGFloat.deviceValue(iPhone: 24, iPad: 34))
         self.songTitleLabel.textAlignment = .left
         self.songTitleLabel.lineBreakMode = .byWordWrapping
         self.songTitleLabel.numberOfLines = 3

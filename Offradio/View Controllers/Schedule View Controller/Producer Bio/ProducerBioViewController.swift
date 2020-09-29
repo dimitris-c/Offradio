@@ -63,7 +63,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerNameLabel.lineBreakMode = .byWordWrapping
         self.producerNameLabel.numberOfLines = 0
         let producerNameLabelfontSize: CGFloat = CGFloat.deviceValue(iPhone: 25, iPad: 30)
-        self.producerNameLabel.font = UIFont.leagueGothicItalic(withSize: producerNameLabelfontSize)
+        self.producerNameLabel.font = UIFont.robotoCondesedBold(withSize: producerNameLabelfontSize)
         self.scrollViewContainer.addSubview(self.producerNameLabel)
 
         self.producerBioLabel = UILabel(frame: .zero)

@@ -28,7 +28,7 @@ struct CurrentTrackView: View {
                     .foregroundColor(.gray)
                 Text(entry.track.artist)
                     .lineLimit(1)
-                    .font(Font.leagueGothic(style: .italic, size: 25))
+                    .font(Font.roboto(style: .condensedBold, size: 25))
                     .foregroundColor(.white)
                 Text(entry.track.name)
                     .font(Font.system(size: 16))

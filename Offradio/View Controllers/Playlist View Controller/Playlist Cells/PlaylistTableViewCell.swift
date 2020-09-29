@@ -51,14 +51,14 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
 
         self.artistLabel = UILabel(frame: .zero)
         self.artistLabel.textColor = UIColor.white
-        self.artistLabel.font = UIFont.leagueGothicItalic(withSize: 25)
+        self.artistLabel.font = UIFont.robotoCondesedBold(withSize: 25)
         self.artistLabel.textAlignment = .left
         self.artistLabel.lineBreakMode = .byWordWrapping
         self.artistLabel.numberOfLines = 2
         self.contentView.addSubview(self.artistLabel)
 
         self.songLabel = UILabel(frame: .zero)
-        self.songLabel.font = UIFont.leagueGothicItalic(withSize: 20)
+        self.songLabel.font = UIFont.robotoCondesedBold(withSize: 20)
         self.songLabel.textAlignment = .left
         self.songLabel.lineBreakMode = .byWordWrapping
         self.songLabel.textColor = UIColor.white
@@ -128,8 +128,12 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
 
         self.timeLabel.text = self.item.time.uppercased()
 
-        self.artistLabel.text = self.item.artist.uppercased()
-        self.songLabel.text = self.item.title.uppercased()
+        self.artistLabel.text = self.item.artist
+            .folding(options: .diacriticInsensitive, locale: .current)
+            .uppercased()
+        self.songLabel.text = self.item.title
+            .folding(options: .diacriticInsensitive, locale: .current)
+            .uppercased()
 
         if let url = URL(string: self.item.image) {
             self.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"), options: [.transition(.fade(0.35))])

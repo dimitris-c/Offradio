@@ -78,9 +78,8 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
-		<string>LeagueGothic-Italic.otf</string>
 		<string>RobotoMono-Regular.ttf</string>
-		<string>RobotoCondensed-BoldItalic.ttf</string>
+		<string>RobotoCondensed-Bold.ttf</string>
 	</array>
 	<key>UIApplicationShortcutItems</key>
 	<array>

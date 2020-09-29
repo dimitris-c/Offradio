@@ -105,7 +105,7 @@ extension FavouritesViewController: SwipeTableViewCellDelegate {
         itunesSeach.backgroundColor = UIColor.black
         itunesSeach.highlightedBackgroundColor = UIColor.offRed
 
-        spotifySearch.font = UIFont.leagueGothicRegular(withSize: 12)
+        spotifySearch.font = UIFont.robotoCondesedBold(withSize: 12)
         spotifySearch.image = UIImage(named: "spotify_icon")
         spotifySearch.identifier = PlaylistCellSearchProvider.spotify.rawValue
         spotifySearch.backgroundColor = UIColor.black
