@@ -61,14 +61,14 @@ final class ProducerView: UIView {
         let labelSize: CGFloat = CGFloat.deviceValue(iPhone: 15, iPad: 20)
 
         self.producerNameLabel = UILabel(frame: .zero)
-        self.producerNameLabel.font = UIFont.letterGothicBold(withSize: labelSize)
+        self.producerNameLabel.font = UIFont.robotoRegular(withSize: labelSize)
         self.producerNameLabel.textColor = UIColor.white
         self.producerNameLabel.textAlignment = .left
         self.producerNameLabel.numberOfLines = 2
         self.container.addSubview(self.producerNameLabel)
 
         self.producerBodyLabel = UILabel(frame: .zero)
-        self.producerBodyLabel.font = UIFont.letterGothicBold(withSize: labelSize)
+        self.producerBodyLabel.font = UIFont.robotoRegular(withSize: labelSize)
         self.producerBodyLabel.textColor = UIColor.white
         self.producerBodyLabel.textAlignment = .left
         self.producerBodyLabel.numberOfLines = 4

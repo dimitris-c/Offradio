@@ -32,7 +32,6 @@
 		B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E6061E6741FD003A75EE /* ProducerView.swift */; };
 		B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */; };
 		B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */; };
-		B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */; };
 		B52A6C3E1E36BAC2005893D2 /* ASyncMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */; };
 		B52A6C3F1E36BAC2005893D2 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C391E36BAC2005893D2 /* AppConstants.swift */; };
 		B52A6C421E36BAC2005893D2 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A6C3C1E36BAC2005893D2 /* Log.swift */; };
@@ -96,7 +95,6 @@
 		B55FB1B5251D310900F30CCC /* NowPlayingMediumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */; };
 		B55FB1B6251D310900F30CCC /* NowPlayingSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */; };
 		B55FB1BD251D320500F30CCC /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */; };
-		B55FB1C4251D320700F30CCC /* LetterGothicStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B56B65972519FDED00F60690 /* LetterGothicStd-Bold.otf */; };
 		B55FB38F251DE7F100F30CCC /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55FB38E251DE7F100F30CCC /* NetworkClient.swift */; };
 		B55FB3AA251DEA5A00F30CCC /* APIURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50395691E4BCA0100D9A71B /* APIURL.swift */; };
 		B55FB3B1251DEA5F00F30CCC /* Decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E93F76250F9020008412E7 /* Decoders.swift */; };
@@ -124,6 +122,7 @@
 		B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B56960671E495891003BFBC6 /* RadioViewController.storyboard */; };
 		B5745E551EB0D5BB00A60283 /* OffradioAppWatchSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5745E541EB0D5BB00A60283 /* OffradioAppWatchSession.swift */; };
 		B575DC451F2BA28E00CE6773 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B575DC441F2BA28E00CE6773 /* UIKit.framework */; };
+		B5853F0F25233D80007C1572 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B58E934625233B7300C94000 /* RobotoCondensed-BoldItalic.ttf */; };
 		B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AC1EAFC09D005321CA /* ShortcutsEnum.swift */; };
 		B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AE1EAFC0E5005321CA /* Shortcuts.swift */; };
 		B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58678D91EAFCF4A005321CA /* Interface.storyboard */; };
@@ -135,6 +134,11 @@
 		B58E755A1EB39B8D00D06C15 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51E3FB51E4B9B76009F4C37 /* NowPlaying.swift */; };
 		B58E755B1EB39F9100D06C15 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923771E65E4800013A3F4 /* Show.swift */; };
 		B58E755C1EB39F9500D06C15 /* CurrentTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D923751E65E45E0013A3F4 /* CurrentTrack.swift */; };
+		B58E92F7252329E100C94000 /* InterfaceFeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E92F6252329E100C94000 /* InterfaceFeedbackService.swift */; };
+		B58E930225232DEB00C94000 /* LazyLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E930025232DEB00C94000 /* LazyLoadable.swift */; };
+		B58E930325232DEB00C94000 /* LazyResettable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E930125232DEB00C94000 /* LazyResettable.swift */; };
+		B58E930C25232E1900C94000 /* ProxyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58E930B25232E1900C94000 /* ProxyType.swift */; };
+		B58E934D25233C8200C94000 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B58E934525233B5200C94000 /* RobotoCondensed-BoldItalic.ttf */; };
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */; };
@@ -294,7 +298,6 @@
 		B524E60A1E6742C6003A75EE /* CurrentTrackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CurrentTrackView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B5269DC51E9D890900ED7A60 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
-		B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B52A6C381E36BAC2005893D2 /* ASyncMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASyncMethods.swift; sourceTree = "<group>"; };
 		B52A6C391E36BAC2005893D2 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = AppConstants.swift; path = ../Utilities/AppConstants.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B52A6C3C1E36BAC2005893D2 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -373,7 +376,6 @@
 		B56960581E492AA1003BFBC6 /* ContactViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ContactViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B56960671E495891003BFBC6 /* RadioViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RadioViewController.storyboard; sourceTree = "<group>"; };
 		B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
-		B56B65972519FDED00F60690 /* LetterGothicStd-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LetterGothicStd-Bold.otf"; sourceTree = "<group>"; };
 		B56B65A62519FEC100F60690 /* NowPlayingWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingWidget.swift; sourceTree = "<group>"; };
 		B56B65F2251A190300F60690 /* NowPlayingMediumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingMediumView.swift; sourceTree = "<group>"; };
 		B56B65FA251A191400F60690 /* NowPlayingSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingSmallView.swift; sourceTree = "<group>"; };
@@ -395,6 +397,13 @@
 		B58678EE1EAFCF4A005321CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B58678F91EAFCF7C005321CA /* OffradioWatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OffradioWatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		B58678FA1EAFD035005321CA /* OffradioWatchKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OffradioWatchKit.entitlements; sourceTree = "<group>"; };
+		B58E92F6252329E100C94000 /* InterfaceFeedbackService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceFeedbackService.swift; sourceTree = "<group>"; };
+		B58E930025232DEB00C94000 /* LazyLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyLoadable.swift; sourceTree = "<group>"; };
+		B58E930125232DEB00C94000 /* LazyResettable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyResettable.swift; sourceTree = "<group>"; };
+		B58E930B25232E1900C94000 /* ProxyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProxyType.swift; sourceTree = "<group>"; };
+		B58E933825233A7700C94000 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		B58E934525233B5200C94000 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B58E934625233B7300C94000 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIColor+Offradio.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -640,7 +649,7 @@
 			children = (
 				B52A6C211E36B3BE005893D2 /* LeagueGothic-Italic.otf */,
 				B51423BD2521FAF10004900F /* RobotoMono-Regular.ttf */,
-				B52A6C221E36B3BE005893D2 /* LetterGothicStd-Bold.otf */,
+				B58E934525233B5200C94000 /* RobotoCondensed-BoldItalic.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -657,6 +666,7 @@
 		B52A6C261E36B3CE005893D2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B58E931F25232E1F00C94000 /* Lazy Loadable */,
 				B52A6C391E36BAC2005893D2 /* AppConstants.swift */,
 				B5D60ECE2512B21C00B21085 /* AppStateReporter */,
 				B52E568B25121D31000AC1B8 /* WebSocket */,
@@ -670,6 +680,7 @@
 				B5A942FC251610EF000C6665 /* UserDefault.swift */,
 				B55FB126251CFBA900F30CCC /* StreamsConfiguration.swift */,
 				B55FB4C3251E045100F30CCC /* WidgetUpdater.swift */,
+				B58E92F6252329E100C94000 /* InterfaceFeedbackService.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -975,8 +986,9 @@
 		B56B65952519FDED00F60690 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B58E934625233B7300C94000 /* RobotoCondensed-BoldItalic.ttf */,
+				B58E933825233A7700C94000 /* RobotoMono-Regular.ttf */,
 				B56B65962519FDED00F60690 /* LeagueGothic-Italic.otf */,
-				B56B65972519FDED00F60690 /* LetterGothicStd-Bold.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1034,6 +1046,16 @@
 				B58678EE1EAFCF4A005321CA /* Info.plist */,
 			);
 			path = "OffradioWatchKit Extension";
+			sourceTree = "<group>";
+		};
+		B58E931F25232E1F00C94000 /* Lazy Loadable */ = {
+			isa = PBXGroup;
+			children = (
+				B58E930025232DEB00C94000 /* LazyLoadable.swift */,
+				B58E930125232DEB00C94000 /* LazyResettable.swift */,
+				B58E930B25232E1900C94000 /* ProxyType.swift */,
+			);
+			path = "Lazy Loadable";
 			sourceTree = "<group>";
 		};
 		B5955D7C1E5F6C34002C1405 /* Views */ = {
@@ -1167,7 +1189,7 @@
 				D07345AF44A5FDFE72120D15 /* [CP] Embed Pods Frameworks */,
 				B58678D41EAFCF1C005321CA /* Embed Watch Content */,
 				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
-				B52A6C1E1E36B242005893D2 /* Fabric */,
+				B52A6C1E1E36B242005893D2 /* FirebaseCrashlytics */,
 				B53BDC5F2423E34A001F42E7 /* Upload Symbols */,
 			);
 			buildRules = (
@@ -1375,8 +1397,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58E934D25233C8200C94000 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				B51423BE2521FAF20004900F /* RobotoMono-Regular.ttf in Resources */,
-				B52A6C241E36B3BE005893D2 /* LetterGothicStd-Bold.otf in Resources */,
 				B56960681E495891003BFBC6 /* RadioViewController.storyboard in Resources */,
 				B52A6C231E36B3BE005893D2 /* LeagueGothic-Italic.otf in Resources */,
 				B7CA3B6B22B66BD700BEEEA9 /* Launch Screen.storyboard in Resources */,
@@ -1421,8 +1443,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B55FB1BD251D320500F30CCC /* LeagueGothic-Italic.otf in Resources */,
-				B55FB1C4251D320700F30CCC /* LetterGothicStd-Bold.otf in Resources */,
 				B5A9448125195A5E000C6665 /* Assets.xcassets in Resources */,
+				B5853F0F25233D80007C1572 /* RobotoCondensed-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1500,7 +1522,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OffradioWatchKit Extension/Pods-OffradioWatchKit Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B52A6C1E1E36B242005893D2 /* Fabric */ = {
+		B52A6C1E1E36B242005893D2 /* FirebaseCrashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1508,8 +1530,9 @@
 			inputPaths = (
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
 				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+				"",
 			);
-			name = Fabric;
+			name = FirebaseCrashlytics;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1606,6 +1629,7 @@
 				B524E6071E6741FD003A75EE /* ProducerView.swift in Sources */,
 				B54DC4CB1E5C9EA600FA376D /* UIViewExtensions.swift in Sources */,
 				B52A6C451E36BCBB005893D2 /* DateFormat.swift in Sources */,
+				B58E930225232DEB00C94000 /* LazyLoadable.swift in Sources */,
 				B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */,
 				B5E93F77250F9020008412E7 /* Decoders.swift in Sources */,
 				B5D60ED32512B21C00B21085 /* RxApplicationDelegateProxy.swift in Sources */,
@@ -1644,6 +1668,7 @@
 				B5D60ED42512B21C00B21085 /* UIApplication+Rx.swift in Sources */,
 				B58678AD1EAFC09D005321CA /* ShortcutsEnum.swift in Sources */,
 				B569603F1E490907003BFBC6 /* Theme.swift in Sources */,
+				B58E930325232DEB00C94000 /* LazyResettable.swift in Sources */,
 				B5656F1C1E6485C100E5DB0E /* OffradioMetadata.swift in Sources */,
 				B5A4EB9F1E36C1E800A1E8B1 /* UIFontAppSpecific.swift in Sources */,
 				B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */,
@@ -1676,6 +1701,7 @@
 				B5A93ED72515613B000C6665 /* NetStatusService.swift in Sources */,
 				B54E088A1E4E2FB200B54FB3 /* ContactTableViewCell.swift in Sources */,
 				B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */,
+				B58E930C25232E1900C94000 /* ProxyType.swift in Sources */,
 				B55FB127251CFBA900F30CCC /* StreamsConfiguration.swift in Sources */,
 				B5A941C82515F6D4000C6665 /* SettingsViewModel.swift in Sources */,
 				B5D923761E65E45E0013A3F4 /* CurrentTrack.swift in Sources */,
@@ -1685,6 +1711,7 @@
 				B5F125271E5CC82400579D4B /* VerticalArranger.swift in Sources */,
 				B56960591E492AA1003BFBC6 /* ContactViewController.swift in Sources */,
 				B51E3FBC1E4B9F49009F4C37 /* ProducerShow.swift in Sources */,
+				B58E92F7252329E100C94000 /* InterfaceFeedbackService.swift in Sources */,
 				B53FC4781E9C04DF00DC82AD /* ShareButton.swift in Sources */,
 				B507C0A11E54CE3000792414 /* PlaylistCellViewModel.swift in Sources */,
 				B524E60B1E6742C6003A75EE /* CurrentTrackView.swift in Sources */,

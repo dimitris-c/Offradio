@@ -9,8 +9,8 @@
 import SwiftUI
 
 extension Font {
-    static func letterGothic(size: CGFloat) -> Font {
-        Font.custom(LetterGothic.bold.rawValue, size: size)
+    static func robotoRegular(size: CGFloat) -> Font {
+        Font.custom(RobotoMono.regular.rawValue, size: size)
     }
     
     static func leagueGothic(style: LeagueGothic, size: CGFloat) -> Font {

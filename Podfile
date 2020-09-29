@@ -2,7 +2,7 @@ source 'https://cdn.cocoapods.org/'
 
 install! 'cocoapods', :generate_multiple_pod_projects => true
 
-platform :ios, '11.0'
+platform :ios, '12.0'
 use_frameworks!
 inhibit_all_warnings!
 
@@ -40,7 +40,7 @@ target 'Offradio' do
   end
 
   target 'OffradioWatchKit Extension' do
-      platform :watchos, '4.0'
+      platform :watchos, '5.0'
       pod 'RxSwift'
       pod 'RxCocoa'
       pod 'Kingfisher'

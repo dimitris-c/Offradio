@@ -22,10 +22,10 @@ final class ScheduleTableViewCell: UITableViewCell, ConfigurableCell {
         self.selectedBackgroundView = selectedView
 
         let fontSize: CGFloat = CGFloat.deviceValue(iPhone: 15, iPad: 22)
-        self.textLabel?.font = UIFont.letterGothicBold(withSize: fontSize)
+        self.textLabel?.font = UIFont.robotoRegular(withSize: fontSize)
         self.textLabel?.textColor = UIColor(red: 0.40, green: 0.40, blue: 0.40, alpha: 1.00)
 
-        self.detailTextLabel?.font = UIFont.letterGothicBold(withSize: fontSize)
+        self.detailTextLabel?.font = UIFont.robotoRegular(withSize: fontSize)
         self.detailTextLabel?.textColor = UIColor.white
 
     }

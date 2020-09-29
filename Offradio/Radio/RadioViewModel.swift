@@ -14,7 +14,8 @@ import StreamingKit
 
 final class RadioViewModel {
 
-    final private(set) var radio: Offradio
+    private let interfaceFeedback: InterfaceFeedbackType
+    private let radio: Offradio
 
     let toggleRadioTriggered: PublishSubject<Bool> = PublishSubject<Bool>()
 
@@ -26,9 +27,10 @@ final class RadioViewModel {
 
     let watchCommunication: OffradioWatchCommunication
 
-    init(with radio: Offradio, and watchCommunication: OffradioWatchCommunication) {
+    init(with radio: Offradio, and watchCommunication: OffradioWatchCommunication, interfaceFeedback: InterfaceFeedbackType) {
         self.radio = radio
         self.watchCommunication = watchCommunication
+        self.interfaceFeedback = interfaceFeedback
 
         nowPlaying = radio.metadata.nowPlaying.asDriver(onErrorJustReturn: .empty)
             .do(onNext: { [watchCommunication] nowPlaying in
@@ -39,6 +41,7 @@ final class RadioViewModel {
             .asObservable()
             .observeOn(MainScheduler.asyncInstance)
             .do(onNext: { [radio] shouldTurnRadioOn in
+                interfaceFeedback.fireFeedback()
                 if shouldTurnRadioOn {
                     radio.start()
                 } else {

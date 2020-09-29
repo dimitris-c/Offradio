@@ -46,7 +46,7 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
 
         self.timeLabel = UILabel(frame: .zero)
         self.timeLabel.textColor = UIColor(red: 0.60, green: 0.60, blue: 0.60, alpha: 1.00)
-        self.timeLabel.font = UIFont.letterGothicBold(withSize: 14)
+        self.timeLabel.font = UIFont.robotoRegular(withSize: 14)
         self.contentView.addSubview(self.timeLabel)
 
         self.artistLabel = UILabel(frame: .zero)
@@ -132,7 +132,7 @@ final class PlaylistTableViewCell: SwipeTableViewCell, ConfigurableCell {
         self.songLabel.text = self.item.title.uppercased()
 
         if let url = URL(string: self.item.image) {
-            self.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"))
+            self.albumArtwork.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "artwork-image-placeholder"), options: [.transition(.fade(0.35))])
         }
 
         self.viewModel.initialise(with: self.favouriteButton.rx.tap.asDriver().scan(false) { state, _ in !state })

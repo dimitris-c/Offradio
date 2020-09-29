@@ -12,7 +12,7 @@ struct Theme {
 
     static func setupNavBarAppearance() {
         UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.letterGothicBold(withSize: 16),
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font: UIFont.robotoRegular(withSize: 16),
                                                             NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
 

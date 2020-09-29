@@ -42,7 +42,7 @@ final class NowPlayingButton: UIControl {
         self.scrollLabel.pauseInterval = 4.2
         self.scrollLabel.fadeLength = 4
         self.scrollLabel.textAlignment = .left
-        self.scrollLabel.font = UIFont.letterGothicBold(withSize: CGFloat.deviceValue(iPhone: 18, iPad: 20))
+        self.scrollLabel.font = UIFont.robotoRegular(withSize: CGFloat.deviceValue(iPhone: 18, iPad: 20))
         self.scrollLabel.textColor = UIColor.white
         self.addSubview(self.scrollLabel)
 
@@ -63,7 +63,7 @@ final class NowPlayingButton: UIControl {
 
         self.scrollLabel.sizeToFit()
         let paddingLeft = CGFloat.deviceValue(iPhone: 40, iPad: 55)
-        self.scrollLabel.frame.origin = CGPoint(x: paddingLeft, y: 0)
+        self.scrollLabel.frame.origin = CGPoint(x: paddingLeft, y: -2)
 
     }
     

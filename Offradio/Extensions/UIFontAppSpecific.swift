@@ -15,9 +15,9 @@ public enum HelveticaNeue: String {
     case bold       = "HelveticaNeue-Bold"
 }
 
-public enum LetterGothic: String {
-    case bold       = "LetterGothicStd-Bold"
-    case fallback   = "RobotoMono-Regular"
+public enum RobotoMono: String {
+    case regular                = "RobotoMono-Regular"
+    case condesedBoldItalic    = "RobotoCondensed-BoldItalic"
 }
 
 public enum LeagueGothic: String {
@@ -28,15 +28,15 @@ public enum LeagueGothic: String {
 extension UIFont {
 
     class func leagueGothicRegular(withSize size: CGFloat) -> UIFont {
-        return font(LeagueGothic.regular.rawValue, fallback: "", size: size)
+        return font(LeagueGothic.regular.rawValue, fallback: RobotoMono.condesedBoldItalic.rawValue, size: size)
     }
 
     class func leagueGothicItalic(withSize size: CGFloat) -> UIFont {
-        return font(LeagueGothic.italic.rawValue, fallback: "", size: size)
+        return font(LeagueGothic.italic.rawValue, fallback: RobotoMono.condesedBoldItalic.rawValue, size: size)
     }
 
-    class func letterGothicBold(withSize size: CGFloat) -> UIFont {
-        return font(LetterGothic.bold.rawValue, fallback: LetterGothic.fallback.rawValue, size: size)
+    class func robotoRegular(withSize size: CGFloat) -> UIFont {
+        return font(RobotoMono.regular.rawValue, size: size)
     }
 
     class func defaultLight(withSize size: CGFloat) -> UIFont {

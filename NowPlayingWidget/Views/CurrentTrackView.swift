@@ -24,7 +24,7 @@ struct CurrentTrackView: View {
             }
             VStack(alignment: .leading){
                 Text("#NOWPLAYING")
-                    .font(Font.letterGothic(size: 12))
+                    .font(Font.robotoRegular(size: 12))
                     .foregroundColor(.gray)
                 Text(entry.track.artist)
                     .lineLimit(1)

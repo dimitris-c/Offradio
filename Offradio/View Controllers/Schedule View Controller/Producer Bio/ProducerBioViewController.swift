@@ -48,6 +48,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.scrollViewContainer.addSubview(self.producerTopView)
 
         self.producerImageView = UIImageView(frame: .zero)
+        self.producerImageView.contentMode = .scaleAspectFill
         self.producerImageView.clipsToBounds = true
         self.producerTopView.addSubview(self.producerImageView)
 
@@ -57,23 +58,24 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
 
         self.producerNameLabel = UILabel(frame: .zero)
         self.producerNameLabel.textColor = UIColor.white
-        self.producerNameLabel.text = self.producer.name.uppercased()
+        self.producerNameLabel.text = self.producer.slogan
         self.producerNameLabel.textAlignment = .center
+        self.producerNameLabel.lineBreakMode = .byWordWrapping
         self.producerNameLabel.numberOfLines = 0
-        let producerNameLabelfontSize: CGFloat = CGFloat.deviceValue(iPhone: 30, iPad: 40)
+        let producerNameLabelfontSize: CGFloat = CGFloat.deviceValue(iPhone: 25, iPad: 30)
         self.producerNameLabel.font = UIFont.leagueGothicItalic(withSize: producerNameLabelfontSize)
         self.scrollViewContainer.addSubview(self.producerNameLabel)
 
         self.producerBioLabel = UILabel(frame: .zero)
         let fontSize: CGFloat = CGFloat.deviceValue(iPhone: 14, iPad: 20)
-        self.producerBioLabel.font = UIFont.letterGothicBold(withSize: fontSize)
+        self.producerBioLabel.font = UIFont.robotoRegular(withSize: fontSize)
         self.producerBioLabel.textColor = UIColor.white
         self.producerBioLabel.numberOfLines = 0
         self.producerBioLabel.lineBreakMode = .byCharWrapping
 
         let attributedText = NSMutableAttributedString(string: self.producer.bio)
         let paragraph = NSMutableParagraphStyle()
-        paragraph.lineSpacing = 10
+        paragraph.lineSpacing = 7
         attributedText.set(paragraph: paragraph)
 
         self.producerBioLabel.attributedText = attributedText
@@ -109,7 +111,7 @@ final class ProducersBioViewController: UIViewController, UIScrollViewDelegate {
         self.producerImageView.layer.borderColor = UIColor.white.cgColor
         self.producerImageView.layer.borderWidth = 8
         
-        self.producerNameLabel.frame.size.width = self.scrollViewContainer.frame.width
+        self.producerNameLabel.frame.size.width = self.scrollViewContainer.frame.width - CGFloat.deviceValue(iPhone: 15, iPad: 20)
         self.producerNameLabel.sizeToFit()
         self.producerNameLabel.center.x = self.scrollViewContainer.center.x
 

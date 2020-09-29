@@ -168,7 +168,7 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
 
         itunesSeach.identifier = PlaylistCellSearchProvider.itunes.rawValue
         itunesSeach.image = UIImage(named: "applemusic_icon")
-        itunesSeach.font = UIFont.letterGothicBold(withSize: 12)
+        itunesSeach.font = UIFont.robotoRegular(withSize: 12)
         itunesSeach.backgroundColor = UIColor.black
         itunesSeach.highlightedBackgroundColor = UIColor.offRed
 

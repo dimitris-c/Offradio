@@ -26,7 +26,7 @@ final class AppCoordinator {
         
         self.offradio = dependencies.offradio
         self.watchCommunication = dependencies.watchCommunication
-        self.radioViewModel = RadioViewModel(with: offradio, and: watchCommunication)
+        self.radioViewModel = RadioViewModel(with: offradio, and: watchCommunication, interfaceFeedback: dependencies.interfaceFeedback)
         self.watchSession = OffradioAppWatchSession(with: offradio,
                                                     networkService: dependencies.networkService,
                                                     andViewModel: self.radioViewModel)

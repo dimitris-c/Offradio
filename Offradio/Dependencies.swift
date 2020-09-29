@@ -19,6 +19,7 @@ protocol CoreDependencies {
     var netStatusService: NetStatusProvider { get }
     var offradio: Offradio { get }
     var watchCommunication: OffradioWatchCommunication { get }
+    var interfaceFeedback: InterfaceFeedbackType { get }
 }
 
 final class CoreDependenciesService: CoreDependencies {
@@ -29,6 +30,7 @@ final class CoreDependenciesService: CoreDependencies {
     let offradio: Offradio
     let watchCommunication: OffradioWatchCommunication
     let networkService: OffradioNetworkService
+    let interfaceFeedback: InterfaceFeedbackType
     
     init() {
         self.userSettings = UserSettingsService()
@@ -41,5 +43,6 @@ final class CoreDependenciesService: CoreDependencies {
                                  netStatusService: netStatusService,
                                  playerConfigurationService: configurationService)
         self.watchCommunication = OffradioWatchCommunication()
+        self.interfaceFeedback = InterfaceFeedbackService()
     }
 }

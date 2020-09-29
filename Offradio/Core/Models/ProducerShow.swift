@@ -11,6 +11,7 @@ import Foundation
 struct Producer: Decodable {
     let name: String
     let bio: String
+    let slogan: String
     let image: URL?
     let producerId: Int
 }

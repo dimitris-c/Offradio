@@ -22,7 +22,7 @@ enum OffradioStreamQuality: String {
 final class Offradio: NSObject, RadioProtocol {
     
     private var isInForeground: Bool = true
-    private var audioPlayer = STKAudioPlayer()
+    private let audioPlayer: ResettableLazyLoaded<STKAudioPlayer>
     
     private let netStatusService: NetStatusProvider
     private let userSettings: UserSettings
@@ -49,11 +49,24 @@ final class Offradio: NSObject, RadioProtocol {
         self.metadata = metadata
         self.netStatusService = netStatusService
         self.playerConfigurationService = playerConfigurationService
+        
+        self.audioPlayer = ResettableLazyLoaded<STKAudioPlayer> {
+            var options = STKAudioPlayerOptions()
+            options.bufferSizeInSeconds = 4
+            options.secondsRequiredToStartPlaying = 1
+            options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
+            options.enableVolumeMixer = false
+            options.flushQueueOnSeek = false
+            let player = STKAudioPlayer(options: options)
+            player.volume = 1.0
+            return player
+        }
+        
         super.init()
+        
         self.configureAudioSession()
         self.addNotifications()
-        self.setupRadio()
-        
+//
         self.netStatusService.start { [weak self] connectionType in
             guard let self = self else { return }
             guard userSettings.audioStreamQualityAutomatic else { return }
@@ -61,18 +74,6 @@ final class Offradio: NSObject, RadioProtocol {
                 self.adjustAudioStreamQuality(for: connectionType)
             }
         }
-    }
-    
-    final func setupRadio() {
-        var options = STKAudioPlayerOptions()
-        options.bufferSizeInSeconds = 4
-        options.secondsRequiredToStartPlaying = 1
-        options.secondsRequiredToStartPlayingAfterBufferUnderun = 1
-        options.enableVolumeMixer = false
-        options.flushQueueOnSeek = false
-        self.audioPlayer = STKAudioPlayer(options: options)
-        self.audioPlayer.volume = 1.0
-        self.audioPlayer.delegate = self
     }
     
     final func adjustAudioStreamQuality(for connectionType: NetConnectionType) {
@@ -88,8 +89,8 @@ final class Offradio: NSObject, RadioProtocol {
         self.status = .playing
     }
     
-    final func start() {
-        guard self.status != .playing else { return }
+    final func start(force: Bool = false) {
+        guard self.status != .playing || force else { return }
         
         if !userSettings.audioStreamQualityAutomatic {
             let quality = OffradioStreamQuality(rawValue: userSettings.audioStreamQuality) ?? .hd
@@ -103,7 +104,7 @@ final class Offradio: NSObject, RadioProtocol {
     }
     
     final func stop() {
-        self.audioPlayer.stop()
+        actual(self.audioPlayer).stop()
         self.deactivateAudioSession()
         self.metadata.closeSocket()
         
@@ -121,12 +122,13 @@ final class Offradio: NSObject, RadioProtocol {
     final fileprivate func startRadio(with quality: PlayerStreamQuality) {
         self.activateAudioSession()
         
-        self.audioPlayer.play(quality.url)
+        actual(self.audioPlayer).play(quality.url)
+        actual(self.audioPlayer).delegate = self
         
         self.metadata.openSocket()
     }
     
-    final fileprivate func configureAudioSession() {
+    private func configureAudioSession() {
         do {
             Log.debug("AudioSession category is AVAudioSessionCategoryPlayback")
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, policy: .longFormAudio, options: [])
@@ -136,7 +138,7 @@ final class Offradio: NSObject, RadioProtocol {
         }
     }
     
-    final fileprivate func activateAudioSession() {
+    private func activateAudioSession() {
         do {
             Log.debug("AudioSession is active")
             try AVAudioSession.sharedInstance().setActive(true, options: [])
@@ -152,7 +154,7 @@ final class Offradio: NSObject, RadioProtocol {
         }
     }
     
-    final fileprivate func deactivateAudioSession() {
+    private func deactivateAudioSession() {
         do {
             Log.debug("AudioSession is deactivated")
             try AVAudioSession.sharedInstance().setActive(false)
@@ -195,14 +197,13 @@ extension Offradio: STKAudioPlayerDelegate {
     func audioPlayer(_ audioPlayer: STKAudioPlayer, unexpectedError errorCode: STKAudioPlayerErrorCode) {
         Log.debug("audio player error: \(errorCode)")
         switch errorCode {
-            case STKAudioPlayerErrorCode.audioSystemError,
-                 STKAudioPlayerErrorCode.codecError,
-                 STKAudioPlayerErrorCode.dataNotFound:
-                self.setupRadio()
+            case STKAudioPlayerErrorCode.audioSystemError:
+                self.audioPlayer.reset()
                 if status == .playing || status == .buffering {
-                    self.start()
+                    self.start(force: true)
                 }
             default:
+                self.stop()
                 break
         }
     }
@@ -242,7 +243,8 @@ extension Offradio {
         self.status = .stopped
         self.metadata.closeSocket()
         
-        self.setupRadio()
+        self.audioPlayer.reset()
+        stateChangedSubject.onNext(.stopped)
         self.deactivateAudioSession()
         self.configureAudioSession()
     }

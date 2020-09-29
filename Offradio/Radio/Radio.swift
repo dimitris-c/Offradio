@@ -13,9 +13,7 @@ protocol RadioProtocol {
     var status: RadioState { get }
     var metadata: RadioMetadata { get }
 
-    func setupRadio()
-
-    func start()
+    func start(force: Bool)
     func stop()
     func toggleRadio()
 }
