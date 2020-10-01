@@ -156,7 +156,7 @@ extension PlaylistViewController: SwipeTableViewCellDelegate {
                         }
                     case .failure(let error):
                         if error == .noResult {
-                            self.showAlert(title: "Error", message: "Could not find song.")
+                            self.showAlert(title: "Ooops", message: "It seems that we couldn't find that song")
                         }
                     }
                 }

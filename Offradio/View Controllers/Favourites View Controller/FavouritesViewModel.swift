@@ -11,13 +11,16 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import RxRealm
+import Moya
 
 final class FavouritesViewModel {
     
     let favouritesDataLayer: PlaylistFavouritesLayer = PlaylistFavouritesLayer()
     let data: Observable<[PlaylistSong]>
     let playlistData: Driver<[PlaylistCellViewModel]>
-
+    
+    let itunesService = MoyaProvider<iTunesSearchAPI>()
+    
     init(viewWillAppear: Driver<Void>) {
         
         if let favourites = favouritesDataLayer.allFavourites()?.sorted(byKeyPath: "airedDatetime", ascending: false) {
@@ -30,7 +33,7 @@ final class FavouritesViewModel {
             self.data = .empty()
             playlistData = .empty()
         }
-
+        
     }
     
     
@@ -42,11 +45,7 @@ final class FavouritesViewModel {
             if let links = songs[indexPath.row].links {
                 switch provider {
                     case .itunes:
-                        if let encodedAppleLink = links.apple.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-                            return .just(.success(encodedAppleLink))
-                        } else {
-                            return .just(.failure(.noResult))
-                        }
+                        return self.searchOniTunes(for: songs[indexPath.row])
                     case .spotify:
                         if let encodedSpotifyLink = links.spotify.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
                             return .just(.success(encodedSpotifyLink))
@@ -58,5 +57,30 @@ final class FavouritesViewModel {
                 return .just(.failure(.noResult))
             }
         }
+    }
+    
+    
+    private func searchOniTunes(for item: PlaylistSong) -> Observable<Result<String, SearchResultError>> {
+        return itunesService.rx.request(.search(with: item))
+            .map { response in
+                do {
+                    let data = response.data
+                    if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                        if let results = json["results"] as? [[String: Any]],
+                           let trackView = results.first?["trackViewUrl"] as? String {
+                            
+                            return .success(trackView)
+                        } else {
+                            return .failure(.noResult)
+                        }
+                    }
+                    else {
+                        return .failure(.noResult)
+                    }
+                } catch {
+                    return .failure(.noResult)
+                }
+            }.catchErrorJustReturn(.failure(.noResult))
+            .asObservable()
     }
 }

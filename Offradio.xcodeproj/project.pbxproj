@@ -138,6 +138,7 @@
 		B5955D7E1E5F6C34002C1405 /* PlayerCircleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */; };
 		B5955D801E5F6C51002C1405 /* NowPlayingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */; };
 		B59A88DB1F27A87A003509C3 /* UIColor+Offradio.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */; };
+		B5A31AFB2525CC1900E5881B /* iTunesSearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A31AFA2525CC1900E5881B /* iTunesSearchAPI.swift */; };
 		B5A430891FA1405B006F0BC9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5CBD0561F74409800250FC9 /* AVFoundation.framework */; };
 		B5A4308D1FA14093006F0BC9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */; };
 		B5A4308F1FA1409C006F0BC9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */; };
@@ -400,6 +401,7 @@
 		B5955D7D1E5F6C34002C1405 /* PlayerCircleContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCircleContainerView.swift; sourceTree = "<group>"; };
 		B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingButton.swift; sourceTree = "<group>"; };
 		B59A88DA1F27A87A003509C3 /* UIColor+Offradio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "UIColor+Offradio.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B5A31AFA2525CC1900E5881B /* iTunesSearchAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iTunesSearchAPI.swift; sourceTree = "<group>"; };
 		B5A4308C1FA14093006F0BC9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B5A4308E1FA1409C006F0BC9 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B5A4EB9C1E36C1E800A1E8B1 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				B5D60ECE2512B21C00B21085 /* AppStateReporter */,
 				B52E568B25121D31000AC1B8 /* WebSocket */,
 				B52E568A25121D19000AC1B8 /* NowPlaying */,
+				B5A31AF92525CC1900E5881B /* iTunesSearch API */,
 				B50395581E4BA4E800D9A71B /* Offradio API */,
 				B52A6C2C1E36B9BB005893D2 /* Models */,
 				B50395721E4BCA3000D9A71B /* Protocols */,
@@ -1046,6 +1049,14 @@
 				B5955D7F1E5F6C51002C1405 /* NowPlayingButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B5A31AF92525CC1900E5881B /* iTunesSearch API */ = {
+			isa = PBXGroup;
+			children = (
+				B5A31AFA2525CC1900E5881B /* iTunesSearchAPI.swift */,
+			);
+			path = "iTunesSearch API";
 			sourceTree = "<group>";
 		};
 		B5A941C62515F6C0000C6665 /* Settings View Controller */ = {
@@ -1626,6 +1637,7 @@
 				B5D9237A1E6700310013A3F4 /* RealmMigrationLayer.swift in Sources */,
 				B54DC4D01E5CA3A600FA376D /* FavouritesViewModel.swift in Sources */,
 				B54E08811E4D10C400B54FB3 /* ScheduleViewModel.swift in Sources */,
+				B5A31AFB2525CC1900E5881B /* iTunesSearchAPI.swift in Sources */,
 				B569604C1E491A15003BFBC6 /* UIViewControllerExtensions.swift in Sources */,
 				B5656F321E65DC9A00E5DB0E /* KingfisherManager+Rx.swift in Sources */,
 				B5BA38411E4F702200DB49C9 /* UIScrollView+Rx.swift in Sources */,
