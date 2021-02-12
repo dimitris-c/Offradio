@@ -18,7 +18,7 @@ struct ScheduleItem: Decodable {
     let image: URL?
 
     var hasBio: Bool {
-        guard let id = producerId, !id.isEmpty else {
+        guard let bio = producerBio, !bio.isEmpty else {
             return false
         }
         return true

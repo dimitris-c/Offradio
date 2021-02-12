@@ -53,7 +53,7 @@ extension PlayerStreams {
     func quality(for connectionType: NetConnectionType) -> PlayerStreamQuality {
         switch connectionType {
             case .cellular: return self.lowBitrateAac
-            case .wifi: return self.proxyStream
+            case .wifi: return self.highBitrateAac
             case .undetermined: return self.lowBitrateAac
                 
         }
