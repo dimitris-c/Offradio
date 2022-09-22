@@ -123,7 +123,7 @@
 		B58678AF1EAFC0E5005321CA /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678AE1EAFC0E5005321CA /* Shortcuts.swift */; };
 		B58678DB1EAFCF4A005321CA /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58678D91EAFCF4A005321CA /* Interface.storyboard */; };
 		B58678DD1EAFCF4A005321CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58678DC1EAFCF4A005321CA /* Assets.xcassets */; };
-		B58678E41EAFCF4A005321CA /* OffradioWatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B58678E41EAFCF4A005321CA /* OffradioWatchKit Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B58678E31EAFCF4A005321CA /* OffradioWatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B58678EB1EAFCF4A005321CA /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58678EA1EAFCF4A005321CA /* ExtensionDelegate.swift */; };
 		B58678ED1EAFCF4A005321CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58678EC1EAFCF4A005321CA /* Assets.xcassets */; };
 		B58678F11EAFCF4A005321CA /* OffradioWatchKit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B58678D71EAFCF4A005321CA /* OffradioWatchKit.app */; };
@@ -156,7 +156,7 @@
 		B5A9447C25195A5C000C6665 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A94448251958B5000C6665 /* SwiftUI.framework */; };
 		B5A9447F25195A5C000C6665 /* NowPlayingEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A9447E25195A5C000C6665 /* NowPlayingEntryView.swift */; };
 		B5A9448125195A5E000C6665 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5A9448025195A5E000C6665 /* Assets.xcassets */; };
-		B5A9448525195A5E000C6665 /* NowPlayingWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5A9447A25195A5C000C6665 /* NowPlayingWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B5A9448525195A5E000C6665 /* NowPlayingWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B5A9447A25195A5C000C6665 /* NowPlayingWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B5AF729A1F96A2140060D5F8 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AF72991F96A2140060D5F8 /* DebugViewController.swift */; };
 		B5B571341F27AFF200AC25DE /* DeviceValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B571331F27AFF200AC25DE /* DeviceValue.swift */; };
 		B5BA38351E4F65D900DB49C9 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BA38341E4F65D900DB49C9 /* PlaylistViewController.swift */; };
@@ -224,15 +224,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B5269DD41E9D890900ED7A60 /* Embed App Extensions */ = {
+		B5269DD41E9D890900ED7A60 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B5A9448525195A5E000C6665 /* NowPlayingWidgetExtension.appex in Embed App Extensions */,
+				B5A9448525195A5E000C6665 /* NowPlayingWidgetExtension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B58678D41EAFCF1C005321CA /* Embed Watch Content */ = {
@@ -246,15 +246,15 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B58678F51EAFCF4A005321CA /* Embed App Extensions */ = {
+		B58678F51EAFCF4A005321CA /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				B58678E41EAFCF4A005321CA /* OffradioWatchKit Extension.appex in Embed App Extensions */,
+				B58678E41EAFCF4A005321CA /* OffradioWatchKit Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1086,8 +1086,8 @@
 				B55FB396251DE80800F30CCC /* Styling */,
 				B56B65A62519FEC100F60690 /* NowPlayingWidget.swift */,
 				B56B6667251A73C600F60690 /* NowPlayingProvider.swift */,
-				B56B665A251A739D00F60690 /* Views */,
 				B5A9447E25195A5C000C6665 /* NowPlayingEntryView.swift */,
+				B56B665A251A739D00F60690 /* Views */,
 				B5A9448025195A5E000C6665 /* Assets.xcassets */,
 				B56B65952519FDED00F60690 /* Fonts */,
 				B5A9448225195A5E000C6665 /* Info.plist */,
@@ -1180,7 +1180,7 @@
 				B54BC8A11E36A9DB0043F248 /* Resources */,
 				D07345AF44A5FDFE72120D15 /* [CP] Embed Pods Frameworks */,
 				B58678D41EAFCF1C005321CA /* Embed Watch Content */,
-				B5269DD41E9D890900ED7A60 /* Embed App Extensions */,
+				B5269DD41E9D890900ED7A60 /* Embed Foundation Extensions */,
 				B52A6C1E1E36B242005893D2 /* FirebaseCrashlytics */,
 				B53BDC5F2423E34A001F42E7 /* Upload Symbols */,
 			);
@@ -1239,7 +1239,7 @@
 			buildConfigurationList = B58678F61EAFCF4A005321CA /* Build configuration list for PBXNativeTarget "OffradioWatchKit" */;
 			buildPhases = (
 				B58678D51EAFCF4A005321CA /* Resources */,
-				B58678F51EAFCF4A005321CA /* Embed App Extensions */,
+				B58678F51EAFCF4A005321CA /* Embed Foundation Extensions */,
 				39C6CB3820D5889B31457C64 /* Frameworks */,
 			);
 			buildRules = (
@@ -1295,7 +1295,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = decimal;
 				TargetAttributes = {
 					B54BC8A21E36A9DB0043F248 = {
@@ -1845,6 +1845,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1869,7 +1870,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1903,6 +1904,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1921,7 +1923,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1946,7 +1948,7 @@
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Offradio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1976,7 +1978,7 @@
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Offradio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2081,7 +2083,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 200;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2096,7 +2098,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2108,7 +2110,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "OffradioWatchKit Extension/OffradioWatchKit Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 190;
+				CURRENT_PROJECT_VERSION = 200;
 				DEVELOPMENT_TEAM = 5Y92JCRVR7;
 				INFOPLIST_FILE = "OffradioWatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2123,7 +2125,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -2147,7 +2149,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -2171,7 +2173,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};

@@ -9,7 +9,7 @@
 import UIKit
 
 class ContentLoadingViewController: UIViewController {
-    private lazy var activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+    private lazy var activityIndicator = UIActivityIndicatorView(style: .large)
     private lazy var activityLabel = UILabel()
     private var loadingTitle: String?
     

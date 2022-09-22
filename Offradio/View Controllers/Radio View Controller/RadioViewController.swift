@@ -36,6 +36,7 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.view.backgroundColor = UIColor.lightBlack
 
         let settingsButton = UIButton(type: .custom)
+        settingsButton.tintColor = .white
         settingsButton.setBackgroundImage(UIImage(named: "settings-icon"), for: .normal)
         settingsButton.setBackgroundImage(UIImage(named: "settings-icon-highlighted"), for: .highlighted)
         settingsButton.sizeToFit()
@@ -57,8 +58,6 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         
         self.nowPlayingButton.alpha = 0.0
         self.scrollView.addSubview(self.nowPlayingButton)
-
-        self.registerForPreviewing(with: self, sourceView: self.nowPlayingButton)
 
         self.bindViewModel()
     }
@@ -167,23 +166,6 @@ final class RadioViewController: UIViewController, TabBarItemProtocol {
         self.hideLabelOnBackButton()
         let nowPlayingViewController = NowPlayingViewController(with: offradioMetadata)
         self.navigationController?.pushViewController(nowPlayingViewController, animated: true)
-    }
-
-}
-
-extension RadioViewController: UIViewControllerPreviewingDelegate {
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-
-        let sourceRect = previewingContext.sourceView.convert(self.nowPlayingButton.frame, from: self.view)
-        previewingContext.sourceRect = sourceRect
-        let nowPlayingViewController = NowPlayingViewController(with: self.offradio.metadata)
-        return nowPlayingViewController
-    }
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        self.hideLabelOnBackButton()
-        show(viewControllerToCommit, sender: self)
     }
 
 }

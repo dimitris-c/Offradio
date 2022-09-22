@@ -114,7 +114,7 @@ extension FavouritesViewController: SwipeTableViewCellDelegate {
         spotifySearch.transitionDelegate = ScaleTransition.default
         
         //        let item = self.viewModel.playlistData.value[indexPath.row].item
-        var actions: [SwipeAction] = [spotifySearch, itunesSeach]
+        let actions: [SwipeAction] = [spotifySearch, itunesSeach]
         //        if let links = item.links {
         //            if links.hasSpotify {
         //                actions.append(spotifySearch)

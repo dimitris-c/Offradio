@@ -21,7 +21,6 @@ final class NowPlayingSocketService {
     
     func nowPlayingUpdates() -> Observable<NowPlaying> {
         self.websocket.connect()
-            .debug()
             .flatMap { [weak self] status -> Observable<NowPlaying> in
                 guard let self = self else { return .empty() }
                 switch status {

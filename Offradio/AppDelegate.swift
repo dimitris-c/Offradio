@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.appCoordinator = appCoordinator
         self.dependencies = dependencies
         
-        Theme.setupNavBarAppearance()
+        Theme.applyNavBarAppearance()
         
         return true
     }

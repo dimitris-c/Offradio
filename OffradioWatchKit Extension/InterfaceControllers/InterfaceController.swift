@@ -35,7 +35,7 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
         disposeBag = DisposeBag()
-        OffradioWatchSession.shared.radioState.debug()
+        OffradioWatchSession.shared.radioState
             .subscribe(onNext: { [weak self] state in
                 let isPlaying = state == RadioState.playing || state == RadioState.buffering
                 self?.adjustIcon(with: isPlaying)

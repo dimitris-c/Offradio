@@ -38,6 +38,8 @@ struct CurrentTrack: Decodable, Equatable {
 
     static let `default` = CurrentTrack(name: "Turn Your Radio Off", artist: "Offradio", artistImage: "", trackImage: "", timeAired: "", links: .empty)
 
+    static let `preview` = CurrentTrack(name: "And I Say (Xinobi edit)", artist: "Nicolas Jaar", artistImage: "", trackImage: "", timeAired: "", links: .empty)
+
     static func from(dictionary: [String: Any]) -> CurrentTrack {
         guard let track = dictionary["track"] as? String,
             let artist = dictionary["artist"] as? String,

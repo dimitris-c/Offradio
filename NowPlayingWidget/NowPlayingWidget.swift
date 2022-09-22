@@ -15,11 +15,20 @@ struct NowPlayingWidget: Widget {
     
     private let networkClient = NetworkClient(session: .shared)
 
+    var supportedFamilies: [WidgetFamily] {
+        if #available(iOSApplicationExtension 16.0, *) {
+            return [.systemSmall, .systemMedium, .systemLarge, .accessoryRectangular, .accessoryInline]
+        } else {
+            return [.systemSmall, .systemMedium, .systemLarge]
+        }
+    }
+
     var body: some WidgetConfiguration {
         let provider = Provider(apiClient: OffradioAPIClient(networkClient: networkClient))
         return StaticConfiguration(kind: kind, provider: provider) { entry in
             NowPlayingWidgetEntryView(entry: entry)
         }
+        .supportedFamilies(supportedFamilies)
         .configurationDisplayName("Now Playing")
         .description("Quickly see what's playing on OFFRadio")
     }

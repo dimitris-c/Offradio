@@ -2,7 +2,7 @@ source 'https://cdn.cocoapods.org/'
 
 install! 'cocoapods', :generate_multiple_pod_projects => true
 
-platform :ios, '12.0'
+platform :ios, '13.0'
 use_frameworks!
 inhibit_all_warnings!
 
@@ -45,5 +45,4 @@ target 'Offradio' do
       pod 'RxCocoa'
       pod 'Kingfisher'
   end
-  
 end

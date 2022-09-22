@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Reusable: class {
+public protocol Reusable: AnyObject {
     static var identifier: String { get }
 }
 

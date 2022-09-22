@@ -50,9 +50,7 @@ final class ScheduleViewController: UIViewController {
         self.tableView.rowHeight = CGFloat.deviceValue(iPhone: 60, iPad: 90)
         self.view.addSubview(self.tableView)
 
-        self.registerForPreviewing(with: self, sourceView: self.tableView)
-
-        self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        self.activityIndicator = UIActivityIndicatorView(style: .large)
         self.activityIndicator.startAnimating()
         self.view.addSubview(self.activityIndicator)
 
@@ -131,32 +129,6 @@ extension ScheduleViewController {
         item.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
         item.tag = TabIdentifier.schedule.rawValue
         return item
-    }
-
-}
-
-extension ScheduleViewController: UIViewControllerPreviewingDelegate {
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = self.tableView.indexPathForRow(at: location) else { return nil }
-
-        let item = viewModel.getSchedule(at: indexPath)
-        if item.hasBio, let bio = viewModel.getProducerBio(for: item.showTitle) {
-
-            let producerBioViewController = ProducersBioViewController(with: bio)
-            let cellRect = tableView.rectForRow(at: indexPath)
-            let sourceRect = previewingContext.sourceView.convert(cellRect, to: tableView)
-            previewingContext.sourceRect = sourceRect
-
-            return producerBioViewController
-        }
-
-        return nil
-    }
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        self.hideLabelOnBackButton()
-        show(viewControllerToCommit, sender: self)
     }
 
 }

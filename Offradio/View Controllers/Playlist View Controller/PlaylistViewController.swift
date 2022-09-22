@@ -38,7 +38,7 @@ final class PlaylistViewController: UIViewController {
         self.view.backgroundColor = UIColor.lightBlack
 
         self.tableViewActivityContainerView = UIView(frame: .zero)
-        self.tableViewActivityView = UIActivityIndicatorView(style: .white)
+        self.tableViewActivityView = UIActivityIndicatorView(style: .medium)
         self.tableViewActivityContainerView.addSubview(self.tableViewActivityView)
 
         self.tableView = UITableView(frame: .zero)
@@ -50,7 +50,7 @@ final class PlaylistViewController: UIViewController {
         self.tableView.tableFooterView = self.tableViewActivityContainerView
         self.view.addSubview(self.tableView)
 
-        self.initialLoadActivityView = UIActivityIndicatorView(style: .whiteLarge)
+        self.initialLoadActivityView = UIActivityIndicatorView(style: .large)
         self.initialLoadActivityView.startAnimating()
         self.view.addSubview(self.initialLoadActivityView)
 
