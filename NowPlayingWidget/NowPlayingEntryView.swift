@@ -29,7 +29,7 @@ struct NowPlayingWidgetEntryView : View {
                 EmptyView()
             case .accessoryRectangular:
                 ViewThatFits {
-                    HStack {
+                    HStack(alignment: .top) {
                         Image("offradio-logo")
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 30, height: 30, alignment: .center)
