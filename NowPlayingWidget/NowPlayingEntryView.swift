@@ -15,7 +15,8 @@ struct NowPlayingWidgetEntryView : View {
     var entry: Provider.Entry
 
     var body: some View {
-        switch family {
+        if #available(iOSApplicationExtension 16.0, *) {
+            switch family {
             case .systemSmall:
                 NowPlayingSmallView(entry: entry)
             case .systemMedium:
@@ -23,13 +24,11 @@ struct NowPlayingWidgetEntryView : View {
             case .systemLarge:
                 NowPlayingLargeView(entry: entry)
             case .systemExtraLarge:
-            NowPlayingLargeView(entry: entry)
+                NowPlayingLargeView(entry: entry)
             case .accessoryCircular:
                 EmptyView()
             case .accessoryRectangular:
-                VStack(alignment: .leading) {
-                    Text("Offradio")
-                        .font(.caption)
+                ViewThatFits {
                     HStack {
                         Image("offradio-logo")
                             .aspectRatio(contentMode: .fit)
@@ -43,11 +42,24 @@ struct NowPlayingWidgetEntryView : View {
                         }
                     }
                 }
-                .border(Color.red)
             case .accessoryInline:
-                Text(entry.track.title)
+                EmptyView()
             @unknown default:
                 NowPlayingMediumView(entry: entry)
+            }
+        } else {
+            switch family {
+            case .systemSmall:
+                NowPlayingSmallView(entry: entry)
+            case .systemMedium:
+                NowPlayingMediumView(entry: entry)
+            case .systemLarge:
+                NowPlayingLargeView(entry: entry)
+            case .systemExtraLarge:
+                NowPlayingLargeView(entry: entry)
+            @unknown default:
+                NowPlayingMediumView(entry: entry)
+            }
         }
     }
 }
@@ -80,12 +92,8 @@ struct NowPlayingWidget_Previews: PreviewProvider {
                 NowPlayingWidgetEntryView(
                     entry: NowPlayingEntry(date: Date(), track: .preview, playlist: .default)
                 )
-                .previewContext(WidgetPreviewContext(family: .accessoryInline))
-                
-                NowPlayingWidgetEntryView(
-                    entry: NowPlayingEntry(date: Date(), track: .preview, playlist: .default)
-                )
                 .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
+                .previewDisplayName("Acccessory Rectangular")
             }
         }
     }

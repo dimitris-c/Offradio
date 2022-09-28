@@ -16,6 +16,10 @@ struct CurrentTrack: Decodable, Equatable {
     let timeAired: String
 //    let datetimeAired: Date?
     let links: CurrentTrackLinks
+
+    var id: String {
+        name
+    }
     
     var image: String {
         if !trackImage.isEmpty {

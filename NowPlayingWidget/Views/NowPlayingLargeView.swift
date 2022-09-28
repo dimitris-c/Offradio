@@ -20,15 +20,16 @@ struct NowPlayingLargeView: View {
             }
             .padding(.all, 16)
             .background(Color.NowPlayingWidget.background)
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("OFFRADIO PLAYLIST")
                     .font(Font.leagueGothic(style: .italic, size: 20))
                     .foregroundColor(.white)
                     .padding(.top, 8)
                     .padding(.leading, 16)
-                    .padding(.bottom, 4)
-                ForEach(entry.playlist.songs) { song in
-                    PlaylistRow(song: song)
+                VStack(spacing: 4) {
+                    ForEach(entry.playlist.songs) { song in
+                        PlaylistRow(song: song)
+                    }
                 }
             }
         }
@@ -49,8 +50,6 @@ struct PlaylistRow: View {
                 .lineLimit(2)
                 .font(Font.system(size: 13, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
-                .padding(.trailing, 16)
-                .padding(.bottom, 4)
         }
         .padding(.leading, 16)
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)

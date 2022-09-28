@@ -13,8 +13,6 @@ extension Song: Identifiable {
     var id: String {
         return self.title
     }
-    
-    
 }
 
 struct Playlist {
@@ -57,7 +55,7 @@ class Provider: TimelineProvider {
         }
         self.getWidgetInformation()
             .sink { entry in
-                let nextRefresh = Calendar.current.date(byAdding: .minute, value: 5, to: Date()) ?? Date()
+                let nextRefresh = Calendar.current.date(byAdding: .minute, value: 3, to: Date()) ?? Date()
                 let timeline = Timeline(entries: [entry], policy: .after(nextRefresh))
                 completion(timeline)
             }
@@ -68,7 +66,10 @@ class Provider: TimelineProvider {
         self.apiClient.getNowPlaying()
             .zip(self.apiClient.getPlaylist())
             .map { (track, songs) -> NowPlayingEntry in
-                let redactedSongs = Array(songs[..<Playlist.maxSongs])
+                var redactedSongs = Array(songs[..<Playlist.maxSongs])
+                if let index = redactedSongs.firstIndex(where: { $0.id == track.id }) {
+                    redactedSongs.remove(at: index)
+                }
                 return NowPlayingEntry(date: Date(), track: track, playlist: Playlist(songs: redactedSongs))
             }
             .replaceError(with: NowPlayingEntry(date: Date(), track: .default, playlist: .default))
