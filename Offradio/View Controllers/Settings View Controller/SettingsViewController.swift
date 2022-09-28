@@ -60,12 +60,8 @@ final class SettingsViewController: UIViewController {
             self.tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        if #available(iOS 13.0, *) {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: nil, action: nil)
-            self.navigationItem.rightBarButtonItem?.tintColor = .white
-        } else {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
-        }
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .done, target: nil, action: nil)
+        self.navigationItem.rightBarButtonItem?.tintColor = .white
         self.navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext: { [weak self] _ in
             self?.dismiss(animated: true, completion: nil)
         }).disposed(by: disposeBag)
