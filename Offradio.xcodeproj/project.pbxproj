@@ -2095,7 +2095,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.6;
+				MARKETING_VERSION = 4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -2122,7 +2122,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 4.6;
+				MARKETING_VERSION = 4.7;
 				PRODUCT_BUNDLE_IDENTIFIER = gr.funkytaps.offradio.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
