@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.offradio.gr</string>
+		<string>group.offradio.app.gr</string>
 	</array>
 </dict>
 </plist>
