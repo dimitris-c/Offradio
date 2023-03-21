@@ -20,10 +20,10 @@ final class PlayerConfigurationService: PlayerConfigurationProvider {
     
     init(networkService: OffradioNetworkService) {
         self.networkService = networkService
-        
-        self.fetchConfiguration()
     }
-    
+
+
+    /// deprecated
     private func fetchConfiguration() {
         self.networkService.rx.request(.configuration)
             .map(PlayerConfiguration.self, atKeyPath: nil, using: Decoders.defaultJSONDecoder, failsOnEmptyData: false)

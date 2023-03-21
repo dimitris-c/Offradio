@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>487943935241-dc0d15t5p2gh2mntkp8j6ahkvm08cmmq.apps.googleusercontent.com</string>
+	<string>537688494604-9d90c5335df5is92b7u6ism9tsjj43j5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.487943935241-dc0d15t5p2gh2mntkp8j6ahkvm08cmmq</string>
+	<string>com.googleusercontent.apps.537688494604-9d90c5335df5is92b7u6ism9tsjj43j5</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDiyAt9TYNtBgMy7VrN1oB1eeKOm9JKZng</string>
+	<string>AIzaSyCY9R1NeGIvCTQ7r-VYFpOPOERwf3--2Ls</string>
 	<key>GCM_SENDER_ID</key>
-	<string>487943935241</string>
+	<string>537688494604</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>gr.funkytaps.offradio</string>
 	<key>PROJECT_ID</key>
-	<string>offradio-ccec5</string>
+	<string>offradio-71da8</string>
 	<key>STORAGE_BUCKET</key>
-	<string>offradio-ccec5.appspot.com</string>
+	<string>offradio-71da8.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<true/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:487943935241:ios:7f8de3164f65ca0e2aefd8</string>
+	<string>1:537688494604:ios:d902506cc561a2c0bad429</string>
 </dict>
 </plist>

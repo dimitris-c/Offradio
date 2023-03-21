@@ -12,9 +12,9 @@ struct PlayerConfiguration: Decodable {
     let streams: PlayerStreams
     
     static let `default` = PlayerConfiguration(
-        streams: PlayerStreams(lowBitrateAac: .acc(type: .sd(url: "https://s3.yesstreaming.net:17033/stream")),
-                               highBitrateAac: .acc(type: .hd(url: "https://s3.yesstreaming.net:17062/stream")),
-                               highBitrateMp3: .mp3(type: .hd(url: "https://s3.yesstreaming.net:17062/stream")),
-                               proxyStream: .proxy(url: "https://s7.yesstreaming.net/stream/8000"))
+        streams: PlayerStreams(
+            lowBitrate: .acc(type: .sd(url: "https://sdstream.offradio.gr")),
+            highBitrate: .acc(type: .hd(url: "https://hdstream.offradio.gr"))
+        )
     )
 }

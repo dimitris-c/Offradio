@@ -20,8 +20,7 @@ final class OffradioMetadata: RadioMetadata {
     let currentTrack = BehaviorRelay<CurrentTrack>(value: .default)
     
     private let disposeBag = DisposeBag()
-    private let opQueue = ConcurrentDispatchQueueScheduler(qos: .background)
-    
+
     private let refresh = PublishRelay<MetadataTrigger>()
     private let networkService: OffradioNetworkService
     

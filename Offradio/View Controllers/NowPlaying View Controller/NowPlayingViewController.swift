@@ -118,14 +118,17 @@ final class NowPlayingViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        self.scrollView.frame = self.view.bounds
+        let safeBounds = CGRect(origin: .init(x: self.view.safeAreaInsets.left, y: self.view.safeAreaInsets.top), size: view.bounds.size)
+        self.scrollView.frame = safeBounds
 
-        let (currentTrackRect, remainderRect) = self.view.bounds.divided(atDistance: self.view.frame.height * 0.55,
+        let (currentTrackRect, remainderRect) = self.view.bounds.divided(atDistance: self.view.bounds.height * 0.55,
                                                                          from: .minYEdge)
         self.currentTrackView.frame = currentTrackRect.integral
         self.producerView.frame = remainderRect.integral
 
-        currentTrackViewInitialHeight = self.currentTrackView.frame.size.height
+        if currentTrackViewInitialHeight == 0.0 {
+            currentTrackViewInitialHeight = self.currentTrackView.frame.size.height
+        }
     }
 
 }
@@ -134,6 +137,7 @@ extension NowPlayingViewController: UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y = -scrollView.contentOffset.y
+        print(y)
         if y > 0 {
             self.currentTrackView.frame.origin.y = scrollView.contentOffset.y
             self.currentTrackView.frame.size.height = currentTrackViewInitialHeight + y
