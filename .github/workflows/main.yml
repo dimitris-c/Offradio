@@ -16,4 +16,4 @@ jobs:
           BUILD_TRIGGER_TOKEN: ${{ secrets.BUILD_TRIGGER_TOKEN }}
         if: ${{ github.event.issue.pull_request && contains(fromJSON('["ci run tests", "retest", "run tests"]'), github.event.comment.body) }}
         run: |
-          echo "$BITRISE_BUILD_TRIGGER_TOKEN"
+          echo "$BUILD_TRIGGER_TOKEN"
