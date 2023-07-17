@@ -1,7 +1,7 @@
 name: Check for Bitrise Comment
 
 on:
-  issue_comment:
+  pull_request_review_comment:
     types: [created]
 
 jobs:
@@ -13,7 +13,20 @@ jobs:
     steps:
       - name: PR comment
         env:
-          BUILD_TRIGGER_TOKEN: ${{ secrets.BUILD_TRIGGER_TOKEN }}
-        if: ${{ github.event.issue.pull_request && contains(fromJSON('["ci run tests", "retest", "run tests"]'), github.event.comment.body) }}
+          BITRISE_BUILD_TRIGGER_TOKEN: ${{ secrets.BITRISE_BUILD_TRIGGER_TOKEN }}
+        if: ${{ contains(fromJSON('["ci run tests", "retest", "run tests"]'), github.event.comment.body) }}
         run: |
-          echo "$BUILD_TRIGGER_TOKEN"
+          echo "::debug::Running tests for "${{ github.event.pull_request.head.ref }}, id: "${{ github.event.pull_request.number }}""
+          curl https://app.bitrise.io/app/84ddba31cf8de1e2/build/start.json -L --data '{
+            "hook_info":{
+              "type":"bitrise",
+              "build_trigger_token":"$BITRISE_BUILD_TRIGGER_TOKEN"
+            },
+            "build_params":{
+              "branch": "${{ github.event.pull_request.head.ref }}",
+              "workflow_id": "run-tests",
+              "commit_hash": "${{ github.event.pull_request.head.sha }}",
+              "pull_request_id": "${{ github.event.pull_request.number }}"
+            },
+            "triggered_by":"curl"
+          }'
