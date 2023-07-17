@@ -1,7 +1,7 @@
 name: Check for Bitrise Comment
 
 on:
-  pull_request_review_comment:
+  issue_comment:
     types: [created]
 
 jobs:
@@ -11,22 +11,27 @@ jobs:
     runs-on: [ubuntu-latest]
 
     steps:
+      - name: "Get PR's branch name"
+        id: get_branch
+        run: |
+          PR=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" ${{ github.event.issue.pull_request.url }})
+          echo "branch=$(echo $PR | jq -r '.head.ref')" >> "$GITHUB_OUTPUT"
+          echo "sha=$(echo $PR | jq -r '.head.sha')" >> "$GITHUB_OUTPUT"
       - name: PR comment
         env:
-          BITRISE_BUILD_TRIGGER_TOKEN: ${{ secrets.BUILD_TRIGGER_TOKEN }}
+          BUILD_TRIGGER_TOKEN: ${{ secrets.BUILD_TRIGGER_TOKEN }}
         if: ${{ contains(fromJSON('["ci run tests", "retest", "run tests"]'), github.event.comment.body) }}
         run: |
-          echo "::debug::Running tests for "${{ github.event.pull_request.head.ref }}, id: "${{ github.event.pull_request.number }}""
-          # curl https://app.bitrise.io/app/84ddba31cf8de1e2/build/start.json -L --data '{
-          #   "hook_info":{
-          #     "type":"bitrise",
-          #     "build_trigger_token":"$BITRISE_BUILD_TRIGGER_TOKEN"
-          #   },
-          #   "build_params":{
-          #     "branch": "${{ github.event.pull_request.head.ref }}",
-          #     "workflow_id": "run-tests",
-          #     "commit_hash": "${{ github.event.pull_request.head.sha }}",
-          #     "pull_request_id": "${{ github.event.pull_request.number }}"
-          #   },
-          #   "triggered_by":"curl"
-          # }'
+          curl https://app.bitrise.io/app/84ddba31cf8de1e2/build/start.json -L --data '{
+            "hook_info":{
+              "type":"bitrise",
+              "build_trigger_token":"$BUILD_TRIGGER_TOKEN"
+            },
+            "build_params":{
+              "branch": "${{ steps.get_branch.outputs.branch }}",
+              "workflow_id": "run-tests",
+              "commit_hash": "${{ steps.get_branch.outputs.sha }}",
+              "pull_request_id": "${{ github.event.issue.number }}"
+            },
+            "triggered_by":"curl"
+          }'
