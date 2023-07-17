@@ -1,6 +1,9 @@
 name: Check for Bitrise Comment
 
 on:
+  push:
+    branches:
+    - test
   pull_request_review_comment:
     types: [created]
 
