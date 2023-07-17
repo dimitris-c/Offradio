@@ -11,8 +11,8 @@ jobs:
     runs-on: [ubuntu-latest]
 
     steps:
-      - name: "Get PR's branch name"
-        id: get_branch
+      - name: "Get PR's details"
+        id: get_pr_details
         run: |
           PR=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" ${{ github.event.issue.pull_request.url }})
           echo "branch=$(echo $PR | jq -r '.head.ref')" >> "$GITHUB_OUTPUT"
@@ -25,12 +25,12 @@ jobs:
           curl https://app.bitrise.io/app/84ddba31cf8de1e2/build/start.json -L --data '{
             "hook_info":{
               "type":"bitrise",
-              "build_trigger_token":"$BUILD_TRIGGER_TOKEN"
+              "build_trigger_token":"${{ secrets.BUILD_TRIGGER_TOKEN }}"
             },
             "build_params":{
-              "branch": "${{ steps.get_branch.outputs.branch }}",
+              "branch": "${{ steps.get_pr_details.outputs.branch }}",
               "workflow_id": "run-tests",
-              "commit_hash": "${{ steps.get_branch.outputs.sha }}",
+              "commit_hash": "${{ steps.get_pr_details.outputs.sha }}",
               "pull_request_id": "${{ github.event.issue.number }}"
             },
             "triggered_by":"curl"
