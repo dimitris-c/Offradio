@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: PR comment
         env:
-          BITRISE_BUILD_TRIGGER_TOKEN: ${{ secrets.BITRISE_BUILD_TRIGGER_TOKEN }}
+          BITRISE_BUILD_TRIGGER_TOKEN: ${{ secrets.BUILD_TRIGGER_TOKEN }}
         if: ${{ contains(fromJSON('["ci run tests", "retest", "run tests"]'), github.event.comment.body) }}
         run: |
           echo "::debug::Running tests for "${{ github.event.pull_request.head.ref }}, id: "${{ github.event.pull_request.number }}""
